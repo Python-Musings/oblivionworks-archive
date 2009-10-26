@@ -1,0 +1,12 @@
+ScriptName AAResetStatsQuestScript
+
+short DoonceRSQS
+
+begin gamemode
+
+	if DoonceRSQS == 0
+		player.addspell AAResetScriptSpell
+			set DoonceRSQS to 1
+		stopquest ResetStatsQuest
+	endif
+end

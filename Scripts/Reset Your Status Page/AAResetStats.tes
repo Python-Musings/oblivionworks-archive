@@ -1,0 +1,195 @@
+ScriptName AAResetStats
+
+short ARSButton
+short ARSButton2
+short ARSButton3
+short ARSButton4
+short ARSButton5
+short ARSStep
+
+Begin ScriptEffectStart
+
+set ARSStep to 1
+
+End 
+
+Begin ScriptEffectUpdate 
+
+	if ARSStep == 0
+		set ARSButton to -1
+		set ARSButton2 to -1
+		set ARSButton3 to -1
+		set ARSButton4 to -1
+		set ARSButton5 to -1
+		
+	endif
+
+	if ARSStep == 1
+		Messagebox "What do you want to reset?" "Artifacts Found" "Assaults" "Books Read" "Creatures Killed" "Days as a Vampire" "Days in Prison" "Days Passed" "Diseases Contracted" "Next Page" "Quit"
+		set ARSStep to 2
+	endif
+
+	If ARSStep == 2
+		set ARSButton to GetButtonPressed
+	    if ARSButton > -1
+		if ARSButton == 0
+			player.cast AAResetStats19Spell player
+			set ARSStep to 0	
+		elseif ARSButton == 1
+			player.cast AAResetStats31Spell player
+			set ARSStep to 0
+		elseif ARSButton == 2
+			player.cast AAResetStats17Spell player
+			set ARSStep to 0
+		elseif ARSButton == 3
+			player.cast AAResetStats05Spell player
+			set ARSStep to 0
+		elseif ARSButton == 4
+			player.cast AAResetStats22Spell player
+			set ARSStep to 0
+		elseif ARSButton == 5
+			player.cast AAResetStats00Spell player
+			set ARSStep to 0
+		elseif ARSButton == 6
+			player.cast AAResetStats01Spell player
+			set ARSStep to 0
+		elseif ARSButton == 7
+			player.cast AAResetStats26Spell player
+			set ARSStep to 0
+		elseif ARSButton == 8
+		set ARSStep to 3
+		endif
+		endif
+	endif
+	
+	If ARSStep == 3
+		Messagebox "What do you want to reset?" "Fame" "Horses Owned" "Horses Stolen" "Hours Slept" "Hours Waited" "Houses Owned" "Infamy" "Ingredients Eaten" "Next Page" "Quit"
+		set ARSStep to 4
+	Endif
+	
+	If ARSStep == 4
+	set ARSButton2 to getbuttonpressed
+			if ARSButton2 == 0
+				player.cast AAResetStatsAASpell player
+				set ARSStep to 0
+			elseif ARSButton2 == 1
+				player.cast AAResetStats14Spell player
+				set ARSStep to 0
+			elseif ARSButton2 == 2
+				player.cast AAResetStats33Spell player
+				set ARSStep to 0
+			elseif ARSButton2 == 3
+				player.cast AAResetStats20Spell player
+				set ARSStep to 0
+			elseif ARSButton2 == 4
+				player.cast AAResetStats21Spell player
+				set ARSStep to 0
+			elseif ARSButton2 == 5
+				player.cast AAResetStats15Spell player
+				set ARSStep to 0
+			elseif ARSButton2 == 6
+				player.cast AAResetStatsABSpell player
+				set ARSStep to 0
+			elseif ARSButton2 == 7
+				player.cast AAResetStats11Spell player
+				set ARSStep to 0
+			elseif ARSButton2 == 8
+			set ARSStep to 5
+			
+		endif
+	endif
+	
+	If ARSStep == 5
+		Messagebox "What do you want to reset?" "Items Pickpocketed" "Items Stolen" "Jokes Told" "Largest Bounty" "Last Day as Vampire" "Locks Picked" "Lock Picks Broken" "Murders" "Next Page" "Quit"
+		set ARSStep to 6
+	endif
+	
+	If ARSStep == 6
+	set ARSButton3 to getbuttonpressed
+			if ARSButton3 == 0
+				player.cast AAResetStats29Spell player
+				set ARSStep to 0
+			elseif ARSButton3 == 1
+				player.cast AAResetStats28Spell player
+				set ARSStep to 0
+			elseif ARSButton3 == 2
+				player.cast AAResetStats25Spell player
+				set ARSStep to 0
+			elseif ARSButton3 == 3
+				player.cast AAResetStats04Spell player
+				set ARSStep to 0
+			elseif ARSButton3 == 4
+				player.cast AAResetStats23Spell player
+				set ARSStep to 0
+			elseif ARSButton3 == 5
+				player.cast AAResetStats08Spell player
+				set ARSStep to 0
+			elseif ARSButton3 == 6
+				player.cast AAResetStats09Spell player
+				set ARSStep to 0
+			elseif ARSButton3 == 7
+				player.cast AAResetStats32Spell player
+				set ARSStep to 0
+			elseif ARSButton3 == 8
+			set ARSStep to 7
+		endif
+	endif
+	
+	If ARSStep == 7
+		Messagebox "What do you want to reset?" "Nirnroots Found" "Oblivion Gates Shut" "People Fed On" "People Killed" "Places Discovered" "Potions Made" "Skill Books Read" "Skill Increases" "Next Page" "Quit"
+		set ARSStep to 8
+	endif
+	
+	If ARSStep == 8
+	set ARSButton4 to getbuttonpressed
+			if ARSButton4 == 0
+				player.cast AAResetStats27Spell player
+				set ARSStep to 0
+			elseif ARSButton4 == 1
+				player.cast AAResetStats13Spell player
+				set ARSStep to 0
+			elseif ARSButton4 == 2
+				player.cast AAResetStats24Spell player
+				set ARSStep to 0
+			elseif ARSButton4 == 3
+				player.cast AAResetStats06Spell player
+				set ARSStep to 0
+			elseif ARSButton4 == 4
+				player.cast AAResetStats07Spell player
+				set ARSStep to 0
+			elseif ARSButton4 == 5
+				player.cast AAResetStats12Spell player
+				set ARSStep to 0
+			elseif ARSButton4 == 6
+				player.cast AAResetStats18Spell player
+				set ARSStep to 0
+			elseif ARSButton4 == 7
+				player.cast AAResetStats02Spell player
+				set ARSStep to 0
+			elseif ARSButton4 == 8
+			set ARSStep to 9
+		endif
+	endif
+	
+	If ARSStep == 9
+		Messagebox "What do you want to reset?" "Souls Trapped" "Stores Invested In" "Training Sessions" "Trespasses" "Quit"
+		set ARSStep to 10
+	endif
+	
+	If ARSStep == 10
+	set ARSButton5 to getbuttonpressed
+		if ARSButton5 == 0
+			player.cast AAResetStats10Spell player
+				set ARSStep to 0
+		elseif ARSButton5 == 1
+			player.cast AAResetStats16Spell player
+				set ARSStep to 0
+		elseif ARSButton5 == 2
+			player.cast AAResetStats03Spell player
+				set ARSStep to 0
+		elseif ARSButton5 == 3
+			player.cast AAResetStats30Spell player
+				set ARSStep to 0
+		endif
+	endif
+End  

@@ -1,0 +1,104 @@
+ScriptName AASoulgemCombineActavator
+
+float fsoulgemnum
+
+short isoulgemnum
+short isoulgemrem
+short button
+
+Begin Onequip
+
+    if IsActionRef player == 1
+        MessageBox "What type of Soul Gem do you wish to combine?", "Petty", "Lesser", "Common", "Greater", "Quit"
+    Endif
+end
+
+
+begin gamemode
+
+set button to getbuttonpressed
+    if button > -1
+        if button == 0
+            if ( player.GetItemCount SoulGemEmpty1Petty >= 2 )
+                set fsoulgemnum to ( player.getitemcount SoulGemEmpty1Petty ) / 2
+                set isoulgemnum to fsoulgemnum
+                if ( isoulgemnum % 2 == 0 )
+                    set isoulgemnum to isoulgemnum
+                    set isoulgemrem to ( isoulgemnum * 2 )
+                    message "This was an even number %.0f", isoulgemnum
+                else
+                    set isoulgemnum to ( isoulgemnum - 1 )
+                    set isoulgemrem to ( isoulgemnum * 2 )
+                    message "This was an odd number, the new result is %.0f", isoulgemnum
+                endif
+
+                player.removeitem SoulGemEmpty1Petty isoulgemrem
+                player.additem SoulGemEmpty2lesser isoulgemnum
+            else
+                messagebox "You need at least two Petty soul gems to perform this operation"
+            endif
+        return
+elseif button == 1
+if ( player.GetItemCount SoulGemEmpty2Lesser >= 2 )
+                set fsoulgemnum to ( player.getitemcount SoulGemEmpty2Lesser ) / 2
+                set isoulgemnum to fsoulgemnum
+                if ( isoulgemnum % 2 == 0 )
+                    set isoulgemnum to isoulgemnum
+                    set isoulgemrem to ( isoulgemnum * 2 )
+                    message "This was an even number %.0f", isoulgemnum
+                else
+                    set isoulgemnum to ( isoulgemnum - 1 )
+                    set isoulgemrem to ( isoulgemnum * 2 )
+                    message "This was an odd number, the new result is %.0f", isoulgemnum
+                endif
+
+                player.removeitem SoulGemEmpty2Lesser isoulgemrem
+                player.additem SoulGemEmpty3Common isoulgemnum
+            else
+                messagebox "You need at least two Lesser soul gems to perform this operation"
+            endif
+        return
+elseif button == 2
+if ( player.GetItemCount SoulGemEmpty3Common >= 2 )
+                set fsoulgemnum to ( player.getitemcount SoulGemEmpty3Common ) / 2
+                set isoulgemnum to fsoulgemnum
+                if ( isoulgemnum % 2 == 0 )
+                    set isoulgemnum to isoulgemnum
+                    set isoulgemrem to ( isoulgemnum * 2 )
+                    message "This was an even number %.0f", isoulgemnum
+                else
+                    set isoulgemnum to ( isoulgemnum - 1 )
+                    set isoulgemrem to ( isoulgemnum * 2 )
+                    message "This was an odd number, the new result is %.0f", isoulgemnum
+                endif
+
+                player.removeitem SoulGemEmpty3Common isoulgemrem
+                player.additem SoulGemEmpty4Greater isoulgemnum
+            else
+                messagebox "You need at least two Common soul gems to perform this operation"
+            endif
+        return
+elseif button == 3
+if ( player.GetItemCount SoulGemEmpty4Greater >= 2 )
+                set fsoulgemnum to ( player.getitemcount SoulGemEmpty4Greater ) / 2
+                set isoulgemnum to fsoulgemnum
+                if ( isoulgemnum % 2 == 0 )
+                    set isoulgemnum to isoulgemnum
+                    set isoulgemrem to ( isoulgemnum * 2 )
+                    message "This was an even number %.0f", isoulgemnum
+                else
+                    set isoulgemnum to ( isoulgemnum - 1 )
+                    set isoulgemrem to ( isoulgemnum * 2 )
+                    message "This was an odd number, the new result is %.0f", isoulgemnum
+                endif
+
+                player.removeitem SoulGemEmpty4Greater isoulgemrem
+                player.additem SoulGemEmpty5Grand isoulgemnum
+            else
+                messagebox "You need at least two Greater soul gems to perform this operation"
+            endif
+        return
+		
+		endif
+    endif
+end

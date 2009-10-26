@@ -1,0 +1,116 @@
+Scriptname AAStartOver100Script
+
+short RestSet
+short AlterSet
+short ConSet
+short DestSet
+short IllSet
+short MystSet
+short stage
+short StartOver100message
+
+
+
+begin gamemode
+
+	if (StartOver100message == 0)
+		messagebox "The Improved Leveling System BETA will now check to see if it needs to shut down any of your bonus skill scripts. Please note that this is a BETA and to make sure to back up your save files. If any scripts are detected that needs to be disabled will be done silently. Once your skill that script is attacted to reaches the require level it will be Re-Enabled."
+	set StartOver100message to 1
+	endif
+	
+	if (RestSet == 0)
+		If (player.GetActorValue Restoration < 100)
+		stopquest AARestorationOver100Quest
+			set RestSet to 1
+		endif
+	endif
+	return	
+	
+	If (RestSet == 1)
+		if (player.GetActorValue Restoration >= 100)
+			startquest AARestorationOver100Quest
+			set RestSet to 2
+		endif
+	endif
+	return
+	
+	if (AlterSet == 0)
+		If (player.GetActorValue Alteration < 100)
+		stopquest AAAlterationOver100Quest
+			set AlterSet to 1
+		endif
+	endif
+	return	
+	
+	If (AlterSet == 1)
+		if (player.GetActorValue Alteration >= 100)
+			startquest AAAlterationOver100Quest
+			set AlterSet to 2
+		endif
+	endif
+	return
+	
+	if (ConSet == 0)
+		If (player.GetActorValue Conjuration < 100)
+			stopquest AAConjurationOver100Quest
+			set ConSet to 1
+		endif
+	endif
+	return	
+	
+	If (ConSet == 1)
+		if (player.GetActorValue Conjuration >= 100)
+			startquest AAConjurationOver100Quest
+			set ConSet to 2
+		endif
+	endif
+	return
+	
+		if (DestSet == 0)
+		If (player.GetActorValue Destruction < 100)
+			stopquest AADestructionOver100Quest
+			set DestSet to 1
+		endif
+	endif
+	return	
+	
+	If (DestSet == 1)
+		if (player.GetActorValue Destruction >= 100)
+			startquest AADestructionOver100Quest
+			set DestSet to 2
+		endif
+	endif
+	return
+	
+		if (IllSet == 0)
+		If (player.GetActorValue Illusion < 100)
+		stopquest AAIllusionOver100Quest	
+			set IllSet to 1
+		endif
+		endif
+	return	
+	
+	If (IllSet == 1)
+		if (player.GetActorValue Illusion >= 100)
+			startquest AAIllusionOver100Quest
+			set IllSet to 2
+		endif
+	endif
+	return
+	
+		if (MystSet == 0)
+		If (player.GetActorValue Mysticism < 100)
+			stopquest AAMysticismOver100Quest
+			set MystSet to 1
+		endif
+	endif
+	return	
+	
+	If (MystSet == 1)
+		if (player.GetActorValue Mysticism >= 100)
+			startquest AAMysticismOver100Quest
+			set MystSet to 2
+		endif
+	endif
+	return
+End

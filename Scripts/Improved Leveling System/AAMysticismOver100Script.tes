@@ -1,0 +1,45 @@
+Scriptname AAMysticismOver100Script
+
+short MystMagnitude
+short Mystdoonce
+short Mystdooncetwice
+float fMysticismDifference
+float fMysticismDifferenceFix
+float fMysticismTracker
+float fMysticismCurrent
+
+begin gamemode
+
+set fMysticismTracker to player.getav Mysticism
+
+
+if ( fMysticismTracker < 101 )
+		set MystMagnitude to 0
+	 	SetNthEffectItemMagnitude MystMagnitude AASKillsOver100BonusSpell 1
+		set fMysticismCurrent to fMysticismTracker
+		if (Mystdooncetwice == 0)
+		MessageBox "With the removal of your enchanted garments your power sways in the abyss as your Mysticism mastery returns to that of a mortal."
+		set Mystdooncetwice to 1
+		endif
+	endif
+	return
+endif
+
+	set fMysticismTracker to player.GetAV Mysticism
+	 if ( fMysticismTracker > 100 )
+		            
+		set MystMagnitude to (fMysticismTracker/8)
+		SetNthEffectItemMagnitude MystMagnitude AASKillsOver100BonusSpell 1
+			     player.cast AASkillsOver100Spell player
+	if (Mystdoonce == 0)
+		MessageBox "As the power of Oblivion unfolds into your soul, power pouring forth filling you with immeasurable power. The powers of the Gods spreads forth into your being as your Mastery of Mysticism spreads forth beyond the grasp of mere mortals."
+		set Mystdoonce to 1
+		set Mystdooncetwice to 0
+	elseif (Mystdoonce == 1)
+		MessageBox "The powers of Oblivion over your mastery of Mysticism canters and changes within your being"
+		set Mystdooncetwice to 0
+	endif
+	return
+endif
+
+End

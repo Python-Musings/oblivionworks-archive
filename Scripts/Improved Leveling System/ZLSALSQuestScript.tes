@@ -1,0 +1,456 @@
+scn ZLSALSQuestScript
+
+short firstrun
+short notinitialized
+float fQuestDelayTime
+short level
+short acrobatics
+short armorer
+short athletics
+short blade
+short block
+short blunt
+short handtohand
+short heavyarmor
+short alchemy
+short alteration
+short conjuration
+short destruction
+short illusion
+short mysticism
+short restoration
+short lightarmor
+short marksman
+short mercantile
+short security
+short sneak
+short speechcraft
+short strength
+short intelligence
+short willpower
+short agility
+short speed
+short endurance
+short personality
+short luck
+float STR
+float INT
+float WIL
+float AGI
+float SPD
+float END2
+float PER
+float LUK
+
+begin gamemode
+	set fQuestDelayTime to GetGlobalValue ZLSALSTimer
+	if GetGlobalValue ZLSALSToggle == 0
+		if ZLSALSVerbose == 2
+			message "ZLSALS DEBUG: ZLSALSToggle = 0 (Force off)"
+		else
+		endif		
+		return
+	elseif GetStage MQ01 >= 90 && GetStage ZLSALSQuest ==0
+		SetStage ZLSALSQuest 10
+		if ZLSALSVerbose == 2
+			message "ZLSALS DEBUG: Activated by main quest"
+		else
+		endif
+		set fQuestDelayTime to	5	
+		return
+	elseif GetGlobalValue ZLSALSToggle == 2
+		if GetStage ZLSALSQuest == 0
+			SetStage ZLSALSQuest 10
+			if ZLSALSVerbose == 2
+				message "ZLSALS DEBUG: ZLSALSToggle = 2 (Force activate)"
+			else
+			endif
+			Set ZLSALSToggle to 1
+		else
+			Set ZLSALSToggle to 1
+			if ZLSALSVerbose == 2
+				message "ZLSALS DEBUG: ZLSALSToggle = 2 (Force activate) Failed: Quest already active"
+			else
+			endif
+		endif
+		set fQuestDelayTime to	5		
+		return
+	elseif GetGlobalValue ZLSALSToggle == 3
+		Set firstrun to 2
+		Set ZLSALSToggle to 1
+		if ZLSALSVerbose == 2
+			message "ZLSALS DEBUG: ZLSALSToggle = 3 (Force reset)"
+		else
+		endif
+		set fQuestDelayTime to	5				
+		return
+	elseif GetGlobalValue ZLSALSBaseCap < 0
+		Set ZLSALSBaseCap to 100
+		if ZLSALSVerbose == 2
+			message "ZLSALS DEBUG: ZLSALSBaseCap is negative, resetting"
+		else
+		endif
+		set fQuestDelayTime to	5		
+		return		
+	elseif GetGlobalValue ZLSALSToggle > 3 || ZLSALSToggle < 0 
+		Set ZLSALSToggle to 1
+		if ZLSALSVerbose == 2
+			message "ZLSALS DEBUG: ZLSALSToggle out of bounds, resetting"
+		else
+		endif
+		set fQuestDelayTime to	5		
+		return
+	elseif GetGlobalValue ZLSALSVerbose > 2 || ZLSALSVerbose < 0
+		Set ZLSALSVerbose to 1
+		if ZLSALSVerbose == 2
+			message "ZLSALS DEBUG: ZLSALSVerbose out of bounds, resetting"
+		else
+		endif
+		set fQuestDelayTime to	5	
+		return
+	elseif GetGlobalValue ZLSALSLuckPercentage > 100 || ZLSALSLuckPercentage < 0
+		Set ZLSALSLuckPercentage to 21
+		if ZLSALSVerbose == 2
+			message "ZLSALS DEBUG: ZLSALSLuckPercentage out of bounds, resetting"
+		else
+		endif
+		set fQuestDelayTime to	5	
+		return
+	elseif GetGlobalValue ZLSALSLevel < 0
+		Set ZLSALSLevel to 3
+		if ZLSALSVerbose == 2
+			message "ZLSALS DEBUG: Negative ZLSALSLevel value, resetting"
+		else
+		endif
+		set fQuestDelayTime to	5	
+		return
+	elseif GetGlobalValue ZLSALSTimer < 0
+		Set ZLSALSTimer to 60
+		if ZLSALSVerbose == 2
+			message "ZLSALS DEBUG: Negative ZLSALSTimer value, resetting"
+		else
+		endif
+		set fQuestDelayTime to	5	
+		return
+	else
+	endif
+	if GetStage ZLSALSQuest == 0
+		if notinitialized == 0 && GetGlobalValue ZLSALSVerbose == 1
+			messagebox "LS Alternative Levelling System will not be initialized until you exit the sewers."
+			set notinitialized to 1
+		elseif ZLSALSVerbose == 2
+			message "ZLSALS DEBUG: Awaiting activation by main quest"	
+		else
+		endif 
+		return
+	else
+	endif
+	if firstrun != 1
+		set acrobatics to Player.GetBaseActorValue acrobatics
+		set armorer to Player.GetBaseActorValue armorer
+		set athletics to Player.GetBaseActorValue athletics
+		set blade to Player.GetBaseActorValue blade
+		set block to Player.GetBaseActorValue block
+		set blunt to Player.GetBaseActorValue blunt
+		set handtohand to Player.GetBaseActorValue handtohand
+		set heavyarmor to Player.GetBaseActorValue heavyarmor
+		set alchemy to Player.GetBaseActorValue alchemy
+		set alteration to Player.GetBaseActorValue alteration
+		set conjuration to Player.GetBaseActorValue conjuration
+		set destruction to Player.GetBaseActorValue destruction
+		set illusion to Player.GetBaseActorValue illusion
+		set mysticism to Player.GetBaseActorValue mysticism
+		set restoration to Player.GetBaseActorValue restoration
+		set lightarmor to Player.GetBaseActorValue lightarmor
+		set marksman to Player.GetBaseActorValue marksman
+		set mercantile to Player.GetBaseActorValue mercantile
+		set security to Player.GetBaseActorValue security
+		set sneak to Player.GetBaseActorValue sneak
+		set speechcraft to Player.GetBaseActorValue speechcraft
+		set strength to Player.GetBaseActorValue strength
+		set intelligence to Player.GetBaseActorValue intelligence
+		set willpower to Player.GetBaseActorValue willpower
+		set agility to Player.GetBaseActorValue agility
+		set speed to Player.GetBaseActorValue speed
+		set endurance to Player.GetBaseActorValue endurance
+		set personality to Player.GetBaseActorValue personality
+		set luck to Player.GetBaseActorValue luck
+		set STR to 0
+		set INT to 0
+		set WIL to 0
+		set AGI to 0
+		set SPD to 0
+		set END2 to 0
+		set PER to 0
+		set LUK to 0
+		set level to Player.GetLevel
+		if firstrun == 0
+			if GetGlobalValue ZLSALSVerbose == 1 || GetGlobalValue ZLSALSVerbose == 2
+				message "LS Alternative Levelling System Initialized"
+			else
+			endif
+		elseif firstrun == 2
+			if GetGlobalValue ZLSALSVerbose == 1 || GetGlobalValue ZLSALSVerbose == 2
+				message "LS Alternative Levelling System Re-Initialized"
+			else
+			endif
+		else
+		endif	
+		set firstrun to 1
+		set fQuestDelayTime to	5
+		return
+	else
+		if level < Player.GetLevel
+			Player.SetActorValue strength strength
+			Player.SetActorValue intelligence intelligence
+			Player.SetActorValue willpower willpower
+			Player.SetActorValue agility agility
+			Player.SetActorValue speed speed
+			Player.SetActorValue endurance endurance
+			Player.SetActorValue personality personality
+			Player.SetActorValue luck luck
+			set level to Player.GetLevel
+			if ZLSALSVerbose == 2
+				message "ZLSALS DEBUG: Resetting attribute changes due to player levelling"
+			else
+			endif
+			set fQuestDelayTime to	5	
+			return
+		else
+		endif
+		if blade != Player.GetBaseActorValue blade || blunt != Player.GetBaseActorValue blunt || handtohand != Player.GetBaseActorValue handtohand
+			if blade != Player.GetBaseActorValue blade	
+				set STR to STR + Player.GetBaseActorValue blade - blade
+				set blade to Player.GetBaseActorValue blade
+			else
+			endif
+			if blunt != Player.GetBaseActorValue blunt 
+				set STR to STR + Player.GetBaseActorValue blunt - blunt
+				set blunt to Player.GetBaseActorValue blunt
+			else
+			endif
+			if handtohand != Player.GetBaseActorValue handtohand
+				set STR to STR + Player.GetBaseActorValue handtohand - handtohand
+				set handtohand to Player.GetBaseActorValue handtohand
+			else
+			endif
+		else
+		endif
+		if alchemy != Player.GetBaseActorValue alchemy || conjuration != Player.GetBaseActorValue conjuration || mysticism != Player.GetBaseActorValue mysticism
+			if alchemy != Player.GetBaseActorValue alchemy	
+				set INT to INT + Player.GetBaseActorValue alchemy - alchemy
+				set alchemy to Player.GetBaseActorValue alchemy
+			else
+			endif
+			if conjuration != Player.GetBaseActorValue conjuration 
+				set INT to INT + Player.GetBaseActorValue conjuration - conjuration
+				set conjuration to Player.GetBaseActorValue conjuration
+			else
+			endif
+			if mysticism != Player.GetBaseActorValue mysticism
+				set INT to INT + Player.GetBaseActorValue mysticism - mysticism
+				set mysticism to Player.GetBaseActorValue mysticism
+			else
+			endif
+		else
+		endif
+		if alteration != Player.GetBaseActorValue alteration || destruction != Player.GetBaseActorValue destruction || restoration != Player.GetBaseActorValue restoration
+			if alteration != Player.GetBaseActorValue alteration	
+				set WIL to WIL + Player.GetBaseActorValue alteration - alteration
+				set alteration to Player.GetBaseActorValue alteration
+			else
+			endif
+			if destruction != Player.GetBaseActorValue destruction 
+				set WIL to WIL + Player.GetBaseActorValue destruction - destruction
+				set destruction to Player.GetBaseActorValue destruction
+			else
+			endif
+			if restoration != Player.GetBaseActorValue restoration
+				set WIL to WIL + Player.GetBaseActorValue restoration - restoration
+				set restoration to Player.GetBaseActorValue restoration
+			else
+			endif
+		else
+		endif
+		if marksman != Player.GetBaseActorValue marksman || security != Player.GetBaseActorValue security || sneak != Player.GetBaseActorValue sneak
+			if marksman != Player.GetBaseActorValue marksman	
+				set AGI to AGI + Player.GetBaseActorValue marksman - marksman
+				set marksman to Player.GetBaseActorValue marksman
+			else
+			endif
+			if security != Player.GetBaseActorValue security 
+				set AGI to AGI + Player.GetBaseActorValue security - security
+				set security to Player.GetBaseActorValue security
+			else
+			endif
+			if sneak != Player.GetBaseActorValue sneak
+				set AGI to AGI + Player.GetBaseActorValue sneak - sneak
+				set sneak to Player.GetBaseActorValue sneak
+			else
+			endif
+		else
+		endif
+		if acrobatics != Player.GetBaseActorValue acrobatics || athletics != Player.GetBaseActorValue athletics || lightarmor != Player.GetBaseActorValue lightarmor
+			if acrobatics != Player.GetBaseActorValue acrobatics
+				set SPD to SPD + Player.GetBaseActorValue acrobatics - acrobatics
+				set acrobatics to Player.GetBaseActorValue acrobatics
+			else
+			endif
+			if athletics != Player.GetBaseActorValue athletics 
+				set SPD to SPD + Player.GetBaseActorValue athletics - athletics
+				set athletics to Player.GetBaseActorValue athletics
+			else
+			endif
+			if lightarmor != Player.GetBaseActorValue lightarmor
+				set SPD to SPD + Player.GetBaseActorValue lightarmor - lightarmor
+				set lightarmor to Player.GetBaseActorValue lightarmor
+			else
+			endif
+		else
+		endif
+		if armorer != Player.GetBaseActorValue armorer || block != Player.GetBaseActorValue block || heavyarmor != Player.GetBaseActorValue heavyarmor
+			if armorer != Player.GetBaseActorValue armorer
+				set END2 to END2 + Player.GetBaseActorValue armorer - armorer
+				set armorer to Player.GetBaseActorValue armorer
+			else
+			endif
+			if block != Player.GetBaseActorValue block 
+				set END2 to END2 + Player.GetBaseActorValue block - block
+				set block to Player.GetBaseActorValue block
+			else
+			endif
+			if heavyarmor != Player.GetBaseActorValue heavyarmor
+				set END2 to END2 + Player.GetBaseActorValue heavyarmor - heavyarmor
+				set heavyarmor to Player.GetBaseActorValue heavyarmor
+			else
+			endif
+		else
+		endif
+		if illusion != Player.GetBaseActorValue illusion || mercantile != Player.GetBaseActorValue mercantile || speechcraft != Player.GetBaseActorValue speechcraft
+			if illusion != Player.GetBaseActorValue illusion
+				set PER to PER + Player.GetBaseActorValue illusion - illusion
+				set illusion to Player.GetBaseActorValue illusion
+			else
+			endif
+			if mercantile != Player.GetBaseActorValue mercantile 
+				set PER to PER + Player.GetBaseActorValue mercantile - mercantile
+				set mercantile to Player.GetBaseActorValue mercantile
+			else
+			endif
+			if speechcraft != Player.GetBaseActorValue speechcraft
+				set PER to PER + Player.GetBaseActorValue speechcraft - speechcraft
+				set speechcraft to Player.GetBaseActorValue speechcraft
+			else
+			endif
+		else
+		endif
+		if PER >= GetGlobalValue ZLSALSLevel && Player.GetBaseActorValue personality <= ZLSALSBaseCap
+			set personality to personality + 1
+			set PER to PER - GetGlobalValue ZLSALSLevel
+			Player.SetActorValue personality personality
+			if GetGlobalValue ZLSALSVerbose == 1 || GetGlobalValue ZLSALSVerbose == 2
+				message "Your personality has increased"
+			else
+			endif
+			if GetRandomPercent <= GetGlobalValue ZLSALSLuckPercentage
+				set LUK to LUK + ZLSALSLevel
+			else
+			endif
+		else
+		endif
+		if STR >= GetGlobalValue ZLSALSLevel && Player.GetBaseActorValue strength <= ZLSALSBaseCap
+			set strength to strength + 1
+			set STR to STR - GetGlobalValue ZLSALSLevel
+			Player.SetActorValue strength strength
+			if GetGlobalValue ZLSALSVerbose == 1 || GetGlobalValue ZLSALSVerbose == 2
+				message "Your strength has increased"
+			else
+			endif
+			if GetRandomPercent <= GetGlobalValue ZLSALSLuckPercentage
+				set LUK to LUK + ZLSALSLevel
+			else
+			endif
+		else
+		endif
+		if INT >= GetGlobalValue ZLSALSLevel && Player.GetBaseActorValue intelligence <= ZLSALSBaseCap
+			set intelligence to intelligence + 1
+			set INT to INT - GetGlobalValue ZLSALSLevel
+			Player.SetActorValue intelligence intelligence
+			if GetGlobalValue ZLSALSVerbose == 1 || GetGlobalValue ZLSALSVerbose == 2
+				message "Your intelligence has increased"
+			else
+			endif
+			if GetRandomPercent <= GetGlobalValue ZLSALSLuckPercentage
+				set LUK to LUK + ZLSALSLevel
+			else
+			endif
+		else
+		endif
+		if WIL >= GetGlobalValue ZLSALSLevel && Player.GetBaseActorValue willpower <= ZLSALSBaseCap
+			set willpower to willpower + 1
+			set WIL to WIL - GetGlobalValue ZLSALSLevel
+			Player.SetActorValue willpower willpower
+			if GetGlobalValue ZLSALSVerbose == 1 || GetGlobalValue ZLSALSVerbose == 2
+				message "Your willpower has increased"
+			else
+			endif
+			if GetRandomPercent <= GetGlobalValue ZLSALSLuckPercentage
+				set LUK to LUK + ZLSALSLevel
+			else
+			endif
+		else
+		endif
+		if AGI >= GetGlobalValue ZLSALSLevel && Player.GetBaseActorValue agility <= ZLSALSBaseCap
+			set agility to agility + 1
+			set AGI to AGI - GetGlobalValue ZLSALSLevel
+			Player.SetActorValue agility agility
+			if GetGlobalValue ZLSALSVerbose == 1 || GetGlobalValue ZLSALSVerbose == 2
+				message "Your agility has increased"
+			else
+			endif
+			if GetRandomPercent <= GetGlobalValue ZLSALSLuckPercentage
+				set LUK to LUK + ZLSALSLevel
+			else
+			endif
+		else
+		endif
+		if SPD >= GetGlobalValue ZLSALSLevel && Player.GetBaseActorValue speed <= ZLSALSBaseCap
+			set speed to speed + 1
+			set SPD to SPD - GetGlobalValue ZLSALSLevel
+			Player.SetActorValue speed speed
+			if GetGlobalValue ZLSALSVerbose == 1 || GetGlobalValue ZLSALSVerbose == 2
+				message "Your speed has increased"
+			else
+			endif
+			if GetRandomPercent <= GetGlobalValue ZLSALSLuckPercentage
+				set LUK to LUK + ZLSALSLevel
+			else
+			endif
+		else
+		endif
+		if END2 >= GetGlobalValue ZLSALSLevel && Player.GetBaseActorValue endurance <= ZLSALSBaseCap
+			set endurance to endurance + 1
+			set END2 to END2 - GetGlobalValue ZLSALSLevel
+			Player.SetActorValue endurance endurance
+			if GetGlobalValue ZLSALSVerbose == 1 || GetGlobalValue ZLSALSVerbose == 2
+				message "Your endurance has increased"
+			else
+			endif
+			if GetRandomPercent <= GetGlobalValue ZLSALSLuckPercentage
+				set LUK to LUK + ZLSALSLevel
+			else
+			endif
+		else
+		endif
+		if LUK >= GetGlobalValue ZLSALSLevel && Player.GetBaseActorValue luck <= ZLSALSBaseCap
+			set luck to luck + 1
+			set LUK to LUK - GetGlobalValue ZLSALSLevel
+			Player.SetActorValue luck luck
+			if GetGlobalValue ZLSALSVerbose == 1 || GetGlobalValue ZLSALSVerbose == 2
+				message "Your luck has increased"
+			else
+			endif
+		else
+		endif
+	endif
+END gamemode

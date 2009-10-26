@@ -1,0 +1,78 @@
+NightEyeShaders 1.0 by Timeslip
+NightEyeShaders 0.0.2 by Raziel23x
+An example plugin to show how to make use of obmm's EditShader function.
+
+*****************
+** Description **
+*****************
+
+This mod contains 17 replacement nighteye shaders for oblivion. It uses obmm to avoid having to overwrite a whole sdp package, so there are no compatibility problems with other shader mods. (As long as those other shader mods also don't try overwriting the whole sdp, of course)
+
+For a non-omod nighteye shader replacement, I suggest you try this mod:
+http://www.tessource.net/files/file.php?id=2927
+
+***********
+** Usage **
+***********
+
+Just activate the omod. You will be given a list of shaders to choose from, and each shader will have a preview so that you can see what it looks like in game. When you've finished, deactivate the omod and obmm will automatically restore the original nightvision shader.
+
+This mod has been tested with several shader packages, and so far has worked with all of them, even when HDR is active.
+
+The edge detect shader is a bit special, since it needs to be matched to your screen resolution. By default, it's set up for a 1024*768 resolution. It will work with other resolutions, but will get more inaccurate the further you are from 1024*768. Changing the resolution is quite a complicated task, so I wont describe how to do it, but here's the HLSL you need for anyone familiar with shaders who wants to try:
+
+----------------------------------------------------------------------------------
+sampler s0;
+static const float2 rcpres = { 0.0009765625, 0.00130208333333 }; //1024*768
+
+static const float2 PixelKernel[4] =
+{
+    { 0,  1},
+    { 1,  0},
+    { 0, -1},
+    {-1,  0}
+};
+
+float4 Main( float2 Tex : TEXCOORD0 ) : COLOR0
+{
+    float3 LuminanceConv = { 0.2125, 0.7154, 0.0721 };
+    float4 Orig = tex2D( s0, Tex );
+    float4 Sum = 0;
+    for( int i = 0; i < 4; i++ ) {
+        Sum += ( abs( Orig - tex2D( s0, Tex + (PixelKernel[i]*rcpres) ) ) );
+    }
+
+    return saturate( dot( LuminanceConv, Sum ) ) * 5;
+}
+----------------------------------------------------------------------------------
+
+The .pso files included in the omod can be imported into my sdp editor if you want to modify them.
+
+*******************
+** Compatability **
+*******************
+
+Since this mod uses obmm's EditShader function instead of replacing entire sdp packages, it will be compatable with any other shader mods which don't try to alter the nighteye shaders.
+
+This mod will not conflict with any non shader mods, and will not effect your save game in any way.
+
+***************
+*** Credits ***
+***************
+
+Scanti: For the greeneye and sepia shaders
+gex30002: For beta testing with HDR.
+My infravision shader is a copy of the effect given by the infravision shader in accurain's nighteye shader pack, although my implementation is completely different.
+The edge detect shader is based off one from microsofts DX SDK
+
+*************
+** History **
+*************
+0.0.2
+Added a normal light shader which removes some color making it semi Color blind.
+0.0.1 
+Initial release
+
+Added a normal light shader which makes it look no different then if the sun was up
+	
+Revision of Timeslips NightEyeShaders 1.0

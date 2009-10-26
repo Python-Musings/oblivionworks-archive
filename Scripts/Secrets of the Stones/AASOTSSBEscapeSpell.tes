@@ -1,0 +1,29 @@
+﻿scn AASOTSSBEscapeSpell
+
+short AASOTSSBEscapeSpellbutton
+short AASOTSSBEscapeSpellused
+
+begin OnEquip player
+	if AASOTSSBEscapeSpellused == 0
+		MessageBox "Do you want to add 'Escape Spell' to your spell list?", "Yes", "No"
+	endif
+end
+
+begin OnActivate
+	Activate
+	if isActionRef player == 1 && AASOTSSBEscapeSpellused == 0
+		MessageBox "Do you want to add 'Escape Spell' to your spell list?", "Yes", "No"
+	endif
+end
+
+begin menumode 1026
+	set AASOTSSBEscapeSpellbutton to getbuttonpressed
+	if AASOTSSBEscapeSpellbutton > -1
+		if AASOTSSBEscapeSpellbutton == 0
+			; add the spell to the player's spellbook
+			player.addspell AAEscapeSpell
+			playsound SPLAlterationCast
+			set AASOTSSBEscapeSpellused to 1
+		endif
+	endif
+end

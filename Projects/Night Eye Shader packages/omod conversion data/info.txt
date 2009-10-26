@@ -1,0 +1,78 @@
+Raziel23x Nighteye shader Replacement 0.0.2.omod
+
+[basic info]
+Name: Raziel23x Nighteye shader Replacement
+
+Author: Raziel23x
+version: 0.0.2
+Contact: raziel23x@comcast.net
+Website: 
+
+An example mod to demonstrate the use of the EditShader function
+
+Date this omod was compiled: 8/10/2007 11:12:26 AM
+Contains readme: yes
+Contains script: yes
+
+[omod file information]
+File size: 198 kilobytes
+Internal omod file version: 4
+CRC: 4F4834BA
+Created or installed: 8/10/2007 11:12 AM
+Last modified: 8/10/2007 11:12 AM
+
+[Complete data file list]
+circularexpand.jpg                                                               (88FD7EB6)
+circularexpand.pso                                                               (E70F6BF4)
+desaturate.jpg                                                                   (D2D5F32F)
+desaturate.pso                                                                   (33444D02)
+edgedetect.jpg                                                                   (999940E1)
+edgedetect.pso                                                                   (D1A01992)
+expand1.jpg                                                                      (1DB19B61)
+expand1.pso                                                                      (84D0E16C)
+expand2.jpg                                                                      (6FEF1CBF)
+expand2.pso                                                                      (51374FA1)
+greeneye.jpg                                                                     (66B2B4A6)
+greeneye.pso                                                                     (ECF38644)
+infrared.jpg                                                                     (2A2A851D)
+infrared.pso                                                                     (F4429955)
+invert1.jpg                                                                      (CB4A8DD9)
+invert1.pso                                                                      (397086C1)
+invert2.jpg                                                                      (1A64FA15)
+invert2.pso                                                                      (962F9C79)
+Normal.pso                                                                       (806A8E6D)
+rainbow.jpg                                                                      (B15E730E)
+rainbow.pso                                                                      (2787E5C6)
+redeye.jpg                                                                       (89900330)
+redeye.pso                                                                       (52F38F3E)
+rotate.jpg                                                                       (023C90E1)
+rotate.pso                                                                       (10590A09)
+sepia.jpg                                                                        (9A53FF37)
+sepia.pso                                                                        (36E60EB4)
+sin.jpg                                                                          (09F4CA69)
+sin.pso                                                                          (44427B74)
+superbright.jpg                                                                  (B5C2489B)
+superbright.pso                                                                  (89322703)
+verybright.pso                                                                   (B0BF1BC6)
+ColorBlind.pso                                                                      (6E73FBA8)
+
+[Shader package edits]
+Shader 'nighteye000.pso' in package 1
+Shader 'nighteye000.pso' in package 2
+Shader 'nighteye000.pso' in package 3
+Shader 'nighteye000.pso' in package 4
+Shader 'nighteye000.pso' in package 5
+Shader 'nighteye000.pso' in package 6
+Shader 'nighteye000.pso' in package 7
+Shader 'nighteye000.pso' in package 8
+Shader 'nighteye000.pso' in package 9
+Shader 'nighteye000.pso' in package 10
+Shader 'nighteye000.pso' in package 11
+Shader 'nighteye000.pso' in package 12
+Shader 'nighteye000.pso' in package 13
+Shader 'nighteye000.pso' in package 14
+Shader 'nighteye000.pso' in package 15
+Shader 'nighteye000.pso' in package 16
+Shader 'nighteye000.pso' in package 17
+Shader 'nighteye000.pso' in package 18
+Shader 'nighteye000.pso' in package 19

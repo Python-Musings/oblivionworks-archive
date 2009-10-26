@@ -1,0 +1,29 @@
+﻿scn AASOTSSBWelkyndStonesSpell
+
+short AASOTSSBWelkyndStonesSpellbutton
+short AASOTSSBWelkyndStonesSpellused
+
+begin OnEquip player
+	if AASOTSSBWelkyndStonesSpellused == 0
+		MessageBox "Do you want to add 'Transmute Welkynd Stones' to your spell list?", "Yes", "No"
+	endif
+end
+
+begin OnActivate
+	Activate
+	if isActionRef player == 1 && AASOTSSBWelkyndStonesSpellused == 0
+		MessageBox "Do you want to add 'Transmute Welkynd Stones' to your spell list?", "Yes", "No"
+	endif
+end
+
+begin menumode 1026
+	set AASOTSSBWelkyndStonesSpellbutton to getbuttonpressed
+	if AASOTSSBWelkyndStonesSpellbutton > -1
+		if AASOTSSBWelkyndStonesSpellbutton == 0
+			; add the spell to the player's spellbook
+			player.addspell AAWelkyndStonesSpell
+			playsound SPLConjurationCast
+			set AASOTSSBWelkyndStonesSpellused to 1
+		endif
+	endif
+end

@@ -1,0 +1,56 @@
+Scriptname AADestructionOver100Script
+
+short doonce2
+short doonce
+short dooncetwice
+float fDestructionDifference
+float fDestructionDifferenceFix
+float fDestructionTracker
+float fDestructionCurrent
+float fOldModifier
+float fNewModifier
+
+begin gamemode
+
+
+set fDestructionTracker to player.getav Destruction
+
+if ( fDestructionTracker < 101 )
+     if (player.getav MagickaMultiplier >10)
+		player.setav MagickaMultiplier 10
+		set fDestructionCurrent to fDestructionTracker
+		if (doonce2 == 0)
+		MessageBox "With the removal of your enchanted garments your power sways in the abyss as your Destruction mastery returns to that of a mortal."
+		set doonce2 to 1
+	endif
+		endif
+	return
+endif
+
+if (fDestructionCurrent != fDestructionTracker)
+	
+	set fDestructionDifference to (player.getav destruction -100)
+	set fDestructionDifference to fDestructionDifference /2
+	if (fDestructionDifference >=10)
+		set fDestructionDifference to fDestructionDifference+10
+	endif
+	if (fDestructionDifference <11)
+		set fDestructionDifference to fDestructionDifference+10
+	endif
+	
+
+	player.setav MagickaMultiplier fDestructionDifference;
+		set fDestructionCurrent to fDestructionTracker
+	     player.cast AASkillsOver100Spell player
+	if (doonce == 0)
+		MessageBox "As the power of Oblivion unfolds into your soul, power pouring forth filling you with immeasurable power. The powers of the Gods spreads forth into your being as your Mastery of Destruction spreads forth beyond the grasp of mere mortals."
+		set doonce to 1
+		set doonce2 to 0
+	elseif (doonce == 1)
+		MessageBox "The powers of Oblivion over your mastery of Destruction canters and changes within your being"
+		set doonce2 to 0
+	endif
+	return
+endif
+
+End

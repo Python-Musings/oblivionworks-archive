@@ -1,0 +1,11 @@
+scn RazielWTRSpellEffectScript
+
+begin ScriptEffectStart
+	if getincell brumamagesguild == 1 || getincell anvilmagesguild == 1 || getincell skingradmagesguild == 1 || getincell bravilmagesguild == 1 || getincell chorrolmagesguild == 1 || getincell leyawiinmagesguild == 1 || getincell cheydinhalmagesguild == 1 || getincell brumamagesguilddestroyed == 1 || GetInWorldspace ICTheArcaneUniversity == 1 && player.isincombat == 0
+		player.PositionWorld 64793.9844, 144859.6094, 41343.9922, 176, Tamriel
+	elseif player.isincombat == 1
+		message "Cannot cast this spell while in combat."
+	else
+		message " Cannot cast this spell outside of a Mage's Guild Hall"
+	endif
+End

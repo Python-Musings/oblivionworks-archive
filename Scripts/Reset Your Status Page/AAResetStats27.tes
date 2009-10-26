@@ -1,0 +1,54 @@
+ScriptName AAResetStats27
+
+short ARSButton
+short ARSStep
+short NirnrootsFound
+short NirnrootsFound2
+
+Begin ScriptEffectStart
+	
+	set NirnrootsFound to GetPCMiscStat 27 * -1 ;resets Nirnroots Found to 0
+	set NirnrootsFound2 to GetPCMiscStat 27
+	set ARSStep to 1
+	
+End 
+	
+BEGIN ScriptEffectUpdate
+
+if ARSStep == 0
+	set ARSButton to -1
+Endif
+
+If ARSStep == 1
+	Messagebox "What do you want to do to Nirnroots Found?" "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"
+	set ARSStep to 2
+Endif
+
+If ARSStep == 2
+		set ARSButton to GetButtonPressed
+	    if ARSButton > -1
+		if ARSButton == 0 && NirnrootsFound2 > 0
+			ModPCMiscStat 27 -1
+			message "Your Nirnroots Found count was lowered by 1"
+		elseif ARSButton == 1 && NirnrootsFound2 > 9
+			ModPCMiscStat 27 -10
+			message "Your Nirnroots Found count was lowered by 10"
+		elseif ARSButton == 2  && NirnrootsFound2 > 99
+			ModPCMiscStat 27 -100
+			message "Your Nirnroots Found count was lowered by 100"
+		elseif ARSButton == 3
+			ModPCMiscStat 27 NirnrootsFound
+			message "Your Nirnroots Found count has been reset back to 0"
+		elseif ARSButton == 4
+			ModPCMiscStat 27 1
+			message "Your Nirnroots Found count was raised by 1"
+		elseif ARSButton == 5
+			ModPCMiscStat 27 10
+			message "Your Nirnroots Found count was raised by 10"
+		elseif ARSButton == 6
+			ModPCMiscStat 27 100
+			message "Your Nirnroots Found count was raised by 100"
+		Endif
+		Endif
+Endif
+End 

@@ -1,0 +1,54 @@
+ScriptName AAResetStats08
+
+short ARSButton
+short ARSStep
+short Lockpicks
+short Lockpicks2
+
+Begin ScriptEffectStart
+	
+	set Lockpicks to GetPCMiscStat 8 * -1 ;resets  Locks Picked to 0
+	set Lockpicks2 to GetPCMiscStat 8
+	set ARSStep to 1
+	
+End
+	
+BEGIN ScriptEffectUpdate
+
+if ARSStep == 0
+		set ARSButton to -1
+Endif
+
+If ARSStep == 1
+	Messagebox "What do you want to do to Locks Picked?" "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"
+	set ARSStep to 2
+Endif
+
+If ARSStep == 2
+		set ARSButton to GetButtonPressed
+	    if ARSButton > -1
+		if ARSButton == 0 && Lockpicks2 > 0
+			ModPCMiscStat 8 -1
+			message "Your Locks Picked count was lowered by 1"
+		elseif ARSButton == 1 && Lockpicks2 > 9
+			ModPCMiscStat 8 -10
+			message "Your Locks Picked count was lowered by 10"
+		elseif ARSButton == 2  && Lockpicks2 > 99
+			ModPCMiscStat 8 -100
+			message "Your Locks Picked count was lowered by 100"
+		elseif ARSButton == 3
+			ModPCMiscStat 8 Lockpicks
+			message "Your Locks Picked count has been reset back to 0"
+		elseif ARSButton == 4
+			ModPCMiscStat 8 1
+			message "Your Locks Picked count was raised by 1"
+		elseif ARSButton == 5
+			ModPCMiscStat 8 10
+			message "Your Locks Picked count was raised by 10"
+		elseif ARSButton == 6
+			ModPCMiscStat 8 100
+			message "Your Locks Picked count was raised by 100"
+		Endif
+		Endif
+Endif
+End 

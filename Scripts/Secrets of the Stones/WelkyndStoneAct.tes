@@ -1,0 +1,77 @@
+﻿ScriptName AAWelkyndStoneAct
+
+short WSCButton
+short WSCStep
+
+short health
+short fatigue
+short magicka
+	
+short BaseHP
+short CurrentHP
+short BaseFat
+short CurrentFat
+short BaseMP
+short CurrentMP
+	
+Short Healthcount
+Short Fatiguecount
+Short Manacount
+short Commoncount
+
+Begin OnEquip
+
+set Healthcount to 0
+set Fatiguecount to 0
+set Manacount to 0
+set Commoncount to 0
+set WSCStep to 1
+END
+
+Begin Gamemode 
+	if WSCStep == 0
+		set WSCButton to -1
+	endif
+	
+	if WSCStep == 1
+	set BaseHP to player.GetBaseActorValue Health
+	set BaseFat to player.GetBaseActorValue Fatigue
+	set BaseMP to player.GetBaseActorValue Magicka
+	set CurrentHP to player.GetActorValue Health
+	set CurrentFat to player.GetActorValue Fatigue
+	set CurrentMP to player.GetActorValue Magicka
+	set Commoncount to ( player.getitemcount SoulGemEmpty3Common )
+	
+	if CurrentHP  < BaseHP  && CurrentFat  < BaseFat  && CurrentMP < BaseMP
+
+        message "Your Not Healthy Enough to do this"
+set WSCStep to 0
+		elseif Commoncount <= 0
+		message "You don't have any Common Soul Gems to channel your essence into."
+set WSCStep to 0				
+		elseif player.isincombat == 1
+		message "Cannot cast this spell while in combat."
+set WSCStep to 0		
+		Elseif Commoncount >= 1
+		set WSCStep to 2
+		endif
+	endif
+
+	if WSCStep == 2	
+set health to player.GetAV Health
+set Healthcount to -(health * 0.5)
+player.ModAV2 Health Healthcount
+set magicka to player.GetAV Magicka
+set Manacount to (1-magicka)
+player.ModAV2 Magicka Manacount
+
+set fatigue to player.GetAV Fatigue
+set Fatiguecount to -(fatigue * 0.5)
+player.ModAV2 Fatigue Fatiguecount
+
+player.removeitem SoulGemEmpty3Common, 1
+player.Additem WelkyndStone, 1
+		message "You channel your essents into the Common Soul Gem creating a Welkynd Stone."
+set WSCStep to 0
+		endif
+END 

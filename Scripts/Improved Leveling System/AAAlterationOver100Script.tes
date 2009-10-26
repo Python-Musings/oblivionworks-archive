@@ -1,0 +1,45 @@
+Scriptname AAAlterationOver100Script
+
+short AltMagnitude
+short Altdoonce
+short Altdooncetwice
+float fAlterationDifference
+float fAlterationDifferenceFix
+float fAlterationTracker
+float fAlterationCurrent
+
+begin gamemode
+
+set fAlterationTracker to player.getav Alteration
+
+
+if ( fAlterationTracker < 101 )
+		set AltMagnitude to 0
+	 	SetNthEffectItemMagnitude AltMagnitude AASKillsOver100BonusSpell 0
+		set fAlterationCurrent to fAlterationTracker
+		if (Altdooncetwice == 0)
+		MessageBox "With the removal of your enchanted garments your power sways in the abyss as your Alteration mastery returns to that of a mortal."
+		set Altdooncetwice to 1
+		endif
+	endif
+	return
+endif
+
+	set fAlterationTracker to player.GetAV Alteration
+	 if ( fAlterationTracker > 100 )
+		            
+		set AltMagnitude to (fAlterationTracker/8)
+		SetNthEffectItemMagnitude AltMagnitude AASKillsOver100BonusSpell 0
+			     player.cast AASkillsOver100Spell player
+	if (Altdoonce == 0)
+		MessageBox "As the power of Oblivion unfolds into your soul, power pouring forth filling you with immeasurable power. The powers of the Gods spreads forth into your being as your Mastery of Alteration spreads forth beyond the grasp of mere mortals."
+		set Altdoonce to 1
+		set Altdooncetwice to 0
+	elseif (Altdoonce == 1)
+		MessageBox "The powers of Oblivion over your mastery of Alteration canters and changes within your being"
+		set Altdooncetwice to 0
+	endif
+	return
+endif
+
+End

@@ -1,0 +1,54 @@
+ScriptName AAResetStats02
+
+short ARSButton
+short ARSStep
+short SkillIncreases
+short SkillIncreases2
+
+Begin ScriptEffectStart
+	
+	set SkillIncreases to GetPCMiscStat 2 * -1 ;resets Skill Increases to 0
+	set SkillIncreases2 to GetPCMiscStat 2
+	set ARSStep to 1
+	
+End
+	
+BEGIN ScriptEffectUpdate
+
+if ARSStep == 0
+		set ARSButton to -1
+Endif
+
+If ARSStep == 1
+	Messagebox "What do you want to do to Skill Increases?" "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"
+	set ARSStep to 2
+Endif
+
+If ARSStep == 2
+		set ARSButton to GetButtonPressed
+	    if ARSButton > -1
+		if ARSButton == 0 && SkillIncreases2 > 0
+			ModPCMiscStat 2 -1
+			message "Your Skill Increases count was lowered by 1"
+		elseif ARSButton == 1 && SkillIncreases2 > 9
+			ModPCMiscStat 2 -10
+			message "Your Skill Increases count was lowered by 10"
+		elseif ARSButton == 2  && SkillIncreases2 > 99
+			ModPCMiscStat 2 -100
+			message "Your Skill Increases count was lowered by 100"
+		elseif ARSButton == 3
+			ModPCMiscStat 2 SkillIncreases
+			message "Your Skill Increases count has been reset back to 0"
+		elseif ARSButton == 4
+			ModPCMiscStat 2 1
+			message "Your Skill Increases count was raised by 1"
+		elseif ARSButton == 5
+			ModPCMiscStat 2 10
+			message "Your Skill Increases count was raised by 10"
+		elseif ARSButton == 6
+			ModPCMiscStat 2 100
+			message "Your Skill Increases count was raised by 100"
+		Endif
+		Endif
+Endif
+End 

@@ -1,0 +1,33 @@
+ScriptName AAFingersontheMountainEnScript
+
+short RandomChance ; Prep our Dice roll
+
+float LuckMod ; High-Luck PC's do better
+
+
+begin ScriptEffectStart
+	if isEssential == 0	&& GetIsReference player == 0 ;Don't waste time on essential characters or the PC
+		if GetInFaction OblivionCreatures == 0 ; protects Mehrunes Dagon and other such enemies
+			set RandomChance to getRandomPercent ; Luck Chance	
+			set LuckMod to player.getAV Luck
+			set LuckMod to LuckMod * 0.05 ; In case the PC is really un-lucky
+			if LuckMod < 1
+				set LuckMod to 1
+			endif
+			if LuckMod > 10
+				set LuckMod to 10 ; Never greater than 10% chance allowed
+			endif
+			if RandomChance <= LuckMod ; Check against dice roll
+				kill	 player ; Make 'em deader
+				if AAKillCounterQuest.FotMKills == 0
+					Message "The massive amount of electricity pouring through this ancient spell strikes your foe killing them instantly." ;Unique Message for Kill #1
+					set AAKillCounterQuest.FotMKills to 1
+				endif
+				if AAKillCounterQuest.FotMKills >= 1
+					Message "Massive amounts of electricity fries your victim to a crisp killing them instantly making this a total of %.0f victims chard to a crisp.",AAKillCounterQuest.FotMKills,1 ;Message for the rest of the kills
+					set AAKillCounterQuest.FotMKills to AAKillCounterQuest.FotMKills + 1
+				endif
+			endif
+		endif
+	endif
+end

@@ -1,0 +1,745 @@
+ScriptName AAResetStats
+
+short ARSStep
+short ARSMenu
+short Assaults
+short Fame
+short HorsesStolen
+short HoursSlept
+short HoursWaited
+short Infamy
+short IngredientsEaten
+short ItemsPickPocketed
+short ItemsStolen
+short Lockpicks
+short LockpicksBroken
+short LBounty
+short Murder
+short PotionsMade
+short Prison
+short SoulsTrapped
+short StoresInvestedIn
+short TrainSess
+short Trespasses
+
+Begin ScriptEffectStart
+
+;set Prison to GetPCMiscStat 0
+;1 ;Days Passed
+;2 ;Skill Increases
+;set TrainSess to GetPCMiscStat 3
+;set LBounty to GetPCMiscStat 4
+;5 ;Creatures Killed
+;6 ;People Killed
+;7 ;Places Discovered
+;set Lockpicks to GetPCMiscStat 8
+;set LockpicksBroken to GetPCMiscStat 9
+;set SoulsTrapped to GetPCMiscStat 10
+;set IngredientsEaten to GetPCMiscStat 11
+;set PotionsMade to GetPCMiscStat 12
+;13 ;Oblivion Gates Shut
+;14 ;Horses Owned
+;15 ;Houses Owned
+;set StoresInvestedIn to GetPCMiscStat 16
+;17 ;Books Read
+;18 ;Skill Books Read
+;19 ;Artifacts Found
+;set HoursSlept to GetPCMiscStat 20
+;set HoursWaited to GetPCMiscStat 21
+;22 ;Days As A Vampire
+;23 ;Last Day As Vampire
+;24 ;People Fed On
+;25 ;Jokes Told
+;26 ;Diseases Contracted
+;27 ;Nirnroots Found
+;set ItemsStolen to GetPCMiscStat 28
+;set ItemsPickPocketed to GetPCMiscStat 29
+;set Trespasses to GetPCMiscStat 30
+;set Assults to GetPCMiscStat 31
+;set Murder to GetPCMiscStat 32
+;set HorsesStolen to GetPCMiscStat 33
+
+set ARSStep to -1
+set ARSMenu to -1
+
+End
+
+BEGIN ScriptEffectUpdate
+	If ARSStep == -1 
+		Messagebox "What do you want to reset?" "Assaults" "Days in Prison" "Fame" "Horses Stolen" "Hours Slept" "Hours Waited" "Infamy" "Ingredients Eaten" "More" "Quit"
+		set ARSStep to 1
+		set ARSMenu to GetButtonPressed
+		return
+	elseif ARSStep == 1
+		set ARSMenu to GetButtonPressed
+		if ARSMenu > -1
+			if ARSMenu == 0
+				set ARSStep to -2
+			elseif ARSMenu == 1
+				set ARSStep to -3
+			elseif ARSMenu == 2
+				set ARSStep to -4
+			elseif ARSMenu == 3
+				set ARSStep to -5
+			elseif ARSMenu == 4
+				set ARSStep to -6
+			elseif ARSMenu == 5
+				set ARSStep to -7
+			elseif ARSMenu == 6
+				set ARSStep to -8
+			elseif ARSMenu == 7
+				set ARSStep to -9
+			elseif ARSMenu == 8
+				set ARSStep to -10
+			elseif ARSMenu == 9
+				set ARSStep to 0
+			endif
+			return
+		endif
+		
+	elseif ARSStep == -2
+		set Assaults to GetPCMiscStat 31
+		MessageBox "What do you want to do to Assaults? Currently: %.0f" Assaults "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"
+		set ARSStep to 2
+		set ARSMenu to GetButtonPressed
+	elseif ARSStep == 2
+		set ARSMenu to GetButtonPressed
+		if ARSMenu > -1
+			set ARSStep to -2 ;cause I assume you want to go back to the menu so you dont need to click assault  in the main menu 3 times when you want to remove 3 assaults
+			if ARSMenu == 0 && Assaults > 0
+				ModPCMiscStat 31 -1
+			elseif ARSMenu == 1 && Assaults > 9
+				ModPCMiscStat 31 -10
+			elseif ARSMenu == 2 && Assaults > 99
+				ModPCMiscStat 31 -100
+			elseif ARSMenu == 3
+				set Assaults to GetPCMiscStat 31 * -1
+				ModPCMiscStat 31 Assaults
+			elseif ARSMenu == 4
+				ModPCMiscStat 31 1
+			elseif ARSMenu == 5
+				ModPCMiscStat 31 10
+			elseif ARSMenu == 6
+				ModPCMiscStat 31 100
+			elseif ARSMenu == 7
+				set ARSStep to -1 ;or 0 if you want to quit completely
+				;quit
+			endif
+			return
+		endif	
+	
+	elseif ARSStep == -3 
+		set Prison to GetPCMiscStat 0
+		Messagebox "What do you want to do to Days in Prison? Currently: %.0f" Prison "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"
+		set ARSStep to 3
+		set ARSMenu to GetButtonPressed
+	elseif ARSStep == 3
+		set ARSMenu to GetButtonPressed
+		if ARSMenu > -1
+			set ARSStep to -3 ;same as with assaults, can also be 1 or 0, depending on what menu you want the player to go back to after he clicks on a button
+			if ARSMenu == 0 && Prison > 0
+				ModPCMiscStat 0 -1
+			elseif ARSMenu == 1 && Prison > 9
+				ModPCMiscStat 0 -10
+			elseif ARSMenu == 2 && Prison > 99
+				ModPCMiscStat 0 -100
+			elseif ARSMenu == 3
+				set Prison to GetPCMiscStat 0 * -1
+				ModPCMiscStat 0 Prison
+			elseif ARSMenu == 4
+				ModPCMiscStat 0 1
+			elseif ARSMenu == 5
+				ModPCMiscStat 0 10
+			elseif ARSMenu == 6
+				ModPCMiscStat 0 100
+			elseif ARSMenu == 7
+				set ARSStep to -1 ;or 0 if you want to quit completely
+				;quit
+			endif
+			return
+		endif			
+
+	elseif ARSStep == -4
+		set Fame to GetPCFame
+		Messagebox "What do you want to do to Fame? Currently: %.0f" Fame "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"
+		set ARSStep to 4
+		set ARSMenu to GetButtonPressed
+	elseif ARSStep == 4
+		set ARSMenu to GetButtonPressed
+		if ARSMenu > -1
+			set ARSStep to -4 ;same as with assaults, can also be 1 or 0, depending on what menu you want the player to go back to after he clicks on a button
+			if ARSMenu == 0 && Fame > 0
+				ModPCFame -1
+			elseif ARSMenu == 1 && Fame > 9
+				ModPCFame -10
+			elseif ARSMenu == 2 && Fame > 99
+				ModPCFame -100
+			elseif ARSMenu == 3
+				SetPCFame 0
+			elseif ARSMenu == 4
+				ModPCFame 1
+			elseif ARSMenu == 5
+				ModPCFame 10
+			elseif ARSMenu == 6
+				ModPCFame 100
+			elseif ARSMenu == 7
+				set ARSStep to -1 ;or 0 if you want to quit completely
+				;quit
+			endif
+			return
+		endif	
+
+	elseif ARSStep == -5
+		set HorsesStolen to GetPCMiscStat 33
+		Messagebox "What do you want to do to Horses Stolen? Currently: %.0f" HorsesStolen "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"
+		set ARSStep to 5
+		set ARSMenu to GetButtonPressed
+	elseif ARSStep == 5
+		set ARSMenu to GetButtonPressed
+		if ARSMenu > -1
+			set ARSStep to -5 ;same as with assaults, can also be 1 or 0, depending on what menu you want the player to go back to after he clicks on a button
+			if ARSMenu == 0 && HorsesStolen > 00
+				ModPCMiscStat 33 -1
+			elseif ARSMenu == 1 && HorsesStolen > 9
+				ModPCMiscStat 33 -10
+			elseif ARSMenu == 2 && HorsesStolen > 99
+				ModPCMiscStat 33 -100
+			elseif ARSMenu == 3
+				set HorsesStolen to GetPCMiscStat 33 * -1
+				ModPCMiscStat 33 HorsesStolen
+			elseif ARSMenu == 4
+				ModPCMiscStat 33 1
+			elseif ARSMenu == 5
+				ModPCMiscStat 33 10
+			elseif ARSMenu == 6
+				ModPCMiscStat 33 100
+			elseif ARSMenu == 7
+				set ARSStep to -1 ;or 0 if you want to quit completely
+				;quit
+			endif
+			return
+		endif		
+ 
+ 	elseif ARSStep == -6
+		set HoursSlept to GetPCMiscStat 20
+		Messagebox "What do you want to do to Hours Slept? Currently: %.0f" HoursSlept "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"
+		set ARSStep to 6
+		set ARSMenu to GetButtonPressed
+	elseif ARSStep == 6
+		set ARSMenu to GetButtonPressed
+		if ARSMenu > -1
+			set ARSStep to -6 ;same as with assaults, can also be 1 or 0, depending on what menu you want the player to go back to after he clicks on a button
+			if ARSMenu == 0 && HoursSlept > 0
+				ModPCMiscStat 20 -1
+			elseif ARSMenu == 1 && HoursSlept > 9
+				ModPCMiscStat 20 -10
+			elseif ARSMenu == 2 && HoursSlept > 99
+				ModPCMiscStat 20 -100
+			elseif ARSMenu == 3
+				set HoursSlept to GetPCMiscStat 20 * -1
+				ModPCMiscStat 20 HoursSlept
+			elseif ARSMenu == 4
+				ModPCMiscStat 20 1
+			elseif ARSMenu == 5
+				ModPCMiscStat 20 10
+			elseif ARSMenu == 6
+				ModPCMiscStat 20 100
+			elseif ARSMenu == 7
+				set ARSStep to -1 ;or 0 if you want to quit completely
+				;quit
+			endif
+			return
+		endif
+
+	elseif ARSStep == -7
+		set HoursWaited to GetPCMiscStat 21
+		Messagebox "What do you want to do to Hours Waited? Currently: %.0f" HoursWaited "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"
+		set ARSStep to 7
+		set ARSMenu to GetButtonPressed
+	elseif ARSStep == 7
+		set ARSMenu to GetButtonPressed
+		if ARSMenu > -1
+			set ARSStep to -7 ;same as with assaults, can also be 1 or 0, depending on what menu you want the player to go back to after he clicks on a button
+			if ARSMenu == 0 && HoursWaited > 0
+				ModPCMiscStat 21 -1
+			elseif ARSMenu == 1 && HoursWaited > 9
+				ModPCMiscStat 21 -10
+			elseif ARSMenu == 2 && HoursWaited > 99
+				ModPCMiscStat 21 -100
+			elseif ARSMenu == 3
+				set HoursWaited to GetPCMiscStat 21 * -1
+				ModPCMiscStat 21 HoursWaited
+			elseif ARSMenu == 4
+				ModPCMiscStat 21 1
+			elseif ARSMenu == 5
+				ModPCMiscStat 21 10
+			elseif ARSMenu == 6
+				ModPCMiscStat 21 100
+			elseif ARSMenu == 7
+				set ARSStep to -1 ;or 0 if you want to quit completely
+				;quit
+			endif
+			return
+		endif
+
+	elseif ARSStep == -8
+		set Infamy to GetPCInfamy
+		Messagebox "What do you want to do to Infamy? Currently: %.0f" Infamy "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"
+		set ARSStep to 8
+		set ARSMenu to GetButtonPressed
+	elseif ARSStep == 8
+		set ARSMenu to GetButtonPressed
+		if ARSMenu > -1
+			set ARSStep to -8 ;same as with assaults, can also be 1 or 0, depending on what menu you want the player to go back to after he clicks on a button
+			if ARSMenu == 0 && Infamy > 0
+				ModPCInfamy -1
+			elseif ARSMenu == 1 && Infamy > 9
+				ModPCInfamy -10
+			elseif ARSMenu == 2 && Infamy > 99
+				ModPCInfamy -100
+			elseif ARSMenu == 3
+				SetPCInfamy 0
+			elseif ARSMenu == 4
+				ModPCInfamy 1
+			elseif ARSMenu == 5
+				ModPCInfamy 10
+			elseif ARSMenu == 6
+				ModPCInfamy 100
+			elseif ARSMenu == 7
+				set ARSStep to -1 ;or 0 if you want to quit completely
+				;quit
+			endif
+			return
+		endif
+	
+	elseif ARSStep == -9
+		set IngredientsEaten to GetPCMiscStat 11
+		Messagebox "What do you want to do to Ingredients Eaten? Currently: %.0f" IngredientsEaten "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"
+		set ARSStep to 9
+		set ARSMenu to GetButtonPressed
+	elseif ARSStep == 9
+		set ARSMenu to GetButtonPressed
+		if ARSMenu > -1
+			set ARSStep to -9 ;same as with assaults, can also be 1 or 0, depending on what menu you want the player to go back to after he clicks on a button
+			if ARSMenu == 0 && IngredientsEaten > 0
+				ModPCMiscStat 11 -1
+			elseif ARSMenu == 1 && IngredientsEaten > 9
+				ModPCMiscStat 11 -10
+			elseif ARSMenu == 2 && IngredientsEaten > 99
+				ModPCMiscStat 11 -100
+			elseif ARSMenu == 3
+				set IngredientsEaten to GetPCMiscStat 11 * -1
+				ModPCMiscStat 11 IngredientsEaten
+			elseif ARSMenu == 4
+				ModPCMiscStat 11 1
+			elseif ARSMenu == 5
+				ModPCMiscStat 11 10
+			elseif ARSMenu == 6
+				ModPCMiscStat 11 100
+			elseif ARSMenu == 7
+				set ARSStep to -1 ;or 0 if you want to quit completely
+				;quit
+			endif
+			return
+		endif
+
+	elseif ARSStep == -10
+		Messagebox "What do you want to reset?" "Items Pickpocketed" "Items Stolen" "Largest Bounty" "Locks Picked" "Lockpicks Broken" "Murders" "Potions Made" "Souls Trapped" "More" "Quit"
+		set ARSStep to 10
+		set ARSMenu to GetButtonPressed
+	elseif ARSStep == 10
+		set ARSMenu to GetButtonPressed
+		if ARSMenu > -1
+			if ARSMenu == 0
+				set ARSStep to -11
+			elseif ARSMenu == 1
+				set ARSStep to -12
+			elseif ARSMenu == 2
+				set ARSStep to -13
+			elseif ARSMenu == 3
+				set ARSStep to -14
+			elseif ARSMenu == 4
+				set ARSStep to -15
+			elseif ARSMenu == 5
+				set ARSStep to -16
+			elseif ARSMenu == 6
+				set ARSStep to -17
+			elseif ARSMenu == 7
+				set ARSStep to -18
+			elseif ARSMenu == 8
+				set ARSStep to -19
+			elseif ARSMenu == 9
+				set ARSStep to 0 
+				;quit
+			endif
+			return
+		endif
+	
+	elseif ARSStep == -11
+		set ItemsPickpocketed to GetPCMiscStat 29
+		Messagebox "What do you want to do to Items Pickpocketed? Currently: %.0f" ItemsPickpocketed "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"	
+		set ARSSteP to 11
+		set ARSMenu to GetButtonPressed
+	elseif ARSStep == 11
+		set ARSMenu to GetButtonPressed
+		if ARSMenu > -1
+			set ARSStep to -11 ;same as with assaults, can also be 1 or 0, depending on what menu you want the player to go back to after he clicks on a button
+			if ARSMenu == 0 && ItemsPickpocketed > 0
+				ModPCMiscStat 29 -1
+			elseif ARSMenu == 1 && ItemsPickpocketed > 9
+				ModPCMiscStat 29 -10
+			elseif ARSMenu == 2 && ItemsPickpocketed > 99
+				ModPCMiscStat 29 -100
+			elseif ARSMenu == 3
+				set ItemsPickpocketed to GetPCMiscStat 29 * -1
+				ModPCMiscStat 29 ItemsPickpocketed
+			elseif ARSMenu == 4
+				ModPCMiscStat 29 1
+			elseif ARSMenu == 5
+				ModPCMiscStat 29 10
+			elseif ARSMenu == 6
+				ModPCMiscStat 29 100
+			elseif ARSMenu == 7
+				set ARSStep to -10 ;or 0 if you want to quit completely
+				;quit
+			endif
+			return
+		endif
+
+	elseif ARSStep == -12
+		set ItemsStolen to GetPCMiscStat 28
+		Messagebox "What do you want to do to Items Stolen? Currently: %.0f" ItemsStolen "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"	
+		set ARSSteP to 12
+		set ARSMenu to GetButtonPressed
+	elseif ARSStep == 12
+		set ARSMenu to GetButtonPressed
+		if ARSMenu > -1
+			set ARSStep to -12 ;same as with assaults, can also be 1 or 0, depending on what menu you want the player to go back to after he clicks on a button
+			if ARSMenu == 0 && ItemsStolen > 0
+				ModPCMiscStat 28 -1
+			elseif ARSMenu == 1 && ItemsStolen > 9
+				ModPCMiscStat 28 -10
+			elseif ARSMenu == 2 && ItemsStolen > 99
+				ModPCMiscStat 28 -100
+			elseif ARSMenu == 3
+				set ItemsStolen to GetPCMiscStat 28 * -1
+				ModPCMiscStat 28 ItemsStolen
+			elseif ARSMenu == 4
+				ModPCMiscStat 28 1
+			elseif ARSMenu == 5
+				ModPCMiscStat 28 10
+			elseif ARSMenu == 6
+				ModPCMiscStat 28 100
+			elseif ARSMenu == 7
+				set ARSStep to -10 ;or 0 if you want to quit completely
+				;quit
+			endif
+			return
+		endif			
+
+	elseif ARSStep == -13
+		set LBounty to GetPCMiscStat 4
+		Messagebox "What do you want to do to Largest Bounty? Currently: %.0f" LBounty "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"	
+		set ARSSteP to 13
+		set ARSMenu to GetButtonPressed
+	elseif ARSStep == 13
+		set ARSMenu to GetButtonPressed
+		if ARSMenu > -1
+			set ARSStep to -13 ;same as with assaults, can also be 1 or 0, depending on what menu you want the player to go back to after he clicks on a button
+			if ARSMenu == 0 && LBounty > 0
+				ModPCMiscStat 4 -1
+			elseif ARSMenu == 1 && LBounty > 9
+				ModPCMiscStat 4 -10
+			elseif ARSMenu == 2 && LBounty > 99
+				ModPCMiscStat 4 -100
+			elseif ARSMenu == 3
+				set LBounty to GetPCMiscStat 4 * -1
+				ModPCMiscStat 4 LBounty
+			elseif ARSMenu == 4
+				ModPCMiscStat 4 1
+			elseif ARSMenu == 5
+				ModPCMiscStat 4 10
+			elseif ARSMenu == 6
+				ModPCMiscStat 4 100
+			elseif ARSMenu == 7
+				set ARSStep to -10 ;or 0 if you want to quit completely
+				;quit
+			endif
+			return
+		endif
+		
+	elseif ARSStep == -14
+		set Lockpicks to GetPCMiscStat 8
+		Messagebox "What do you want to do to Locks Picked? Currently: %.0f" LockPicks "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"	
+		set ARSSteP to 14
+		set ARSMenu to GetButtonPressed
+	elseif ARSStep == 14
+		set ARSMenu to GetButtonPressed
+		if ARSMenu > -1
+			set ARSStep to -14 ;same as with assaults, can also be 1 or 0, depending on what menu you want the player to go back to after he clicks on a button
+			if ARSMenu == 0 && LockPicks > 0
+				ModPCMiscStat 8 -1
+			elseif ARSMenu == 1 && LockPicks > 9
+				ModPCMiscStat 8 -10
+			elseif ARSMenu == 2 && LockPicks > 99
+				ModPCMiscStat 8 -100
+			elseif ARSMenu == 3
+				set LockPicks to GetPCMiscStat 8 * -1
+				ModPCMiscStat 8 LockPicks 
+			elseif ARSMenu == 4
+				ModPCMiscStat 8 1
+			elseif ARSMenu == 5
+				ModPCMiscStat 8 10
+			elseif ARSMenu == 6
+				ModPCMiscStat 8 100
+			elseif ARSMenu == 7
+				set ARSStep to -10 ;or 0 if you want to quit completely
+				;quit
+			endif
+			return
+		endif
+		
+	elseif ARSStep == -15
+		set LockpicksBroken to GetPCMiscStat 9
+		Messagebox "What do you want to do to Lockpicks Broken? Currently: %.0f" LockpicksBroken "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"	
+		set ARSSteP to 15
+		set ARSMenu to GetButtonPressed
+	elseif ARSStep == 15
+		set ARSMenu to GetButtonPressed
+		if ARSMenu > -1
+			set ARSStep to -15 ;same as with assaults, can also be 1 or 0, depending on what menu you want the player to go back to after he clicks on a button
+			if ARSMenu == 0 && LockPicksBroken > 0
+				ModPCMiscStat 9 -1
+			elseif ARSMenu == 1 && LockPicksBroken > 9
+				ModPCMiscStat 9 -10
+			elseif ARSMenu == 2 && LockPicksBroken > 99
+				ModPCMiscStat 9 -100
+			elseif ARSMenu == 3
+				set LockpicksBroken to GetPCMiscStat 9 * -1
+				ModPCMiscStat 9 LockpicksBroken
+			elseif ARSMenu == 4
+				ModPCMiscStat 9 1
+			elseif ARSMenu == 5
+				ModPCMiscStat 9 10
+			elseif ARSMenu == 6
+				ModPCMiscStat 9 100
+			elseif ARSMenu == 7
+				set ARSStep to -10 ;or 0 if you want to quit completely
+				;quit
+			endif
+			return
+		endif
+		
+	elseif ARSStep == -16
+		set Murder to GetPCMiscStat 32
+		Messagebox "What do you want to do to Murders? Currently: %.0f" Murder "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"	
+		set ARSSteP to 16
+		set ARSMenu to GetButtonPressed
+	elseif ARSStep == 16
+		set ARSMenu to GetButtonPressed
+		if ARSMenu > -1
+			set ARSStep to -16 ;same as with assaults, can also be 1 or 0, depending on what menu you want the player to go back to after he clicks on a button
+			if ARSMenu == 0 && Murder > 0
+				ModPCMiscStat 32 -1
+			elseif ARSMenu == 1 && Murder > 9
+				ModPCMiscStat 32 -10
+			elseif ARSMenu == 2 && Murder > 99
+				ModPCMiscStat 32 -100
+			elseif ARSMenu == 3
+				set Murder to GetPCMiscStat 32 * -1
+				ModPCMiscStat 32 Murder
+				Set IsPCAMurderer to 0
+			elseif ARSMenu == 4
+				ModPCMiscStat 32 1
+			elseif ARSMenu == 5
+				ModPCMiscStat 32 10
+			elseif ARSMenu == 6
+				ModPCMiscStat 32 100
+			elseif ARSMenu == 7
+				set ARSStep to -10 ;or 0 if you want to quit completely
+				;quit
+			endif
+			return
+		endif
+		
+	elseif ARSStep == -17
+		set PotionsMade to GetPCMiscStat 12
+		Messagebox "What do you want to do to Potions Made? Currently: %.0f" PotionsMade "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"	
+		set ARSSteP to 17
+		set ARSMenu to GetButtonPressed
+	elseif ARSStep == 17
+		set ARSMenu to GetButtonPressed
+		if ARSMenu > -1
+			set ARSStep to -17 ;same as with assaults, can also be 1 or 0, depending on what menu you want the player to go back to after he clicks on a button
+			if ARSMenu == 0 && PotionsMade > 0
+				ModPCMiscStat 12 -1
+			elseif ARSMenu == 1 && PotionsMade > 9
+				ModPCMiscStat 12 -10
+			elseif ARSMenu == 2 && PotionsMade > 99
+				ModPCMiscStat 12 -100
+			elseif ARSMenu == 3
+				set PotionsMade to GetPCMiscStat 12 * -1
+				ModPCMiscStat 12 PotionsMade
+			elseif ARSMenu == 4
+				ModPCMiscStat 12 1
+			elseif ARSMenu == 5
+				ModPCMiscStat 12 10
+			elseif ARSMenu == 6
+				ModPCMiscStat 12 100
+			elseif ARSMenu == 7
+				set ARSStep to -10 ;or 0 if you want to quit completely
+				;quit
+			endif
+			return
+		endif
+		
+	elseif ARSStep == -18
+		set SoulsTrapped to GetPCMiscStat 10
+		Messagebox "What do you want to do to Souls Trapped? Currently: %.0f" SoulsTrapped "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"	
+		set ARSSteP to 18
+		set ARSMenu to GetButtonPressed
+	elseif ARSStep == 18
+		set ARSMenu to GetButtonPressed
+		if ARSMenu > -1
+			set ARSStep to -18 ;same as with assaults, can also be 1 or 0, depending on what menu you want the player to go back to after he clicks on a button
+			if ARSMenu == 0 && SoulsTrapped > 0
+				ModPCMiscStat 10 -1
+			elseif ARSMenu == 1 && SoulsTrapped > 9
+				ModPCMiscStat 10 -10
+			elseif ARSMenu == 2 && SoulsTrapped > 99
+				ModPCMiscStat 10 -100
+			elseif ARSMenu == 3
+				set SoulsTrapped to GetPCMiscStat 10 * -1
+				ModPCMiscStat 10 SoulsTrapped
+			elseif ARSMenu == 4
+				ModPCMiscStat 10 1
+			elseif ARSMenu == 5
+				ModPCMiscStat 10 10
+			elseif ARSMenu == 6
+				ModPCMiscStat 10 100
+			elseif ARSMenu == 7
+				set ARSStep to -10 ;or 0 if you want to quit completely
+				;quit
+			endif
+			return
+		endif
+	endif
+	
+	elseif ARSStep == -19
+		Messagebox "What do you want to reset?" "Stores Invested In" "Training Sessions" "Trespasses" "More" "Quit"
+		set ARSStep to 19
+		set ARSMenu to GetButtonPressed
+	elseif ARSStep == 19
+		set ARSMenu to GetButtonPressed
+		if ARSMenu > -1
+			if ARSMenu == 0
+				set ARSStep to -20
+			elseif ARSMenu == 1
+				set ARSStep to -21
+			elseif ARSMenu == 2
+				set ARSStep to -22
+			elseif ARSMenu == 3
+				set ARSStep to -1
+			elseif ARSMenu == 4
+				set ARSStep to 0
+			endif
+			return
+		endif
+	
+	elseif ARSStep == -20
+		set StoresInvestedIn to GetPCMiscStat 16
+		Messagebox "What do you want to do to Stores Invested In? Currently: %.0f" SoulsTrapped "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"	
+		set ARSSteP to 20
+		set ARSMenu to GetButtonPressed
+	elseif ARSStep == 20
+		set ARSMenu to GetButtonPressed
+		if ARSMenu > -1
+			set ARSStep to -20 ;same as with assaults, can also be 1 or 0, depending on what menu you want the player to go back to after he clicks on a button
+			if ARSMenu == 0 && StoresInvestedIn > 0
+				ModPCMiscStat 16 -1
+			elseif ARSMenu == 1 && StoresInvestedIn > 9
+				ModPCMiscStat 16 -10
+			elseif ARSMenu == 2 && StoresInvestedIn > 99
+				ModPCMiscStat 16 -100
+			elseif ARSMenu == 3
+				set StoresInvestedIn to GetPCMiscStat 16 * -1
+				ModPCMiscStat 16 StoresInvestedIn
+			elseif ARSMenu == 4
+				ModPCMiscStat 16 1
+			elseif ARSMenu == 5
+				ModPCMiscStat 16 10
+			elseif ARSMenu == 6
+				ModPCMiscStat 16 100
+			elseif ARSMenu == 7
+				set ARSStep to -19 ;or 0 if you want to quit completely
+				;quit
+			endif
+			return
+		endif
+	endif
+
+	elseif ARSStep == -21
+		set TrainSess to GetPCMiscStat 3
+		Messagebox "What do you want to do to Training Sessions? Currently: %.0f" TrainSess "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"	
+		set ARSSteP to 21
+		set ARSMenu to GetButtonPressed
+	elseif ARSStep == 21
+		set ARSMenu to GetButtonPressed
+		if ARSMenu > -1
+			set ARSStep to -21 ;same as with assaults, can also be 1 or 0, depending on what menu you want the player to go back to after he clicks on a button
+			if ARSMenu == 0 && TrainSess > 0
+				ModPCMiscStat 3 -1
+			elseif ARSMenu == 1 && TrainSess > 9
+				ModPCMiscStat 3 -10
+			elseif ARSMenu == 2 && TrainSess > 99
+				ModPCMiscStat 3 -100
+			elseif ARSMenu == 3
+				set TrainSess to GetPCMiscStat 3 * -1
+				ModPCMiscStat 3 TrainSess
+			elseif ARSMenu == 4
+				ModPCMiscStat 3 1
+			elseif ARSMenu == 5
+				ModPCMiscStat 3 10
+			elseif ARSMenu == 6
+				ModPCMiscStat 3 100
+			elseif ARSMenu == 7
+				set ARSStep to -19 ;or 0 if you want to quit completely
+				;quit
+			endif
+			return
+		endif
+	endif
+
+	elseif ARSStep == -21
+		set TrainSess to GetPCMiscStat 30
+		Messagebox "What do you want to do to Trespasses? Currently: %.0f" Trespasses "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"	
+		set ARSSteP to 21
+		set ARSMenu to GetButtonPressed
+	elseif ARSStep == 21
+		set ARSMenu to GetButtonPressed
+		if ARSMenu > -1
+			set ARSStep to -21 ;same as with assaults, can also be 1 or 0, depending on what menu you want the player to go back to after he clicks on a button
+			if ARSMenu == 0 && Trespasses > 0
+				ModPCMiscStat 30 -1
+			elseif ARSMenu == 1 && Trespasses > 9
+				ModPCMiscStat 30 -10
+			elseif ARSMenu == 2 && Trespasses > 99
+				ModPCMiscStat 30 -100
+			elseif ARSMenu == 3
+				set Trespasses to GetPCMiscStat 30 * -1
+				ModPCMiscStat 30 Trespasses
+			elseif ARSMenu == 4
+				ModPCMiscStat 30 1
+			elseif ARSMenu == 5
+				ModPCMiscStat 30 10
+			elseif ARSMenu == 6
+				ModPCMiscStat 30 100
+			elseif ARSMenu == 7
+				set ARSStep to -19 ;or 0 if you want to quit completely
+				;quit
+			endif
+			return
+		endif
+	endif
+	
+End

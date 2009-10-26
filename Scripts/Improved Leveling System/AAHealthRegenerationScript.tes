@@ -1,0 +1,21 @@
+ScriptName AAHealthRegenerationScript
+
+short HealthRegenRate
+
+Short HRSDebuggingmessage
+
+float fQuestDelayTime
+
+Begin GameMode
+
+set fQuestDelayTime to 0.01
+	set HealthRegenRate to (0.01 * ((player.GetGlobalValue fHealthReturnBase) + (player.GetGlobalValue fHealthReturnMult) * (player.GetActorValue Endurance)) * (player.GetActorValue Health))
+		Player.ModActorValue2 Health HealthRegenRate
+        message "Debuging message you have regenerated %s Health", HealthRegenRate
+		
+		if (HRSDebuggingmessage == 0)
+		messagebox "Health Regeneration over Time enabled"
+		set HRSDebuggingmessage to 1
+		endif
+		
+end

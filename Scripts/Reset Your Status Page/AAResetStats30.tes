@@ -1,0 +1,54 @@
+ScriptName AAResetStats30
+
+short ARSButton
+short ARSStep
+short Trespasses
+short Trespasses2
+
+Begin ScriptEffectStart
+	
+	set Trespasses to GetPCMiscStat 30 * -1 ;resets Trespasses to 0
+	set Trespasses2 to GetPCMiscStat 30
+	set ARSStep to 1
+	
+End 
+	
+BEGIN ScriptEffectUpdate
+
+if ARSStep == 0
+	set ARSButton to -1
+Endif
+
+If ARSStep == 1
+	Messagebox "What do you want to do to Trespasses?" "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"
+	set ARSStep to 2
+Endif
+
+If ARSStep == 2
+		set ARSButton to GetButtonPressed
+	    if ARSButton > -1
+		if ARSButton == 0 && Trespasses2 > 0
+			ModPCMiscStat 30 -1
+			message "Your Trespasses count was lowered by 1"
+		elseif ARSButton == 1 && Trespasses2 > 9
+			ModPCMiscStat 30 -10
+			message "Your Trespasses count was lowered by 10"
+		elseif ARSButton == 2  && Trespasses2 > 99
+			ModPCMiscStat 30 -100
+			message "Your Trespasses count was lowered by 100"
+		elseif ARSButton == 3
+			ModPCMiscStat 30 Trespasses
+			message "Your Trespasses count has been reset back to 0"
+		elseif ARSButton == 4
+			ModPCMiscStat 30 1
+			message "Your Trespasses count was raised by 1"
+		elseif ARSButton == 5
+			ModPCMiscStat 30 10
+			message "Your Trespasses count was raised by 10"
+		elseif ARSButton == 6
+			ModPCMiscStat 30 100
+			message "Your Trespasses count was raised by 100"
+		Endif
+		Endif
+Endif
+End 
