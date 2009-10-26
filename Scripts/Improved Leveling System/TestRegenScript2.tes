@@ -1,0 +1,32 @@
+ScriptName AAHealthRegenerationScript
+
+short HealthRegenRate
+short AATHP
+short AAEND
+short HRTimer
+
+float fQuestDelayTime
+float fHRBfHRM
+float ENDHRBHRM
+float AAHRTotal
+
+
+Begin GameMode
+
+set fQuestDelayTime to (GetActorValue HRTimer)
+
+set AATHP to player.GetActorValue Health
+set AAEND to player.GetActorValue Endurance
+set fHRBfHRM to (player.GetGlobalValue fHealthReturnBase) + (GetGlobalValue fHealthReturnMult)
+set ENDHRBHRM to fHRBfHRM * AAEND
+set AAHRTotal to ENDHRBHRM * AATHP
+set HealthRegenRate to 0.01 * AAHRTotal
+		
+       Player.ModActorValue2 Health HealthRegenRate
+		set HealthRegenRate to 0
+		set AATHP to 0
+		set AAEND to 0
+		set fHRBfHRM to 0
+		set ENDHRBHRM to 0
+		set AAHRTotal to 0			
+end

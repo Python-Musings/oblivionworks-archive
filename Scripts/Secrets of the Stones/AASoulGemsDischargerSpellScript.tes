@@ -1,0 +1,374 @@
+ScriptName AASoulGemsDischargerSpellScript
+
+ref Continue
+ref GemMenu
+ref GemStore
+ref MagMenu
+ref MagStore
+ref NumMenu
+ref NumStore
+ref RemNum
+ref GemTypeAndMag
+
+short Step
+short Petty1PettySoul
+short Lesser1PettySoul
+short Lesser2LesserSoul
+short Common1PettySoul
+short Common2LesserSoul
+short Common3CommonSoul
+short Greater1PettySoul
+short Greater2LesserSoul
+short Greater3CommonSoul
+short Greater4GreaterSoul
+short Grand1PettySoul
+short Grand2LesserSoul
+short Grand3CommonSoul
+short Grand4GreaterSoul
+short Grand5GrandSoul
+short BlackSoulGem
+
+BEGIN ScriptEffectStart
+	
+	set GemMenu to -1
+	set GemStore to -1
+	set MagMenu to -1
+	set MagStore to -1
+	set NumMenu to -1
+	set NumStore to -1
+	set RemNum to -1
+	set Step to 1
+	set Petty1PettySoul to player.GetItemCount SoulGem1Petty1PettySoul
+	set Lesser1PettySoul to player.GetItemCount SoulGem2Lesser1PettySoul
+	set Lesser2LesserSoul to player.GetItemCount SoulGem2Lesser2LesserSoul
+	set Common1PettySoul to player.GetItemCount SoulGem3Common1PettySoul
+	set Common2LesserSoul to player.GetItemCount SoulGem3Common2LesserSoul
+	set Common3CommonSoul to player.GetItemCount SoulGem3Common3CommonSoul
+	set Greater1PettySoul to player.GetItemCount SoulGem4Greater1PettySoul
+	set Greater2LesserSoul to player.GetItemCount SoulGem4Greater2LesserSoul
+	set Greater3CommonSoul to player.GetItemCount SoulGem4Greater3CommonSoul
+	set Greater4GreaterSoul to player.GetItemCount SoulGem4Greater4GreaterSoul
+	set Grand1PettySoul to player.GetItemCount SoulGem5Grand1PettySoul
+	set Grand2LesserSoul to player.GetItemCount SoulGem5Grand2LesserSoul
+	set Grand3CommonSoul to player.GetItemCount SoulGem5Grand3CommonSoul
+	set Grand4GreaterSoul to player.GetItemCount SoulGem5Grand4GreaterSoul
+	set Grand5GrandSoul to player.GetItemCount SoulGem5Grand5GrandSoul
+	set BlackSoulGem to player.GetItemCount BlackSoulGemFilled
+
+END
+
+
+BEGIN GAMEMODE
+
+If Step == 0
+	set GemMenu to -1
+	set GemStore to -1
+	set MagMenu to -1
+	set MagStore to -1
+	set NumMenu to -1
+	set NumStore to -1
+	set RemNum to -1
+	Return
+Endif
+
+	
+If Step == 1
+	MessageBox "What type of Soul Gem(s) do you wish to empty?", "Petty", "Lesser",  "Common", "Greater", "Grand", "Black", "Quit"
+	set Step to 2
+Endif
+
+If Step == 2
+	set GemMenu to GetButtonPressed
+	if GemMenu > -1
+		set Step to 3
+		set GemStore to GemMenu
+		set GemMenu to -1
+	endif
+Endif
+
+If Step == 3
+	if GemStore == 0
+		set MagStore to 0 ;Petty Soul Gems only hold Petty Souls
+		set Step to 5
+	elseif GemStore == 1
+		MessageBox "What magnitude of Soul(s) do you wish to release?", "Petty",  "Lesser", "Quit"
+		set Step to 4
+	elseif GemStore == 2
+		MessageBox "What magnitude of Soul(s) do you wish to release?", "Petty",  "Lesser", "Common", "Quit"
+		set Step to 4
+	elseif GemStore == 3
+		MessageBox "What magnitude of Soul(s) do you wish to release?", "Petty",  "Lesser", "Common", "Greater", "Quit"
+		set Step to 4
+	elseif GemStore == 4
+		MessageBox "What magnitude of Soul(s) do you wish to release?", "Petty",  "Lesser", "Common", "Greater", "Grand", "Quit"
+		set Step to 4
+	elseif GemStore == 5
+		set MagStore to 0 ;Black Soul Gems only hold Grand Souls from Humanoids
+		set Step to 5
+	elseif GemStore == 6
+		set Step to 0
+	endif
+Endif
+
+If Step == 4
+	set MagMenu to GetButtonPressed
+	if MagMenu > -1
+		set Step to 5
+		set MagStore to MagMenu
+		set MagMenu to -1
+	endif
+Endif
+
+If Step == 5
+	if GemStore == 0
+		if MagStore == 0
+			if Petty1PettySoul < 1
+				MessageBox "You don't have any Soul Gems of that type and  magnitude.", "Continue", "Quit"
+				set Step to 51
+			elseif Petty1PettySoul >= 1
+				set GemTypeAndMag to SoulGem1Petty1PettySoul
+				set Step to 6
+			endif
+		endif
+	elseif GemStore == 1
+		if MagStore == 0
+			if Lesser1PettySoul < 1
+				MessageBox "You don't have any Soul Gems of that type and  magnitude.", "Continue", "Quit"
+				set Step to 51
+			elseif Lesser1PettySoul >= 1
+				set GemTypeAndMag to SoulGem2Lesser1PettySoul
+				set Step to 6
+			endif
+		elseif MagStore == 1
+			if Lesser2LesserSoul < 1
+				MessageBox "You don't have any Soul Gems of that type and  magnitude.", "Continue", "Quit"
+				set Step to 51
+			elseif Lesser2LesserSoul >= 1
+				set GemTypeAndMag to SoulGem2Lesser2LesserSoul
+				set Step to 6
+			endif
+		elseif MagStore == 2
+			set Step to 0
+		endif
+	elseif GemStore == 2
+		if MagStore == 0
+			if Common1PettySoul < 1
+				MessageBox "You don't have any Soul Gems of that type and  magnitude.", "Continue", "Quit"
+				set Step to 51
+			elseif Common1PettySoul >= 1
+				set GemTypeAndMag to SoulGem3Common1PettySoul
+				set Step to 6
+			endif
+		elseif MagStore == 1
+			if Common2LesserSoul < 1
+				MessageBox "You don't have any Soul Gems of that type and  magnitude.", "Continue", "Quit"
+				set Step to 51
+			elseif Common2LesserSoul >= 1
+				set GemTypeAndMag to SoulGem3Common2LesserSoul
+				set Step to 6
+			endif
+		elseif MagStore == 2
+			if Common3CommonSoul < 1
+				MessageBox "You don't have any Soul Gems of that type and  magnitude.", "Continue", "Quit"
+				set Step to 51
+			elseif Common3CommonSoul >= 1
+				set GemTypeAndMag to SoulGem3Common3CommonSoul
+				set Step to 6
+			endif
+		elseif MagStore == 3
+			set Step to 0
+		endif
+	elseif GemStore == 3
+		if MagStore == 0
+			if Greater1PettySoul < 1
+				MessageBox "You don't have any Soul Gems of that type and  magnitude.", "Continue", "Quit"
+				set Step to 51
+			elseif Greater1PettySoul >= 1
+				set GemTypeAndMag to SoulGem4Greater1PettySoul
+				set Step to 6
+			endif
+		elseif MagStore == 1
+			if Greater2LesserSoul < 1
+				MessageBox "You don't have any Soul Gems of that type and  magnitude.", "Continue", "Quit"
+				set Step to 51
+			elseif Greater2LesserSoul >= 1
+				set GemTypeAndMag to SoulGem4Greater2LesserSoul
+				set Step to 6
+			endif
+		elseif MagStore == 2
+			if Greater3CommonSoul < 1
+				MessageBox "You don't have any Soul Gems of that type and  magnitude.", "Continue", "Quit"
+				set Step to 51
+			elseif Greater3CommonSoul >= 1
+				set GemTypeAndMag to SoulGem4Greater3CommonSoul
+				set Step to 6
+			endif
+		elseif MagStore == 3
+			if Greater4GreaterSoul < 1
+				MessageBox "You don't have any Soul Gems of that type and  magnitude.", "Continue", "Quit"
+				set Step to 51
+			elseif Greater4GreaterSoul >= 1
+				set GemTypeAndMag to SoulGem4Greater4GreaterSoul
+				set Step to 6
+			endif
+		elseif MagStore == 4
+			set Step to 0
+		endif
+	elseif GemStore == 4
+		if MagStore == 0
+			if Grand1PettySoul < 1
+				MessageBox "You don't have any Soul Gems of that type and  magnitude.", "Continue", "Quit"
+				set Step to 51
+			elseif Grand1PettySoul >= 1
+				set GemTypeAndMag to SoulGem5Grand1PettySoul
+				set Step to 6
+			endif
+		elseif MagStore == 1
+			if Grand2LesserSoul < 1
+				MessageBox "You don't have any Soul Gems of that type and  magnitude.", "Continue", "Quit"
+				set Step to 51
+			elseif Grand2LesserSoul >= 1
+				set GemTypeAndMag to SoulGem5Grand2LesserSoul
+				set Step to 6
+			endif
+		elseif MagStore == 2
+			if Grand3CommonSoul < 1
+				MessageBox "You don't have any Soul Gems of that type and  magnitude.", "Continue", "Quit"
+				set Step to 51
+			elseif Grand3CommonSoul >= 1
+				set GemTypeAndMag to SoulGem5Grand3CommonSoul
+				set Step to 6
+			endif
+		elseif MagStore == 3
+			if Grand4GreaterSoul < 1
+				MessageBox "You don't have any Soul Gems of that type and  magnitude.", "Continue", "Quit"
+				set Step to 51
+			elseif Grand4GreaterSoul >= 1
+				set GemTypeAndMag to SoulGem5Grand4GreaterSoul
+				set Step to 6
+			endif
+		elseif MagStore == 4
+			if Grand5GrandSoul < 1
+				MessageBox "You don't have any Soul Gems of that type and  magnitude.", "Continue", "Quit"
+				set Step to 51
+			elseif Grand5GrandSoul >= 1
+				set GemTypeAndMag to SoulGem5Grand5GrandSoul
+				set Step to 6
+			endif
+		elseif MagStore == 5
+			set Step to 0
+		endif
+	elseif GemStore == 5
+		if MagStore == 0
+			if BlackSoulGem < 1
+				MessageBox "You don't have any Soul Gems of that type and  magnitude.", "Continue", "Quit"
+				set Step to 51
+			elseif BlackSoulGem >= 1
+				set GemTypeAndMag to BlackSoulGemFilled
+				set Step to 6
+			endif
+		endif
+	endif
+Endif
+
+If Step == 51
+	set Continue to GetButtonPressed
+	if Continue > -1
+		if Continue == 0
+			set Step to 1
+			set Continue to -1
+		elseif Continue == 1
+			set Step to 0
+			set Continue to -1	
+		endif
+	endif
+Endif
+
+If Step == 6
+	MessageBox "How many Soul Gems of this type and magnitude do you wish to empty?"  "One", "Five", "Ten", "Fifteen", "Twenty", "All", "Quit"
+	set Step to 7
+Endif
+
+If Step == 7
+	set NumMenu to GetButtonPressed
+	if NumMenu > -1
+		set Step to 8
+		set NumStore to NumMenu
+		set NumMenu to -1
+	endif
+Endif
+
+If Step == 8
+	if NumStore == 0
+		set RemNum to 1
+		set Step to 9
+	elseif NumStore == 1
+		if player.GetItemCount GemTypeAndMag >= 5
+			set RemNum to 5
+			set Step to 9
+		elseif player.GetItemCount GemTypeAndMag < 5
+			MessageBox "You do not have that many Soul Gems of that type and  magnitude.", "Continue", "Quit"
+			set Step to 81
+		endif
+	elseif NumStore == 2
+		if player.GetItemCount GemTypeAndMag >= 10
+			set RemNum to 10
+			set Step to 9
+		elseif player.GetItemCount GemTypeAndMag < 10
+			MessageBox "You do not have that many Soul Gems of that type and  magnitude.", "Continue", "Quit"
+			set Step to 81
+		endif
+	elseif NumStore == 3
+		if player.GetItemCount GemTypeAndMag >= 15
+			set RemNum to 15
+			set Step to 9
+		elseif player.GetItemCount GemTypeAndMag < 15
+			MessageBox "You do not have that many Soul Gems of that type and  magnitude.", "Continue", "Quit"
+			set Step to 81
+		endif
+	elseif NumStore == 4
+		if player.GetItemCount GemTypeAndMag >= 20
+			set RemNum to 20
+			set Step to 9
+		elseif player.GetItemCount GemTypeAndMag < 20
+			MessageBox "You do not have that many Soul Gems of that type and  magnitude.", "Continue", "Quit"
+			set Step to 81
+		endif
+	elseif NumStore == 5
+		set RemNum to player.GetItemCount GemTypeAndMag
+		set Step to 9
+	endif
+Endif
+
+If Step == 81
+	set Continue to GetButtonPressed
+	if Continue > -1
+		if Continue == 0
+			set Step to 6
+			set Continue to -1
+		elseif Continue == 1
+			set Step to 0
+			set Continue to -1
+		endif
+	endif
+Endif
+
+If Step == 9
+	player.removeitem GemTypeAndMag RemNum
+	if GemTypeAndMag == SoulGem1Petty1PettySoul
+		player.additem SoulGemEmpty1Petty RemNum
+	elseif (GemTypeAndMag == SoulGem2Lesser1PettySoul) || (GemTypeAndMag ==  SoulGem2Lesser2LesserSoul)
+		player.additem SoulGemEmpty2Lesser RemNum
+	elseif (GemTypeAndMag == SoulGem3Common1PettySoul) || (GemTypeAndMag ==  SoulGem3Common2LesserSoul) || (GemTypeAndMag == SoulGem3Common3CommonSoul)
+		player.additem SoulGemEmpty3Common RemNum
+	elseif (GemTypeAndMag == SoulGem4Greater1PettySoul) || (GemTypeAndMag ==  SoulGem4Greater2LesserSoul) || (GemTypeAndMag == SoulGem4Greater3CommonSoul) ||  (GemTypeAndMag == SoulGem4Greater4GreaterSoul)
+		player.additem SoulGemEmpty4Greater RemNum
+	elseif (GemTypeAndMag == SoulGem5Grand1PettySoul) || (GemTypeAndMag ==  SoulGem5Grand2LesserSoul) || (GemTypeAndMag == SoulGem5Grand3CommonSoul) || (GemTypeAndMag  == SoulGem5Grand4GreaterSoul) || (GemTypeAndMag == SoulGem5Grand5GrandSoul)
+		player.additem SoulGemEmpty5Grand RemNum
+	elseif GemTypeAndMag == BlackSoulGemFilled
+		player.additem BlackSoulGem RemNum
+	endif
+	set Step to 0
+Endif
+
+END

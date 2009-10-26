@@ -1,0 +1,54 @@
+ScriptName AAResetStats11
+
+short ARSButton
+short ARSStep
+short IngredientsEaten
+short IngredientsEaten2
+
+Begin ScriptEffectStart
+	
+	set IngredientsEaten to GetPCMiscStat 11 * -1 ;resets Ingredients Eaten to 0
+	set IngredientsEaten2 to GetPCMiscStat 11
+	set ARSStep to 1
+	
+End 
+	
+BEGIN ScriptEffectUpdate
+
+if ARSStep == 0
+		set ARSButton to -1
+Endif
+
+If ARSStep == 1
+	Messagebox "What do you want to do to Ingredients Eaten?" "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"
+	set ARSStep to 2
+Endif
+
+If ARSStep == 2
+		set ARSButton to GetButtonPressed
+	    if ARSButton > -1
+		if ARSButton == 0 && IngredientsEaten2 > 0
+			ModPCMiscStat 11 -1
+			message "Your Ingredients Eaten count was lowered by 1"
+		elseif ARSButton == 1 && IngredientsEaten2 > 9
+			ModPCMiscStat 11 -10
+			message "Your Ingredients Eaten count was lowered by 10"
+		elseif ARSButton == 2  && IngredientsEaten2 > 99
+			ModPCMiscStat 11 -100
+			message "Your Ingredients Eaten count was lowered by 100"
+		elseif ARSButton == 3
+			ModPCMiscStat 11 IngredientsEaten
+			message "Your Ingredients Eaten count has been reset back to 0"
+		elseif ARSButton == 4
+			ModPCMiscStat 11 1
+			message "Your Ingredients Eaten count was raised by 1"
+		elseif ARSButton == 5
+			ModPCMiscStat 11 10
+			message "Your Ingredients Eaten count was raised by 10"
+		elseif ARSButton == 6
+			ModPCMiscStat 11 100
+			message "Your Ingredients Eaten count was raised by 100"
+		Endif
+		Endif
+Endif
+End 

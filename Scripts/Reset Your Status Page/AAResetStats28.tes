@@ -1,0 +1,55 @@
+ScriptName AAResetStats28
+
+short ARSButton
+short ARSStep
+short ItemsStolen
+short ItemsStolen2
+
+Begin ScriptEffectStart
+	
+	set ItemsStolen to GetPCMiscStat 28 * -1 ;resets  Items Stolen to 0
+	set ItemsStolen2 to GetPCMiscStat 28
+	set ARSStep to 1
+	
+End 
+	
+BEGIN ScriptEffectUpdate
+
+if ARSStep == 0
+
+	set ARSButton to -1
+Endif
+
+If ARSStep == 1
+	Messagebox "What do you want to do to  Items Stolen?" "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"
+	set ARSStep to 2
+Endif
+
+If ARSStep == 2
+		set ARSButton to GetButtonPressed
+	    if ARSButton > -1
+		if ARSButton == 0 && ItemsStolen2 > 0
+			ModPCMiscStat 28 -1
+			message "Your Items Stolen count was lowered by 1"
+		elseif ARSButton == 1 && ItemsStolen2 > 9
+			ModPCMiscStat 28 -10
+			message "Your Items Stolen count was lowered by 10"
+		elseif ARSButton == 2  && ItemsStolen2 > 99
+			ModPCMiscStat 28 -100
+			message "Your Items Stolen count was lowered by 100"
+		elseif ARSButton == 3
+			ModPCMiscStat 28 ItemsStolen
+			message "Your Items Stolen count has been reset back to 0"
+		elseif ARSButton == 4
+			ModPCMiscStat 28 1
+			message "Your Items Stolen count was raised by 1"
+		elseif ARSButton == 5
+			ModPCMiscStat 28 10
+			message "Your Items Stolen count was raised by 10"
+		elseif ARSButton == 6
+			ModPCMiscStat 28 100
+			message "Your Items Stolen count was raised by 100"
+		Endif
+		Endif
+Endif
+End 

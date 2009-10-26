@@ -1,0 +1,77 @@
+﻿ScriptName AAVarlaStoneConjurer
+
+short VSCButton
+short VSCStep
+
+short health
+short fatigue
+short magicka
+	
+short BaseHP
+short CurrentHP
+short BaseFat
+short CurrentFat
+short BaseMP
+short CurrentMP
+Short Healthcount
+Short Fatiguecount
+Short Manacount
+short Grandcount
+
+Begin ScriptEffectStart
+
+	set Healthcount to 0
+	set Fatiguecount to 0
+	set Manacount to 0
+	set Grandcount to 0
+	set VSCStep to 1
+END
+
+Begin ScriptEffectUpdate 
+
+	if VSCStep == 0
+		set VSCButton to -1
+	endif
+	
+	if VSCStep == 1
+	set BaseHP to player.GetBaseActorValue Health
+	set BaseFat to player.GetBaseActorValue Fatigue
+	set BaseMP to player.GetBaseActorValue Magicka
+	set CurrentHP to player.GetActorValue Health
+	set CurrentFat to player.GetActorValue Fatigue
+	set CurrentMP to player.GetActorValue Magicka
+	set Grandcount to ( player.getitemcount SoulGemEmpty5Grand )
+		
+	if CurrentHP  < BaseHP  && CurrentFat  < BaseFat  && CurrentMP < BaseMP
+
+        message "Your Not Healthy Enough to do this"
+set VSCStep to 0
+		elseif Grandcount <= 0
+				message "You don't have any Grand Soul Gems to channel your entire essence into."
+set VSCStep to 0		
+		elseif player.isincombat == 1
+				message "Cannot cast this spell while in combat."
+set VSCStep to 0		
+		Elseif Grandcount >= 1
+		set VSCStep to 2
+		endif
+	endif
+
+	if VSCStep == 2	
+set health to player.GetActorValue health
+set Healthcount to (1-health)
+player.ModActorValue2 health Healthcount
+set magicka to player.GetActorValue Magicka
+set Manacount to (1-magicka)
+player.ModActorValue2 Magicka Manacount
+
+set fatigue to player.GetActorValue fatigue
+set Fatiguecount to (1-fatigue)
+player.ModActorValue2 fatigue Fatiguecount
+
+player.removeitem SoulGemEmpty5Grand, 1
+player.Additem VarlaStone, 1
+		message "You channel your entire essents into the Grand Soul Gem creating a Varla Stone."
+set VSCStep to 0
+		endif
+END 

@@ -1,0 +1,31 @@
+ScriptName AARestorationMasteryScript
+
+short HRRestLevel
+short HRMessage
+short HRMessage2
+short HRLevelCheck
+
+float HRCounter
+
+Begin GameMode
+	if (HRLevelCheck == 0)
+			if (player.GetActorValue Restoration <= 100)
+				set HRRestLevel to 0
+					if (HRMessage == 0)
+						message "Your mastery of Restoration lost the ablitiy to regenerate"
+						set HRMessage to 1
+					endif
+			endif
+		set HRLevelCheck to 1
+	endif
+	
+	if (HRLevelCheck == 1)
+			if ( player.GetActorValue Restoration >= 100)
+				set HRRestLevel to 1
+					if (HRMessage == 1)
+						message "Your mastery of Restoration gains the ablitiy to regenerate"
+						set HRMessage to 0
+					endif
+			endif
+		set HRLevelCheck to 0
+	endif

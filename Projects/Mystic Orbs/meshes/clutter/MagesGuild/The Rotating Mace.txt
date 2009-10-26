@@ -1,0 +1,14 @@
+The Rotating Mace
+
+Description:
+  It's a Dwemer mace, with 4 "heads" that is rotating round and round. Not so much more...
+
+How do I get it?
+  It's a .nif file so you must create your own weapons in the CS and select it as the moddel.
+
+License and Bugs:
+  Include it in your mod, edit it or do wathever you want, just credit me for it. :)
+
+  None known bugs.
+
+ - J3X

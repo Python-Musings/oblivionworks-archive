@@ -1,0 +1,11 @@
+﻿scn WTROBWScript
+
+short doonceWTROBWScript
+
+begin gamemode
+	if doonceWTROBWScript ==0
+player.addspell WTRSpell
+set doonceWTROBWScript to 1
+endif 
+
+End

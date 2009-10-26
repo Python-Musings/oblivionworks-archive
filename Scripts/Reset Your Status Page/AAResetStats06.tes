@@ -1,0 +1,54 @@
+ScriptName AAResetStats06
+
+short ARSButton
+short ARSStep
+short PeopleKilled
+short PeopleKilled2
+
+Begin ScriptEffectStart
+	
+	set PeopleKilled to GetPCMiscStat 6 * -1 ;resets People Killed to 0
+	set PeopleKilled2 to GetPCMiscStat 6
+	set ARSStep to 1
+	
+End
+	
+BEGIN ScriptEffectUpdate
+
+if ARSStep == 0
+		set ARSButton to -1
+Endif
+
+If ARSStep == 1
+	Messagebox "What do you want to do to PeopleKilled?" "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"
+	set ARSStep to 2
+Endif
+
+If ARSStep == 2
+		set ARSButton to GetButtonPressed
+	    if ARSButton > -1
+		if ARSButton == 0 && PeopleKilled2 > 0
+			ModPCMiscStat 6 -1
+			message "Your People Killed count was lowered by 1"
+		elseif ARSButton == 1 && PeopleKilled2 > 9
+			ModPCMiscStat 6 -10
+			message "Your People Killed count was lowered by 10"
+		elseif ARSButton == 2  && PeopleKilled2 > 99
+			ModPCMiscStat 6 -100
+			message "Your People Killed count was lowered by 100"
+		elseif ARSButton == 3
+			ModPCMiscStat 6 PeopleKilled
+			message "Your People Killed count has been reset back to 0"
+		elseif ARSButton == 4
+			ModPCMiscStat 6 1
+			message "Your People Killed count was raised by 1"
+		elseif ARSButton == 5
+			ModPCMiscStat 6 10
+			message "Your People Killed count was raised by 10"
+		elseif ARSButton == 6
+			ModPCMiscStat 6 100
+			message "Your People Killed count was raised by 100"
+		Endif
+		Endif
+Endif
+End 

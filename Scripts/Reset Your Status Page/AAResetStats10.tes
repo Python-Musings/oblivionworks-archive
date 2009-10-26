@@ -1,0 +1,54 @@
+ScriptName AAResetStats10
+
+short ARSButton
+short ARSStep
+short SoulsTrapped
+short SoulsTrapped2
+
+Begin ScriptEffectStart
+	
+	set SoulsTrapped to GetPCMiscStat 10 * -1 ;resets Souls Trapped to 0
+	set SoulsTrapped2 to GetPCMiscStat 10
+	set ARSStep to 1
+	
+End 
+	
+BEGIN ScriptEffectUpdate
+
+if ARSStep == 0
+		set ARSButton to -1
+Endif
+
+If ARSStep == 1
+	Messagebox "What do you want to do to Souls Trapped?" "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"
+	set ARSStep to 2
+Endif
+
+If ARSStep == 2
+		set ARSButton to GetButtonPressed
+	    if ARSButton > -1
+		if ARSButton == 0 && SoulsTrapped2 > 0
+			ModPCMiscStat 10 -1
+			message "Your Souls Trapped count was lowered by 1"
+		elseif ARSButton == 1 && SoulsTrapped2 > 9
+			ModPCMiscStat 10 -10
+			message "Your Souls Trapped count was lowered by 10"
+		elseif ARSButton == 2  && SoulsTrapped2 > 99
+			ModPCMiscStat 10 -100
+			message "Your Souls Trapped count was lowered by 100"
+		elseif ARSButton == 3
+			ModPCMiscStat 10 SoulsTrapped
+			message "Your Souls Trapped count has been reset back to 0"
+		elseif ARSButton == 4
+			ModPCMiscStat 10 1
+			message "Your Souls Trapped count was raised by 1"
+		elseif ARSButton == 5
+			ModPCMiscStat 10 10
+			message "Your Souls Trapped count was raised by 10"
+		elseif ARSButton == 6
+			ModPCMiscStat 10 100
+			message "Your Souls Trapped count was raised by 100"
+		Endif
+		Endif
+Endif
+End 

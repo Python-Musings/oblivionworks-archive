@@ -1,0 +1,144 @@
+
+newmtl Material.000001
+Ka 0.788235 0.8 0.968628
+Kd 0.423529 0.435294 0.67451
+Ks 0.866667 0.866667 0.866667
+d 1
+Ns 10
+map_Kd C:/Program Files/Bethesda Softworks/Oblivion/Data/oblivion - textures - compressed.bsa/textures\clutter\upperclass\glasspain.dds
+
+
+newmtl Material.000098
+Ka 0.788235 0.8 0.968628
+Kd 0.423529 0.435294 0.67451
+Ks 0.866667 0.866667 0.866667
+d 1
+Ns 10
+map_Kd L:/Elder Scrolls/Elder Scrolls IV Oblivion/Projects/Mystic Orbs/textures\clutter\magesguild\sphere06.dds
+
+
+newmtl Material.00012f
+Ka 0.788235 0.8 0.968628
+Kd 0.423529 0.435294 0.67451
+Ks 0.866667 0.866667 0.866667
+d 1
+Ns 10
+map_Kd L:/Elder Scrolls/Elder Scrolls IV Oblivion/Projects/Mystic Orbs/textures\clutter\magesguild\sphere06.dds
+
+
+newmtl Material.0001c6
+Ka 0.788235 0.8 0.968628
+Kd 0.423529 0.435294 0.67451
+Ks 0.866667 0.866667 0.866667
+d 1
+Ns 10
+map_Kd L:/Elder Scrolls/Elder Scrolls IV Oblivion/Projects/Mystic Orbs/textures\clutter\magesguild\sphere06.dds
+
+
+newmtl Material.00025d
+Ka 0.788235 0.8 0.968628
+Kd 0.423529 0.435294 0.67451
+Ks 0.866667 0.866667 0.866667
+d 1
+Ns 10
+map_Kd L:/Elder Scrolls/Elder Scrolls IV Oblivion/Projects/Mystic Orbs/textures\clutter\magesguild\sphere06.dds
+
+
+newmtl Material.0002f4
+Ka 0.788235 0.8 0.968628
+Kd 0.423529 0.435294 0.67451
+Ks 0.866667 0.866667 0.866667
+d 1
+Ns 10
+map_Kd L:/Elder Scrolls/Elder Scrolls IV Oblivion/Projects/Mystic Orbs/textures\clutter\magesguild\sphere06.dds
+
+
+newmtl Material.00038b
+Ka 0.788235 0.8 0.968628
+Kd 0.423529 0.435294 0.67451
+Ks 0.866667 0.866667 0.866667
+d 1
+Ns 10
+map_Kd L:/Elder Scrolls/Elder Scrolls IV Oblivion/Projects/Mystic Orbs/textures\clutter\magesguild\sphere06.dds
+
+
+newmtl Material.000422
+Ka 0.788235 0.8 0.968628
+Kd 0.423529 0.435294 0.67451
+Ks 0.866667 0.866667 0.866667
+d 1
+Ns 10
+map_Kd L:/Elder Scrolls/Elder Scrolls IV Oblivion/Projects/Mystic Orbs/textures\clutter\magesguild\sphere06.dds
+
+
+newmtl Material.0004b9
+Ka 0.788235 0.8 0.968628
+Kd 0.423529 0.435294 0.67451
+Ks 0.866667 0.866667 0.866667
+d 1
+Ns 10
+map_Kd C:/Program Files/Bethesda Softworks/Oblivion/Data/oblivion - textures - compressed.bsa/textures\clutter\upperclass\glasspain.dds
+
+
+newmtl Material.000550
+Ka 0.788235 0.8 0.968628
+Kd 0.423529 0.435294 0.67451
+Ks 0.866667 0.866667 0.866667
+d 1
+Ns 10
+map_Kd C:/Program Files/Bethesda Softworks/Oblivion/Data/oblivion - textures - compressed.bsa/textures\clutter\upperclass\glasspain.dds
+
+
+newmtl Material.0005e7
+Ka 0.788235 0.8 0.968628
+Kd 0.423529 0.435294 0.67451
+Ks 0.866667 0.866667 0.866667
+d 1
+Ns 10
+map_Kd C:/Program Files/Bethesda Softworks/Oblivion/Data/oblivion - textures - compressed.bsa/textures\clutter\upperclass\glasspain.dds
+
+
+newmtl Material.00067e
+Ka 0.788235 0.8 0.968628
+Kd 0.423529 0.435294 0.67451
+Ks 0.866667 0.866667 0.866667
+d 1
+Ns 10
+map_Kd C:/Program Files/Bethesda Softworks/Oblivion/Data/oblivion - textures - compressed.bsa/textures\clutter\upperclass\glasspain.dds
+
+
+newmtl Material.000715
+Ka 0.788235 0.8 0.968628
+Kd 0.423529 0.435294 0.67451
+Ks 0.866667 0.866667 0.866667
+d 1
+Ns 10
+map_Kd C:/Program Files/Bethesda Softworks/Oblivion/Data/oblivion - textures - compressed.bsa/textures\clutter\upperclass\glasspain.dds
+
+
+newmtl Material.0007ac
+Ka 0.788235 0.8 0.968628
+Kd 0.423529 0.435294 0.67451
+Ks 0.866667 0.866667 0.866667
+d 1
+Ns 10
+map_Kd C:/Program Files/Bethesda Softworks/Oblivion/Data/oblivion - textures - compressed.bsa/textures\clutter\upperclass\glasspain.dds
+
+
+newmtl Material.000843
+Ka 0.788235 0.8 0.968628
+Kd 0.423529 0.435294 0.67451
+Ks 0.866667 0.866667 0.866667
+d 1
+Ns 10
+map_Kd C:/Program Files/Bethesda Softworks/Oblivion/Data/oblivion - textures - compressed.bsa/textures\clutter\upperclass\glasspain.dds
+
+
+newmtl Material.0008da
+Ka 0.788235 0.8 0.968628
+Kd 0.423529 0.435294 0.67451
+Ks 0.866667 0.866667 0.866667
+d 1
+Ns 10
+map_Kd C:/Program Files/Bethesda Softworks/Oblivion/Data/oblivion - textures - compressed.bsa/textures\clutter\upperclass\glasspain.dds
+

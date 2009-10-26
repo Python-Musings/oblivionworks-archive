@@ -1,0 +1,52 @@
+ScriptName AAResetStatsAA
+
+short ARSButton
+short ARSStep
+short Fame2
+
+Begin ScriptEffectStart
+	
+	set Fame2 to GetPCFame
+	set ARSStep to 1
+	
+End 
+	
+BEGIN ScriptEffectUpdate
+
+if ARSStep == 0
+	set ARSButton to -1
+Endif
+
+If ARSStep == 1
+	Messagebox "What do you want to do to Your Fame?" "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"
+	set ARSStep to 2
+Endif
+
+If ARSStep == 2
+		set ARSButton to GetButtonPressed
+	    if ARSButton > -1
+		if ARSButton == 0 && Fame2 > 0
+			ModPCFame -1
+			message "Your Fame was lowered by 1"
+		elseif ARSButton == 1 && Fame2 > 9
+			ModPCFame -10
+			message "Your Fame was lowered by 10"
+		elseif ARSButton == 2  && Fame2 > 99
+			ModPCFame -100
+			message "Your Fame was lowered by 100"
+		elseif ARSButton == 3
+			SetPCFame 0
+			message "Your Fame has been reset back to 0"
+		elseif ARSButton == 4
+			ModPCFame 1
+			message "Your Fame was raised by 1"
+		elseif ARSButton == 5
+			ModPCFame 10
+			message "Your Fame was raised by 10"
+		elseif ARSButton == 6
+			ModPCFame 100
+			message "Your Fame was raised by 100"
+		Endif
+		Endif
+Endif
+End 

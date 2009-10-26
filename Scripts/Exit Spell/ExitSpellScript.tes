@@ -1,0 +1,14 @@
+﻿ScriptName ExitSpellScript
+
+Begin ScriptEffectStart
+
+If (Player.IsInInterior)
+	;Autosave
+	Player.MoveTo ExitSpellMark
+Else
+	Message "This spell cannot be cast outdoors."
+EndIf
+
+End
+
+Magic Effect

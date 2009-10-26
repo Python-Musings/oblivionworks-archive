@@ -1,0 +1,71 @@
+ If VersionLessThan 0.9.1
+	Message "This omod requires obmm 0.9.1 or later" "Error"
+	FatalError
+EndIf
+
+DontInstallAnyDataFiles
+
+SelectWithPreview "Choose your new nighteye shader" circularexpand circularexpand.jpg desaturate desaturate.jpg edgedetect edgedetect.jpg expand1 expand1.jpg expand2 expand2.jpg greeneye greeneye.jpg infrared infrared.jpg invert1 invert1.jpg invert2 invert2.jpg rainbow rainbow.jpg redeye redeye.jpg rotate rotate.jpg sepia sepia.jpg sin sin.jpg verybright None superbright superbright.jpg Normal None ColorBlind None "Cancel activation" None
+Case circularexpand
+	SetVar shader circularexpand
+	Break
+Case desaturate
+	SetVar shader desaturate
+	Break
+Case edgedetect
+	SetVar shader edgedetect
+	Break
+Case expand1
+	SetVar shader expand1
+	Break
+Case expand2
+	SetVar shader expand2
+	Break
+Case greeneye
+	SetVar shader greeneye
+	Break
+Case infrared
+	SetVar shader infrared
+	Break
+Case invert1
+	SetVar shader invert1
+	Break
+Case invert2
+	SetVar shader invert2
+	Break
+Case rainbow
+	SetVar shader rainbow
+	Break
+Case redeye
+	SetVar shader redeye
+	Break
+Case rotate
+	SetVar shader rotate
+	Break
+Case sepia
+	SetVar shader sepia
+	Break
+Case sin
+	SetVar shader sin
+	Break
+Case verybright
+	SetVar shader verybright
+	Break
+Case superbright
+	SetVar shader superbright
+	Break
+Case Normal
+	SetVar shader Normal
+	Break
+Case ColorBlind
+	SetVar shader ColorBlind
+	Break
+Case Cancel activation
+	FatalError
+EndSelect
+	
+
+;SetVar package 8
+For Count package 1 19
+	EditShader %package% "nighteye000.pso" "%shader%.pso"
+EndFor

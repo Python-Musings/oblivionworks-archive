@@ -1,0 +1,11 @@
+Scriptname AAAddSpelllScript
+
+short DoonceAASO100
+
+begin gamemode
+
+if (DoonceAASO100 ==0)
+player.addspell AASKillsOver100BonusSpell
+set DoonceAASO100 to 1
+endif
+End

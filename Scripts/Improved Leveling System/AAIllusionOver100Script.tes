@@ -1,0 +1,49 @@
+Scriptname AAIllusionOver100Script
+
+
+short ILLdoonce
+short ILLdooncetwice
+float fIllusionDifference
+float fIllusionDifferenceFix
+float fIllusionTracker
+float fIllusionCurrent
+float fOldModifierILL
+float fNewModifierILL
+
+begin gamemode
+
+set fIllusionTracker to player.getav Illusion
+
+if ( fIllusionTracker < 101 )
+	 if (GetGameSetting FPCBaseHealthMult >2)
+		con_SetGameSetting FPCBaseHealthMult 2
+		set fIllusionCurrent to fIllusionTracker
+		If (ILLdooncetwice == 0)
+		MessageBox "With the removal of your enchanted garments your power sways in the abyss as your Illusion mastery returns to that of a mortal."
+		set ILLdooncetwice to 1
+		endif
+	endif
+	return
+endif
+
+	set fIllusionTracker to player.GetAV Illusion
+	 if ( fIllusionTracker > 100 )
+		if ( fOldModifierILL == 0 )
+        set fOldModifierILL to GetGameSetting FPCBaseHealthMult
+			endif
+    
+		set fNewModifierILL to fOldModifierILL + ( fIllusionTracker / 100)
+		SetNumericGameSetting FPCBaseHealthMult fNewModifierILL
+	     player.cast AASkillsOver100Spell player
+	if (ILLdoonce == 0)
+		MessageBox "As the power of Oblivion unfolds into your soul, power pouring forth filling you with immeasurable power. The powers of the Gods spreads forth into your being as your Mastery of Illusion spreads forth beyond the grasp of mere mortals."
+		set ILLdoonce to 1
+		set ILLdooncetwice to 0
+	elseif (ILLdoonce == 1)
+		MessageBox "The powers of Oblivion over your mastery of Illusion canters and changes within your being"
+		set ILLdooncetwice to 0
+	endif
+	return
+endif
+
+End

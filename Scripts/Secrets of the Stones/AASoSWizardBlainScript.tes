@@ -1,0 +1,315 @@
+
+ScriptName AASoSWizardBlainScript
+
+short WBButton
+short WBStep
+short VarlaStoneCount
+
+;Sigil Stones
+short SSAbsAGIForAGI5Count
+short SSAbsENDResistDis5Count
+short SSAbsFATForFAT5Count
+short SSAbsHLTHForHLTH5Count
+short SSAbsINTForINT5Count
+short SSAbsMAGForMAG5Count
+short SSAbsSPDFortSPD5Count
+short SSAbsSTRForSTR5Count
+short SSBrdnFeath5Count
+short SSDamFATResFAT5Count
+short SSDamHLTHResHLTH5Count
+short SSDamMAGResMAG5Count
+short SSDemoFortWIL5Count
+short SSDisARMShield5Count
+short SSDispelSplAbs5Count
+short SSDisWEAPForBLADE5Count
+short SSDisWEAPForBLUNT5Count
+short SSFireDmgFireShld5Count
+short SSFireDmgLight5Count
+short SSFireDmgRstFire5Count
+short SSFrostDmgFrostShld5Count
+short SSFrostDmgRstFrost5Count
+short SSFrostDmgWaterWalk5Count
+short SSShockDmgNiEye5Count
+short SSShockDmgRstShock5Count
+short SSShockDmgShockShld5Count
+short SSSilenceInvis5Count
+short SSSilenceResistMAG5Count
+short SSSoulTrapResistMAG5Count
+short SSTurnUnDetLife5Count
+
+Begin OnActivate
+
+set VarlaStoneCount to 0
+set SSAbsAGIForAGI5Count to 0
+set SSAbsENDResistDis5Count to 0
+set SSAbsFATForFAT5Count to 0
+set SSAbsHLTHForHLTH5Count to 0
+set SSAbsINTForINT5Count to 0
+set SSAbsMAGForMAG5Count to 0
+set SSAbsSPDFortSPD5Count to 0
+set SSAbsSTRForSTR5Count to 0
+set SSBrdnFeath5Count to 0
+set SSDamFATResFAT5Count to 0
+set SSDamHLTHResHLTH5Count to 0
+set SSDamMAGResMAG5Count to 0
+set SSDemoFortWIL5Count to 0
+set SSDisARMShield5Count to 0
+set SSDispelSplAbs5Count to 0
+set SSDisWEAPForBLADE5Count to 0
+set SSDisWEAPForBLUNT5Count to 0
+set SSFireDmgFireShld5Count to 0
+set SSFireDmgLight5Count to 0
+set SSFireDmgRstFire5Count to 0
+set SSFrostDmgFrostShld5Count to 0
+set SSFrostDmgRstFrost5Count to 0
+set SSFrostDmgWaterWalk5Count to 0
+set SSShockDmgNiEye5Count to 0
+set SSShockDmgRstShock5Count to 0
+set SSShockDmgShockShld5Count to 0
+set SSSilenceInvis5Count to 0
+set SSSilenceResistMAG5Count to 0
+set SSSoulTrapResistMAG5Count to 0
+set SSTurnUnDetLife5Count to 0
+set WBStep to 1
+END
+
+Begin GameMode
+if WBStep == 0
+set WBButton to -1
+endif
+
+if WBStep == 1
+set VarlaStoneCount to ( player.getitemcount VarlaStone )
+set SSAbsAGIForAGI5Count to ( player.getitemcount SSAbsAGIForAGI5 )
+set SSAbsENDResistDis5Count to ( player.getitemcount SSAbsENDResistDis5 )
+set SSAbsFATForFAT5Count to ( player.getitemcount SSAbsFATForFAT5 )
+set SSAbsHLTHForHLTH5Count to ( player.getitemcount SSAbsHLTHForHLTH5 )
+set SSAbsINTForINT5Count to ( player.getitemcount SSAbsINTForINT5 )
+set SSAbsMAGForMAG5Count to ( player.getitemcount SSAbsMAGForMAG5 )
+set SSAbsSPDFortSPD5Count to ( player.getitemcount SSAbsSPDFortSPD5 )
+set SSAbsSTRForSTR5Count to ( player.getitemcount SSAbsSTRForSTR5 )
+set SSBrdnFeath5Count to ( player.getitemcount SSBrdnFeath5 )
+set SSDamFATResFAT5Count to ( player.getitemcount SSDamFATResFAT5 )
+set SSDamHLTHResHLTH5Count to ( player.getitemcount SSDamHLTHResHLTH5 )
+set SSDamMAGResMAG5Count to ( player.getitemcount SSDamMAGResMAG5 )
+set SSDemoFortWIL5Count to ( player.getitemcount SSDemoFortWIL5 )
+set SSDisARMShield5Count to ( player.getitemcount SSDisARMShield5 )
+set SSDispelSplAbs5Count to ( player.getitemcount SSDispelSplAbs5 )
+set SSDisWEAPForBLADE5Count to ( player.getitemcount SSDisWEAPForBLADE5 )
+set SSDisWEAPForBLUNT5Count to ( player.getitemcount SSDisWEAPForBLUNT5 )
+set SSFireDmgFireShld5Count to ( player.getitemcount SSFireDmgFireShld5 )
+set SSFireDmgLight5Count to ( player.getitemcount SSFireDmgLight5 )
+set SSFireDmgRstFire5Count to ( player.getitemcount SSFireDmgRstFire5 )
+set SSFrostDmgFrostShld5Count to ( player.getitemcount SSFrostDmgFrostShld5 )
+set SSFrostDmgRstFrost5Count to ( player.getitemcount SSFrostDmgRstFrost5 )
+set SSFrostDmgWaterWalk5Count to ( player.getitemcount SSFrostDmgWaterWalk5 )
+set SSShockDmgNiEye5Count to ( player.getitemcount SSShockDmgNiEye5 )
+set SSShockDmgRstShock5Count to ( player.getitemcount SSShockDmgRstShock5 )
+set SSShockDmgShockShld5Count to ( player.getitemcount SSShockDmgShockShld5 )
+set SSSilenceInvis5Count to ( player.getitemcount SSSilenceInvis5 )
+set SSSilenceResistMAG5Count to ( player.getitemcount SSSilenceResistMAG5 )
+set SSSoulTrapResistMAG5Count to ( player.getitemcount SSSoulTrapResistMAG5 )
+set SSTurnUnDetLife5Count to ( player.getitemcount SSTurnUnDetLife5 )
+set WBStep to 2
+endif
+
+if WBStep == 2
+if VarlaStoneCount <= 1
+messagebox "You do not have enough Varla Stones"
+set WBStep to 0
+elseif VarlaStoneCount >= 2
+set WBStep to 3
+endif
+endif
+
+if WBStep == 3
+
+if SSAbsAGIForAGI5Count == 0 && SSAbsENDResistDis5Count == 0 && SSAbsFATForFAT5Count == 0 && SSAbsHLTHForHLTH5Count == 0 && SSAbsINTForINT5Count == 0 &&SSAbsMAGForMAG5Count == 0 && SSAbsSPDFortSPD5Count == 0 && SSAbsSTRForSTR5Count == 0 && SSBrdnFeath5Count == 0 && SSDamFATResFAT5Count == 0 && SSDamHLTHResHLTH5Count == 0 && SSDamMAGResMAG5Count == 0 && SSDemoFortWIL5Count == 0 && SSDisARMShield5Count == 0 && SSDispelSplAbs5Count == 0
+messagebox "You do not have any Transcendent Sigil Stones"
+set WBStep to 0
+elseif SSDisWEAPForBLADE5Count == 0 && SSDisWEAPForBLUNT5Count == 0 && SSFireDmgFireShld5Count == 0 && SSFireDmgLight5Count == 0 && SSFireDmgRstFire5Count == 0 && SSFrostDmgFrostShld5Count == 0 && SSFrostDmgRstFrost5Count == 0 && SSFrostDmgWaterWalk5Count == 0 && SSShockDmgNiEye5Count == 0 && SSShockDmgRstShock5Count == 0 && SSShockDmgShockShld5Count == 0 && SSSilenceInvis5Count == 0 && SSSilenceResistMAG5Count == 0 && SSSoulTrapResistMAG5Count == 0 && SSTurnUnDetLife5Count == 0
+messagebox "You do not have any Transcendent Sigil Stones"
+set WBStep to 0
+
+elseif SSAbsAGIForAGI5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSAbsAGIForAGI5, 1
+player.AdditemNS  AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSAbsENDResistDis5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSAbsENDResistDis5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSAbsFATForFAT5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSAbsFATForFAT5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSAbsHLTHForHLTH5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSAbsHLTHForHLTH5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSAbsINTForINT5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSAbsINTForINT5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSAbsMAGForMAG5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSAbsMAGForMAG5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSAbsSPDFortSPD5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSAbsSPDFortSPD5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSAbsSTRForSTR5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSAbsSTRForSTR5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSBrdnFeath5Count >= 1 && VarlaStone >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSBrdnFeath5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSDamFATResFAT5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSDamFATResFAT5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSDamHLTHResHLTH5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSDamHLTHResHLTH5, 1
+player.AdditemNS AASoSWizardBlain, 1
+set WBStep to 0
+elseif SSDamMAGResMAG5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSDamMAGResMAG5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSDemoFortWIL5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSDemoFortWIL5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSDisARMShield5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSDisARMShield5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSDispelSplAbs5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSDispelSplAbs5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSDisWEAPForBLADE5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSDisWEAPForBLADE5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSDisWEAPForBLUNT5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSDisWEAPForBLUNT5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSFireDmgFireShld5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSFireDmgFireShld5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSFireDmgLight5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSFireDmgLight5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSFireDmgRstFire5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSFireDmgRstFire5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSFrostDmgFrostShld5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSFrostDmgFrostShld5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSFrostDmgRstFrost5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSFrostDmgRstFrost5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSFrostDmgWaterWalk5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSFrostDmgWaterWalk5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSShockDmgNiEye5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSShockDmgNiEye5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSShockDmgRstShock5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSShockDmgRstShock5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSShockDmgShockShld5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSShockDmgShockShld5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSSilenceInvis5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSSilenceInvis5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSSilenceResistMAG5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSSilenceResistMAG5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSSoulTrapResistMAG5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSSoulTrapResistMAG5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+elseif SSTurnUnDetLife5Count >= 1 && VarlaStoneCount >= 2
+player.RemoveItemNS VarlaStone, 2
+player.RemoveItemNS SSTurnUnDetLife5, 1
+player.AdditemNS AASoSWizardBlain, 1
+messagebox " You merged the Transcendent Sigil Stone with the two Varla Stones Creating the Wizard's Blain Sigil"
+set WBStep to 0
+endif
+endif
+End 

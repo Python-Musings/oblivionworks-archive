@@ -1,0 +1,50 @@
+Scriptname AARestorationOver100Script
+
+
+short restdoonce
+short restdooncetwice
+float fRestorationDifference
+float fRestorationDifferenceFix
+float fRestorationTracker
+float fRestorationCurrent
+float fOldModifierRest
+float fNewModifierRest
+
+begin gamemode
+
+set fRestorationTracker to player.getav Restoration
+
+if ( fRestorationTracker < 101 )
+	 if (GetGameSetting fMagickaReturnMult >0.020)
+		con_SetGameSetting fMagickaReturnMult 0.020
+		set fRestorationCurrent to fRestorationTracker
+		if (restdooncetwice == 0)
+		MessageBox "With the removal of your enchanted garments your power sways in the abyss as your Restoration mastery returns to that of a mortal."
+		set restdooncetwice to 1
+		endif
+	endif
+	return
+endif
+
+
+	set fRestorationTracker to player.GetAV Restoration
+	 if ( fRestorationTracker > 100 )
+		if ( fOldModifierRest == 0 )
+        set fOldModifierRest to GetGameSetting fMagickaReturnMult
+			endif
+    
+		set fNewModifierRest to fOldModifierRest * ( fRestorationTracker / 100 )
+		SetNumericGameSetting fMagickaReturnMult fNewModifierRest
+	     player.cast AASkillsOver100Spell player
+	if (restdoonce == 0)
+		MessageBox "As the power of Oblivion unfolds into your soul, power pouring forth filling you with immeasurable power. The powers of the Gods spreads forth into your being as your Mastery of Restoration spreads forth beyond the grasp of mere mortals."
+		set restdoonce to 1
+		set restdooncetwice to 0
+	elseif (restdoonce == 1)
+		MessageBox "The powers of Oblivion over your mastery of Restoration canters and changes within your being"
+		set restdooncetwice to 0
+	endif
+	return
+endif
+
+End

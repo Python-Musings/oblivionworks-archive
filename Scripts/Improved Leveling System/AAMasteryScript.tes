@@ -1,0 +1,29 @@
+ScriptName AAMasterySpellScript
+
+Short AlterationMasterydoonce
+short MysticismMasterydoonce
+short RestorationMasterydoonce
+
+Begin gamemode
+
+	if (AlterationMasterydoonce == 0)
+		if ( player.GetActorValue Alteration >= 100)
+		player.addspell AAAlterationMasterySpell
+		set AlterationMasterydoonce to 1
+		endif
+		endif
+		
+	if (MysticismMasterydoonce == 0)
+		if ( player.GetActorValue Mysticism >= 100)
+		player.addspell AAMysticismMasterySpell
+		set MysticismMasterydoonce to 1
+		endif
+		endif
+	if (RestorationMasterydoonce == 0)
+		if ( player.GetActorValue Restoration >= 100)
+		startquest AARestorationMasteryScript 
+		set RestorationMasterydoonce to 1
+		endif
+		endif
+
+End

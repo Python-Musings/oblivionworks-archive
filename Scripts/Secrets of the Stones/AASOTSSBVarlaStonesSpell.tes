@@ -1,0 +1,29 @@
+﻿scn AASOTSSBVarlaStonesSpell
+
+short AASOTSSBVarlaStonesSpellbutton
+short AASOTSSBVarlaStonesSpellused
+
+begin OnEquip player
+	if AASOTSSBVarlaStonesSpellused == 0
+		MessageBox "Do you want to add 'Transmute Varla Stones' to your spell list?", "Yes", "No"
+	endif
+end
+
+begin OnActivate
+	Activate
+	if isActionRef player == 1 && AASOTSSBVarlaStonesSpellused == 0
+		MessageBox "Do you want to add 'Transmute Varla Stones' to your spell list?", "Yes", "No"
+	endif
+end
+
+begin menumode 1026
+	set AASOTSSBVarlaStonesSpellbutton to getbuttonpressed
+	if AASOTSSBVarlaStonesSpellbutton > -1
+		if AASOTSSBVarlaStonesSpellbutton == 0
+			; add the spell to the player's spellbook
+			player.addspell AAVarlaStonesSpell
+			playsound SPLConjurationCast
+			set AASOTSSBVarlaStonesSpellused to 1
+		endif
+	endif
+end

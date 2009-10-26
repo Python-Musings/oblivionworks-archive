@@ -1,0 +1,54 @@
+ScriptName AAResetStats26
+
+short ARSButton
+short ARSStep
+short DisCon
+short DisCon2
+
+Begin ScriptEffectStart
+	
+	set DisCon to GetPCMiscStat 26 * -1 ;resets Diseases Contracted to 0
+	set DisCon2 to GetPCMiscStat 26
+	set ARSStep to 1
+	
+End 
+	
+BEGIN ScriptEffectUpdate
+
+if ARSStep == 0
+	set ARSButton to -1
+Endif
+
+If ARSStep == 1
+	Messagebox "What do you want to do to Diseases Contracted?" "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"
+	set ARSStep to 2
+Endif
+
+If ARSStep == 2
+		set ARSButton to GetButtonPressed
+	    if ARSButton > -1
+		if ARSButton == 0 && DisCon2 > 0
+			ModPCMiscStat 26 -1
+			message "Your Diseases Contracted count was lowered by 1"
+		elseif ARSButton == 1 && DisCon2 > 9
+			ModPCMiscStat 26 -10
+			message "Your Diseases Contracted count was lowered by 10"
+		elseif ARSButton == 2  && DisCon2 > 99
+			ModPCMiscStat 26 -100
+			message "Your Diseases Contracted count was lowered by 100"
+		elseif ARSButton == 3
+			ModPCMiscStat 26 DisCon
+			message "Your Diseases Contracted count has been reset back to 0"
+		elseif ARSButton == 4
+			ModPCMiscStat 26 1
+			message "Your Diseases Contracted count was raised by 1"
+		elseif ARSButton == 5
+			ModPCMiscStat 26 10
+			message "Your Diseases Contracted count was raised by 10"
+		elseif ARSButton == 6
+			ModPCMiscStat 26 100
+			message "Your Diseases Contracted count was raised by 100"
+		Endif
+		Endif
+Endif
+End 

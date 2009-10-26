@@ -1,0 +1,288 @@
+Sigil Stone Alternative
+
+Welcome to my Sigil Stone Alternative for The Elder Scrolls IV: Oblivion.
+
+What this plug-in does is a complete Overhaul to the Sigil Stones. From looking at the Sigil Stones in the CS, I found there are a few things that I felt was wrong with them.
+http://www.uesp.net/wiki/Oblivion:Sigil_Stones going here you will see the Default settings for them. You will see that they are unbalanced being there is a few that there lower level counterparts are more powerful then the best of the best and a few of the level 17+ stones being weak compared to others. 
+
+Sigil Stone Ranks
+Level   Type
+1-4      Descendent
+5-8      Subjacent
+9-12     Latent
+13-16    Ascendent
+17+      Transcendent
+
+
+What I have done was take all of the Sigil Stones and redone them the way I think the stones should be done. I tried to make them based off the quest that these Stones are suppose to be powerful relics that power the gate to functions should be better then what you can make at a Enchanters Alter. 
+
+Descendent
+Effect Name         Magnitude   Area   Duration   Range   Magic School
+Absorb Agility         5      0      30         Touch     Restoration
+Fortify Agility        5      0      0          Self      Restoration
+Absorb Endurance       5      0      30         Touch     Restoration
+Resist Disease         15     0      0          Self      Restoration
+Absorb Fatigue         20     0      0          Touch     Restoration
+Fortify Fatigue        20     0      0          Self      Restoration
+Absorb Health          20     0      0          Touch     Restoration
+Fortify Health         20     0      0          Self      Restoration
+Absorb Intelligence    5      0      30         Touch     Restoration
+Fortify Intelligence   5      0      0          Self      Restoration
+Absorb Magicka         20     0      0          Touch     Restoration
+Fortify Magicka        20     0      0          Self      Restoration
+Absorb Speed           5      0      30         Touch     Restoration
+Fortify Speed          5      0      0          Self      Restoration
+Absorb Strength        5      0      30         Touch     Restoration
+Fortify Strength       5      0      0          Self      Restoration
+Burden                 40     0      30         Touch     Alteration
+Feather                50     0      0          Self      Alteration
+Damage Fatigue         20     0      0          Touch     Destruction
+Fortify Fatigue        2      0      0          Self      Restoration
+Damage Health          5      0      0          Touch     Destruction
+Fortify Health         20     0      0          Self      Restoration
+Damage Magicka         20     0      0          Touch     Destruction
+Fortify Magicka        20     0      0          Self      Restoration
+Demoralize             10     0      20         Touch     Destruction
+Fortify Willpower      3      0      0          Self      Restoration
+Disintegrate Armor     10     0      0          Touch     Destruction
+Shield                 10     0      0          Self      Alteration
+Dispel                 30     0      0          Touch     Mysticism
+Spell Absorption       6      0      0          Self      Mysticism
+Disintegrate Weapon    10     0      0          Touch     Destruction
+Fortify Blade          3      0      0          Self      Restoration
+Fortify Blunt          3      0      0          Self      Restoration
+Fire Damage            5      0      0          Touch     Destruction
+Fire Shield            10     0      0          Self      Alteration
+Light                  20     0      0          Self      Illusion
+Resist Fire            15     0      0          Self      Restoration
+Frost Damage           5      0      0          Touch     Destruction
+Frost Shield           10     0      0          Self      Alteration
+Resist Frost           15     0      0          Self      Restoration
+Water Walking          0      0      0          Self      Alteration
+Shock Damage           5      0      0          Touch     Destruction
+Night-Eye              0      0      0          Self      Illusion
+Resist Shock           15     0      0          Self      Restoration
+Shock Shield           10     0      0          Self      Alteration
+Chameleon              20     0      0          Self      Illusion
+Silence                 0     0      6          Touch     Illusion
+Resist Magic           15     0      0          Self      Restoration
+Soul Trap               0     0      6          Touch     Mysticism
+Turn undead            20     0      6          Touch     Conjuration
+Detect Life            36     0      0          Self      Mysticism
+
+Subjacent
+Effect Name         Magnitude   Area   Duration   Range   Magic School
+Absorb Agility         10      0      30        Touch     Restoration
+Fortify Agility        10      0      0         Self      Restoration
+Absorb Endurance       10      0      30        Touch     Restoration
+Resist Disease         30      0      0         Self      Restoration
+Absorb Fatigue         40      0      0         Touch     Restoration
+Fortify Fatigue        40      0      0         Self      Restoration
+Absorb Health          40      0      0         Touch     Restoration
+Fortify Health         40      0      0         Self      Restoration
+Absorb Intelligence    10      0      30        Touch     Restoration
+Fortify Intelligence   10      0      0         Self      Restoration
+Absorb Magicka         40      0      0         Touch     Restoration
+Fortify Magicka        40      0      0         Self      Restoration
+Absorb Speed           10      0      30        Touch     Restoration
+Fortify Speed          10      0      0         Self      Restoration
+Absorb Strength        10      0      30        Touch     Restoration
+Fortify Strength       10      0      0         Self      Restoration
+Burden                 80      0      30        Touch     Alteration
+Feather               100      0      0         Self      Alteration
+Damage Fatigue         40      0      0         Touch     Destruction
+Fortify Fatigue        40      0      0         Self      Restoration
+Damage Health          10      0      0         Touch     Destruction
+Fortify Health         40      0      0         Self      Restoration
+Damage Magicka         40      0      0         Touch     Destruction
+Fortify Magicka        40      0      0         Self      Restoration
+Demoralize             20      0      20        Touch     Destruction
+Fortify Willpower       6      0      0         Self      Restoration
+Disintegrate Armor     20      0      0         Touch     Destruction
+Shield                 20      0      0         Self      Alteration
+Dispel                 60      0      0         Touch     Mysticism
+Spell Absorption       12      0      0         Self      Mysticism
+Disintegrate Weapon    20      0      0         Touch     Destruction
+Fortify Blade           6      0      0         Self      Restoration
+Fortify Blunt           6      0      0         Self      Restoration
+Fire Damage            10      0      0         Touch     Destruction
+Fire Shield            20      0      0         Self      Alteration
+Light                  40      0      0         Self      Illusion
+Resist Fire            30      0      0         Self      Restoration
+Frost Damage           10      0      0         Touch     Destruction
+Frost Shield           20      0      0         Self      Alteration
+Resist Frost           30      0      0         Self      Restoration
+Water Walking           0      0      0         Self      Alteration
+Shock Damage           10      0      0         Touch     Destruction
+Night-Eye               0      0      0         Self      Illusion
+Resist Shock           30      0      0         Self      Restoration
+Shock Shield           20      0      0         Self      Alteration
+Chameleon              40      0      0         Self      Illusion
+Silence                 0      0      12         Touch    Illusion
+Resist Magic           30      0      0         Self      Restoration
+Soul Trap               0      0      12         Touch    Mysticism
+Turn undead            40      0      12         Touch    Conjuration
+Detect Life            72      0      0         Self      Mysticism
+
+Latent
+Effect Name         Magnitude   Area   Duration   Range   Magic School
+Absorb Agility         15      0      30         Touch   Restoration
+Fortify Agility        15      0      0          Self    Restoration
+Absorb Endurance       15      0      30         Touch   Restoration
+Resist Disease         45      0      0          Self    Restoration
+Absorb Fatigue         60      0      0          Touch   Restoration
+Fortify Fatigue        60      0      0          Self    Restoration
+Absorb Health          60      0      0          Touch   Restoration
+Fortify Health         60      0      0          Self    Restoration
+Absorb Intelligence    15      0      30         Touch   Restoration
+Fortify Intelligence   15      0      0          Self    Restoration
+Absorb Magicka         60      0      0          Touch   Restoration
+Fortify Magicka        60      0      0          Self    Restoration
+Absorb Speed           15      0      30         Touch   Restoration
+Fortify Speed          15      0      0          Self    Restoration
+Absorb Strength        15      0      30         Touch   Restoration
+Fortify Strength       15      0      0          Self    Restoration
+Burden                120      0      30         Touch   Alteration
+Feather               150      0      0          Self    Alteration
+Damage Fatigue         60      0      0          Touch   Destruction
+Fortify Fatigue        60      0      0          Self    Restoration
+Damage Health          15      0      0          Touch   Destruction
+Fortify Health         60      0      0          Self    Restoration
+Damage Magicka         60      0      0          Touch   Destruction
+Fortify Magicka        60      0      0          Self    Restoration
+Demoralize             30      0      20         Touch   Destruction
+Fortify Willpower       9      0      0          Self    Restoration
+Disintegrate Armor     30      0      0          Touch   Destruction
+Shield                 30      0      0          Self    Alteration
+Dispel                 90      0      0          Touch   Mysticism
+Spell Absorption       18      0      0          Self    Mysticism
+Disintegrate Weapon    30      0      0          Touch   Destruction
+Fortify Blade           9      0      0          Self    Restoration
+Fortify Blunt           9      0      0          Self    Restoration
+Fire Damage            15      0      0          Touch   Destruction
+Fire Shield            30      0      0          Self    Alteration
+Light                  60      0      0          Self    Illusion
+Resist Fire            45      0      0          Self    Restoration
+Frost Damage           15      0      0          Touch   Destruction
+Frost Shield           30      0      0          Self    Alteration
+Resist Frost           45      0      0          Self    Restoration
+Water Walking           0      0      0          Self    Alteration
+Shock Damage           15      0      0          Touch   Destruction
+Night-Eye               0      0      0          Self    Illusion
+Resist Shock           45      0      0          Self    Restoration
+Shock Shield           30      0      0          Self    Alteration
+Chameleon              60      0      0          Self    Illusion
+Silence                 0      0      18         Touch   Illusion
+Resist Magic           45      0      0          Self    Restoration
+Soul Trap               0      0      18         Touch   Mysticism
+Turn undead            60      0      18         Touch   Conjuration
+Detect Life           108      0      0          Self    Mysticism
+
+Ascendent
+Effect Name         Magnitude   Area   Duration   Range   Magic School
+Absorb Agility         20      0      30         Touch    Restoration
+Fortify Agility        20      0      0          Self     Restoration
+Absorb Endurance       20      0      30         Touch    Restoration
+Resist Disease         60      0      0          Self     Restoration
+Absorb Fatigue         80      0      0          Touch    Restoration
+Fortify Fatigue        80      0      0          Self     Restoration
+Absorb Health          80      0      0          Touch    Restoration
+Fortify Health         80      0      0          Self     Restoration
+Absorb Intelligence    20      0      30         Touch    Restoration
+Fortify Intelligence   20      0      0          Self     Restoration
+Absorb Magicka         80      0      0          Touch    Restoration
+Fortify Magicka        80      0      0          Self     Restoration
+Absorb Speed           20      0      30         Touch    Restoration
+Fortify Speed          20      0      0          Self     Restoration
+Absorb Strength        20      0      30         Touch    Restoration
+Fortify Strength       20      0      0          Self     Restoration
+Burden                160      0      30         Touch    Alteration
+Feather               200      0      0          Self     Alteration
+Damage Fatigue         80      0      0          Touch    Destruction
+Fortify Fatigue        80      0      0          Self     Restoration
+Damage Health          20      0      0          Touch    Destruction
+Fortify Health         80      0      0          Self     Restoration
+Damage Magicka         80      0      0          Touch    Destruction
+Fortify Magicka        80      0      0          Self     Restoration
+Demoralize             40      0      20         Touch    Destruction
+Fortify Willpower      12      0      0          Self     Restoration
+Disintegrate Armor     40      0      0          Touch    Destruction
+Shield                 40      0      0          Self     Alteration
+Dispel                120      0      0          Touch    Mysticism
+Spell Absorption       24      0      0          Self     Mysticism
+Disintegrate Weapon    40      0      0          Touch    Destruction
+Fortify Blade          12      0      0          Self     Restoration
+Fortify Blunt          12      0      0          Self     Restoration
+Fire Damage            20      0      0          Touch    Destruction
+Fire Shield            40      0      0          Self     Alteration
+Light                  80      0      0          Self     Illusion
+Resist Fire            60      0      0          Self     Restoration
+Frost Damage           20      0      0          Touch    Destruction
+Frost Shield           40      0      0          Self     Alteration
+Resist Frost           60      0      0          Self     Restoration
+Water Walking           0      0      0          Self     Alteration
+Shock Damage           20      0      0          Touch    Destruction
+Night-Eye               0      0      0          Self     Illusion
+Resist Shock           60      0      0          Self     Restoration
+Shock Shield           40      0      0          Self     Alteration
+Chameleon              80      0      0          Self     Illusion
+Silence                 0      0      24         Touch    Illusion
+Resist Magic           60      0      0          Self     Restoration
+Soul Trap               0      0      24         Touch    Mysticism
+Turn undead            80      0      24         Touch    Conjuration
+Detect Life           144      0      0          Self     Mysticism
+
+Transcendent
+Effect Name         Magnitude   Area   Duration   Range   Magic School
+Absorb Agility         25      0      30         Touch    Restoration
+Fortify Agility        25      0      0          Self     Restoration
+Absorb Endurance       25      0      30         Touch    Restoration
+Resist Disease         75      0      0          Self     Restoration
+Absorb Fatigue        100      0      0          Touch    Restoration
+Fortify Fatigue       100      0      0          Self     Restoration
+Absorb Health         100      0      0          Touch    Restoration
+Fortify Health        100      0      0          Self     Restoration
+Absorb Intelligence    25      0      30         Touch    Restoration
+Fortify Intelligence   25      0      0          Self     Restoration
+Absorb Magicka        100      0      0          Touch    Restoration
+Fortify Magicka       100      0      0          Self     Restoration
+Absorb Speed           25      0      30         Touch    Restoration
+Fortify Speed          25      0      0          Self     Restoration
+Absorb Strength        25      0      30         Touch    Restoration
+Fortify Strength       25      0      0          Self     Restoration
+Burden                200      0      30         Touch    Alteration
+Feather               250      0      0          Self     Alteration
+Damage Fatigue        100      0      0          Touch    Destruction
+Fortify Fatigue       100      0      0          Self     Restoration
+Damage Health          25      0      0          Touch    Destruction
+Fortify Health        100      0      0          Self     Restoration
+Damage Magicka        100      0      0          Touch    Destruction
+Fortify Magicka       100      0      0          Self     Restoration
+Demoralize             50      0      20         Touch    Destruction
+Fortify Willpower      15      0      0          Self     Restoration
+Disintegrate Armor     50      0      0          Touch    Destruction
+Shield                 50      0      0          Self     Alteration
+Dispel                150      0      0          Touch    Mysticism
+Spell Absorption       30      0      0          Self     Mysticism
+Disintegrate Weapon    50      0      0          Touch    Destruction
+Fortify Blade          15      0      0          Self     Restoration
+Fortify Blunt          15      0      0          Self     Restoration
+Fire Damage            25      0      0          Touch    Destruction
+Fire Shield            50      0      0          Self     Alteration
+Light                 100      0      0          Self     Illusion
+Resist Fire            75      0      0          Self     Restoration
+Frost Damage           25      0      0          Touch    Destruction
+Frost Shield           50      0      0          Self     Alteration
+Resist Frost           75      0      0          Self     Restoration
+Water Walking           0      0      0          Self     Alteration
+Shock Damage           25      0      0          Touch    Destruction
+Night-Eye               0      0      0          Self     Illusion
+Resist Shock           75      0      0          Self     Restoration
+Shock Shield           50      0      0          Self     Alteration
+Chameleon             100      0      0          Self     Illusion
+Silence                 0      0      30         Touch    Illusion
+Resist Magic           75      0      0          Self     Restoration
+Soul Trap               0      0      30         Touch    Mysticism
+Turn undead           100      0      30         Touch    Conjuration
+Detect Life           180      0      0          Self     Mysticism
+

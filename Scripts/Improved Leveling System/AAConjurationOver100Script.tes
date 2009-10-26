@@ -1,0 +1,45 @@
+Scriptname AAConjurationOver100Script
+
+short ConjMagnitude
+short Conjdoonce
+short Conjdooncetwice
+float fConjurationDifference
+float fConjurationDifferenceFix
+float fConjurationTracker
+float fConjurationCurrent
+
+begin gamemode
+
+set fConjurationTracker to player.getav Conjuration
+
+
+if ( fConjurationTracker < 101 )
+		set ConjMagnitude to 0
+	 	SetNthEffectItemMagnitude ConjMagnitude AASKillsOver100BonusSpell 2
+		set fConjurationCurrent to fConjurationTracker
+		if (Conjdooncetwice == 0)
+		MessageBox "With the removal of your enchanted garments your power sways in the abyss as your Conjuration mastery returns to that of a mortal."
+		set Conjdooncetwice to 1
+		endif
+	endif
+	return
+endif
+
+	set fConjurationTracker to player.GetAV Conjuration
+	 if ( fConjurationTracker > 100 )
+		            
+		set ConjMagnitude to (fConjurationTracker/8)
+		SetNthEffectItemMagnitude ConjMagnitude AASKillsOver100BonusSpell 2
+			     player.cast AASkillsOver100Spell player
+	if (Conjdoonce == 0)
+		MessageBox "As the power of Oblivion unfolds into your soul, power pouring forth filling you with immeasurable power. The powers of the Gods spreads forth into your being as your Mastery of Conjuration spreads forth beyond the grasp of mere mortals."
+		set Conjdoonce to 1
+		set Conjdooncetwice to 0
+	elseif (Conjdoonce == 1)
+		MessageBox "The powers of Oblivion over your mastery of Conjuration canters and changes within your being"
+		set Conjdooncetwice to 0
+	endif
+	return
+endif
+
+End

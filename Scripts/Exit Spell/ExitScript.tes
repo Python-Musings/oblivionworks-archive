@@ -1,0 +1,26 @@
+﻿ScriptName ExitScript
+
+short outside
+short doOnce
+float fQuestDelayTime
+
+Begin GameMode
+
+If (doOnce == 0)
+	set fQuestDelayTime to 0.5
+	set doOnce to 1
+EndIf
+
+If (player.IsInInterior)
+	If (outside)
+		set outside to 0
+		ExitSpellMark.MoveTo Player
+		;set fQuestDelayTime to 5
+	EndIf
+Else
+	set outside to 1
+EndIf
+
+End
+
+Quest

@@ -1,0 +1,54 @@
+ScriptName AAResetStats33
+
+short ARSButton
+short ARSStep
+short HorsesStolen
+short HorsesStolen2
+
+Begin ScriptEffectStart
+	
+	set HorsesStolen to GetPCMiscStat 33 * -1 ;resets Horses Stolen to 0
+	set HorsesStolen2 to GetPCMiscStat 33
+	set ARSStep to 1
+	
+End 
+	
+BEGIN ScriptEffectUpdate
+
+if ARSStep == 0
+	set ARSButton to -1
+Endif
+
+If ARSStep == 1
+	Messagebox "What do you want to do to Horses Stolen?" "Remove 1" "Remove 10" "Remove 100" "Remove All" "Add 1" "Add 10" "Add 100" "Quit"
+	set ARSStep to 2
+Endif
+
+If ARSStep == 2
+		set ARSButton to GetButtonPressed
+	    if ARSButton > -1
+		if ARSButton == 0 && HorsesStolen2 > 0
+			ModPCMiscStat 33 -1
+			message "Your Horses Stolen count was lowered by 1"
+		elseif ARSButton == 1 && HorsesStolen2 > 9
+			ModPCMiscStat 33 -10
+			message "Your Horses Stolen count was lowered by 10"
+		elseif ARSButton == 2  && HorsesStolen2 > 99
+			ModPCMiscStat 33 -100
+			message "Your Horses Stolen count was lowered by 100"
+		elseif ARSButton == 3
+			ModPCMiscStat 33 HorsesStolen
+			message "Your Horses Stolen count has been reset back to 0"
+		elseif ARSButton == 4
+			ModPCMiscStat 33 1
+			message "Your Horses Stolen count was raised by 1"
+		elseif ARSButton == 5
+			ModPCMiscStat 33 10
+			message "Your Horses Stolen count was raised by 10"
+		elseif ARSButton == 6
+			ModPCMiscStat 33 100
+			message "Your Horses Stolen count was raised by 100"
+		Endif
+		Endif
+Endif
+End 

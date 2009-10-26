@@ -1,0 +1,12 @@
+Scriptname AAAddManualScript
+
+short DoonceManual
+
+begin gamemode
+
+if DoonceManual ==0
+player.additem AAConsoleCommands 1
+player.addspell AASKillsOver100BonusSpell 1
+set DoonceManual to 1
+endif
+End
