@@ -1,0 +1,142 @@
+scn RetrScrpImbueMultSet
+
+short DoOnce
+short ImbueMultButton
+short FinishButton
+short RetrFletchSkill
+Begin OnEquip
+	set DoOnce to 1
+End
+
+Begin MenuMode
+
+	if DoOnce == 1
+		set DoOnce to 2
+	endif
+
+	if DoOnce == 2
+		messagebox "Welcome to Arrow Fletching and Imbueing.   Please enjoy this mod!   You must choose the ratio of Reagents:Arrows in the Arrow Imbuer.  Be careful, this can only be set ONCE.", "1 Reagent : 1 Arrow", "1 Reagent : 2 Arrows", "1 Reagent : 3 Arrows", "1 Reagent : 4 Arrows", "1 Reagent : 5 Arrows"
+		set DoOnce to 3
+	endif
+
+	if DoOnce == 3
+		set ImbueMultButton to GetButtonPressed
+		if ImbueMultButton > -1
+			set DoOnce to 4
+		endif
+	endif
+
+	if DoOnce == 4
+		if ImbueMultButton > -1
+			if ImbueMultButton < 0
+				set DoOnce to 0
+			endif
+			if ImbueMultButton >= 0
+				set DoOnce to 5
+			endif
+		endif
+	endif
+
+	if DoOnce == 5
+		if ImbueMultButton == 0
+			set gRetrImbueMult to 1
+		elseif ImbueMultButton == 1
+			set gRetrImbueMult to 2
+		elseif ImbueMultButton == 2
+			set gRetrImbueMult to 3
+		elseif ImbueMultButton == 3
+			set gRetrImbueMult to 4
+		elseif ImbueMultButton == 4
+			set gRetrImbueMult to 5
+		endif
+			set DoOnce to 6
+	endif
+
+	if DoOnce == 6
+		messagebox "Now please choose which skill will be used with these items.", "Marksmanship", "Armorer", "Crafting"
+		set DoOnce to 7
+	endif
+
+	if DoOnce == 7
+		set RetrFletchSkill to GetButtonPressed
+		if RetrFletchSkill > -1
+			set DoOnce to 8
+		endif
+	endif
+
+	if DoOnce == 8
+		if RetrFletchSkill > -1
+			if RetrFletchSkill < 0
+				set DoOnce to 0
+			endif
+			if RetrFletchSkill >= 0
+				set DoOnce to 9
+			endif
+		endif
+	endif
+
+	if DoOnce == 9
+		set DoOnce to 10
+	endif
+
+
+	
+	if DoOnce == 10
+		if RetrFletchSkill == 0
+			messagebox "Are you sure? The ratio is set to 1 : %0.f and you have chosen Markmanship as your skill.", gRetrImbueMult, "Yes", "No"
+		elseif RetrFletchSkill == 1
+			messagebox "Are you sure? The ratio is set to 1 : %0.f and you have chosen Armorer as your skill.", gRetrImbueMult, "Yes", "No"
+		elseif RetrFletchSkill == 2
+			messagebox "Are you sure? The ratio is set to 1 : %0.f and you have chosen Crafting as your skill.", gRetrImbueMult, "Yes", "No"
+		endif
+		set DoOnce to 11
+	endif
+
+	if DoOnce == 11
+		set FinishButton to GetButtonPressed
+		if FinishButton > -1
+			set DoOnce to 12
+		endif
+	endif
+
+	if DoOnce == 12
+		if FinishButton > -1
+			if FinishButton < 0
+				set DoOnce to 0
+			endif
+			if FinishButton >= 0
+				set DoOnce to 13
+			endif
+		endif
+	endif
+	
+	if DoOnce == 13
+		if FinishButton == 1
+			set ImbueMultButton to -1
+			set gRetrImbueMult to 1
+			set DoOnce to 2
+		elseif FinishButton == 0
+			if RetrFletchSkill == 0
+				StartQuest RetrSkill3
+				set gRetrFletchSkill to 0
+					if RetrSkill3.pSkillActive != 10
+						set RetrSkill3.RunOnce to 1
+					endif
+			elseif RetrFletchSkill == 1	
+				StartQuest RetrSkill4
+				set gRetrFletchSkill to 1
+					if RetrSkill4.pSkillActive != 10
+						set RetrSkill4.RunOnce to 1
+					endif
+			elseif RetrFletchSkill == 2
+				StartQuest RetrSkill0
+				set gRetrFletchSkill to 2
+					if RetrSkill0.pSkillActive != 10
+						set RetrSkill0.RunOnce to 1
+					endif
+			endif
+				player.removeitem RetrMiscStarterItem 1
+		endif
+	endif
+
+End	

@@ -1,0 +1,367 @@
+scn RetrScrpFlet1
+
+ref DoOnce
+ref Arrow
+ref Armor
+ref Amount
+ref ArmorType
+ref QuantMult
+ref Skill
+ref Percent
+ref ArrowQuant
+ref FailType
+ref GoAhead
+ref FailQuant
+ref ArrowType
+ref QualityControl
+ref Proceed
+ref ArmorCheck
+float QualMult
+float SkillMod
+short LuckSkill
+short PCLvl
+
+Begin OnEquip
+	set DoOnce to 1
+End
+
+Begin MenuMode
+if DoOnce == 1
+	if gRetrFletchSkill > -1
+		Messagebox "Which type of arrow will you Make?", "Quit", "Iron", "Steel", "Elven", "Glass", "Dwarven", "Ebony", "Daedric"
+		set DoOnce to 2
+
+		if gRetrFletchSkill == 0
+				Messagebox "Please use the starter item and change your skill to Crafting!"
+			if player.GetItemCount RetrMiscStarterItem < 1
+				player.additem RetrMiscStarterItem 1
+			endif
+				set DoOnce to 0		
+		elseif gRetrFletchSkill == 1
+				Messagebox "Please use the starter item and change your skill to Crafting!"
+			if player.GetItemCount RetrMiscStarterItem < 1
+				player.additem RetrMiscStarterItem 1
+			endif
+				set DoOnce to 0
+		endif
+
+	else
+			Messagebox "Please use the starter item before you use this!"
+		if player.GetItemCount RetrMiscStarterItem < 1
+			player.additem RetrMiscStarterItem 1
+		endif
+			set DoOnce to 0
+	endif
+endif
+
+if DoOnce == 2
+		set Arrow to GetButtonPressed
+	if Arrow > -1
+		if Arrow <= 0
+			set DoOnce to 0
+		elseif Arrow > 0
+			set DoOnce to 3
+		endif
+	endif
+endif
+
+if DoOnce == 3
+	if Arrow == 1
+		set ArrowType to Arrow1Iron
+		set FailType to RetrArroWood
+	elseif Arrow == 2
+		set ArrowType to Arrow2Steel
+		set FailType to RetrArroWood
+	elseif Arrow == 3
+		set ArrowType to Arrow5Elven
+		set FailType to RetrArroWood
+	elseif Arrow == 4
+		set ArrowType to Arrow6Glass
+		set FailType to RetrArroWood
+	elseif Arrow == 5
+		set ArrowType to Arrow4Dwarven
+		set FailType to RetrArroWood
+	elseif Arrow == 6
+		set ArrowType to Arrow7Ebony
+		set FailType to RetrArroWood
+	elseif Arrow == 7
+		set ArrowType to Arrow8Daedric
+		set FailType to RetrArroWood
+	endif
+		set DoOnce to 4
+endif
+
+if DoOnce == 4
+	Messagebox "What armor piece will you use? (Armor : Arrows)", "Quit", "Boots (1:5)", "Cuirass (1:20)", "Gauntlets (1:5)", "Greaves (1:10)", "Helmet (1:5)", "Shield (1:15)"
+	Set DoOnce to 5
+endif
+
+if DoOnce == 5
+		set Armor to GetButtonPressed
+	if Armor > -1
+		if Armor <= 0
+			set DoOnce to 0
+		elseif Armor > 0
+			set DoOnce to 6
+		endif
+	endif
+endif
+
+if DoOnce == 6
+	Messagebox "How many armor pieces will you use?", "Quit", "1", "2", "3", "4", "5"
+	set DoOnce to 7
+endif
+
+if DoOnce == 7
+		set Amount to GetButtonPressed
+	if Amount > -1
+		if Amount <= 0
+			set DoOnce to 0
+		elseif Amount > 0
+			set DoOnce to 8	
+		endif
+	endif
+endif
+
+if DoOnce == 8
+	Messagebox "You will require 1 Fire Salt for molding the arrows.  Continue?", "Yes", "No"
+	set DoOnce to 9
+endif
+
+if DoOnce == 9
+		set Proceed to GetButtonPressed
+	if Proceed > -1
+		if Proceed == 0
+			set DoOnce to 10
+		elseif Proceed == 1
+			set DoOnce to 0
+		endif
+	endif
+endif
+
+if DoOnce == 10
+	if Arrow == 1	
+		if Armor == 1
+			set ArmorType to IronBoots
+		elseif Armor == 2
+			set ArmorType to IronCuirass
+		elseif Armor == 3
+			set ArmorType to IronGauntlets
+		elseif Armor == 4
+			set ArmorType to IronGreaves
+		elseif Armor == 5
+			set ArmorType to IronHelmet
+		elseif Armor == 6
+			set ArmorType to IronShield
+		endif
+			set QualityControl to 20
+	elseif Arrow == 2
+		if Armor == 1
+			set ArmorType to SteelBoots
+		elseif Armor == 2
+			set ArmorType to SteelCuirass
+		elseif Armor == 3
+			set ArmorType to SteelGauntlets
+		elseif Armor == 4
+			set ArmorType to SteelGreaves
+		elseif Armor == 5
+			set ArmorType to SteelHelmet
+		elseif Armor == 6
+			set ArmorType to SteelShield
+		endif
+			set QualityControl to 30
+	elseif Arrow == 3
+		if Armor == 1
+			set ArmorType to ElvenBoots
+		elseif Armor == 2
+			set ArmorType to ElvenCuirass
+		elseif Armor == 3
+			set ArmorType to ElvenGauntlets
+		elseif Armor == 4
+			set ArmorType to ElvenGreaves
+		elseif Armor == 5
+			set ArmorType to ElvenHelmet
+		elseif Armor == 6
+			set ArmorType to ElvenShield
+		endif
+			set QualityControl to 50
+	elseif Arrow == 4
+		if Armor == 1
+			set ArmorType to GlassBoots
+		elseif Armor == 2
+			set ArmorType to GlassCuirass
+		elseif Armor == 3
+			set ArmorType to GlassGauntlets
+		elseif Armor == 4
+			set ArmorType to GlassGreaves
+		elseif Armor == 5
+			set ArmorType to GlassHelmet
+		elseif Armor == 6
+			set ArmorType to GlassShield
+		endif
+			set QualityControl to 60
+	elseif Arrow == 5
+		if Armor == 1
+			set ArmorType to DwarvenBoots
+		elseif Armor == 2
+			set ArmorType to DwarvenCuirass
+		elseif Armor == 3
+			set ArmorType to DwarvenGauntlets
+		elseif Armor == 4
+			set ArmorType to DwarvenGreaves
+		elseif Armor == 5
+			set ArmorType to DwarvenHelmet
+		elseif Armor == 6
+			set ArmorType to DwarvenShield
+		endif
+			set QualityControl to 40
+	elseif Arrow == 6
+		if Armor == 1
+			set ArmorType to EbonyBoots
+		elseif Armor == 2
+			set ArmorType to EbonyCuirass
+		elseif Armor == 3
+			set ArmorType to EbonyGauntlets
+		elseif Armor == 4
+			set ArmorType to EbonyGreaves
+		elseif Armor == 5
+			set ArmorType to EbonyHelmet
+		elseif Armor == 6
+			set ArmorType to EbonyShield
+		endif
+			set QualityControl to 70
+	elseif Arrow == 7
+		if Armor == 1
+			set ArmorType to DaedricBoots
+		elseif Armor == 2
+			set ArmorType to DaedricCuirass
+		elseif Armor == 3
+			set ArmorType to DaedricGauntlets
+		elseif Armor == 4
+			set ArmorType to DaedricGreaves
+		elseif Armor == 5
+			set ArmorType to DaedricHelmet
+		elseif Armor == 6
+			set ArmorType to DaedricShield
+		endif	
+			set QualityControl to 80
+	endif
+		set DoOnce to 11
+endif
+
+if DoOnce == 11
+	set DoOnce to 12
+endif
+		
+if DoOnce == 12
+	if Armor == 1
+		set QuantMult to 1
+		set QualMult to 1.1
+	elseif Armor == 2
+		set QuantMult to 4
+		set QualMult to 1.4
+	elseif Armor == 3
+		set QuantMult to 1
+		set QualMult to 1.1
+	elseif Armor == 4
+		set QuantMult to 2
+		set QualMult to 1.2
+	elseif Armor == 5
+		set QuantMult to 1
+		set QualMult to 1.1
+	elseif Armor == 6
+		set QuantMult to 3
+		set QualMult to 1.3
+	endif
+		set DoOnce to 13
+endif
+
+if DoOnce == 13
+	if Player.GetEquipped ArmorType == 1
+		messagebox "Process Cancelled, you are wearing the armor you want to use."
+		set DoOnce to 0
+	elseif Player.GetEquipped ArmorType == 0
+		set DoOnce to 14
+	endif
+endif
+
+if DoOnce == 14
+
+	if gRetrFletchSkill == 0
+		set Skill to RetrSkill3.pSkillCurrent
+	elseif gRetrFletchSkill == 1
+		set Skill to RetrSkill4.pSkillCurrent
+	elseif gRetrFletchSkill == 2
+		set Skill to RetrSkill0.pSkillCurrent
+	endif
+
+		set Percent to GetRandomPercent
+		set LuckSkill to player.GetAV Luck
+		set PCLvl to player.GetLevel
+								;This means "Your Lvl + Your Luck + Half a Random#.  Then take the total divided by 3
+		set SkillMod to ( ( PCLvl + LuckSkill + ( Percent / 2 ) ) / 3 ) ; 3 could be a global difficulty modifier
+
+	if player.GetItemCount ArmorType >= ( 1 * Amount )
+	     set ArrowQuant to ( ( Amount * QuantMult ) * 5 )
+		set FailQuant to ( ( Amount * QuantMult ) * 5 )
+			if player.GetItemCount FireSalts >= 1
+				set GoAhead to 1	
+			endif
+	endif
+
+		if ( GoAhead == 1 )
+			if ( Skill + SkillMod ) >= ( QualityControl * QualMult )
+   				player.additem ArrowType ArrowQuant
+   				player.removeitem ArmorType Amount 
+				player.removeitem FireSalts 1 
+   				messagebox "Arrows Created"
+				if gRetrFletchSkill == 0
+					set RetrSkill3.tSkillUses3 to ( RetrSkill3.tSkillUses3 + Amount )
+;					set RetrSkill0.tSkillUses6 to ( RetrSkill0.tSkillUses6 + Amount )
+				elseif gRetrFletchSkill == 1
+					set RetrSkill4.tSkillUses3 to ( RetrSkill4.tSkillUses3 + Amount )
+;					set RetrSkill0.tSkillUses6 to ( RetrSkill0.tSkillUses6 + Amount )
+				elseif gRetrFletchSkill == 2
+					set RetrSkill0.tSkillUses6 to ( RetrSkill0.tSkillUses6 + Amount )
+				endif
+			else
+   				player.additem FailType FailQuant
+	    			player.removeitem ArmorType Amount 		
+				player.removeitem FireSalts 1
+				messagebox "Arrow Creation Failed"
+				if gRetrFletchSkill == 0
+					set RetrSkill3.tSkillUses1 to ( RetrSkill3.tSkillUses1 + Amount )
+;					set RetrSkill0.tSkillUses1 to ( RetrSkill0.tSkillUses1 + Amount )
+				elseif gRetrFletchSkill == 1
+					set RetrSkill4.tSkillUses1 to ( RetrSkill4.tSkillUses1 + Amount )
+;					set RetrSkill0.tSkillUses1 to ( RetrSkill0.tSkillUses1 + Amount )
+				elseif gRetrFletchSkill == 2
+					set RetrSkill0.tSkillUses1 to ( RetrSkill0.tSkillUses1 + Amount )
+				endif
+			endif 	
+		else
+				messagebox "You don't have enough materials"
+		endif
+
+		;Testing ONLY
+;	message "Stats: Skill %.0f, SkillMod %.0f, Percent %.0f, LuckSkill %.0f, PCLvl %.0f, QualityControl %.0f, QualMult %.2f.", Skill, SkillMod, Percent, LuckSkill, PCLvl, QualityControl, QualMult, 10
+
+	set DoOnce to 0
+	set Arrow to 0
+	set Armor to 0
+	set Amount to 0 
+	set ArmorType to 0
+	set QuantMult to 0
+	set ArrowQuant to 0 
+	set FailType to 0
+	set GoAhead to 0
+	set FailQuant to 0
+	set Skill to 0
+	set Percent to 0
+	set ArrowType to 0
+	set QualityControl to 0
+	set Proceed to 0
+	set ArmorCheck to 0
+endif
+
+end

@@ -1,0 +1,42 @@
+scn retrmsgtest
+
+ref Button
+ref Button2
+ref DoOnce
+ref choice
+
+Begin OnEquip
+	set choice to 0
+	if choice == 0
+		messagebox "Option 1", "Choice 1", "Choice 2"
+			set Button to GetButtonPressed
+			set DoOnce to 1
+	endif
+	if Button > -1
+		if DoOnce == 1
+			messagebox "Option 2", "1", "2"
+			set Button2 to GetButtonPressed
+			set DoOnce to 2
+		endif
+	endif
+
+end
+
+begin Menumode
+if Button > -1
+	if DoOnce == 2
+		if button > -1
+			if button == 0
+			  if button2 == 0
+				messagebox "Success"
+			  endif
+			endif
+			elseif button == 1
+			  if button2 == 1
+				messagebox "Success2"
+			endif
+		endif
+	set DoOnce to 0
+	endif
+endif
+end

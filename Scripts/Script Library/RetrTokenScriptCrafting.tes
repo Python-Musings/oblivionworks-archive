@@ -1,0 +1,19 @@
+scn RetrTokenScriptCrafting
+
+short sSkill
+short sIV
+
+Begin OnAdd
+  if (GetQuestRunning RetrSkill0 == 0)
+    StartQuest RetrSkill0
+  endif
+End
+
+Begin MenuMode
+		set sSkill to RetrSkill0.pSkillCurrent
+	if (sSkill != sIV )
+		set sIV to sSkill
+		setItemValue sIV
+		RemoveMe player
+	endif
+end

@@ -1,0 +1,116 @@
+*******************************
+Retro's Arrow Fletching and Imbueing v1.7.1
+*******************************
+
+Contents:
+---------
+
+1.  Installation
+
+2.  Description
+
+3.  Location
+
+****************
+1.  Installation
+****************
+
+	Easy as can be, just un-rar this file to your oblivion/data dir and your ready to go.
+
+
+***************
+2.  Description
+***************
+
+	New Version out!!!!! Ver 1.7.1	
+
+Well....erm....it's done....kinda.  Alright, this version includes the following:
+
+Arrow Mold: makes all the standard arrows(minus Silver) from armor.
+
+Arrow Rifiner: makes Silver, Hunter, Bone, Gold, and Wooden from various items.
+
+Arrow Merger: makes standard arrows from 2 of a lesser type
+
+Arrow Imbuer: Enchants your arrows, each arrow type has dif enchants they can have
+
+Bone Arrows: Arrows made from bone....mid lvl dmg, slightly higher speed, ignores weap resists(ala silver), AND has a few exclusive enchantments
+
+Hunter Arrows: Arrows made from assorted items...high dmg(=daedric), high speed, ignores resists, AND has exclusive area elemental enchantments
+
+Gold Arrows: Arrows made from.....GOOOOOOLLLLLDDD...low dmg, average speed, BUT can have the highest power enchantments(more than daedric).
+
+Wooden Arrows: Do I need to tell you??...low dmg, basically a cheap alternative to iron arrows
+
+A Manual: So ya don't hafta play the guessing game with everything.
+
+WAAAAAYY too many custom enchantments
+
+and prolly some other stuff I forgot to mention....
+
+One Quick Note:  1.7 and on is dependant on Crafting Skill Engine.esm.  The .esm is included in the release, make sure it's active in your modlist.
+
+
+************
+3.  Location
+************
+
+	Everything is sitting on the statue in the Marketplace waiting for you to pick it up.
+
+*****************
+Special Thanks
+***************
+
+LittleDrummerBoy - The man who translated the in-game book to German for everyone out there.
+GristleTL - Doing the textures on Hunter/Bone/Wooden Arrows! Absolutely beautiful work!
+Vincent Wyrmwing - for testing everything out for me!! 
+XMarksTheSpot - Meshes/texture work along with GristleTL!!  These two together are unbelievable!
+
+*********
+Changelog
+*********
+
+o.3 Initial release, only 3 arrows
+
+0.4 added gold and silver arrows, added framework for arrow imbuer and flame arrow
+
+0.7 made a jump cuz lotsa work happened at once.  
+Added tons of Enchanted arrow ID's/Enchantment ID's  
+Ran outta script space(didn't know scripts had a character limit O.o)
+    ---Why there are 3 Imbuers now
+That's about it only a few more to go plus the final grouping w/ the appartus new home. 
+
+0.99z polished off the Imbue code......then found a better way to do it.... so later version will be MASSIVELY easier to produce
+
+1.5 ermm.....a shhh ton....revamped code COMPLETELY and added tons of functionality for later releases...that's right folks...I'm not done yet!
+
+1.6 New textures for Bone/Hunter/Wooden!!!!! Many, MANY thanks to GristleTL for these!
+I also made a few minor bug fixes.  Most notable is a fix/oversight on my part to add the ability to "merge" 20 and 50 arrows at a time.
+
+1.6.3 Many small fixes/changes.  All listed below.
+ Fixed an Arrow Merger bug that messed up the amounts used/created
+ Changed amts of some arrows created.
+ Many minor bug fixes
+ Framework built for future balancing adjustments.(More on this coming soon)
+ Added Skull to Bone Arrow creation list
+ Lowered dmg of Wooden Arrows to 7(1 less then Iron).
+ Made Wooden Arrows the failtype for ALL arrows. Now trying to make daedric/hunter at lvl 1 won't  cheese you into ebony/elven arrows.
+ Dropped Vamp's Bane effect to 2 sec paralyze.
+ Framework built for Crafting Skill integration.
+ And of course, the latest creations by Gristle-TL for the arrow/quiver textures.
+
+1.6.4
+ Mainly just a coat of polish, I standardized the mesh/texture dirs and added the Golden Arrow  icon.  
+
+1.7
+ MANY balance tweaks(Special Thanks to Vincent Wyrmwing there).
+ Update to Skill Engine so any skill choice will allow skill gains.
+ Addition of Flame Arrow and Bone Arrow of Pain Textures.
+ OH!! This is the official release of the Crafting Skill Engine! Basically it allows you to progress in Crafting as you would any other skill.
+ That's about all for now..
+
+1.7.1
+ Fixed a MAJOR skill gain bug: If Marks/Armorer is your main skill, if this mod caused skill gains you wouldn't get progress towards another level.  I can fix this BUT 1.1beta has the required code to make it work properly.  Until 1.1 final is released by Bethesda Crafting is your only skill to choose from....sorry....
+ If you need another Starter Item to change anything Jensines in the Market District will sell you one.  You can also buy 2 items called "1.7.0 Armor/Marksman Fixer", these will subtract one point from the respective skill each time you equip them.  Please only use them to revert any damaged caused by  1.7.0.  I will remove them in the next major update to avoid abuse.
+
+ If you have any other questions/concerns about 1.7 please email me at wood0312@hotmail.com

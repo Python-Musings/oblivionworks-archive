@@ -1,0 +1,53 @@
+scn RetrQuestSkillStarterScript
+
+float fQuestDelayTime	;Sets the quest speed
+
+Begin GameMode
+
+		set fQuestDelayTime to 1
+
+	if gRetrSkill == 0					;Crafting
+;		StartQuest RetrSkillGain0
+		set gRetrSkill to -1
+	elseif gRetrSkill == 1				;Other PC Created Skill
+;		StartQuest RetrSkillGain1
+		set gRetrSkill to -1
+	elseif gRetrSkill == 2				;Ditto
+;		StartQuest RetrSkillGain2
+		set gRetrSkill to -1
+	elseif gRetrSkill == 3				;Marksman
+;		StartQuest RetrSkillGain3
+		set gRetrSkill to -1
+	elseif gRetrSkill == 4				;Armorer
+;		StartQuest RetrSkillGain4
+		set gRetrSkill to -1
+	elseif gRetrSkill == 5				;Security
+;		StartQuest RetrSkillGain5
+		set gRetrSkill to -1
+	elseif gRetrSkill == 6				;Sneak
+;		StartQuest RetrSkillGain6
+		set gRetrSkill to -1
+	elseif gRetrSkill == 7
+;		StartQuest RetrSkillGain7
+		set gRetrSkill to -1
+	elseif gRetrSkill == 8
+;		StartQuest RetrSkillGain8
+		set gRetrSkill to -1
+	elseif gRetrSkill == 9
+;		StartQuest RetrSkillGain9
+		set gRetrSkill to -1
+	elseif gRetrSkill == 10
+;		StartQuest RetrSkillGain10
+		set gRetrSkill to -1
+	elseif gRetrSkill == 11
+;		StartQuest RetrSkillGain11
+		set gRetrSkill to -1
+	elseif gRetrSkill == 12
+;		StartQuest RetrSkillGain12
+		set gRetrSkill to -1
+	endif
+
+
+
+
+End

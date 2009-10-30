@@ -1,0 +1,19 @@
+scn RetrScrpArroWood
+
+ref Target
+
+Begin ScriptEffectStart
+		set Target to GetSelf
+	if target.GetVampire == 1
+		Target.addspell RetrAbilArroWood
+	endif
+
+End
+
+Begin ScriptEffectFinish
+
+	if target.GetVampire == 1
+		Target.removespell RetrAbilArroWood
+	endif
+
+End

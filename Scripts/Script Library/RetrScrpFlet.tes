@@ -1,0 +1,133 @@
+scn RetrScrpFlet
+ref DaedricH
+ref Blade
+ref Silver
+ref Glass
+ref Wood
+ref Button
+ref DoOnce
+ref Marks
+ref Percent
+ref Gold
+Begin OnEquip
+Messagebox "Which type will you make?",  "Steel", "Silver", "Gold", "Glass", "Daedric"
+set DoOnce to 1
+end
+
+Begin MenuMode
+set Button to GetButtonPressed
+if DoOnce == 1
+		set Marks to player.GetAV Marksman
+		set Percent to GetRandomPercent
+		set Blade to 0
+		set Wood to 0
+		set Silver to 0
+		set Gold to 0
+		set Glass to 0
+		set DaedricH to 0
+	if Button > -1
+			if player.GetItemCount RetrMiscFlet >= 1	
+				set Blade to 1
+			endif
+		if Button == 0
+		     if player.GetItemCount Torch02 >= 1
+	     		set Wood to 1
+			endif
+			if ( Wood == 1 && Blade == 1 )
+				if ( Marks + Percent >= 50 )
+    					player.additem Arrow2Steel 5
+    					player.removeitem Torch02 1
+    					messagebox "Steel Arrows Created"
+					set DoOnce to 0
+				else
+    					player.additem Arrow1Iron 5
+    					player.removeitem Torch02 1	  				
+					messagebox "Steel Arrow Creation Failed"
+					set DoOnce to 0	
+				endif 	
+			else
+				messagebox "You don't have enough Torches"
+				set DoOnce to 0
+			endif
+		elseif Button == 1
+		     if player.GetItemCount Gem0SilverNugget >= 1
+	     		set Silver to 1
+			endif
+			if ( Silver == 1 && Blade == 1 )
+				if ( Marks + Percent >= 50 )
+    					player.additem Arrow3Silver 5
+    					player.removeitem Gem0SilverNugget 1
+    					messagebox "Silver Arrows Created"
+					set DoOnce to 0
+				else
+    					player.additem Arrow2Steel 5
+    					player.removeitem Gem0SilverNugget 1	  				
+					messagebox "Silver Arrow Creation Failed"
+					set DoOnce to 0	
+				endif 	
+			else
+				messagebox "You don't have enough Silver Nuggets"
+				set DoOnce to 0
+			endif
+		elseif Button == 2
+			if player.GetItemCount Gem0GoldNugget >= 1
+	     		set Gold to 1
+	    	 	endif
+			if ( Gold == 1 && Blade == 1 )
+				if ( Marks + Percent >= 75 )
+					player.additem RetrArroGold 5
+					player.removeitem Gem0GoldNugget 1
+					messagebox "Gold Arrows Created"
+					set DoOnce to 0
+				else
+			     	messagebox "Gold Arrow Creation Failed"
+					set DoOnce to 0
+				endif
+			else
+				messagebox "You don't have enough Gold Nuggets"
+				set DoOnce to 0
+			endif
+		elseif Button == 3
+			if player.GetItemCount WelkyndStone >= 1
+	     		set Glass to 1
+	    	 	endif
+			if ( Glass == 1 && Blade == 1 )
+				if ( Marks + Percent >= 75 )
+					player.additem Arrow6Glass 5
+					player.removeitem WelkyndStone 1
+					messagebox "Glass Arrows Created"
+					set DoOnce to 0
+				else
+    					player.additem Arrow2Steel 5
+    					player.removeitem WelkyndStone 1	  
+			     	messagebox "Glass Arrow Creation Failed"
+					set DoOnce to 0
+				endif
+			else
+				messagebox "You don't have enough Welkynd Stones"
+				set DoOnce to 0
+			endif
+		elseif Button == 4
+			if player.GetItemCount DaedraHeart >= 1
+	     		set DaedricH to 1
+	    	 	endif
+			if ( DaedricH == 1 && Blade == 1 )
+				if ( Marks + Percent >= 75 )
+					player.additem Arrow8Daedric 5
+					player.removeitem DaedraHeart 1
+					messagebox "Daedric Arrows Created"
+					set DoOnce to 0
+				else
+    					player.additem Arrow7Ebony 5
+    					player.removeitem DaedraHeart 1	  
+			     	messagebox "Daedric Arrow Creation Failed"
+					set DoOnce to 0
+				endif
+			else
+				messagebox "You don't have enough Daedra Hearts"
+				set DoOnce to 0
+			endif
+		endif
+	endif
+endif
+end

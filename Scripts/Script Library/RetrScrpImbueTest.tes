@@ -1,0 +1,673 @@
+scn RetrScrpImbueTest
+
+ref DoOnce
+ref EnchType
+ref EnchOpt
+ref Arrow
+ref ArrowOpt
+ref Amount
+ref ArrowType
+ref ReagType
+ref QuantMult
+ref Skill1
+ref Skill2
+ref Percent
+short QualityControl
+float QualMult
+ref ArrowQuant
+ref ReagMult
+ref FailQuant
+ref GoAhead
+ref ArrowProd
+short Skill
+short LuckSkill
+short PCLvl
+short ReagQuant
+float SkillMod
+
+
+Begin OnEquip
+	set DoOnce to 1
+end
+
+Begin MenuMode
+
+if DoOnce == 1
+	if gRetrFletchSkill > -1
+		Messagebox "Which type of enchantment will you make?", "Quit", "Fire", "Burning",  "Frost", "FrostBite", "Shock", "Electrocution", "Poison", "More..."
+		set DoOnce to 2
+
+		if gRetrFletchSkill == 0
+				Messagebox "Please use the starter item and change your skill to Crafting!"
+			if player.GetItemCount RetrMiscStarterItem < 1
+				player.additem RetrMiscStarterItem 1
+			endif
+				set DoOnce to 0		
+		elseif gRetrFletchSkill == 1
+				Messagebox "Please use the starter item and change your skill to Crafting!"
+			if player.GetItemCount RetrMiscStarterItem < 1
+				player.additem RetrMiscStarterItem 1
+			endif
+				set DoOnce to 0
+		endif
+
+	else
+			Messagebox "Please use the starter item before you use this!"
+		if player.GetItemCount RetrMiscStarterItem < 1
+			player.additem RetrMiscStarterItem 1
+		endif
+			set DoOnce to 0
+	endif
+endif
+
+if DoOnce == 2
+		set EnchType to GetButtonPressed
+	if EnchType > -1
+			set DoOnce to 3
+	endif
+endif
+
+if DoOnce == 3
+	if EnchType > -1
+		if EnchType <= 0
+			set DoOnce to 0
+		endif
+		if EnchType > 0
+			set DoOnce to 4
+		endif
+	endif
+endif
+
+if DoOnce == 4
+	if EnchType == 8
+		set DoOnce to 5
+		set EnchOpt to 2
+	endif
+	if EnchType < 8
+		set EnchOpt to 1
+		set DoOnce to 7
+	endif
+endif
+
+if DoOnce == 5
+	Messagebox "Which type of enchantment will you make?", "Quit", "Paralyze", "Slow", "Plague", "Pain", "Soul Trap", "Flare", "Frost Nova", "Static"
+	set DoOnce to 6
+endif
+
+if DoOnce == 6
+		set EnchType to GetButtonPressed
+	if EnchType > -1
+		if EnchType <= 0
+			set DoOnce to 0	
+		endif
+		if EnchType > 0
+			set DoOnce to 7
+		endif
+	endif	
+endif
+
+if DoOnce == 7
+			set QuantMult to 1
+		if EnchOpt == 1
+			if EnchType == 1
+				set ReagType to SteelBlueEntolomaCap
+				set ReagMult to 1
+				set QualityControl to 10
+			elseif EnchType == 2
+				set ReagType to SteelBlueEntolomaCap
+				set ReagMult to 2
+				set QualityControl to 10
+			elseif EnchType == 3
+				set ReagType to DryadSaddlePolyporeCap
+				set ReagMult to 1
+				set QualityControl to 10
+			elseif EnchType == 4
+				set ReagType to DryadSaddlePolyporeCap
+				set ReagMult to 2
+				set QualityControl to 10
+			elseif EnchType == 5
+				set ReagType to FlyAmanitaCap
+				set ReagMult to 1
+				set QualityControl to 10
+			elseif EnchType == 6
+				set ReagType to FlyAmanitaCap
+				set ReagMult to 2
+				set QualityControl to 10
+			elseif EnchType == 7
+				set ReagType to Strawberry
+				set ReagMult to 1
+				set QualityControl to 20
+			endif
+		elseif EnchOpt == 2
+			if EnchType == 1
+				set ReagType to Harrada
+				set ReagMult to 1
+				set QualityControl to 35
+			elseif EnchType == 2
+				set ReagType to Potato
+				set ReagMult to 1
+				set QualityControl to 40
+			elseif EnchType == 3
+				set ReagType to MortFlesh
+				set ReagMult to 1
+				set QualityControl to 60
+			elseif EnchType == 4
+				set ReagType to Nightshade
+				set ReagMult to 1
+				set QualityControl to 60
+			elseif EnchType == 5
+				set ReagType to SoulGemEmpty1Petty
+				set ReagMult to 1
+				set QualityControl to 80
+			elseif EnchType == 6
+				set ReagType to Firesalts
+				set ReagMult to 1
+				set QualityControl to 100
+			elseif EnchType == 7
+				set ReagType to FrostSalts
+				set ReagMult to 1
+				set QualityControl to 100
+			elseif EnchType == 8
+				set ReagType to Ectoplasm
+				set ReagMult to 1
+				set QualityControl to 100
+			endif
+		endif
+			set DoOnce to 8
+endif
+
+
+
+
+if DoOnce == 8
+	if EnchOpt == 1
+		Messagebox "Which arrows will you use?", "Quit", "Iron", "Steel", "Silver", "Dwarven", "Elven", "Glass", "Ebony", "More..."
+		set DoOnce to 9
+	endif
+	if EnchOpt == 2	
+		if EnchType == 1 ;para
+			Messagebox "Which arrows will you use?", "Quit", "Dwarven", "Elven", "Glass", "Ebony", "Daedric", "Hunter", "Bone", "Gold"
+		elseif EnchType == 2 ;slow
+			Messagebox "Which arrows will you use?", "Quit", "Dwarven", "Elven", "Glass", "Ebony", "Daedric", "Gold"
+		elseif EnchType == 3						
+			Messagebox "Which arrows will you use?", "Quit", "Bone"
+		elseif EnchType == 4						
+			Messagebox "Which arrows will you use?", "Quit", "Bone"
+		elseif EnchType == 5						
+			Messagebox "Which arrows will you use?", "Quit", "Bone"
+		elseif EnchType == 6	
+			Messagebox "Which arrows will you use?", "Quit", "Hunter"
+		elseif EnchType == 7
+			Messagebox "Which arrows will you use?", "Quit", "Hunter"
+		elseif EnchType == 8
+			Messagebox "Which arrows will you use?", "Quit", "Hunter"
+		endif
+	endif
+		set DoOnce to 9
+endif
+	
+if DoOnce == 9
+		set Arrow to GetButtonPressed
+	if Arrow > -1
+		if EnchOpt == 1
+			if Arrow <= 0
+				set DoOnce to 0
+			elseif Arrow == 1
+				set DoOnce to 12
+				set ArrowOpt to 1
+			elseif Arrow == 2
+				set DoOnce to 12
+				set ArrowOpt to 1
+			elseif Arrow == 3
+				set DoOnce to 12
+				set ArrowOpt to 1
+			elseif Arrow == 4
+				set DoOnce to 12
+				set ArrowOpt to 1
+			elseif Arrow == 5
+				set DoOnce to 12
+				set ArrowOpt to 1
+			elseif Arrow == 6
+				set DoOnce to 12
+				set ArrowOpt to 1
+			elseif Arrow == 7
+				set DoOnce to 12
+				set ArrowOpt to 1
+			elseif Arrow == 8
+				set DoOnce to 10
+				set ArrowOpt to 2
+			endif
+		elseif EnchOpt == 2
+			if Arrow <= 0
+				set DoOnce to 0
+			elseif Arrow > 0
+				set DoOnce to 12
+			endif
+		endif	
+	endif
+endif
+
+if DoOnce == 10
+	Messagebox "Which arrows will you use?", "Quit", "Daedric", "Gold"
+	set Arrow to 0
+	set DoOnce to 11
+endif
+
+if DoOnce == 11
+		set Arrow to GetButtonPressed
+	if Arrow > -1
+		if Arrow <= 0
+			set DoOnce to 0
+		elseif Arrow > 0
+			set DoOnce to 12	
+		endif
+	endif
+endif
+
+if DoOnce == 12
+	Messagebox "How many reagents will you use?", "Quit", "1", "2", "3" ,"4", "5"
+	set DoOnce to 13
+endif
+
+if DoOnce == 13
+		set Amount to GetButtonPressed
+	if Amount > -1
+		if Amount <= 0
+			set DoOnce to 0
+		elseif Amount > 0
+			set DoOnce to 14
+		endif
+	endif	
+endif
+
+if DoOnce == 14
+	if EnchOpt == 1 ;clarifier
+			if EnchType == 1 ;flame
+				if ArrowOpt == 1
+					if Arrow == 1
+						set ArrowType to RetrArroIronFlame
+					elseif Arrow == 2
+						set ArrowType to RetrArroSteelFlame				
+					elseif Arrow == 3
+						set ArrowType to RetrArroSilverFlame
+					elseif Arrow == 4
+						set ArrowType to RetrArroDwarvenFlame
+					elseif Arrow == 5
+						set ArrowType to RetrArroElvenFlame
+					elseif Arrow == 6
+						set ArrowType to RetrArroGlassFlame
+					elseif Arrow == 7
+						set ArrowType to RetrArroEbonyFlame
+					endif
+				elseif ArrowOpt == 2
+					if Arrow == 1
+						set ArrowType to RetrArroDaedricFlame
+					elseif Arrow == 2
+						set ArrowType to RetrArroGoldFlame
+					endif
+				endif
+			elseif EnchType == 2 ; Burning
+				if ArrowOpt == 1
+				if Arrow == 1
+					set ArrowType to RetrArroIronFlameTimed
+				elseif Arrow == 2
+					set ArrowType to RetrArroSteelBurning
+				elseif Arrow == 3
+					set ArrowType to RetrArroSilverBurning
+				elseif Arrow == 4
+					set ArrowType to RetrArroDwarvenBurning
+				elseif Arrow == 5
+					set ArrowType to RetrArroElvenBurning
+				elseif Arrow == 6
+					set ArrowType to RetrArroGlassBurning
+				elseif Arrow == 7
+					set ArrowType to RetrArroEbonyBurning
+				endif
+				elseif ArrowOpt == 2
+					if Arrow == 1
+						set ArrowType to RetrArroDaedricBurning
+					elseif Arrow == 2
+						set ArrowType to RetrArroGoldBurning
+					endif
+				endif
+			elseif EnchType == 3 ; Frost
+				if ArrowOpt == 1
+				if Arrow == 1
+					set ArrowType to RetrArroIronFrost
+				elseif Arrow == 2
+					set ArrowType to RetrArroSteelFrost
+				elseif Arrow == 3
+					set ArrowType to RetrArroSilverFrost
+				elseif Arrow == 4
+					set ArrowType to RetrArroDwarvenFrost
+				elseif Arrow == 5
+					set ArrowType to RetrArroElvenFrost
+				elseif Arrow == 6
+					set ArrowType to RetrArroGlassFrost
+				elseif Arrow == 7
+					set ArrowType to RetrArroEbonyFrost
+				endif
+				elseif ArrowOpt == 2
+					if Arrow == 1
+						set ArrowType to RetrArroDaedricFrost
+					elseif Arrow == 2
+						set ArrowType to RetrArroGoldFrost
+					endif
+				endif
+			elseif EnchType == 4 ; FrostBite
+				if ArrowOpt == 1
+				if Arrow == 1
+					set ArrowType to RetrArroIronFrostBite
+				elseif Arrow == 2
+					set ArrowType to RetrArroSteelFrostBite
+				elseif Arrow == 3
+					set ArrowType to RetrArroSilverFrostBite
+				elseif Arrow == 4
+					set ArrowType to RetrArroDwarvenFrostBite
+				elseif Arrow == 5
+					set ArrowType to RetrArroElvenFrostBite
+				elseif Arrow == 6
+					set ArrowType to RetrArroGlassFrostBite
+				elseif Arrow == 7
+					set ArrowType to RetrArroEbonyFrostBite
+				endif
+				elseif ArrowOpt == 2
+					if Arrow == 1
+						set ArrowType to RetrArroDaedricFrostBite
+					elseif Arrow == 2
+						set ArrowType to RetrArroGoldFrostBite
+					endif
+				endif
+			elseif EnchType == 5 ; shock
+				if ArrowOpt == 1
+				if Arrow == 1
+					set ArrowType to RetrArroIronShock
+				elseif Arrow == 2
+					set ArrowType to RetrArroSteelShock
+				elseif Arrow == 3
+					set ArrowType to RetrArroSilverShock
+				elseif Arrow == 4
+					set ArrowType to RetrArroDwarvenShock
+				elseif Arrow == 5
+					set ArrowType to RetrArroElvenShock
+				elseif Arrow == 6
+					set ArrowType to RetrArroGlassShock
+				elseif Arrow == 7
+					set ArrowType to RetrArroEbonyShock
+				endif
+				elseif ArrowOpt == 2
+					if Arrow == 1
+						set ArrowType to RetrArroDaedricShock
+					elseif Arrow == 2
+						set ArrowType to RetrArroGoldShock
+					endif
+				endif
+			elseif EnchType == 6 ; electro
+				if ArrowOpt == 1
+				if Arrow == 1
+					set ArrowType to RetrArroIronElectro
+				elseif Arrow == 2
+					set ArrowType to RetrArroSteelElectro
+				elseif Arrow == 3
+					set ArrowType to RetrArroSilverElectro
+				elseif Arrow == 4
+					set ArrowType to RetrArroDwarvenElectro
+				elseif Arrow == 5
+					set ArrowType to RetrArroElvenElectro
+				elseif Arrow == 6
+					set ArrowType to RetrArroGlassElectro
+				elseif Arrow == 7
+					set ArrowType to RetrArroEbonyElectro
+				endif
+				elseif ArrowOpt == 2
+					if Arrow == 1
+						set ArrowType to RetrArroDaedricElectro
+					elseif Arrow == 2
+						set ArrowType to RetrArroGoldElectro
+					endif
+				endif
+			elseif EnchType == 7 ; poison
+				if ArrowOpt == 1	
+					if Arrow == 1
+						set ArrowType to RetrArroIronPoison
+					elseif Arrow == 2
+						set ArrowType to RetrArroSteelPoison
+					elseif Arrow == 3
+						set ArrowType to RetrArroSilverPoison
+					elseif Arrow == 4
+						set ArrowType to RetrArroDwarvenPoison
+					elseif Arrow == 5
+						set ArrowType to RetrArroElvenPoison
+					elseif Arrow == 6
+						set ArrowType to RetrArroGlassPoison
+					elseif Arrow == 7
+						set ArrowType to RetrArroEbonyPoison
+					endif
+				elseif ArrowOpt == 2
+					if Arrow == 1
+						set ArrowType to RetrArroDaedricPoison
+					elseif Arrow == 2
+						set ArrowType to RetrArroGoldPoison
+					endif
+				endif
+			endif
+		endif
+	if EnchOpt == 2
+			if EnchType == 1 ;para
+				if Arrow == 1
+					set ArrowType to RetrArroDwarvenPara
+					set ArrowProd to Arrow4Dwarven
+				elseif Arrow == 2
+					set ArrowType to RetrArroElvenPara			
+					set ArrowProd to Arrow5Elven
+				elseif Arrow == 3
+					set ArrowType to RetrArroGlassPara
+					set ArrowProd to Arrow6Glass
+				elseif Arrow == 4
+					set ArrowType to RetrArroEbonyPara
+					set ArrowProd to Arrow7Ebony
+				elseif Arrow == 5
+					set ArrowType to RetrArroDaedricPara
+					set ArrowProd to Arrow8Daedric
+				elseif Arrow == 6
+					set ArrowType to RetrArroHunterPara
+					set ArrowProd to RetrArroHunter
+				elseif Arrow == 7
+					set ArrowType to RetrArroBonePara
+					set ArrowProd to RetrArroBone
+				elseif Arrow == 8
+					set ArrowType to RetrArroGoldPara
+					set ArrowProd to RetrArroGold
+				endif
+			elseif EnchType == 2 ;slow
+				if Arrow == 1
+					set ArrowType to RetrArroDwarvenSlow
+					set ArrowProd to Arrow4Dwarven
+				elseif Arrow == 2
+					set ArrowType to RetrArroElvenSlow			
+					set ArrowProd to Arrow5Elven
+				elseif Arrow == 3
+					set ArrowType to RetrArroGlassSlow
+					set ArrowProd to Arrow6Glass
+				elseif Arrow == 4
+					set ArrowType to RetrArroEbonySlow
+					set ArrowProd to Arrow7Ebony
+				elseif Arrow == 5
+					set ArrowType to RetrArroDaedricSlow
+					set ArrowProd to Arrow8Daedric
+				elseif Arrow == 6
+					set ArrowType to RetrArroGoldSlow
+					set ArrowProd to RetrArroGold
+				endif
+			elseif EnchType == 3 ;soul
+				if Arrow == 1
+					set ArrowType to RetrArroBonePlague
+					set ArrowProd to RetrArroBone
+				endif
+			elseif EnchType == 4 ;soul
+				if Arrow == 1
+					set ArrowType to RetrArroBonePain
+					set ArrowProd to RetrArroBone
+				endif
+			elseif EnchType == 5 ;soul
+				if Arrow == 1
+					set ArrowType to RetrArroBoneSoul
+					set ArrowProd to RetrArroBone
+				endif
+			elseif EnchType == 6 ;Flare
+				if Arrow == 1
+					set ArrowType to RetrArroHunterFlare
+					set ArrowProd to RetrArroHunter
+				endif
+			elseif EnchType == 7 ;FroNo
+				if Arrow == 1
+					set ArrowType to RetrArroHunterFroNo	
+					set ArrowProd to RetrArroHunter
+				endif
+			elseif EnchType == 8 ;Static
+				if Arrow == 1
+					set ArrowType to RetrArroHunterStatic
+					set ArrowProd to RetrArroHunter
+				endif
+			endif
+		endif
+			set DoOnce to 15
+endif
+if DoOnce == 15
+	if EnchOpt == 1 ;clarifier
+			if ArrowOpt == 1
+				if Arrow == 1
+					set ArrowProd to Arrow1Iron
+				elseif Arrow == 2
+					set ArrowProd to Arrow2Steel				
+				elseif Arrow == 3
+					set ArrowProd to Arrow3Silver
+				elseif Arrow == 4
+					set ArrowProd to Arrow4Dwarven
+				elseif Arrow == 5
+					set ArrowProd to Arrow5Elven
+				elseif Arrow == 6
+					set ArrowProd to Arrow6Glass
+				elseif Arrow == 7
+					set ArrowProd to Arrow7Ebony
+				endif
+			elseif ArrowOpt == 2
+					if Arrow == 1
+						set ArrowProd to Arrow8Daedric
+					elseif Arrow == 2
+						set ArrowProd to RetrArroGold
+					endif
+			endif
+	endif
+		set DoOnce to 16
+endif
+
+if DoOnce == 16
+	if ArrowProd == Arrow1Iron
+		set QualMult to 1.0
+	elseif ArrowProd == Arrow2Steel
+		set QualMult to 1.1
+	elseif ArrowProd == Arrow3Silver
+		set QualMult to 1.2
+	elseif ArrowProd == Arrow4Dwarven
+		set QualMult to 1.3
+	elseif ArrowProd == Arrow5Elven
+		set QualMult to 1.4
+	elseif ArrowProd == Arrow6Glass
+		set QualMult to 1.5
+	elseif ArrowProd == Arrow7Ebony
+		set QualMult to 1.6
+	elseif ArrowProd == Arrow8Daedric
+		set QualMult to 1.7
+	elseif ArrowProd == RetrArroBone
+		set QualMult to 1.2
+	elseif ArrowProd == RetrArroGold
+		set QualMult to 1.3
+	elseif ArrowProd == RetrArroHunter
+		set QualMult to 1.4
+	endif
+
+	if gRetrFletchSkill == 0
+		set Skill to RetrSkill3.pSkillCurrent
+	elseif gRetrFletchSkill == 1
+		set Skill to RetrSkill4.pSkillCurrent
+	elseif gRetrFletchSkill == 2
+		set Skill to RetrSkill0.pSkillCurrent
+	endif
+
+		set Percent to GetRandomPercent
+		set LuckSkill to player.GetAV Luck
+		set PCLvl to player.GetLevel
+								;This means "Your Lvl + Your Luck + Half a Random#.  Then take the total divided by 3
+		set SkillMod to ( ( PCLvl + LuckSkill + ( Percent / 2 ) ) / 3 ) ; 3 could be a global difficulty modifier
+		set GoAhead to 2
+	if player.getItemCount ArrowProd >= ( Amount * gRetrImbueMult )
+		if player.GetItemCount ReagType >= ( Amount * ReagMult )
+		     set ArrowQuant to ( Amount * gRetrImbueMult )
+			set ReagQuant to ( Amount * ReagMult )
+			set FailQuant to 1
+			set GoAhead to 1	
+		endif
+	endif
+		set DoOnce to 17
+endif
+
+if DoOnce == 17
+	if GoAhead == 1
+		if ( Skill + SkillMod ) >= ( QualityControl * QualMult )
+	 		player.additem ArrowType ArrowQuant
+   			player.removeitem ReagType ReagQuant 
+			player.removeitem ArrowProd ArrowQuant
+ 			messagebox "Arrows Created"
+				if gRetrFletchSkill == 0
+					set RetrSkill3.tSkillUses3 to ( RetrSkill3.tSkillUses3 + Amount )
+;					set RetrSkill0.tSkillUses6 to ( RetrSkill0.tSkillUses6 + Amount )
+				elseif gRetrFletchSkill == 1
+					set RetrSkill4.tSkillUses3 to ( RetrSkill4.tSkillUses3 + Amount )
+;					set RetrSkill0.tSkillUses6 to ( RetrSkill0.tSkillUses6 + Amount )
+				elseif gRetrFletchSkill == 2
+					set RetrSkill0.tSkillUses6 to ( RetrSkill0.tSkillUses6 + Amount )
+				endif
+		elseif ( Skill + SkillMod ) < ( QualityControl * QualMult )
+   			player.removeitem ReagType ReagQuant 
+ 			messagebox "Arrows Creation Failed"
+				if gRetrFletchSkill == 0
+					set RetrSkill3.tSkillUses1 to ( RetrSkill3.tSkillUses1 + Amount )
+;					set RetrSkill0.tSkillUses2 to ( RetrSkill0.tSkillUses2 + Amount )
+				elseif gRetrFletchSkill == 1
+					set RetrSkill4.tSkillUses1 to ( RetrSkill4.tSkillUses1 + Amount )
+;					set RetrSkill0.tSkillUses2 to ( RetrSkill0.tSkillUses2 + Amount )
+				elseif gRetrFletchSkill == 2
+					set RetrSkill0.tSkillUses2 to ( RetrSkill0.tSkillUses2 + Amount )
+				endif
+		endif 	
+	if GoAhead == 2
+		messagebox "Not Enough Materials"
+	endif
+endif
+
+
+		;Testing ONLY
+;	message "Stats: Skill %.0f, SkillMod %.0f, Percent %.0f, LuckSkill %.0f, PCLvl %.0f, QualityControl %.0f, QualMult %.2f.", Skill, SkillMod, Percent, LuckSkill, PCLvl, QualityControl, QualMult, 10
+
+		set GoAhead to 0
+		set DoOnce to 0
+		set EnchType to 0
+		set EnchOpt to 0
+		set Arrow to 0
+		set ArrowOpt to 0
+		set Amount to 0
+		set ArrowType to 0
+		set ReagType to 0
+		set QuantMult to 0
+		set Skill1 to 0
+		set Skill2 to 0
+		set Percent to 0
+		set QualityControl to 0
+		set QualMult to 0
+		set ArrowQuant to 0
+		set ReagMult to 0
+		set FailQuant to 0
+		set ArrowProd to 0
+endif
+end
