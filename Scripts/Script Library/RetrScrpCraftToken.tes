@@ -1,0 +1,16 @@
+scn RetrScrpCraftToken
+
+;Thanks to Galerion for this idea!
+
+short sSkill
+short sIV
+
+begin MenuMode
+		set sSkill to RetrSkill0.pSkillCurrent
+	if sSkill != sIV
+		set sIV to sSkill
+		setItemValue sIV
+		removeMe player
+	endif
+end
+

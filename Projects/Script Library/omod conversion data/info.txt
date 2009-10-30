@@ -1,0 +1,31 @@
+Secrets of the Stones 0.6.omod
+
+[basic info]
+Name: Secrets of the Stones
+
+Author: Gerald Wayne Baggett Jr [Raziel23x]
+version: 0.6
+Contact: raziel23x@oblivionworks.co.cc
+Website: http://oblivionworks.co.cc
+
+This Project creation was created on the account to how rare both Varla and Welkynd Stones are.
+Somewhere in the wilderness lies a undiscovered lost City. This lost city is huge beyond imagine over 21 zones all connected together creating one huge area.
+Withing the walls of this once thriving City lies Secrets yet discovered. within the ruins you will discover new spell tombs which teach you new spells which allow you to conjure up new items at the cost of your life force.
+
+Date this omod was compiled: 10/21/2009 5:44:16 PM
+Contains readme: yes
+Contains script: no
+
+[omod file information]
+File size: 172 kilobytes
+Internal omod file version: 4
+CRC: 67E101ED
+Created or installed: 10/21/2009 5:44 PM
+Last modified: 10/21/2009 5:44 PM
+
+[Complete plugin list]
+Secrets of the Stones.esp
+
+[Complete data file list]
+Secrets of the Stones.bsa                                                        (BFC57F18)
+Docs\Secrets of the Stones.txt                                                   (759D5ADE)

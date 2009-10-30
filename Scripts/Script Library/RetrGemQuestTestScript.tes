@@ -1,0 +1,28 @@
+scn RetrGemQuestTestScript
+
+;	what I want to do with this script is access a container reference
+;	and ref.Activate player it to access it's contents.
+;	after I'm done accessing the container, the container will run a quest script
+;	to check which items are inside and player.additem X if a certain set of them is matched
+
+;	This would be RetrGemQuest1 <----QuestID
+
+;Begin MenuMode
+;		set fQuestDelayTimer to 0.1
+;	if sBegin == 1
+;		set ItemIDCount to GetItemCount ItemID
+;		set ItemIDCount to GetItemCount ItemID
+;		set ItemIDCount to GetItemCount ItemID
+;			set CallToQ2 to 1	;calls other quest script, maybe a startquest?
+;									;SetStage?!?! <-- Might be the best route
+;									;OR Have a secondary script check values and
+;									;Call SetStage based on the return
+;	endif
+;		StopQuest RetrGemQuest1
+;	RemoveAllItems Player	;cleanup code needed in one of these to 
+;									;give extra stuff back
+;
+;
+;
+;
+;End		

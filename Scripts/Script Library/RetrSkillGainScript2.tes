@@ -1,0 +1,224 @@
+scn RetrSkillGainScript2
+
+float fQuestDelayTime	;Sets the quest speed
+float pSkillCurrent			;Current Skill Lvl  -- This is a permanent Stat
+long pSkillAppr				;Perm-Skill Lvl Bonus
+long pSkillJourney		;Perm-Skill Lvl Bonus
+long pSkillExpert			;Perm-Skill Lvl Bonus
+long pSkillMaster			;Perm-Skill Lvl Bonus
+float pSkillUsage1			;Perm-amount use will increase skill
+float pSkillUsage2			;Perm-amount use will increase skill
+float pSkillUsage3			;Perm-amount use will increase skill
+float pSkillUsage4			;Perm-amount use will increase skill
+float pSkillUsage5			;Perm-amount use will increase skill
+float pSkillUsage6			;Perm-amount use will increase skill
+float pSkillUsage7			;Perm-amount use will increase skill
+float pSkillUsage8			;Perm-amount use will increase skill
+float pSkillUsage9			;Perm-amount use will increase skill
+float pSkillUsage10		;Perm-amount use will increase skill
+short tSkillUses1			;Temp-Skill uses Counter
+short tSkillUses2			;Temp-Skill uses Counter
+short tSkillUses3			;Temp-Skill uses Counter
+short tSkillUses4			;Temp-Skill uses Counter
+short tSkillUses5			;Temp-Skill uses Counter
+short tSkillUses6			;Temp-Skill uses Counter
+short tSkillUses7			;Temp-Skill uses Counter
+short tSkillUses8			;Temp-Skill uses Counter
+short tSkillUses9			;Temp-Skill uses Counter
+short tSkillUses10			;Temp-Skill uses Counter
+float pSkillNeeded			;Perm-Skill needed to gain a level
+float n						;Skill Progression Var-Taken from Galerion's Script
+float sqroot					;Skill Progression Var-Taken from Galerion's Script
+short pSkillisSet			;Perm-1or0 flag to is if pSkillNeeded is set
+float tSkillProg				;Temp- Skill Progress Needed
+short pSkillActive			;Perm-Just a value to be used in if-checks to see if you've learned the skill
+short RunOnce				;Stage Variable
+ref Skill
+
+Begin GameMode
+
+;Only Run Once to set initial levels.
+	if RunOnce == 1
+		set pSkillCurrent to 1
+		set fQuestDelayTime to 1.5
+		set pSkillUsage1 to 0.5
+		set pSkillUsage2 to 1
+		set pSkillUsage3 to 1.5
+		set pSkillUsage4 to 2
+		set pSkillUsage5 to 2.5
+		set pSkillUsage6 to 3
+		set pSkillUsage7 to 3.5
+		set pSkillUsage8 to 4
+		set pSkillUsage9 to 4.5
+		set pSkillUsage10 to 5
+		set pSkillActive to 10
+		set RunOnce to 2
+	endif
+
+;set how much progress is needed to the next level
+	if RunOnce == 2
+		set n to pSkillCurrent * 0.35
+			set sqroot to n/2
+			set sqroot to (sqroot + (n/sqroot))/2
+			set sqroot to (sqroot + (n/sqroot))/2
+			set sqroot to (sqroot + (n/sqroot))/2
+			set sqroot to (sqroot + (n/sqroot))/2
+			set pSkillNeeded to 1 * (n * sqroot)
+		set RunOnce to 3
+	endif
+		
+	if RunOnce == 3
+				;checks if another script has set gRSUses to a number
+		if tSkillUses1 > 0
+			set tSkillProg to tSkillProg + ( tSkillUses1 * pSkillUsage1 )
+			set tSkillUses1 to 0
+		endif
+		if tSkillUses2 > 0
+			set tSkillProg to tSkillProg + ( tSkillUses2 * pSkillUsage2 )
+			set tSkillUses2 to 0
+		endif
+		if tSkillUses3 > 0
+			set tSkillProg to tSkillProg + ( tSkillUses3 * pSkillUsage3 )
+			set tSkillUses3 to 0
+		endif
+		if tSkillUses4 > 0
+			set tSkillProg to tSkillProg + ( tSkillUses4 * pSkillUsage4 )
+			set tSkillUses4 to 0
+		endif
+		if tSkillUses5 > 0
+			set tSkillProg to tSkillProg + ( tSkillUses5 * pSkillUsage5 )
+			set tSkillUses5 to 0
+		endif
+		if tSkillUses6 > 0
+			set tSkillProg to tSkillProg + ( tSkillUses6 * pSkillUsage6 )
+			set tSkillUses6 to 0
+		endif
+		if tSkillUses7 > 0
+			set tSkillProg to tSkillProg + ( tSkillUses7 * pSkillUsage7 )
+			set tSkillUses7 to 0
+		endif
+		if tSkillUses8 > 0
+			set tSkillProg to tSkillProg + ( tSkillUses8 * pSkillUsage8 )
+			set tSkillUses8 to 0
+		endif
+		if tSkillUses9 > 0
+			set tSkillProg to tSkillProg + ( tSkillUses9 * pSkillUsage9 )
+			set tSkillUses9 to 0
+		endif
+		if tSkillUses10 > 0
+			set tSkillProg to tSkillProg + ( tSkillUses10 * pSkillUsage10 )
+			set tSkillUses10 to 0
+		endif
+	endif
+
+;checks if you have passed the skillneeded mark and then adds a point of skill
+	if tSkillProg > pSkillNeeded
+		if pSkillCurrent < 100 
+				set tSkillProg to tSkillProg - pSkillNeeded
+				set pSkillCurrent to ( pSkillCurrent + 1 )
+;			if pSkillCurrent == 25					;ToDo
+;			elseif pSkillCurrent == 50			;ToDo
+;			elseif pSkillCurrent == 75			;ToDo
+;			elseif pSkillCurrent == 100			;ToDo
+;			else
+		 		Message "Your Crafting skill has increased to %.0f" pSkillCurrent, 1	
+			endif
+				set RunOnce to 2
+		endif
+	endif
+End
+
+Begin MenuMode
+
+;Only Run Once to set initial levels.
+	if RunOnce == 1
+		set pSkillCurrent to 1
+		set fQuestDelayTime to 1.5
+		set pSkillUsage1 to 0.5
+		set pSkillUsage2 to 1
+		set pSkillUsage3 to 1.5
+		set pSkillUsage4 to 2
+		set pSkillUsage5 to 2.5
+		set pSkillUsage6 to 3
+		set pSkillUsage7 to 3.5
+		set pSkillUsage8 to 4
+		set pSkillUsage9 to 4.5
+		set pSkillUsage10 to 5
+		set pSkillActive to 10
+		set RunOnce to 2
+	endif
+
+;set how much progress is needed to the next level
+	if RunOnce == 2
+		set n to pSkillCurrent * 0.35
+			set sqroot to n/2
+			set sqroot to (sqroot + (n/sqroot))/2
+			set sqroot to (sqroot + (n/sqroot))/2
+			set sqroot to (sqroot + (n/sqroot))/2
+			set sqroot to (sqroot + (n/sqroot))/2
+			set pSkillNeeded to 1 * (n * sqroot)
+		set RunOnce to 3
+	endif
+		
+;checks if the craft skill has been used
+	if RunOnce == 3
+				;checks if another script has set gRSUses to a number
+		if tSkillUses1 > 0
+			set tSkillProg to tSkillProg + ( tSkillUses1 * pSkillUsage1 )
+			set tSkillUses1 to 0
+		endif
+		if tSkillUses2 > 0
+			set tSkillProg to tSkillProg + ( tSkillUses2 * pSkillUsage2 )
+			set tSkillUses2 to 0
+		endif
+		if tSkillUses3 > 0
+			set tSkillProg to tSkillProg + ( tSkillUses3 * pSkillUsage3 )
+			set tSkillUses3 to 0
+		endif
+		if tSkillUses4 > 0
+			set tSkillProg to tSkillProg + ( tSkillUses4 * pSkillUsage4 )
+			set tSkillUses4 to 0
+		endif
+		if tSkillUses5 > 0
+			set tSkillProg to tSkillProg + ( tSkillUses5 * pSkillUsage5 )
+			set tSkillUses5 to 0
+		endif
+		if tSkillUses6 > 0
+			set tSkillProg to tSkillProg + ( tSkillUses6 * pSkillUsage6 )
+			set tSkillUses6 to 0
+		endif
+		if tSkillUses7 > 0
+			set tSkillProg to tSkillProg + ( tSkillUses7 * pSkillUsage7 )
+			set tSkillUses7 to 0
+		endif
+		if tSkillUses8 > 0
+			set tSkillProg to tSkillProg + ( tSkillUses8 * pSkillUsage8 )
+			set tSkillUses8 to 0
+		endif
+		if tSkillUses9 > 0
+			set tSkillProg to tSkillProg + ( tSkillUses9 * pSkillUsage9 )
+			set tSkillUses9 to 0
+		endif
+		if tSkillUses10 > 0
+			set tSkillProg to tSkillProg + ( tSkillUses10 * pSkillUsage10 )
+			set tSkillUses10 to 0
+		endif
+	endif
+
+;checks if you have passed the skillneeded mark and then adds a point of skill
+
+	if tSkillProg > pSkillNeeded
+		if pSkillCurrent < 100 
+				set tSkillProg to tSkillProg - pSkillNeeded
+				set pSkillCurrent to ( pSkillCurrent + 1 )
+;			if pSkillCurrent == 25					;ToDo
+;			elseif pSkillCurrent == 50			;ToDo
+;			elseif pSkillCurrent == 75			;ToDo
+;			elseif pSkillCurrent == 100			;ToDo
+;			else
+		 		Message "Your Crafting skill has increased to %.0f" pSkillCurrent, 1	
+			endif
+				set RunOnce to 2
+		endif
+	endif
+End

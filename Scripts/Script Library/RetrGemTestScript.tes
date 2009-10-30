@@ -1,0 +1,27 @@
+scn RetrGemTestScript
+
+;	what I want to do with this script is access a container reference
+;	and ref.Activate player it to access it's contents.
+;	after I'm done accessing the container, the container will run a quest script
+;	to check which items are inside and player.additem X if a certain set of them is matched
+
+;Begin OnEquip
+;			GemSocket is the refID of the container I will create
+;	if GemQuest1.sBegin != 1
+;		StartQuest GemQuest1
+;		set GemQuest1.sBegin to 1
+;	endif
+;		GemSocket.Activate player
+;
+;	OR a moveto command where a workspace is placed in front of the char
+;	moveto player X, Y, Z may have to be put on a persistent Ref and called from
+;	here.
+;End
+
+;Begin MenuMode
+;
+;
+;
+;
+;
+;End		

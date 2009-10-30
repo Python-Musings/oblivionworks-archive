@@ -1,0 +1,202 @@
+scn RetrScrpFlet3
+
+ref DoOnce
+ref Arrow
+ref Amount
+ref Material
+ref ArrowQuant
+ref FailType
+ref GoAhead
+ref FailQuant
+ref ArrowType
+ref Proceed
+short Percent
+short Skill
+short QControl
+float SkillMod
+short LuckSkill
+short PCLvl
+
+Begin OnEquip
+	set DoOnce to 1
+end
+
+Begin MenuMode
+
+if DoOnce == 1
+	if gRetrFletchSkill > -1
+			Messagebox "Which type of arrow will you merge? (2 arrows = 1 of next  level)", "Quit", "Iron", "Steel", "Silver", "Dwarven", "Elven", "Glass", "Ebony"
+			set DoOnce to 2
+
+		if gRetrFletchSkill == 0
+				Messagebox "Please use the starter item and change your skill to Crafting!"
+			if player.GetItemCount RetrMiscStarterItem < 1
+				player.additem RetrMiscStarterItem 1
+			endif
+				set DoOnce to 0		
+		elseif gRetrFletchSkill == 1
+				Messagebox "Please use the starter item and change your skill to Crafting!"
+			if player.GetItemCount RetrMiscStarterItem < 1
+				player.additem RetrMiscStarterItem 1
+			endif
+				set DoOnce to 0
+		endif
+
+	else
+			Messagebox "Please use the starter item before you use this!"
+		if player.GetItemCount RetrMiscStarterItem < 1
+			player.additem RetrMiscStarterItem 1
+		endif
+			set DoOnce to 0
+	endif
+endif
+
+if DoOnce == 2
+		set Arrow to GetButtonPressed
+	if Arrow > -1
+		if Arrow <= 0
+			set DoOnce to 0
+		elseif Arrow > 0
+			set DoOnce to 3
+		endif
+	endif
+endif
+
+if DoOnce == 3
+	if Arrow == 1
+		set ArrowType to Arrow2Steel
+		set FailType to Arrow1Iron
+		set QControl to 20
+	elseif Arrow == 2
+		set ArrowType to Arrow3Silver
+		set FailType to Arrow2Steel
+		set QControl to 40
+	elseif Arrow == 3
+		set ArrowType to Arrow4Dwarven
+		set FailType to Arrow3Silver
+		set QControl to 60
+	elseif Arrow == 4
+		set ArrowType to Arrow5Elven
+		set FailType to Arrow4Dwarven
+		set QControl to 80
+	elseif Arrow == 5
+		set ArrowType to Arrow6Glass
+		set FailType to Arrow5Elven
+		set QControl to 100
+	elseif Arrow == 6
+		set ArrowType to Arrow7Ebony
+		set FailType to Arrow6Glass
+		set QControl to 120
+	elseif Arrow == 7
+		set ArrowType to Arrow8Daedric
+		set FailType to Arrow7Ebony
+		set QControl to 130
+	endif
+		set DoOnce to 4
+endif
+
+if DoOnce == 4
+	Messagebox "How many arrows will you use?", "Quit", "2", "4", "6", "8", "10", "20", "50"
+	set DoOnce to 5
+endif
+	
+if DoOnce == 5
+		Set Amount to GetButtonPressed
+	if Amount > -1
+		if Amount <= 0
+			set DoOnce to 0
+		elseif Amount > 0
+			set DoOnce to 6
+		endif
+	endif
+endif
+
+if DoOnce == 6
+
+	if gRetrFletchSkill == 0
+		set Skill to RetrSkill3.pSkillCurrent
+	elseif gRetrFletchSkill == 1
+		set Skill to RetrSkill4.pSkillCurrent
+	elseif gRetrFletchSkill == 2
+		set Skill to RetrSkill0.pSkillCurrent
+	endif
+
+		set Percent to GetRandomPercent
+		set LuckSkill to player.GetAV Luck
+		set PCLvl to player.GetLevel
+								;This means "Your Lvl + Your Luck + Half a Random#.  
+								;Then take the total divided by 3.
+		set SkillMod to ( ( PCLvl + LuckSkill + ( Percent / 2 ) ) / 3 ) ; 3 could be a global difficulty modifier
+
+			if Amount == 6
+				set Amount to 10
+			elseif Amount == 7
+				set Amount to 25
+			endif
+				set GoAhead to 0
+		if player.GetItemCount FailType >= ( Amount * 2 )
+		     set ArrowQuant to ( Amount )
+			set FailQuant to ( Amount * 2 )
+			set GoAhead to 1
+		endif
+
+	if ( GoAhead == 1 )
+		if ( Skill + SkillMod ) >= QControl
+	    		player.additem ArrowType ArrowQuant
+    			player.removeitem FailType FailQuant 
+   			messagebox "Arrows Merged"
+				if gRetrFletchSkill == 0
+					set RetrSkill3.tSkillUses1 to ( RetrSkill3.tSkillUses1 + Amount )
+;					set RetrSkill0.tSkillUses2 to ( RetrSkill0.tSkillUses2 + Amount )
+				elseif gRetrFletchSkill == 1
+					set RetrSkill4.tSkillUses1 to ( RetrSkill4.tSkillUses1 + Amount )
+;					set RetrSkill0.tSkillUses2 to ( RetrSkill0.tSkillUses2 + Amount )
+				elseif gRetrFletchSkill == 2
+					set RetrSkill0.tSkillUses2 to ( RetrSkill0.tSkillUses2 + Amount )
+				endif
+;		elseif ( Skill + SkillMod ) < ( QControl / 2 )
+;   			player.removeitem FailType FailQuant 
+; 			messagebox "Merging Critical Failure"
+		elseif ( Skill + SkillMod ) < QControl
+    			player.removeitem FailType FailQuant 
+   			messagebox "Merging Failed"
+				if gRetrFletchSkill == 0
+					set RetrSkill3.tSkillUses1 to ( RetrSkill3.tSkillUses1 + Amount )
+;					set RetrSkill0.tSkillUses1 to ( RetrSkill0.tSkillUses1 + Amount )
+				elseif gRetrFletchSkill == 1
+					set RetrSkill4.tSkillUses1 to ( RetrSkill4.tSkillUses1 + Amount )
+;					set RetrSkill0.tSkillUses1 to ( RetrSkill0.tSkillUses1 + Amount )
+				elseif gRetrFletchSkill == 2
+					set RetrSkill0.tSkillUses1 to ( RetrSkill0.tSkillUses1 + Amount )
+				endif
+		endif
+	endif 	
+
+	if ( GoAhead == 0 )
+		messagebox "You don't have enough materials"
+	endif
+
+		;Testing ONLY
+;	message "Stats: Skill %.0f, SkillMod %.0f, Percent %.0f, LuckSkill %.0f, PCLvl %.0f, QControl %.0f.", Skill, SkillMod, Percent, LuckSkill, PCLvl, QControl, 10
+
+
+	set DoOnce to 0
+	set Arrow to 0
+	set Amount to 0 
+	set ArrowQuant to 0 
+	set FailType to 0
+	set GoAhead to 0
+	set FailQuant to 0
+	set Material to 0
+	set ArrowType to 0
+	set Proceed to 0
+	set Percent to 0
+	set Skill to 0
+	set QControl to 0
+	set SkillMod to 0
+	set LuckSkill to 0
+	set PCLvl to 0
+
+endif
+
+end

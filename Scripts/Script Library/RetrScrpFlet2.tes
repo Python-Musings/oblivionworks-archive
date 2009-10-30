@@ -1,0 +1,330 @@
+scn RetrScrpFlet2
+
+ref DoOnce
+ref Arrow
+ref Armor
+ref Amount
+ref Material
+ref QuantMult
+ref Skill
+ref Percent
+ref ArrowQuant
+ref FailType
+ref GoAhead
+ref FailQuant
+ref ArrowType
+ref QualityControl
+ref Proceed
+ref ArmorType
+ref MaterialType
+short ArrowMult
+short LuckSkill
+short PCLvl
+short SkillMod
+Float QualMult
+Begin OnEquip
+	set DoOnce to 1
+end
+
+Begin MenuMode
+if DoOnce == 1
+	if gRetrFletchSkill > -1
+		Messagebox "Which type of arrow will you Make?", "Quit", "Silver", "Hunter",  "Gold", "Bone", "Wooden"	
+		set DoOnce to 2
+
+		if gRetrFletchSkill == 0
+				Messagebox "Please use the starter item and change your skill to Crafting!"
+			if player.GetItemCount RetrMiscStarterItem < 1
+				player.additem RetrMiscStarterItem 1
+			endif
+				set DoOnce to 0		
+		elseif gRetrFletchSkill == 1
+				Messagebox "Please use the starter item and change your skill to Crafting!"
+			if player.GetItemCount RetrMiscStarterItem < 1
+				player.additem RetrMiscStarterItem 1
+			endif
+				set DoOnce to 0
+		endif
+
+	else
+			Messagebox "Please use the starter item before you use this!"
+		if player.GetItemCount RetrMiscStarterItem < 1
+			player.additem RetrMiscStarterItem 1
+		endif
+			set DoOnce to 0
+	endif
+endif
+
+if DoOnce == 2
+		set Arrow to GetButtonPressed
+	if Arrow > -1
+		if Arrow <= 0
+			set DoOnce to 0
+		elseif Arrow > 0
+			set DoOnce to 3
+		endif
+	endif
+endif
+
+if DoOnce == 3
+	if Arrow == 1
+		set ArrowType to Arrow3Silver
+		set FailType to RetrArroWood
+		set ArrowMult to 5
+		set QualityControl to 30
+	elseif Arrow == 2
+		set ArrowType to RetrArroHunter
+		set FailType to RetrArroWood
+		set ArrowMult to 2
+		set QualityControl to 100
+	elseif Arrow == 3
+		set ArrowType to RetrArroGold
+		set FailType to RetrArroWood
+		set ArrowMult to 5
+		set QualityControl to 80
+	elseif Arrow == 4
+		set ArrowType to RetrArroBone
+		set FailType to RetrArroWood
+		set ArrowMult to 1
+		set QualityControl to 60
+	elseif Arrow == 5
+		set ArrowType to RetrArroWood
+		set FailType to RetrArroWood
+		set ArrowMult to 5
+		set QualityControl to 1
+	endif
+		set DoOnce to 4
+endif
+
+if DoOnce == 4
+	if Arrow == 1
+		Messagebox "Which will you use? (Item:Arrow)", "Quit", "Silver Nuggets (1:10)", "Silver Bowl (1:5)", "Silver Goblet (1:5)", "Silver Pitcher (1:5)", "Silver Urn (1:5)"
+	elseif Arrow == 2
+		Messagebox "Which will you use? (Item:Arrow)", "Quit", "Clannfear Claw (1:2)", "Minotaur Horn (1:2)", "Ogre Teeth (1:2)", "Welkynd Stone (1:10)"
+	elseif Arrow == 3
+		Messagebox "Which will you use? (Item:Arrow)", "Quit", "Gold Nugget (1:20)", "Septims (100:5)"
+	elseif Arrow == 4
+		Messagebox "Which will you use? (Item:Arrow)", "Quit", "Large Bone (1:4)", "Small Bone (1:2)", "Clavicle (1:1)", "Pelvis (1:7)", "Ribcage (1:5)", "Skull (1:3)"
+	elseif Arrow == 5
+		Messagebox "Which will you use? (Item:Arrow)", "Quit", "Torch (1:10)", "Shovel (1:5)", "Pickaxe (1:5)"
+	endif
+		set DoOnce to 5
+endif
+	
+if DoOnce == 5
+		Set Material to GetButtonPressed
+	if Material > -1
+		if Material <= 0
+			set DoOnce to 0
+		elseif Material > 0
+			set DoOnce to 6
+		endif
+	endif
+endif
+
+
+if DoOnce == 6
+	if Arrow == 1 ;Silver
+		if Material == 1 
+			set MaterialType to Gem0SilverNugget
+			set QuantMult to 2
+		elseif Material == 2 ;Bowl
+			if ( player.getitemcount UpperSilverBowl01 ) >= ( player.getitemcount UpperSilverBowl02 )
+				set MaterialType to UpperSilverBowl01
+				set QuantMult to 1
+			elseif ( player.getitemcount UpperSilverBowl01 ) < ( player.getitemcount UpperSilverBowl02 )
+				set MaterialType to UpperSilverBowl02
+				set QuantMult to 1
+			endif
+		elseif Material == 3 ;Goblet
+			if ( player.getitemcount UpperSilverGoblet01 ) >= ( player.getitemcount UpperSilverGoblet02 )
+				set MaterialType to UpperSilverGoblet01
+				set QuantMult to 1
+			elseif ( player.getitemcount UpperSilverGoblet01 ) < ( player.getitemcount UpperSilverGoblet02 )
+				set MaterialType to UpperSilverGoblet02
+				set QuantMult to 1
+			endif
+		elseif Material == 4 ;Pitcher
+			if ( player.getitemcount UpperSilverPitcher01 ) >= ( player.getitemcount UpperSilverPitcher02 )
+				set MaterialType to UpperSilverPitcher01
+				set QuantMult to 1
+			elseif ( player.getitemcount UpperSilverPitcher01 ) < ( player.getitemcount UpperSilverPitcher02 )
+				set MaterialType to UpperSilverPitcher02
+				set QuantMult to 1
+			endif
+		elseif Material == 5 ;Urn
+			if ( player.getitemcount UpperSilverUrn01 ) >= ( player.getitemcount UpperSilverUrn02 )
+				set MaterialType to UpperSilverUrn01
+				set QuantMult to 1
+			elseif ( player.getitemcount UpperSilverUrn01 ) < ( player.getitemcount UpperSilverUrn02 )
+				set MaterialType to UpperSilverUrn02
+				set QuantMult to 1
+			endif
+		endif
+			set QualityControl to 25
+	elseif Arrow == 2 ;Hunter
+		if Material == 1
+			set MaterialType to ClannfearClaws
+			set QuantMult to 1
+		elseif Material == 2
+			set MaterialType to MinotaurHorn
+			set QuantMult to 1
+		elseif Material == 3
+			set MaterialType to OgresTeeth
+			set QuantMult to 1
+		elseif Material == 4
+			set MaterialType to WelkyndStone
+			set QuantMult to 5
+		endif
+			set QualityControl to 60
+	elseif Arrow == 3 ;Gold
+		if Material == 1
+			set MaterialType to Gem0GoldNugget
+			set QuantMult to 4
+		elseif Material == 2
+			set MaterialType to Gold001
+			set QuantMult to 1
+		endif
+			set QualityControl to 40
+	elseif Arrow == 4 ;Bone
+		if Material == 1
+			set MaterialType to skelBigBone01
+			set QuantMult to 4
+		elseif Material == 2
+			set MaterialType to skelBoneThin01
+			set QuantMult to 2
+		elseif Material == 3
+			set MaterialType to skelClavicle01
+			set QuantMult to 1
+		elseif Material == 4
+			set MaterialType to skelPelvis01
+			set QuantMult to 7
+		elseif Material == 5
+			set MaterialType to skelRibcage01
+			set QuantMult to 5
+		elseif Material == 6
+			set MaterialType to skull01
+			set QuantMult to 3
+		endif
+			set QualityControl to 55
+	elseif Arrow == 5 ;Wood
+		if Material == 1
+			set MaterialType to Torch02
+			set QuantMult to 2
+		elseif Material == 2
+			set MaterialType to Shovel01
+			set QuantMult to 1
+		elseif Material == 3
+			set MaterialType to Pickaxe01
+			set QuantMult to 1
+		endif
+			set QualityControl to 1
+	endif
+		set DoOnce to 7
+endif
+
+
+
+if DoOnce == 7
+	Messagebox "How many items will you use?", "Quit", "1", "2", "3", "4", "5"
+	set DoOnce to 8
+endif
+
+if DoOnce == 8
+		set Amount to GetButtonPressed
+	if Amount > -1
+		if Amount <= 0
+			set DoOnce to 0
+		elseif Amount > 0
+			set DoOnce to 9	
+		endif
+	endif
+endif
+
+if DoOnce == 9
+	if gRetrFletchSkill == 0
+		set Skill to RetrSkill3.pSkillCurrent
+	elseif gRetrFletchSkill == 1
+		set Skill to RetrSkill4.pSkillCurrent
+	elseif gRetrFletchSkill == 2
+		set Skill to RetrSkill0.pSkillCurrent
+	endif
+		set GoAhead to 0
+		set QualMult to ( ( QuantMult / 10 ) + 1 )	;Basically means the QualMultiplier
+															;increases as you create more arrows per item
+		set Percent to GetRandomPercent
+		set LuckSkill to player.GetAV Luck
+		set PCLvl to player.GetLevel
+								;This means "Your Lvl + Your Luck + Half a Random#.  
+								;Then take the total divided by 3.
+		set SkillMod to ( ( PCLvl + LuckSkill + ( Percent / 2 ) ) / 3 ) ; 3 could be a global difficulty modifier
+	
+		if MaterialType == Gold001
+			if player.GetItemCount MaterialType >= ( 1 * Amount )
+			     set ArrowQuant to ( ( Amount * QuantMult ) * ArrowMult )
+				set FailQuant to ( ( Amount * QuantMult ) * ArrowMult )
+				set Amount to ( Amount * 100 )
+				set GoAhead to 1
+			endif
+		elseif player.GetItemCount MaterialType >= ( 1 * Amount )
+		     set ArrowQuant to ( ( Amount * QuantMult ) * ArrowMult )
+			set FailQuant to ( ( Amount * QuantMult ) * ArrowMult )
+			set GoAhead to 1
+		endif
+
+	if ( GoAhead == 1 )
+		if ( Skill + SkillMod ) >= ( QualityControl * QualMult )
+   			player.additem ArrowType ArrowQuant
+	    		player.removeitem MaterialType Amount 
+   			messagebox "Arrows Created"
+				if gRetrFletchSkill == 0
+					set RetrSkill3.tSkillUses3 to ( RetrSkill3.tSkillUses3 + Amount )
+;					set RetrSkill0.tSkillUses6 to ( RetrSkill0.tSkillUses6 + Amount )
+				elseif gRetrFletchSkill == 1
+					set RetrSkill4.tSkillUses3 to ( RetrSkill4.tSkillUses3 + Amount )
+;					set RetrSkill0.tSkillUses6 to ( RetrSkill0.tSkillUses6 + Amount )
+				elseif gRetrFletchSkill == 2
+					set RetrSkill0.tSkillUses6 to ( RetrSkill0.tSkillUses6 + Amount )
+				endif
+		else
+	    		player.additem FailType FailQuant
+    			player.removeitem MaterialType Amount 		
+			messagebox "Arrow Creation Failed"
+				if gRetrFletchSkill == 0
+					set RetrSkill3.tSkillUses1 to ( RetrSkill3.tSkillUses1 + Amount )
+;					set RetrSkill0.tSkillUses1 to ( RetrSkill0.tSkillUses1 + Amount )
+				elseif gRetrFletchSkill == 1
+					set RetrSkill4.tSkillUses1 to ( RetrSkill4.tSkillUses1 + Amount )
+;					set RetrSkill0.tSkillUses1 to ( RetrSkill0.tSkillUses1 + Amount )
+				elseif gRetrFletchSkill == 2
+					set RetrSkill0.tSkillUses1 to ( RetrSkill0.tSkillUses1 + Amount )
+				endif
+		endif 	
+	else
+		messagebox "You don't have enough materials"
+	endif
+
+		;Testing ONLY
+;	message "Stats: Skill %.0f, SkillMod %.0f, Percent %.0f, LuckSkill %.0f, PCLvl %.0f, QualityControl %.0f, QualMult %.2f.", Skill, SkillMod, Percent, LuckSkill, PCLvl, QualityControl, QualMult, 10
+
+	set DoOnce to 0
+	set Arrow to 0
+	set Armor to 0
+	set Amount to 0 
+	set ArmorType to 0
+	set QuantMult to 0
+	set ArrowQuant to 0 
+	set FailType to 0
+	set GoAhead to 0
+	set FailQuant to 0
+	set Material to 0
+	set Skill to 0
+	set Percent to 0
+	set ArrowType to 0
+	set QualityControl to 0
+	set Proceed to 0
+	set MaterialType to 0
+	set ArrowMult to 0
+endif
+
+end

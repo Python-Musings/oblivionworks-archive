@@ -1,0 +1,9 @@
+scn RetrNewSkillUsage1Script
+
+Begin OnEquip
+
+	if RetrNewSkillCraftingQuest.pSkillActive == 10
+		set gRetrSkillUses1 to ( gRetrSkillUses1 + 1 )
+	endif
+
+End

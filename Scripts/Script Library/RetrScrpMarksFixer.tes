@@ -1,0 +1,9 @@
+scn RetrScrpMarksFixer
+
+short sPCMarks
+
+Begin OnEquip
+	set sPCMarks to player.GetAV Marksman
+	set sPCMarks to ( sPCMarks - 1 )
+	player.SetAV Marksman sPCMarks
+End

@@ -1,0 +1,9 @@
+scn RetrScrpArmorFixer
+
+short sPCArmor
+
+Begin OnEquip
+	set sPCArmor to player.GetAV Armorer
+	set sPCArmor to ( sPCArmor - 1 )
+	player.SetAV Armorer sPCArmor 
+End

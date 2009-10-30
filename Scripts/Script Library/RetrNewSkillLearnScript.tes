@@ -1,0 +1,11 @@
+scn RetrNewSkillLearnScript
+
+Begin OnActivate
+
+	StartQuest RetrNewSkillCraftingQuest
+	
+	if RetrNewSkillCraftingQuest.pSkillActive != 10
+		set gRetrRunOnce to 1
+	endif
+
+End
