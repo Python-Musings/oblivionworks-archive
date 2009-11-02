@@ -1,0 +1,140 @@
+﻿scn AAVarlaStoneForgeScript
+
+float VarlaNewDay
+float VarlaNewHour
+float VarlaTemp
+float VarlaTemp2
+short VarlaChoice
+
+float VarlaChargeRate
+float VarlaCap
+
+begin OnActivate
+	set VarlaNewDay to GameDaysPassed
+	set VarlaNewHour to GameHour
+
+;================ Deal with first time casters
+	if Player.GetInFaction ArcaneBank != 1
+		MessageBox "User not recognized. Please stop by the Arcane Bank to open an account."
+		return
+	endif
+
+	if AAVarlaLastDay  == 0 && AAVarlaLastHour == 0
+		MessageBox "Thank you for opening an account with The Arcane Bank. Your are now able to use the Varla Stone Forge."
+		set AAVarlaLastDay to VarlaNewDay
+		set AAVarlaLastHour to VarlaNewHour
+		set AAVarlaCharges to 0
+		return
+	endif
+
+;===============Calculate the current regen rate to apply
+	if Player.GetFactionRank ArcaneBank == 0
+		set VarlaChargeRate to 12
+		set VarlaCap to 1
+	elseif Player.GetFactionRank ArcaneBank == 1
+		set VarlaChargeRate to 16
+		set VarlaCap to 2
+	elseif Player.GetFactionRank ArcaneBank == 2
+		set VarlaChargeRate to 20
+		set VarlaCap to 4
+	elseif Player.GetFactionRank ArcaneBank == 3
+		set VarlaChargeRate to 24
+		set VarlaCap to 8
+	elseif Player.GetFactionRank ArcaneBank == 4
+		set VarlaChargeRate to 28
+		set VarlaCap to 16
+	elseif Player.GetFactionRank ArcaneBank == 5
+		set VarlaChargeRate to 32
+		set VarlaCap to 32
+	elseif Player.GetFactionRank ArcaneBank == 6
+		set VarlaChargeRate to 40
+		set VarlaCap to 64
+	endif
+
+	set VarlaTemp to abcWelks * 0.05
+
+	if VarlaTemp > (VarlaChargeRate * 0.2)
+		set VarlaTemp to VarlaChargeRate * 0.2
+	endif
+
+	set VarlaChargeRate to VarlaChargeRate + VarlaTemp
+	
+	if GetStage abcLevelUp == 80
+		set VarlaChargeRate to VarlaChargeRate + 2
+	endif
+
+;===============Use VarlaChargeRate to increase account charges based on time passed
+	if VarlaNewHour > AAVarlaLastHour
+		set AAVarlaCells to AAVarlaCells + ((VarlaNewHour - AAVarlaLastHour) * VarlaChargeRate)
+	else
+		set AAVarlaCells to AAVarlaCells + ((VarlaNewHour - AAVarlaLastHour + 24) * VarlaChargeRate)
+		set AAVarlaLastDay to AAVarlaLastDay + 1
+	endif
+
+	if VarlaNewDay > AAVarlaLastDay
+		set AAVarlaCells to AAVarlaCells + ((VarlaNewDay - AAVarlaLastDay) * (VarlaChargeRate * 24))
+	endif
+
+	if AAVarlaCells == 10
+		set AAVarlaCharges to 1
+		set AAVarlaCells to 0
+	endif
+	
+	if AAVarlaCharges > VarlaCap
+		set AAVarlaCharges to VarlaCap
+	endif
+
+		
+;===============Bring up message or menu for player		
+	if AAVarlaCharges < 1
+		set VarlaTemp2 to (1 - AAVarlaCharges) / VarlaChargeRate
+		Message "Current charges: %.0f --Number of cells before next recharge: %.1f/10  Hours till next Cell level: %.2f", AAVarlaCharges, AAVarlaCells, VarlaTemp2, 5
+	elseif AAVarlaCharges < 2
+		MessageBox "You have %.0f available charges. How many charges would you like to withdraw?", AAVarlaCharges, "Don't use any", "1 charges"
+	elseif AAVarlaCharges < 4
+		MessageBox "You have %.0f available charges. How many charges would you like to withdraw?", AAVarlaCharges, "Don't use any", "1 charges", "2 charges"
+	elseif AAVarlaCharges < 8
+		MessageBox "You have %.0f available charges. How many charges would you like to withdraw?", AAVarlaCharges, "Don't use any", "1 charges", "2 charges", "4 charges"
+	elseif AAVarlaCharges < 16
+		MessageBox "You have %.0f available charges. How many charges would you like to withdraw?", AAVarlaCharges, "Don't use any", "1 charges", "2 charges", "4 charges", "8 charges"
+	elseif AAVarlaCharges < VarlaCap
+		MessageBox "You have %.0f available charges. How many charges would you like to withdraw?", AAVarlaCharges, "Don't use any", "1 charges", "2 charges", "4 charges", "8 charges", "16 charges"
+	else
+		MessageBox "You have reached the limit of %.0f charges on your account. Recharging has currently ceased until charges are withdrawn.  What will you do?", VarlaCap, "Don't use any", "1 charges", "2 charges", "4 charges", "8 charges", "16 charges"
+	endif
+
+;===============Update casting times
+	set AAVarlaLastDay to VarlaNewDay
+	set AAVarlaLastHour to VarlaNewHour
+
+;===============Debug
+	;MessageBox "RR: %.2f, VarlaCap: %.2f, Welks: %.0f, WelkBonus: %.2f", VarlaChargeRate, VarlaCap, abcWelks, VarlaTemp
+end
+
+begin Gamemode
+	set VarlaChoice to GetButtonPressed
+	if VarlaChoice != -1
+		if VarlaChoice == 1
+			set AAVarlaCharges to AAVarlaCharges - 1
+			player.additem VarlaStone, 1
+			player.removeitemNS AAEmptyVarlaStone, 1
+		elseif VarlaChoice == 2
+			set AAVarlaCharges to AAVarlaCharges - 2
+			player.additem VarlaStone, 2
+			player.removeitemNS AAEmptyVarlaStone, 2
+		elseif VarlaChoice == 3
+			set AAVarlaCharges to AAVarlaCharges - 4
+			player.additem VarlaStone, 4
+			player.removeitemNS AAEmptyVarlaStone, 4	
+		elseif VarlaChoice == 4
+			set AAVarlaCharges to AAVarlaCharges - 8
+			player.additem VarlaStone, 8
+			player.removeitemNS AAEmptyVarlaStone, 8			
+		elseif VarlaChoice == 5
+			set AAVarlaCharges to AAVarlaCharges - 16
+			player.additem VarlaStone, 16
+			player.removeitemNS AAEmptyVarlaStone, 16		
+		endif
+	endif
+
+end 

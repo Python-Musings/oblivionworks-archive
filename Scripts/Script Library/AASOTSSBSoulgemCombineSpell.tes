@@ -1,0 +1,29 @@
+﻿scn AASOTSSBSoulgemCombineSpell
+
+short AASOTSSBSoulgemCombineSpellbutton
+short AASOTSSBSoulgemCombineSpellused
+
+begin OnEquip player
+	if AASOTSSBSoulgemCombineSpellused == 0
+		MessageBox "Do you want to add 'Soul Gem Combine Spell' to your spell list?", "Yes", "No"
+	endif
+end
+
+begin OnActivate
+	Activate
+	if isActionRef player == 1 && AASOTSSBSoulgemCombineSpellused == 0
+		MessageBox "Do you want to add 'Soul Gem Combine Spell' to your spell list?", "Yes", "No"
+	endif
+end
+
+begin menumode 1026
+	set AASOTSSBSoulgemCombineSpellbutton to getbuttonpressed
+	if AASOTSSBSoulgemCombineSpellbutton > -1
+		if AASOTSSBSoulgemCombineSpellbutton == 0
+			; add the spell to the player's spellbook
+			player.addspell AASoulgemCombineSpell
+			playsound SPLAlterationCast
+			set AASOTSSBSoulgemCombineSpellused to 1
+		endif
+	endif
+end

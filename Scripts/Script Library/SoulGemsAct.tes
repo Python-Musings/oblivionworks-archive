@@ -1,0 +1,157 @@
+﻿ScriptName AASoulGemsAct
+
+short SGCButton
+short SGCStep
+
+short health
+short fatigue
+short magicka
+
+short BaseHP
+short CurrentHP
+short BaseFat
+short CurrentFat
+short BaseMP
+short CurrentMP
+
+Short Healthcount
+Short Fatiguecount
+Short Manacount
+short Silvercount
+
+Begin OnEQuip player
+
+	set Healthcount to 0
+	set Fatiguecount to 0
+	set Manacount to 0
+	set Silvercount to 0
+	set SGCStep to 1
+END
+
+Begin gamemode 
+	if SGCStep == 0
+		set SGCButton to -1		
+	endif
+	
+	if SGCStep == 1
+	set BaseHP to player.GetBaseActorValue Health
+	set BaseFat to player.GetBaseActorValue Fatigue
+	set BaseMP to player.GetBaseActorValue Magicka
+	set CurrentHP to player.GetActorValue Health
+	set CurrentFat to player.GetActorValue Fatigue
+	set CurrentMP to player.GetActorValue Magicka
+	set Silvercount to player.getitemcount Gem0SilverNugget
+	
+	if CurrentHP  < BaseHP  && CurrentFat  < BaseFat  && CurrentMP < BaseMP
+
+        message "Your Not Healthy Enough to do this"
+
+		elseif Silvercount <= 0
+		message "You don't have any Silver Nuggets to channel your essence into."
+				
+		elseif player.isincombat == 1
+		message "Cannot cast this spell while in combat."
+		
+		Elseif Silvercount >= 1
+		set SGCStep to 2
+		endif
+	endif
+	
+	if SGCStep == 2
+		Messagebox "What do you want to create?" "Petty Soul Gem" "Lesser Soul Gem" "Common Soul Gem" "Greater Soul Gem" "Grand Soul Gem" "Quit"
+		set SGCStep to 3
+	endif
+
+	
+	If SGCStep == 3
+		set SGCButton to GetButtonPressed
+	    if SGCButton > -1
+		if SGCButton == 0
+			set health to player.GetAV Health 
+				set Healthcount to -(health * 0.1)
+					player.ModAV2 Health Healthcount
+
+			set magicka to player.GetAV Magicka
+				set Manacount to (1-magicka)
+					player.ModAV2 Magicka Manacount
+
+set fatigue to player.GetAV Fatigue
+set Fatiguecount to -(fatigue * 0.1)
+player.ModAV2 Fatigue Fatiguecount
+
+player.removeitem Gem0SilverNugget, 1
+player.Additem SoulGemEmpty1Petty, 1
+		message "You channel your essents into the Silver Nugget creating a Petty Soul Gem"
+			set SGCStep to 0	
+		elseif SGCButton == 1
+			set health to player.GetAV Health
+				set Healthcount to -(health * 0.2)
+			player.ModAV2 Health Healthcount
+
+set magicka to player.GetAV Magicka
+set Manacount to (1-magicka)
+player.ModAV2 Magicka Manacount
+
+set fatigue to player.GetAV Fatigue
+set Fatiguecount to -(fatigue * 0.2)
+player.ModAV2 Fatigue Fatiguecount
+
+player.removeitem Gem0SilverNugget, 1
+player.Additem SoulGemEmpty2Lesser, 1
+		message "You channel your essents into the Silver Nugget creating a Lesser Soul Gem"
+			set SGCStep to 0
+		elseif SGCButton == 2
+			set health to player.GetAV Health
+set Healthcount to -(health * 0.3)
+player.ModAV2 Health Healthcount
+
+set magicka to player.GetAV Magicka
+set Manacount to (1-magicka)
+player.ModAV2 Magicka Manacount
+
+set fatigue to player.GetAV Fatigue
+set Fatiguecount to -(fatigue * 0.3)
+player.ModAV2 Fatigue Fatiguecount
+
+player.removeitem Gem0SilverNugget, 1
+player.Additem SoulGemEmpty3Common, 1
+		message "You channel your essents into the Silver Nugget creating a Common Soul Gem"
+			set SGCStep to 0
+		elseif SGCButton == 3
+			set health to player.GetAV Health
+set Healthcount to -(health * 0.4)
+player.ModAV2 Health Healthcount
+
+set magicka to player.GetAV Magicka
+set Manacount to (1-magicka)
+player.ModAV2 Magicka Manacount
+
+set fatigue to player.GetAV Fatigue
+set Fatiguecount to -(fatigue * 0.4)
+player.ModAV2 Fatigue Fatiguecount
+
+player.removeitem Gem0SilverNugget, 1
+player.Additem SoulGemEmpty4Greater, 1
+		message "You channel your essents into the Silver Nugget creating a Greater Soul Gem"
+			set SGCStep to 0
+		elseif SGCButton == 4
+			set health to player.GetAV Health
+set Healthcount to -(health * 0.5)
+player.ModAV2 Health Healthcount
+
+set magicka to player.GetAV Magicka
+set Manacount to (1-magicka)
+player.ModAV2 Magicka Manacount
+
+set fatigue to player.GetAV Fatigue
+set Fatiguecount to -(fatigue * 0.5)
+player.ModAV2 Fatigue Fatiguecount
+
+player.removeitem Gem0SilverNugget, 1
+player.Additem SoulGemEmpty5Grand, 1
+		message "You channel your essents into the Silver Nugget creating a Grand Soul Gem"
+			set SGCStep to 0
+			endif
+			endif
+			endif
+	END 

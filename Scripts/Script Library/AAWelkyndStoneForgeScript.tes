@@ -1,0 +1,140 @@
+﻿scn AAWelkyndStoneForgeScript
+
+float WelkyndNewDay
+float WelkyndNewHour
+float WelkyndTemp
+float WelkyndTemp2
+short WelkyndChoice
+
+float WelkyndChargeRate
+float WelkyndCap
+
+begin OnActivate
+	set WelkyndNewDay to GameDaysPassed
+	set WelkyndNewHour to GameHour
+
+;================ Deal with first time casters
+	if Player.GetInFaction ArcaneBank != 1
+		MessageBox "User not recognized. Please stop by the Arcane Bank to open an account."
+		return
+	endif
+
+	if AAWelkyndLastDay  == 0 && AAWelkyndLastHour == 0
+		MessageBox "Thank you for opening an account with The Arcane Bank. Your are now able to use the Welkynd Stone Forge."
+		set AAWelkyndLastDay to WelkyndNewDay
+		set AAWelkyndLastHour to WelkyndNewHour
+		set AAWelkyndCharges to 0
+		return
+	endif
+
+;===============Calculate the current regen rate to apply
+	if Player.GetFactionRank ArcaneBank == 0
+		set WelkyndChargeRate to 12
+		set WelkyndCap to 1
+	elseif Player.GetFactionRank ArcaneBank == 1
+		set WelkyndChargeRate to 16
+		set WelkyndCap to 2
+	elseif Player.GetFactionRank ArcaneBank == 2
+		set WelkyndChargeRate to 20
+		set WelkyndCap to 4
+	elseif Player.GetFactionRank ArcaneBank == 3
+		set WelkyndChargeRate to 24
+		set WelkyndCap to 8
+	elseif Player.GetFactionRank ArcaneBank == 4
+		set WelkyndChargeRate to 28
+		set WelkyndCap to 16
+	elseif Player.GetFactionRank ArcaneBank == 5
+		set WelkyndChargeRate to 32
+		set WelkyndCap to 32
+	elseif Player.GetFactionRank ArcaneBank == 6
+		set WelkyndChargeRate to 40
+		set WelkyndCap to 64
+	endif
+
+	set WelkyndTemp to abcWelks * 0.05
+
+	if WelkyndTemp > (WelkyndChargeRate * 0.2)
+		set WelkyndTemp to WelkyndChargeRate * 0.2
+	endif
+
+	set WelkyndChargeRate to WelkyndChargeRate + WelkyndTemp
+	
+	if GetStage abcLevelUp == 80
+		set WelkyndChargeRate to WelkyndChargeRate + 2
+	endif
+
+;===============Use WelkyndChargeRate to increase account charges based on time passed
+	if WelkyndNewHour > AAWelkyndLastHour
+		set AAWelkyndCells to AAWelkyndCells + ((WelkyndNewHour - AAWelkyndLastHour) * WelkyndChargeRate)
+	else
+		set AAWelkyndCells to AAWelkyndCells + ((WelkyndNewHour - AAWelkyndLastHour + 24) * WelkyndChargeRate)
+		set AAWelkyndLastDay to AAWelkyndLastDay + 1
+	endif
+
+	if WelkyndNewDay > AAWelkyndLastDay
+		set AAWelkyndCells to AAWelkyndCells + ((WelkyndNewDay - AAWelkyndLastDay) * (WelkyndChargeRate * 24))
+	endif
+
+	if AAWelkyndCells == 5
+		set AAWelkyndCharges to 1
+		set AAWelkyndCells to 0
+	endif
+	
+	if AAWelkyndCharges > WelkyndCap
+		set AAWelkyndCharges to WelkyndCap
+	endif
+
+		
+;===============Bring up message or menu for player		
+	if AAWelkyndCharges < 1
+		set WelkyndTemp2 to (1 - AAWelkyndCharges) / WelkyndChargeRate
+		Message "Current charges: %.0f --Number of cells before next recharge: %.1f/5  Hours till next Cell level: %.2f", AAWelkyndCharges, AAWelkyndCells, WelkyndTemp2, 5
+	elseif AAWelkyndCharges < 2
+		MessageBox "You have %.0f available charges. How many charges would you like to withdraw?", AAWelkyndCharges, "Don't use any", "1 charges"
+	elseif AAWelkyndCharges < 4
+		MessageBox "You have %.0f available charges. How many charges would you like to withdraw?", AAWelkyndCharges, "Don't use any", "1 charges", "2 charges"
+	elseif AAWelkyndCharges < 8
+		MessageBox "You have %.0f available charges. How many charges would you like to withdraw?", AAWelkyndCharges, "Don't use any", "1 charges", "2 charges", "4 charges"
+	elseif AAWelkyndCharges < 16
+		MessageBox "You have %.0f available charges. How many charges would you like to withdraw?", AAWelkyndCharges, "Don't use any", "1 charges", "2 charges", "4 charges", "8 charges"
+	elseif AAWelkyndCharges < WelkyndCap
+		MessageBox "You have %.0f available charges. How many charges would you like to withdraw?", AAWelkyndCharges, "Don't use any", "1 charges", "2 charges", "4 charges", "8 charges", "16 charges"
+	else
+		MessageBox "You have reached the limit of %.0f charges on your account. Recharging has currently ceased until charges are withdrawn.  What will you do?", WelkyndCap, "Don't use any", "1 charges", "2 charges", "4 charges", "8 charges", "16 charges"
+	endif
+
+;===============Update casting times
+	set AAWelkyndLastDay to WelkyndNewDay
+	set AAWelkyndLastHour to WelkyndNewHour
+
+;===============Debug
+	;MessageBox "RR: %.2f, WelkyndCap: %.2f, Welks: %.0f, WelkBonus: %.2f", WelkyndChargeRate, WelkyndCap, abcWelks, WelkyndTemp
+end
+
+begin Gamemode
+	set WelkyndChoice to GetButtonPressed
+	if WelkyndChoice != -1
+		if WelkyndChoice == 1
+			set AAWelkyndCharges to AAWelkyndCharges - 1
+			player.additem WelkyndStone, 1
+			player.removeitemNS AAEmptyWelkyndStone, 1
+		elseif WelkyndChoice == 2
+			set AAWelkyndCharges to AAWelkyndCharges - 2
+			player.additem WelkyndStone, 2
+			player.removeitemNS AAEmptyWelkyndStone, 2
+		elseif WelkyndChoice == 3
+			set AAWelkyndCharges to AAWelkyndCharges - 4
+			player.additem WelkyndStone, 4
+			player.removeitemNS AAEmptyWelkyndStone, 4	
+		elseif WelkyndChoice == 4
+			set AAWelkyndCharges to AAWelkyndCharges - 8
+			player.additem WelkyndStone, 8
+			player.removeitemNS AAEmptyWelkyndStone, 8			
+		elseif WelkyndChoice == 5
+			set AAWelkyndCharges to AAWelkyndCharges - 16
+			player.additem WelkyndStone, 16
+			player.removeitemNS AAEmptyWelkyndStone, 16		
+		endif
+	endif
+
+end 

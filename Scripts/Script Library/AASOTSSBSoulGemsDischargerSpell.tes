@@ -1,0 +1,29 @@
+﻿scn AASOTSSBSoulGemsDischargerSpell
+
+short AASOTSSBSoulGemsDischargerSpellbutton
+short AASOTSSBSoulGemsDischargerSpellused
+
+begin OnEquip player
+	if AASOTSSBSoulGemsDischargerSpellused == 0
+		MessageBox "Do you want to add 'Soul Gems Discharger Spell' to your spell list?", "Yes", "No"
+	endif
+end
+
+begin OnActivate
+	Activate
+	if isActionRef player == 1 && AASOTSSBSoulGemsDischargerSpellused == 0
+		MessageBox "Do you want to add 'Soul Gems Discharger Spell' to your spell list?", "Yes", "No"
+	endif
+end
+
+begin menumode 1026
+	set AASOTSSBSoulGemsDischargerSpellbutton to getbuttonpressed
+	if AASOTSSBSoulGemsDischargerSpellbutton > -1
+		if AASOTSSBSoulGemsDischargerSpellbutton == 0
+			; add the spell to the player's spellbook
+			player.addspell AASoulGemsDischargerSpell
+			playsound SPLAlterationCast
+			set AASOTSSBSoulGemsDischargerSpellused to 1
+		endif
+	endif
+end
