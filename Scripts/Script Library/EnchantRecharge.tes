@@ -1,0 +1,149 @@
+scn EnchantRecharge
+
+float newDay
+float newHour
+float temp
+float temp2
+short choice
+
+float chargeRate
+float cap
+
+begin ScriptEffectStart
+	set newDay to GameDaysPassed
+	set newHour to GameHour
+
+;================ Deal with first time casters
+	if Player.GetInFaction ArcaneBank != 1
+		MessageBox "User not recognized. Please stop by the Arcane Bank at the Imperial City Elven Gardens District to open an account."
+		return
+	endif
+
+	if abcLastDay  == 0 && abcLastHour == 0
+		MessageBox "Thank you for opening an account with The Arcane Bank. Your account will begin generating enchantment charges immediately. Use this spell at any time to access your account."
+		set abcLastDay to newDay
+		set abcLastHour to newHour
+		set abcCharges to 0
+		return
+	endif
+
+;===============Calculate the current regen rate to apply
+	if Player.GetFactionRank ArcaneBank == 0
+		set chargeRate to 12
+		set cap to 1600
+	elseif Player.GetFactionRank ArcaneBank == 1
+		set chargeRate to 16
+		set cap to 2400
+	elseif Player.GetFactionRank ArcaneBank == 2
+		set chargeRate to 20
+		set cap to 3200
+	elseif Player.GetFactionRank ArcaneBank == 3
+		set chargeRate to 24
+		set cap to 3600
+	elseif Player.GetFactionRank ArcaneBank == 4
+		set chargeRate to 28
+		set cap to 4000
+	elseif Player.GetFactionRank ArcaneBank == 5
+		set chargeRate to 32
+		set cap to 4200
+	elseif Player.GetFactionRank ArcaneBank == 6
+		set chargeRate to 40
+		set cap to 5000
+	endif
+
+	set temp to abcWelks * 0.05
+
+	if temp > (chargeRate * 0.2)
+		set temp to chargeRate * 0.2
+	endif
+
+	set chargeRate to chargeRate + temp
+	
+	if GetStage abcLevelUp == 80
+		set chargeRate to chargeRate + 2
+	endif
+
+;===============Use chargeRate to increase account charges based on time passed
+	if newHour > abcLastHour
+		set abcCharges to abcCharges + ((newHour - abcLastHour) * chargeRate)
+	else
+		set abcCharges to abcCharges + ((newHour - abcLastHour + 24) * chargeRate)
+		set abcLastDay to abcLastDay + 1
+	endif
+
+	if newDay > abcLastDay
+		set abcCharges to abcCharges + ((newDay - abcLastDay) * (chargeRate * 24))
+	endif
+
+	if abcCharges > cap
+		set abcCharges to cap
+	endif
+
+;===============Bring up message or menu for player
+	if abcCharges < 150
+		set temp2 to (150 - abcCharges) / chargeRate
+		Message "Current charges: %.0f -- Hours till first recharge level: %.1f", abcCharges, temp2, 5
+	elseif abcCharges < 300
+		MessageBox "You have %.0f available charges. How many charges would you like to withdraw?", abcCharges, "Don't use any", "150 charges"
+	elseif abcCharges < 800
+		MessageBox "You have %.0f available charges. How many charges would you like to withdraw?", abcCharges, "Don't use any", "150 charges", "300 charges"
+	elseif abcCharges < 1200
+		MessageBox "You have %.0f available charges. How many charges would you like to withdraw?", abcCharges, "Don't use any", "150 charges", "300 charges", "800 charges"
+	elseif abcCharges < 1600
+		MessageBox "You have %.0f available charges. How many charges would you like to withdraw?", abcCharges, "Don't use any", "150 charges", "300 charges", "800 charges", "1200 charges"
+	elseif abcCharges < cap
+		MessageBox "You have %.0f available charges. How many charges would you like to withdraw?", abcCharges, "Don't use any", "150 charges", "300 charges", "800 charges", "1200 charges", "1600 charges"
+	else
+		MessageBox "You have reached the limit of %.0f charges on your account. Recharging has currently ceased until charges are withdrawn.  What will you do?", cap, "Don't use any", "150 charges", "300 charges", "800 charges", "1200 charges", "1600 charges"
+	endif
+
+;===============Update casting times
+	set abcLastDay to newDay
+	set abcLastHour to newHour
+
+;===============Debug
+	;MessageBox "RR: %.2f, Cap: %.2f, Welks: %.0f, WelkBonus: %.2f", chargeRate, cap, abcWelks, temp
+end
+
+begin ScriptEffectUpdate
+	set choice to GetButtonPressed
+	if choice != -1
+		if choice == 1
+			set abcCharges to abcCharges - 150
+			player.additem aaPowerLevel1Gem, 1
+			player.equipitem aaPowerLevel1Gem
+		elseif choice == 2
+			set abcCharges to abcCharges - 300
+			player.additem aaPowerLevel2Gem, 1
+			player.equipitem aaPowerLevel2Gem
+		elseif choice == 3
+			set abcCharges to abcCharges - 800
+			player.additem aaPowerLevel3Gem, 1
+			player.equipitem aaPowerLevel3Gem		
+		elseif choice == 4
+			set abcCharges to abcCharges - 1200
+			player.additem aaPowerLevel4Gem, 1
+			player.equipitem aaPowerLevel4Gem			
+		elseif choice == 5
+			set abcCharges to abcCharges - 1600
+			player.additem aaPowerLevel5Gem, 1
+			player.equipitem aaPowerLevel5Gem		
+		endif
+	endif
+
+	if player.GetItemCount aaPowerLevel1Gem > 0
+		player.RemoveItem aaPowerLevel1Gem 1
+	endif
+	if player.GetItemCount aaPowerLevel2Gem > 0
+		player.RemoveItem aaPowerLevel2Gem 1
+	endif
+	if player.GetItemCount aaPowerLevel3Gem > 0
+		player.RemoveItem aaPowerLevel3Gem 1
+	endif
+	if player.GetItemCount aaPowerLevel4Gem > 0
+		player.RemoveItem aaPowerLevel4Gem 1
+	endif
+	if player.GetItemCount aaPowerLevel5Gem > 0
+		player.RemoveItem aaPowerLevel5Gem 1
+	endif
+end

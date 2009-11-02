@@ -1,0 +1,29 @@
+﻿scn AASOTSSBSoulGemSpell
+
+short AASOTSSBSoulGemSpellbutton
+short AASOTSSBSoulGemSpellused
+
+begin OnEquip player
+	if AASOTSSBSoulGemSpellused == 0
+		MessageBox "Do you want to add 'Transmute Soul Gem' to your spell list?", "Yes", "No"
+	endif
+end
+
+begin OnActivate
+	Activate
+	if isActionRef player == 1 && AASOTSSBSoulGemSpellused == 0
+		MessageBox "Do you want to add 'Transmute Soul Gem' to your spell list?", "Yes", "No"
+	endif
+end
+
+begin menumode 1026
+	set AASOTSSBSoulGemSpellbutton to getbuttonpressed
+	if AASOTSSBSoulGemSpellbutton > -1
+		if AASOTSSBSoulGemSpellbutton == 0
+			; add the spell to the player's spellbook
+			player.addspell AASoulGemSpell
+			playsound SPLConjurationCast
+			set AASOTSSBSoulGemSpellused to 1
+		endif
+	endif
+end
