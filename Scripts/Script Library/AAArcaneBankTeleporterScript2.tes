@@ -1,0 +1,8 @@
+﻿ScriptName AAArcaneBankTeleporterScript2
+
+begin Onactivate
+		Player.MoveTo AAArcaneBankTeleportPadref
+	if player.isincombat == 1
+		message "Cannot cast this spell while in combat."
+		EndIf
+End
