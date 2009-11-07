@@ -1,0 +1,32 @@
+How to use this Install Creator Pro.
+
+Export the corresponding folder from the SVN into the Release folder.
+
+I,E. If the folder is in the program folder export the folder into the program folder and then double click the IIP file and then click build.
+
+Example
+
+Go into
+D:\SVN\oblivionworks\Programs
+
+Right Click 
+D:\SVN\oblivionworks\Programs\Wrye Bash
+Select TortoiseSVN
+Select Export
+
+Export into
+D:\SVN\oblivionworks\Releases\Programs
+
+Double Click Wrye Bash.iip
+Click the Build Tab
+Click Build
+Save the File as Wrye Bash Version.exe
+
+Replace Version with the Release Version
+Example
+Wrye Bash 274.exe
+Click Save
+
+
+Hint
+Save any changes to the IIP file so that it will save the version number so that all you have to do is raise the number to the next for Quicker Builds.
