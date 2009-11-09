@@ -2,6 +2,8 @@
 
 
 ACTIVATORS
+  01002054 AASoSThievesBlainAlter
+  01002055 AASoSWarriorBlainAlter
   0100611C AASoSWizardBlainAlter
   0100147C AAVarlaStoneforge01
   0100147D AAWelkyndStoneForge
@@ -141,7 +143,6 @@ BOOKS
   01008404 abcLevelGuide
   01007F15 abcMissionStatement
   0100533A RetrBookArrow
-  01008481 RetrBookArrowGerman
 
 CLOTHS
   01000CEA AAArcherRing
@@ -167,15 +168,18 @@ CONTAINERS
   00037692 DungTombChestAlyied02
   00037555 DungVampireBossChestAlyied01
   0100583D RetrBarrel
+  0100A5CD Retrfletchingcontainer
   01009712 RetrVendorFirstEdition
-  0100A5CD RetrVendorJensinesMerchandise
+
+DIALOG
+  (Details not provided for this record type.)
 
 DOORS
   0100464C AAArcaneBankTeleportPad
   01004651 AAArcaneBankTeleportPad02
   0100BCF8 abcOuterGate
 
-ENCHANTMANETS
+ENCHANTMENT
   01000CF4 AAArcherRingen
   01000CF8 AACrafterRingen
   0100A65B AAEnBattleArmorEn
@@ -273,9 +277,10 @@ ENCHANTMANETS
   01005842 RetrEnchStatic
   01004E40 RetrEnchWood
 
-FACTIONS
+FACTION
   010048E6 ArcaneBank
   01004D34 AyleidStore
+  01002059 RetroFaction
 
 GLOBALS
   010029FF AAVarlaCells
@@ -311,6 +316,7 @@ GLOBALS
 KEYMARKERS
   0100A84A AAForgeKey
   01001424 AAForgeKey2
+  01003777 AARetrChestKey
 
 LIGHTS
   01009DC2 abcPedastalLight
@@ -327,17 +333,16 @@ MISC
   010015C0 AASoulGemsDischargerAct
   010015B1 AAVarlaStoneAct2
   010015B0 AAWelkyndStoneAct2
-  01009BFC RetrMiscArmorFix
   0100218A RetrMiscArroEnch1
   0100A5CE RetrMiscFlet
   01003A90 RetrMiscFlet1
   01004460 RetrMiscFlet2
-  01009BFD RetrMiscMarksFix
   0100A5CF RetrMiscStarterItem
   01003E03 RetrTokenCraftSkill
 
 NPC_
   00827D17 AARazielMerchant
+  01002058 AARetroMerchant
   0100C1E4 abcAmeliaFlistus
   0100AE28 abcArcaneOfficer
   010048E7 abcBrivenGoldsmith
@@ -349,9 +354,10 @@ PACKAGES
   0100A845 abcJacobAllWorkNoPlay
   01004C9A BuySell
 
-QUST
+QUEST
   01004D35 AAAyleidStore
   0100A66A AAKillCounterQuest
+  0100205A AARetroFaction
   010048EC abcJoinUp
   010048ED abcLevelUp
   010045B3 ExitSpellScriptQuest
@@ -364,7 +370,7 @@ QUST
   01002F4F RetrSkill5
   01002A62 RetrSkillStarterQuest
 
-SCRIPTS
+SCIPTS
   0100464F AAArcaneBankTeleporterScript
   0100464B AAArcaneBankTeleporterScript2
   0100464A AAArcaneBankTeleporterSetScript
@@ -372,6 +378,8 @@ SCRIPTS
   010045AD AAEscapeSpellScript
   0100A668 AAFingersontheMountainEnScript
   0100A669 AAKillCounter
+  01002053 AASoSThiefBlainScript
+  01002051 AASoSWarriorBlainScript
   0100611B AASoSWizardBlainScript
   010029B7 AASOTSSBEscapeSpell
   010029B8 AASOTSSBSoulgemCombineSpell
@@ -424,6 +432,8 @@ SCRIPTS
   01008DE8 WelkDeposit
 
 SIGIL STONES
+  0100204F AASoSThiefBlain
+  0100204E AASoSWarriorBlain
   01004CDC AASoSWizardBlain
   00041FB1 SSAbsAGIForAGI1
   00041FB2 SSAbsAGIForAGI2
