@@ -71,7 +71,7 @@ player.ModAV2 Fatigue Fatiguecount
 
 player.removeitem SoulGemEmpty3Common, 1
 player.Additem WelkyndStone, 1
-		message "You channel your essents into the Common Soul Gem creating a Welkynd Stone."
+		message "You channel your essence into the Common Soul Gem creating a Welkynd Stone."
 set WSCStep to 0
 		endif
 END 

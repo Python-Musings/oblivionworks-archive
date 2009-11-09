@@ -1,6 +1,6 @@
-﻿ScriptName AAVarlaStoneAct
+﻿ScriptName AAVarlaStoneConjurer
 
-	short VSCButton
+short VSCButton
 short VSCStep
 
 short health
@@ -18,7 +18,8 @@ Short Fatiguecount
 Short Manacount
 short Grandcount
 
-Begin OnEquip
+Begin ScriptEffectStart
+
 	set Healthcount to 0
 	set Fatiguecount to 0
 	set Manacount to 0
@@ -26,7 +27,7 @@ Begin OnEquip
 	set VSCStep to 1
 END
 
-Begin Gamemode 
+Begin ScriptEffectUpdate 
 
 	if VSCStep == 0
 		set VSCButton to -1
@@ -57,7 +58,6 @@ set VSCStep to 0
 	endif
 
 	if VSCStep == 2	
-
 set health to player.GetActorValue health
 set Healthcount to (1-health)
 player.ModActorValue2 health Healthcount
@@ -71,7 +71,7 @@ player.ModActorValue2 fatigue Fatiguecount
 
 player.removeitem SoulGemEmpty5Grand, 1
 player.Additem VarlaStone, 1
-		message "You channel your entire essents into the Grand Soul Gem creating a Varla Stone."
+		message "You channel your entire essence into the Grand Soul Gem creating a Varla Stone."
 set VSCStep to 0
 		endif
 END 
