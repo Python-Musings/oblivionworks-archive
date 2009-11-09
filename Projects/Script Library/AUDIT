@@ -109,6 +109,8 @@ AMMO
 
 ARMOR
   01001AAD AAAyleidShieldshield
+  0100A65F AABattleArmor
+  0100A660 AABattleHood
   01001AAC AABlackhandBoots
   01001AAB AABlackhandCuirass
   01001AAA AABlackhandGauntlets
@@ -125,11 +127,9 @@ ARMOR
   01001A9F AAEbonymithrilmgauntlets
   01001A9E AAEbonymithrilmgreaves
   0100C1EE AAEbonyMithrilmhelmet
+  0100A65D AAEnBattleArmor
+  0100A65E AAEnBattleHood
   0100C1ED AAWraithguard
-  0100A65F RazielBattleArmor01
-  0100A660 RazielBattleHood01
-  0100A65D RazielEnBattleArmor
-  0100A65E RazielEnBattleHood
 
 BOOKS
   010029BB AAEscapeSpellTomb
@@ -143,21 +143,20 @@ BOOKS
   0100533A RetrBookArrow
   01008481 RetrBookArrowGerman
 
-
-
 CLOTHS
+  01000CEA AAArcherRing
+  0100A665 AACrafterRing
+  0100A661 AAFightersring
+  0100A662 AAmagesring
+  0100A664 AAMagiRing
   01001421 AASoulclothesring
+  01000CEB AAThiefRing
+  0100A663 AAWarrorRing
   01007F18 abcBrivenAmulet
-  01000CEA RazielArcherRing
-  0100A665 RazielCrafterRing
-  0100A661 RazielFightersring
-  0100A662 Razielmagesring
-  0100A664 RazielMagiRing
-  01000CEB RazielThiefRing
-  0100A663 RazielWarrorRing
 
 CONTAINERS
   01004CE5 AANecromancerchestsell
+  0100A666 AARingChest
   010048EA abcBrivenChest
   01008DF4 abcGoldChest
   01008DF0 abcWelkChest
@@ -167,28 +166,26 @@ CONTAINERS
   00037681 DungOblivionBossSack02
   00037692 DungTombChestAlyied02
   00037555 DungVampireBossChestAlyied01
-  0100A666 RazielRingChest
   0100583D RetrBarrel
   01009712 RetrVendorFirstEdition
   0100A5CD RetrVendorJensinesMerchandise
 
-DIALOG
-  (Details not provided for this record type.)
-
 DOORS
+  0100464C AAArcaneBankTeleportPad
+  01004651 AAArcaneBankTeleportPad02
   0100BCF8 abcOuterGate
 
-ENCHANTMENTS
+ENCHANTMANETS
+  01000CF4 AAArcherRingen
+  01000CF8 AACrafterRingen
+  0100A65B AAEnBattleArmorEn
+  0100A65C AAEnBattleHoodEn
+  01000CED AAFightersRingSighten
+  01000CEE AAMagesRingSighten
+  0100A65A AAMagiRingen
   01001423 AASoulringencht
-  01000CF4 RazielArcherRingen
-  01000CF8 RazielCrafterRingen
-  0100A65B RazielEnBattleArmorEn
-  0100A65C RazielEnBattleHoodEn
-  01000CED RazielFightersRingSighten
-  01000CEE RazielMagesRingSighten
-  0100A65A RazielMagiRingen
-  01000CF6 RazielThiefRingen
-  01000CF0 RazielWarriorRingen
+  01000CF6 AAThiefRingen
+  01000CF0 AAWarriorRingen
   01004462 RetrEnchArroBone
   010020F7 RetrEnchElectro1
   01002104 RetrEnchElectro2
@@ -278,8 +275,17 @@ ENCHANTMENTS
 
 FACTIONS
   010048E6 ArcaneBank
+  01004D34 AyleidStore
 
 GLOBALS
+  010029FF AAVarlaCells
+  010029FE AAVarlaCharges
+  01002A00 AAVarlaLastDay
+  01002A01 AAVarlaLastHour
+  01002A03 AAWelkyndCells
+  01002A04 AAWelkyndCharges
+  01002A06 AAWelkyndLastDay
+  01002A07 AAWelkyndLastHour
   0100A66D abcCharges
   01008DF6 abcGDay
   01008DF2 abcGold
@@ -302,15 +308,16 @@ GLOBALS
   01001BA6 gRetrSkillUses8
   01001BA7 gRetrSkillUses9
 
-KEYS
+KEYMARKERS
   0100A84A AAForgeKey
+  01001424 AAForgeKey2
 
 LIGHTS
   01009DC2 abcPedastalLight
 
 LEVEL LIST
+  01000CFA AAringlevel
   010015B2 AATransmuteStonesLL
-  01000CFA Razielringlevel
 
 MISC
   0100C1EB AAEmptyVarlaStone
@@ -330,11 +337,10 @@ MISC
   01003E03 RetrTokenCraftSkill
 
 NPC_
-  00827D17 AANecromancerMerchant
+  00827D17 AARazielMerchant
   0100C1E4 abcAmeliaFlistus
   0100AE28 abcArcaneOfficer
   010048E7 abcBrivenGoldsmith
-  0100B311 abcEvilBriven
   01002A5A abcJacobVentium
 
 PACKAGES
@@ -343,7 +349,8 @@ PACKAGES
   0100A845 abcJacobAllWorkNoPlay
   01004C9A BuySell
 
-QUEST
+QUST
+  01004D35 AAAyleidStore
   0100A66A AAKillCounterQuest
   010048EC abcJoinUp
   010048ED abcLevelUp
@@ -357,7 +364,10 @@ QUEST
   01002F4F RetrSkill5
   01002A62 RetrSkillStarterQuest
 
-SCPT
+SCRIPTS
+  0100464F AAArcaneBankTeleporterScript
+  0100464B AAArcaneBankTeleporterScript2
+  0100464A AAArcaneBankTeleporterSetScript
   010045AC AAEscapeScript
   010045AD AAEscapeSpellScript
   0100A668 AAFingersontheMountainEnScript
@@ -377,8 +387,10 @@ SCPT
   010015B7 AASoulGemsDischargerSpellScript
   01000EDA AAVarlaStoneAct
   01000ED3 AAVarlaStoneConjurer
+  01002A02 AAVarlaStoneForgeScript
   01000ED8 AAWelkyndStoneAct
   01000ED4 AAWelkyndStoneConjurer
+  01002A05 AAWelkyndStoneForgeScript
   0100234D AAWizardFuryEnScript
   0100C1E2 abcJoinUpScript
   0100B319 abcQuestsScript
@@ -563,7 +575,7 @@ SIGIL STONES
   0004209F SSTurnUnDetLife4
   0004209B SSTurnUnDetLife5
 
-SLGM
+SOUL GEMS
   0100C1E5 aaPowerLevel1Gem
   0100C1E6 aaPowerLevel2Gem
   0100C1E7 aaPowerLevel3Gem
@@ -571,7 +583,8 @@ SLGM
   0100C1E9 aaPowerLevel5Gem
 
 SPELLS
-  0100C1E3 aaERecharge
+  01003773 AAArcaneBankTelepadSpell
+  0100C1E3 AAERecharge
   010045AE AAEscapeSpell
   01004CE1 AAGrandReviveDead
   01004CDF AAGreaterReviveDead
