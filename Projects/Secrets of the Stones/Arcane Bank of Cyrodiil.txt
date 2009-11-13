@@ -1,0 +1,60 @@
+Mod: Arcane Bank of Cyrodiil
+Author: Evan 'acc' Miller (mail.miller@gmail.com)
+Version: 0.4
+
+
+------------------
+What this mod does:
+------------------
+1) Lets you recharge enchantments over time, similar to how it worked in Morrowind. Except instead of the items charging themselves, you get an arcane bank account that charges up. You then transfer the power from your account onto your items.
+2) Lets you gain faster regeneration rates by moving up in the bank faction, by depositing Varla and Welkynd stones.
+3) Offers gold storage, with interest. Especially good for those of you using mods that add weight to gold.
+4) Has a final quest when you reach the highest level of the faction.
+
+------------------
+Installation & Compatibility::
+------------------
+Extract the files from the Data folder into your Oblivion\Data folder.
+This release (0.4) has no known conflicts at this time.
+
+------------------
+Usage:
+------------------
+Upon loading the game a quest notification will pop-up within a few seconds, in the same way official plugins do.
+You will be directed to the center of the Elven Garden's district, where you will find the portal to the Arcane Bank (can't miss it).
+
+An account can be created with the bank for free by talking to Briven Goldsmith, who will be give you an Arcane Account Access spell. Cast this once to register your account, and then cast it again whenever you want to see how much power is in your account (and withdraw it if you have enough).
+
+While inside the bank, you can deposit Welkynd stones which will increase your recharge rate by a small amount. You donate Varla stones to increase your account level. You can also deposit gold there and let it build interest over time.
+
+------------------
+Version Changes:
+------------------
+0.4
+- Removed all use of GREETING dialogue
+- Made quest start automatically by quest script
+- Tweak some dialogue lines
+- Added a faction icon and quest icon
+- Fixed gold withdrawals so you can't take out more money than you actually have
+
+0.3
+- Changed bank doors to allow non-university members to enter
+
+0.2
+- Switched to 'Arcane Bank of Cyrodiil' theme. Most major features implemented.
+
+0.1
+- First, basic release
+
+------------------
+Possible Future Updates:
+------------------
+-add bank reps to all cities
+-add more quests to flesh the ABC into a full guild
+-voice acting?
+-Fix any bugs that pop up (and I'm sure they will continue to do so)
+
+------------------
+Extra Credits:
+------------------
+Shimeru/Foxmaiden for the recharging technique in their Recharge Spell mod.
