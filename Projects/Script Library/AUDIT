@@ -110,6 +110,11 @@ AMMO
   010016CB RetrTestMagicArrow3
 
 ARMOR
+  0100C207 AAAyleidBoots
+  0100C206 AAAyleidCuirass
+  0100C205 AAAyleidGauntlets
+  0100C204 AAAyleidGreaves
+  0100C203 AAAyleidhelmet
   01001AAD AAAyleidShieldshield
   0100A65F AABattleArmor
   0100A660 AABattleHood
@@ -156,6 +161,7 @@ CLOTHS
   01007F18 abcBrivenAmulet
 
 CONTAINERS
+  0100143B AAGuardChest
   01004CE5 AANecromancerchestsell
   0100A666 AARingChest
   010048EA abcBrivenChest
@@ -171,15 +177,11 @@ CONTAINERS
   0100A5CD Retrfletchingcontainer
   01009712 RetrVendorFirstEdition
 
-DIALOG
-  (Details not provided for this record type.)
-
 DOORS
   0100464C AAArcaneBankTeleportPad
   01004651 AAArcaneBankTeleportPad02
-  0100BCF8 abcOuterGate
 
-ENCHANTMENT
+ENCHANMENTS
   01000CF4 AAArcherRingen
   01000CF8 AACrafterRingen
   0100A65B AAEnBattleArmorEn
@@ -277,7 +279,7 @@ ENCHANTMENT
   01005842 RetrEnchStatic
   01004E40 RetrEnchWood
 
-FACTION
+FACTIONS
   010048E6 ArcaneBank
   01004D34 AyleidStore
   01002059 RetroFaction
@@ -313,12 +315,12 @@ GLOBALS
   01001BA6 gRetrSkillUses8
   01001BA7 gRetrSkillUses9
 
-KEYMARKERS
+KEYS
   0100A84A AAForgeKey
   01001424 AAForgeKey2
   01003777 AARetrChestKey
 
-LIGHTS
+LIGH
   01009DC2 abcPedastalLight
 
 LEVEL LIST
@@ -326,6 +328,7 @@ LEVEL LIST
   010015B2 AATransmuteStonesLL
 
 MISC
+  01004C97 AAArcaneBankTelepadAct
   0100C1EB AAEmptyVarlaStone
   0100C1EC AAEmptyWelkyndStone
   010015C1 AASoulgemCombineAct
@@ -341,14 +344,17 @@ MISC
   01003E03 RetrTokenCraftSkill
 
 NPC_
+  01001438 AAAyleidGuard
   00827D17 AARazielMerchant
   01002058 AARetroMerchant
   0100C1E4 abcAmeliaFlistus
   0100AE28 abcArcaneOfficer
   010048E7 abcBrivenGoldsmith
   01002A5A abcJacobVentium
+  01001FA5 abcPortalKeeper
 
 PACKAGES
+  01001439 aaBankGuardPack
   0100AD36 abcAmeliaWorkAllDayAndIWorkAllNight
   010048E9 abcBrivenNeverGetsOutPoorGuy
   0100A845 abcJacobAllWorkNoPlay
@@ -370,9 +376,10 @@ QUEST
   01002F4F RetrSkill5
   01002A62 RetrSkillStarterQuest
 
-SCIPTS
+SCRIPTS
   0100464F AAArcaneBankTeleporterScript
   0100464B AAArcaneBankTeleporterScript2
+  01004C98 AAArcaneBankTeleporterSetActScript
   0100464A AAArcaneBankTeleporterSetScript
   010045AC AAEscapeScript
   010045AD AAEscapeSpellScript
