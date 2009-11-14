@@ -43,8 +43,6 @@ namespace OblivionModManager {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.bAdd = new System.Windows.Forms.Button();
-            this.bAddFromFolder = new System.Windows.Forms.Button();
             this.tbName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tbVersion = new System.Windows.Forms.TextBox();
@@ -63,13 +61,18 @@ namespace OblivionModManager {
             this.bDown = new System.Windows.Forms.Button();
             this.tbWebsite = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.bAddZip = new System.Windows.Forms.Button();
             this.bScreenshot = new System.Windows.Forms.Button();
             this.ScreenshotPic = new System.Windows.Forms.PictureBox();
             this.cbIncludeVersion = new System.Windows.Forms.CheckBox();
             this.bGroups = new System.Windows.Forms.Button();
             this.cmsGroups = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.bRemoveScreenshot = new System.Windows.Forms.Button();
+            this.bAddZip = new System.Windows.Forms.Button();
+            this.bAddFromFolder = new System.Windows.Forms.Button();
+            this.bAdd = new System.Windows.Forms.Button();
+            this.bEdCredits = new System.Windows.Forms.Button();
+            this.bEdChangeLog = new System.Windows.Forms.Button();
+            this.bEdComments = new System.Windows.Forms.Button();
             this.FilesContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ScreenshotPic)).BeginInit();
             this.SuspendLayout();
@@ -82,6 +85,33 @@ namespace OblivionModManager {
             this.bEdReadme.TabIndex = 17;
             this.bEdReadme.Text = "Edit readme";
             this.bEdReadme.Click += new System.EventHandler(this.bEdReadme_Click);
+            // 
+            // bEdChangeLog
+            // 
+            this.bEdChangeLog.Location = new System.Drawing.Point(12, 177);
+            this.bEdChangeLog.Name = "bEdChangeLog";
+            this.bEdChangeLog.Size = new System.Drawing.Size(100, 23);
+            this.bEdChangeLog.TabIndex = 17;
+            this.bEdChangeLog.Text = "Edit Changelog";
+            this.bEdChangeLog.Click += new System.EventHandler(this.bEdChangeLog_Click);
+            // 
+            // bEdComments
+            // 
+            this.bEdComments.Location = new System.Drawing.Point(12, 177);
+            this.bEdComments.Name = "bEdComments";
+            this.bEdComments.Size = new System.Drawing.Size(100, 23);
+            this.bEdComments.TabIndex = 17;
+            this.bEdComments.Text = "Edit Comments";
+            this.bEdComments.Click += new System.EventHandler(this.bEdComments_Click);
+            // 
+            // bEdCredits
+            // 
+            this.bEdCredits.Location = new System.Drawing.Point(12, 177);
+            this.bEdCredits.Name = "bEdCredits";
+            this.bEdCredits.Size = new System.Drawing.Size(100, 23);
+            this.bEdCredits.TabIndex = 17;
+            this.bEdCredits.Text = "Edit Credits";
+            this.bEdCredits.Click += new System.EventHandler(this.bEdCredits_Click);
             // 
             // bEdScript
             // 
@@ -136,9 +166,9 @@ namespace OblivionModManager {
             // 
             // lvFiles
             // 
-            this.lvFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lvFiles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
@@ -146,14 +176,14 @@ namespace OblivionModManager {
             this.lvFiles.FullRowSelect = true;
             this.lvFiles.HideSelection = false;
             this.lvFiles.LabelEdit = true;
-            this.lvFiles.Location = new System.Drawing.Point(12, 235);
+            this.lvFiles.Location = new System.Drawing.Point(12, 259);
             this.lvFiles.Name = "lvFiles";
-            this.lvFiles.Size = new System.Drawing.Size(338, 224);
+            this.lvFiles.Size = new System.Drawing.Size(338, 225);
             this.lvFiles.TabIndex = 23;
             this.lvFiles.UseCompatibleStateImageBehavior = false;
             this.lvFiles.View = System.Windows.Forms.View.Details;
-            this.lvFiles.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lvFiles_KeyDown);
             this.lvFiles.AfterLabelEdit += new System.Windows.Forms.LabelEditEventHandler(this.lvFiles_AfterLabelEdit);
+            this.lvFiles.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lvFiles_KeyDown);
             // 
             // columnHeader1
             // 
@@ -175,48 +205,48 @@ namespace OblivionModManager {
             this.scanForDataFilesToolStripMenuItem,
             this.viewRequiredDataFilesToolStripMenuItem});
             this.FilesContextMenu.Name = "FilesContextMenu";
-            this.FilesContextMenu.Size = new System.Drawing.Size(187, 136);
+            this.FilesContextMenu.Size = new System.Drawing.Size(197, 136);
             this.FilesContextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.FilesContextMenu_Opening);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.openToolStripMenuItem.Text = "open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.deleteToolStripMenuItem.Text = "remove from omod";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // validateToolStripMenuItem
             // 
             this.validateToolStripMenuItem.Name = "validateToolStripMenuItem";
-            this.validateToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.validateToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.validateToolStripMenuItem.Text = "validate";
             this.validateToolStripMenuItem.Click += new System.EventHandler(this.validateToolStripMenuItem_Click);
             // 
             // importModDetailsToolStripMenuItem
             // 
             this.importModDetailsToolStripMenuItem.Name = "importModDetailsToolStripMenuItem";
-            this.importModDetailsToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.importModDetailsToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.importModDetailsToolStripMenuItem.Text = "Import mod details";
             this.importModDetailsToolStripMenuItem.Click += new System.EventHandler(this.importModDetailsToolStripMenuItem_Click);
             // 
             // scanForDataFilesToolStripMenuItem
             // 
             this.scanForDataFilesToolStripMenuItem.Name = "scanForDataFilesToolStripMenuItem";
-            this.scanForDataFilesToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.scanForDataFilesToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.scanForDataFilesToolStripMenuItem.Text = "scan for data files";
             this.scanForDataFilesToolStripMenuItem.Click += new System.EventHandler(this.scanForDataFilesToolStripMenuItem_Click);
             // 
             // viewRequiredDataFilesToolStripMenuItem
             // 
             this.viewRequiredDataFilesToolStripMenuItem.Name = "viewRequiredDataFilesToolStripMenuItem";
-            this.viewRequiredDataFilesToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.viewRequiredDataFilesToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.viewRequiredDataFilesToolStripMenuItem.Text = "View required data files";
             this.viewRequiredDataFilesToolStripMenuItem.Click += new System.EventHandler(this.viewRequiredDataFilesToolStripMenuItem_Click);
             // 
@@ -246,24 +276,6 @@ namespace OblivionModManager {
             this.label3.Size = new System.Drawing.Size(120, 13);
             this.label3.TabIndex = 16;
             this.label3.Text = "omod compression level";
-            // 
-            // bAdd
-            // 
-            this.bAdd.Location = new System.Drawing.Point(12, 206);
-            this.bAdd.Name = "bAdd";
-            this.bAdd.Size = new System.Drawing.Size(100, 23);
-            this.bAdd.TabIndex = 20;
-            this.bAdd.Text = "Add files";
-            this.bAdd.Click += new System.EventHandler(this.bAdd_Click);
-            // 
-            // bAddFromFolder
-            // 
-            this.bAddFromFolder.Location = new System.Drawing.Point(118, 206);
-            this.bAddFromFolder.Name = "bAddFromFolder";
-            this.bAddFromFolder.Size = new System.Drawing.Size(100, 23);
-            this.bAddFromFolder.TabIndex = 21;
-            this.bAddFromFolder.Text = "Add folder";
-            this.bAddFromFolder.Click += new System.EventHandler(this.bAddFromFolder_Click);
             // 
             // tbName
             // 
@@ -306,7 +318,7 @@ namespace OblivionModManager {
             // 
             this.rbPlugins.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.rbPlugins.Checked = true;
-            this.rbPlugins.Location = new System.Drawing.Point(108, 468);
+            this.rbPlugins.Location = new System.Drawing.Point(108, 493);
             this.rbPlugins.Name = "rbPlugins";
             this.rbPlugins.Size = new System.Drawing.Size(59, 17);
             this.rbPlugins.TabIndex = 24;
@@ -317,7 +329,7 @@ namespace OblivionModManager {
             // rbData
             // 
             this.rbData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.rbData.Location = new System.Drawing.Point(108, 497);
+            this.rbData.Location = new System.Drawing.Point(108, 522);
             this.rbData.Name = "rbData";
             this.rbData.Size = new System.Drawing.Size(69, 17);
             this.rbData.TabIndex = 25;
@@ -336,7 +348,7 @@ namespace OblivionModManager {
             // bCreate
             // 
             this.bCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bCreate.Location = new System.Drawing.Point(270, 494);
+            this.bCreate.Location = new System.Drawing.Point(270, 519);
             this.bCreate.Name = "bCreate";
             this.bCreate.Size = new System.Drawing.Size(80, 23);
             this.bCreate.TabIndex = 30;
@@ -388,7 +400,7 @@ namespace OblivionModManager {
             // bUp
             // 
             this.bUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bUp.Location = new System.Drawing.Point(184, 465);
+            this.bUp.Location = new System.Drawing.Point(184, 490);
             this.bUp.Name = "bUp";
             this.bUp.Size = new System.Drawing.Size(80, 23);
             this.bUp.TabIndex = 26;
@@ -398,7 +410,7 @@ namespace OblivionModManager {
             // bDown
             // 
             this.bDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bDown.Location = new System.Drawing.Point(270, 465);
+            this.bDown.Location = new System.Drawing.Point(270, 490);
             this.bDown.Name = "bDown";
             this.bDown.Size = new System.Drawing.Size(80, 23);
             this.bDown.TabIndex = 27;
@@ -421,19 +433,10 @@ namespace OblivionModManager {
             this.label8.TabIndex = 8;
             this.label8.Text = "Website";
             // 
-            // bAddZip
-            // 
-            this.bAddZip.Location = new System.Drawing.Point(224, 206);
-            this.bAddZip.Name = "bAddZip";
-            this.bAddZip.Size = new System.Drawing.Size(100, 23);
-            this.bAddZip.TabIndex = 22;
-            this.bAddZip.Text = "Add archive";
-            this.bAddZip.Click += new System.EventHandler(this.bAddZip_Click);
-            // 
             // bScreenshot
             // 
             this.bScreenshot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.bScreenshot.Location = new System.Drawing.Point(12, 465);
+            this.bScreenshot.Location = new System.Drawing.Point(12, 490);
             this.bScreenshot.Name = "bScreenshot";
             this.bScreenshot.Size = new System.Drawing.Size(90, 23);
             this.bScreenshot.TabIndex = 28;
@@ -444,7 +447,7 @@ namespace OblivionModManager {
             // 
             // ScreenshotPic
             // 
-            this.ScreenshotPic.Location = new System.Drawing.Point(18, 235);
+            this.ScreenshotPic.Location = new System.Drawing.Point(12, 259);
             this.ScreenshotPic.Name = "ScreenshotPic";
             this.ScreenshotPic.Size = new System.Drawing.Size(300, 225);
             this.ScreenshotPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -467,7 +470,7 @@ namespace OblivionModManager {
             // bGroups
             // 
             this.bGroups.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bGroups.Location = new System.Drawing.Point(184, 494);
+            this.bGroups.Location = new System.Drawing.Point(184, 519);
             this.bGroups.Name = "bGroups";
             this.bGroups.Size = new System.Drawing.Size(80, 23);
             this.bGroups.TabIndex = 29;
@@ -482,22 +485,77 @@ namespace OblivionModManager {
             // bRemoveScreenshot
             // 
             this.bRemoveScreenshot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.bRemoveScreenshot.Location = new System.Drawing.Point(12, 494);
+            this.bRemoveScreenshot.Location = new System.Drawing.Point(12, 519);
             this.bRemoveScreenshot.Name = "bRemoveScreenshot";
             this.bRemoveScreenshot.Size = new System.Drawing.Size(90, 23);
             this.bRemoveScreenshot.TabIndex = 31;
             this.bRemoveScreenshot.Text = "Remove image";
             this.bRemoveScreenshot.Click += new System.EventHandler(this.bRemoveScreenshot_Click);
             // 
+            // bAddZip
+            // 
+            this.bAddZip.Location = new System.Drawing.Point(224, 235);
+            this.bAddZip.Name = "bAddZip";
+            this.bAddZip.Size = new System.Drawing.Size(100, 23);
+            this.bAddZip.TabIndex = 22;
+            this.bAddZip.Text = "Add archive";
+            this.bAddZip.Click += new System.EventHandler(this.bAddZip_Click);
+            // 
+            // bAddFromFolder
+            // 
+            this.bAddFromFolder.Location = new System.Drawing.Point(118, 235);
+            this.bAddFromFolder.Name = "bAddFromFolder";
+            this.bAddFromFolder.Size = new System.Drawing.Size(100, 23);
+            this.bAddFromFolder.TabIndex = 21;
+            this.bAddFromFolder.Text = "Add folder";
+            this.bAddFromFolder.Click += new System.EventHandler(this.bAddFromFolder_Click);
+            // 
+            // bAdd
+            // 
+            this.bAdd.Location = new System.Drawing.Point(12, 235);
+            this.bAdd.Name = "bAdd";
+            this.bAdd.Size = new System.Drawing.Size(100, 23);
+            this.bAdd.TabIndex = 20;
+            this.bAdd.Text = "Add files";
+            this.bAdd.Click += new System.EventHandler(this.bAdd_Click);
+            // 
+            // bEdCredits
+            // 
+            this.bEdCredits.Location = new System.Drawing.Point(224, 206);
+            this.bEdCredits.Name = "bEdCredits";
+            this.bEdCredits.Size = new System.Drawing.Size(100, 23);
+            this.bEdCredits.TabIndex = 34;
+            this.bEdCredits.Text = "Edit Credits";
+            this.bEdCredits.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // bEdChangeLog
+            // 
+            this.bEdChangeLog.Location = new System.Drawing.Point(12, 206);
+            this.bEdChangeLog.Name = "bEdChangeLog";
+            this.bEdChangeLog.Size = new System.Drawing.Size(100, 23);
+            this.bEdChangeLog.TabIndex = 32;
+            this.bEdChangeLog.Text = "Edit Change Log";
+            // 
+            // bEdComments
+            // 
+            this.bEdComments.Location = new System.Drawing.Point(118, 206);
+            this.bEdComments.Name = "bEdComments";
+            this.bEdComments.Size = new System.Drawing.Size(100, 23);
+            this.bEdComments.TabIndex = 33;
+            this.bEdComments.Text = "Edit Comments";
+            this.bEdComments.Click += new System.EventHandler(this.bEdComments_Click);
+            // 
             // CreateModForm
             // 
-            this.ClientSize = new System.Drawing.Size(362, 529);
+            this.ClientSize = new System.Drawing.Size(362, 554);
+            this.Controls.Add(this.bEdCredits);
+            this.Controls.Add(this.bEdChangeLog);
+            this.Controls.Add(this.bEdComments);
             this.Controls.Add(this.bRemoveScreenshot);
             this.Controls.Add(this.cbIncludeVersion);
-            this.Controls.Add(this.ScreenshotPic);
-            this.Controls.Add(this.bAddZip);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.tbWebsite);
+            this.Controls.Add(this.bAddZip);
             this.Controls.Add(this.bGroups);
             this.Controls.Add(this.bScreenshot);
             this.Controls.Add(this.tbAuthor);
@@ -511,13 +569,14 @@ namespace OblivionModManager {
             this.Controls.Add(this.rbData);
             this.Controls.Add(this.rbPlugins);
             this.Controls.Add(this.bCreate);
+            this.Controls.Add(this.ScreenshotPic);
             this.Controls.Add(this.tbVersion);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.bAddFromFolder);
-            this.Controls.Add(this.bAdd);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.bAddFromFolder);
             this.Controls.Add(this.lvFiles);
+            this.Controls.Add(this.bAdd);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bEdReadme);
@@ -547,8 +606,6 @@ namespace OblivionModManager {
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button bAdd;
-        private System.Windows.Forms.Button bAddFromFolder;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.TextBox tbName;
@@ -569,7 +626,6 @@ namespace OblivionModManager {
         private System.Windows.Forms.Button bDown;
         private System.Windows.Forms.TextBox tbWebsite;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button bAddZip;
         private System.Windows.Forms.ContextMenuStrip FilesContextMenu;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
@@ -584,5 +640,11 @@ namespace OblivionModManager {
         private System.Windows.Forms.ContextMenu DudMenu=new System.Windows.Forms.ContextMenu();
         private System.Windows.Forms.ToolStripMenuItem viewRequiredDataFilesToolStripMenuItem;
         private System.Windows.Forms.Button bRemoveScreenshot;
+        private System.Windows.Forms.Button bAddZip;
+        private System.Windows.Forms.Button bAddFromFolder;
+        private System.Windows.Forms.Button bAdd;
+        private System.Windows.Forms.Button bEdCredits;
+        private System.Windows.Forms.Button bEdChangeLog;
+        private System.Windows.Forms.Button bEdComments;
     }
 }

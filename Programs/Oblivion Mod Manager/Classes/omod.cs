@@ -64,6 +64,30 @@ namespace OblivionModManager {
                     omodStream.Write(ops.readme);
                     omodStream.Flush();
                 }
+                //The comments
+                if (ops.comments != "" && ops.comments != null)
+                {
+                    ze = new ZipEntry("Comments");
+                    ZipStream.PutNextEntry(ze);
+                    omodStream.Write(ops.comments);
+                    omodStream.Flush();
+                }
+                //The changelog
+                if (ops.changelog != "" && ops.changelog != null)
+                {
+                    ze = new ZipEntry("Changelog");
+                    ZipStream.PutNextEntry(ze);
+                    omodStream.Write(ops.readme);
+                    omodStream.Flush();
+                }
+                //The Credits
+                if (ops.Credits != "" && ops.Credits != null)
+                {
+                    ze = new ZipEntry("Credits");
+                    ZipStream.PutNextEntry(ze);
+                    omodStream.Write(ops.Credits);
+                    omodStream.Flush();
+                }
                 //The script
                 if(ops.script!=""&&ops.script!=null) {
                     ze=new ZipEntry("script");
@@ -792,6 +816,36 @@ namespace OblivionModManager {
             return readme;
         }
 
+        internal string GetChangelog()
+        {
+            Stream s = ExtractWholeFile("changelog");
+            if (s == null) return null;
+            BinaryReader br = new BinaryReader(s);
+            string changelog = br.ReadString();
+            br.Close();
+            return changelog;
+        }
+
+        internal string GetComments()
+        {
+            Stream s = ExtractWholeFile("Comments");
+            if (s == null) return null;
+            BinaryReader br = new BinaryReader(s);
+            string comments = br.ReadString();
+            br.Close();
+            return comments;
+        }
+
+        internal string GetCredits()
+        {
+            Stream s = ExtractWholeFile("Credits");
+            if (s == null) return null;
+            BinaryReader br = new BinaryReader(s);
+            string credits = br.ReadString();
+            br.Close();
+            return credits;
+        }
+
         internal string GetScript() {
             Stream s=ExtractWholeFile("script");
             if(s==null) return null;
@@ -817,6 +871,12 @@ namespace OblivionModManager {
             report+=n+"Date this omod was compiled: "+CreationTime.ToString();
             report+=n+"Contains readme: ";
             if(DoesReadmeExist()) report+="yes"; else report+="no";
+            report += n + "Contains Changelog: ";
+            if (DoesChangelogExist()) report += "yes"; else report += "no";
+            report += n + "Contains Comments: ";
+            if (DoesCommentsExist()) report += "yes"; else report += "no";
+            report += n + "Contains Credits: ";
+            if (DoesCreditsExist()) report += "yes"; else report += "no";
             report+=n+"Contains script: ";
             if(DoesScriptExist()) report+="yes"; else report+="no";
             report+=n+n+"[omod file information]"+n;
@@ -870,6 +930,24 @@ namespace OblivionModManager {
         internal bool DoesReadmeExist() {
             ZipEntry ze=ModFile.GetEntry("readme");
             return (ze!=null);
+        }
+
+        internal bool DoesChangelogExist()
+        {
+            ZipEntry ze = ModFile.GetEntry("Changelog");
+            return (ze != null);
+        }
+
+        internal bool DoesCommentsExist()
+        {
+            ZipEntry ze = ModFile.GetEntry("Comments");
+            return (ze != null);
+        }
+
+        internal bool DoesCreditsExist()
+        {
+            ZipEntry ze = ModFile.GetEntry("Credits");
+            return (ze != null);
         }
 
         internal bool DoesScriptExist() {
@@ -941,6 +1019,21 @@ namespace OblivionModManager {
 
         internal void ReplaceReadme(string readme) {
             ReplaceFileInOmod("readme", readme);
+        }
+
+        internal void ReplaceChangelog(string Changelog)
+        {
+            ReplaceFileInOmod("Changelog", Changelog);
+        }
+
+        internal void ReplaceComments(string Comments)
+        {
+            ReplaceFileInOmod("Comments", Comments);
+        }
+
+        internal void ReplaceCredits(string Credits)
+        {
+            ReplaceFileInOmod("Credits", Credits);
         }
 
         internal void ReplaceScript(string script) {

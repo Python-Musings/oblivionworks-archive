@@ -28,6 +28,7 @@ namespace OblivionModManager {
             this.bVisit = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -41,7 +42,7 @@ namespace OblivionModManager {
             // 
             // bVisit
             // 
-            this.bVisit.Location = new System.Drawing.Point(125, 62);
+            this.bVisit.Location = new System.Drawing.Point(124, 82);
             this.bVisit.Name = "bVisit";
             this.bVisit.Size = new System.Drawing.Size(100, 23);
             this.bVisit.TabIndex = 1;
@@ -61,17 +62,27 @@ namespace OblivionModManager {
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 35);
+            this.label3.Location = new System.Drawing.Point(12, 48);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(200, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Please read the manual for further credits";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 35);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(111, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Updated by Raziel23x";
+            // 
             // About
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(251, 97);
+            this.ClientSize = new System.Drawing.Size(251, 117);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.bVisit);
@@ -81,6 +92,7 @@ namespace OblivionModManager {
             this.MaximizeBox = false;
             this.Name = "About";
             this.Text = "About";
+            this.Load += new System.EventHandler(this.About_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -92,5 +104,6 @@ namespace OblivionModManager {
         private System.Windows.Forms.Button bVisit;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

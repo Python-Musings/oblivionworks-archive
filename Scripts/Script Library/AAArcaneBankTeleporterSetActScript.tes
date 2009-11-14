@@ -1,22 +1,32 @@
 ﻿ScriptName AAArcaneBankTeleporterSetActScript
 
 float fQuestDelayTime
+short AAABTPstep
+short AAABTPCount
 
 Begin OnEquip
 
 If (fQuestDelayTime == 0)
 	set fQuestDelayTime to 0.5
+	set AAABTPstep to 1
+	set AAABTPCount to 1
 	EndIf
 End
 
 Begin Gamemode
 
-	if player.isincombat == 0
+if AAABTPstep == 0
+		set AAABTPCount to -1		
+	endif
+
+	if AAABTPstep == 1 && AAABTPCount == 1
+		if player.isincombat == 0
 		AAArcaneBankTeleportPadref.MoveTo Player
 		player.RemoveItemNS AAArcaneBankTelepadAct, 1
 		;set fQuestDelayTime to 5
 		elseif player.isincombat == 1
 		message "Cannot cast this spell while in combat."
+		EndIf
+		set AAABTPstep to 0
 	EndIf
-
 End 

@@ -254,6 +254,9 @@ namespace OblivionModManager {
         internal string[] DataFiles;
         internal string[] DataFilePaths;
         internal string readme;
+        internal string changelog;
+        internal string comments;
+        internal string credits;
         internal string script;
     }
 
