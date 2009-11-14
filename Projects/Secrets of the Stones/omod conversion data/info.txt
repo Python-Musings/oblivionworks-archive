@@ -1,10 +1,10 @@
-Secrets of the Stones 0.6.omod
+Secrets of the Stones 0.0.7.omod
 
 [basic info]
 Name: Secrets of the Stones
 
 Author: Gerald Wayne Baggett Jr [Raziel23x]
-version: 0.6
+version: 0.0.7
 Contact: raziel23x@oblivionworks.co.cc
 Website: http://oblivionworks.co.cc
 
@@ -12,20 +12,24 @@ This Project creation was created on the account to how rare both Varla and Welk
 Somewhere in the wilderness lies a undiscovered lost City. This lost city is huge beyond imagine over 21 zones all connected together creating one huge area.
 Withing the walls of this once thriving City lies Secrets yet discovered. within the ruins you will discover new spell tombs which teach you new spells which allow you to conjure up new items at the cost of your life force.
 
-Date this omod was compiled: 10/21/2009 5:44:16 PM
+Date this omod was compiled: 11/12/2009 8:54:13 PM
 Contains readme: yes
 Contains script: no
 
 [omod file information]
-File size: 172 kilobytes
+File size: 25 megabytes
 Internal omod file version: 4
-CRC: 67E101ED
-Created or installed: 10/21/2009 5:44 PM
-Last modified: 10/21/2009 5:44 PM
+CRC: CE2F6F9B
+Created or installed: 11/12/2009 8:55 PM
+Last modified: 11/12/2009 8:55 PM
 
 [Complete plugin list]
 Secrets of the Stones.esp
+SoS Library.esm
 
 [Complete data file list]
-Secrets of the Stones.bsa                                                        (BFC57F18)
-Docs\Secrets of the Stones.txt                                                   (759D5ADE)
+Arcane Bank of Cyrodiil.txt                                                      (E4427B2C)
+Fingers on the Mountain and Wizard Fury.xls                                      (A7BBAFD3)
+Retro_Crafting_Fletching.txt                                                     (36F8D072)
+Secrets of the Stones.bsa                                                        (C82572C5)
+Sigil Stone Data Sheet.xls                                                       (985A2007)
