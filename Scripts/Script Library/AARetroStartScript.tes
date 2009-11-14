@@ -1,0 +1,14 @@
+﻿scn AARetroStartScript
+
+float fQuestDelayTime
+short AARetroFactionload
+
+begin GameMode
+	set fQuestDelayTime to 5
+
+	if AARetroFactionload == 0
+		set AARetroFactionload to 1
+		AddTopic AARetroGreet
+		SetStage AARetroFaction 10
+	endif
+end

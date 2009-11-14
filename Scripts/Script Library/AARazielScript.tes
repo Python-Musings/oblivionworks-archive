@@ -1,0 +1,14 @@
+﻿scn AARazielScript
+
+float fQuestDelayTime
+short AAAyleidStoreload
+
+begin GameMode
+	set fQuestDelayTime to 5
+
+	if AAAyleidStoreload == 0
+		set AAAyleidStoreload to 1
+		AddTopic AAAyleidGreet
+		SetStage AAAyleidStore 10
+	endif
+end
