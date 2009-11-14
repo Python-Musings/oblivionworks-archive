@@ -135,6 +135,22 @@ namespace OblivionModManager {
             if(te.ShowDialog()==DialogResult.Yes) ops.Description=te.Result;
         }
 
+        private void bEdChangeLog_Click(object sender, EventArgs e)
+        {
+            TextEditor te = new TextEditor("Edit Changelog", ops.Changelog, true, true);
+            if (te.ShowDialog() == DialogResult.Yes) ops.Changelog = te.Result;
+        }
+        private void bEdComments_Click(object sender, EventArgs e)
+        {
+            TextEditor te = new TextEditor("Edit Comments", ops.Comments, true, true);
+            if (te.ShowDialog() == DialogResult.Yes) ops.Comments = te.Result;
+        }
+        private void bEdCredits_Click(object sender, EventArgs e)
+        {
+            TextEditor te = new TextEditor("Edit Credits", ops.Credits, true, true);
+            if (te.ShowDialog() == DialogResult.Yes) ops.Credits = te.Result;
+        }
+
         private void SaveListboxContents() {
             //Some sanity checking and security
             for(int i=0;i<lvFiles.Items.Count;i++) {
@@ -337,6 +353,84 @@ namespace OblivionModManager {
                         "Question", MessageBoxButtons.YesNo)==DialogResult.Yes) {
                             readme=Files[0];
                             ops.readme=Program.ReadAllText(readme);
+                        }
+                    }
+                }
+                //changelog
+                Files = Directory.GetFiles(folder, "*changelog*.txt");
+                if (Files.Length == 0) Files = Directory.GetFiles(folder, "*changelog*.rtf");
+                if (Files.Length > 0)
+                {
+                    if (ops.changelog == "" || MessageBox.Show("Overwrite current changelog with contents of '" + Files[0] + "'?",
+                        "Question", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        changelog = Files[0];
+                        ops.changelog = Program.ReadAllText(changelog);
+                    }
+                }
+                else
+                {
+                    Files = Directory.GetFiles(folder, "*.txt");
+                    if (Files.Length == 0) Files = Directory.GetFiles(folder, "*.rtf");
+                    if (Files.Length == 1)
+                    {
+                        if (ops.changelog == "" || MessageBox.Show("Overwrite current changelog with contents of '" + Files[0] + "'?",
+                        "Question", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            changelog = Files[0];
+                            ops.changelog = Program.ReadAllText(changelog);
+                        }
+                    }
+                }
+                //comments
+                Files = Directory.GetFiles(folder, "*comments*.txt");
+                if (Files.Length == 0) Files = Directory.GetFiles(folder, "*comments*.rtf");
+                if (Files.Length > 0)
+                {
+                    if (ops.comments == "" || MessageBox.Show("Overwrite current comments with contents of '" + Files[0] + "'?",
+                        "Question", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        comments = Files[0];
+                        ops.comments = Program.ReadAllText(comments);
+                    }
+                }
+                else
+                {
+                    Files = Directory.GetFiles(folder, "*.txt");
+                    if (Files.Length == 0) Files = Directory.GetFiles(folder, "*.rtf");
+                    if (Files.Length == 1)
+                    {
+                        if (ops.comments == "" || MessageBox.Show("Overwrite current comments with contents of '" + Files[0] + "'?",
+                        "Question", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            comments = Files[0];
+                            ops.comments = Program.ReadAllText(comments);
+                        }
+                    }
+                }
+                //credits
+                Files = Directory.GetFiles(folder, "*credits*.txt");
+                if (Files.Length == 0) Files = Directory.GetFiles(folder, "*credits*.rtf");
+                if (Files.Length > 0)
+                {
+                    if (ops.credits == "" || MessageBox.Show("Overwrite current credits with contents of '" + Files[0] + "'?",
+                        "Question", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        credits = Files[0];
+                        ops.credits = Program.ReadAllText(credits);
+                    }
+                }
+                else
+                {
+                    Files = Directory.GetFiles(folder, "*.txt");
+                    if (Files.Length == 0) Files = Directory.GetFiles(folder, "*.rtf");
+                    if (Files.Length == 1)
+                    {
+                        if (ops.credits == "" || MessageBox.Show("Overwrite current credits with contents of '" + Files[0] + "'?",
+                        "Question", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            credits = Files[0];
+                            ops.credits = Program.ReadAllText(credits);
                         }
                     }
                 }
@@ -847,6 +941,16 @@ namespace OblivionModManager {
                 }
                 ResumeLayout();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bEdComments_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

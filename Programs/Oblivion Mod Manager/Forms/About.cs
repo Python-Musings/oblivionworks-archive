@@ -26,7 +26,12 @@ namespace OblivionModManager {
         }
 
         private void bVisit_Click(object sender, EventArgs e) {
-            System.Diagnostics.Process.Start("http://timeslip.chorrol.com");
+            System.Diagnostics.Process.Start("http://oblivionworks.co.cc");
+        }
+
+        private void About_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
