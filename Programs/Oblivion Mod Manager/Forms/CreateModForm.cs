@@ -947,10 +947,5 @@ namespace OblivionModManager {
         {
 
         }
-
-        private void bEdComments_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
