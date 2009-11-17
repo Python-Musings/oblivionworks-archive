@@ -1,0 +1,98 @@
+﻿ScriptName AAVarlaRecover
+
+short VarlaRandomChance ; Prep our Dice roll
+short VarlaInRecharge
+short VarlaInEnchant
+short VarlaIsActive
+short VarlaCount
+short VarlaNewCount
+short UsedVarla
+
+float VarlaLuckMod ; High-Luck PC's do better
+
+
+Begin OnAdd player
+set VarlaInRecharge to 0
+set VarlaInEnchant to 0
+set VarlaIsActive to 1
+End
+
+Begin OnActivate
+set VarlaInRecharge to 0
+set VarlaInEnchant to 0
+set VarlaIsActive to 1
+Activate
+End
+
+Begin OnDrop player
+set VarlaIsActive to 0
+End
+
+Begin OnSell player
+set VarlaIsActive to 0
+End
+
+Begin MenuMode 1049
+if VarlaIsActive == 1
+if VarlaInRecharge == 0
+set VarlaInRecharge to 1
+set VarlaCount to player.GetItemCount VarlaStone
+endif
+endif
+End
+
+Begin MenuMode 1042
+if VarlaIsActive == 1
+if VarlaInEnchant == 0
+set VarlaInEnchant to 1
+set VarlaCount to player.GetItemCount VarlaStone
+endif
+endif
+End
+
+Begin MenuMode 1
+	
+			set VarlaRandomChance to getRandomPercent ; Luck Chance	
+			set VarlaLuckMod to player.getAV Luck
+			set VarlaLuckMod to VarlaLuckMod * 0.05 ; In case the PC is really un-lucky
+			if VarlaLuckMod < 1
+				set VarlaLuckMod to 1
+			endif
+			if VarlaLuckMod > 4
+				set VarlaLuckMod to 4 ; Never greater than 4% chance allowed
+			endif
+			if VarlaRandomChance <= VarlaLuckMod ; Check against dice roll
+						if VarlaIsActive == 1 && VarlaInRecharge == 1
+						set VarlaInRecharge to 0
+						set VarlaNewCount to player.GetItemCount VarlaStone
+						set UsedVarla to ( VarlaCount - VarlaNewCount )
+						player.AddItemNS VarlaStone, UsedVarla					
+						endif
+				
+				
+			endif
+End	
+
+Begin GameMode
+	
+			set VarlaRandomChance to getRandomPercent ; Luck Chance	
+			set VarlaLuckMod to player.getAV Luck
+			set VarlaLuckMod to VarlaLuckMod * 0.05 ; In case the PC is really un-lucky
+			if VarlaLuckMod < 1
+				set VarlaLuckMod to 1
+			endif
+			if VarlaLuckMod > 4
+				set VarlaLuckMod to 4 ; Never greater than 4% chance allowed
+			endif
+			if VarlaRandomChance <= VarlaLuckMod ; Check against dice roll
+						if VarlaIsActive == 1 && VarlaInEnchant == 1
+						set VarlaInEnchant to 0
+						set VarlaNewCount to player.GetItemCount VarlaStone
+						set UsedVarla to ( VarlaCount - VarlaNewCount )
+						player.AddItemNS VarlaStone, UsedVarla					
+						endif
+				
+				
+			endif
+
+End 
