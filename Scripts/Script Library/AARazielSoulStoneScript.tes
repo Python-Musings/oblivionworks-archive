@@ -1,0 +1,69 @@
+﻿scriptname AARazielSoulStoneScript
+
+short InRecharge
+short InEnchant
+short IsActive
+short BSGCount
+short BSGNewCount
+short UsedBSG
+
+Begin OnAdd player
+set InRecharge to 0
+set InEnchant to 0
+set IsActive to 1
+End
+
+Begin OnActivate
+set InRecharge to 0
+set InEnchant to 0
+set IsActive to 1
+Activate
+End
+
+Begin OnDrop player
+set IsActive to 0
+End
+
+Begin OnSell player
+set IsActive to 0
+End
+
+Begin MenuMode 1049
+if IsActive == 1
+if InRecharge == 0
+set InRecharge to 1
+set BSGCount to player.GetItemCount BlackSoulGem
+endif
+endif
+End
+
+Begin MenuMode 1042
+if IsActive == 1
+if InEnchant == 0
+set InEnchant to 1
+set BSGCount to player.GetItemCount BlackSoulGem
+endif
+endif
+End
+
+Begin MenuMode 1
+if IsActive == 1
+if InRecharge == 1
+set InRecharge to 0
+set BSGNewCount to player.GetItemCount BlackSoulGem
+set UsedBSG to ( BSGCount - BSGNewCount )
+player.AddItem BlackSoulGem, UsedBSG
+endif
+endif
+End
+
+Begin GameMode
+if IsActive == 1
+if InEnchant == 1
+set InEnchant to 0
+set BSGNewCount to player.GetItemCount BlackSoulGem
+set UsedBSG to ( BSGCount - BSGNewCount )
+player.AddItem BlackSoulGem, UsedBSG
+endif
+endif
+End 
