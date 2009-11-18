@@ -66,7 +66,7 @@ Begin MenuMode 1
 						set VarlaInRecharge to 0
 						set VarlaNewCount to player.GetItemCount VarlaStone
 						set UsedVarla to ( VarlaCount - VarlaNewCount )
-						player.AddItemNS VarlaStone, UsedVarla					
+						player.AddItemNS AAEmptyVarlaStone, UsedVarla					
 						endif
 				
 				
@@ -89,7 +89,7 @@ Begin GameMode
 						set VarlaInEnchant to 0
 						set VarlaNewCount to player.GetItemCount VarlaStone
 						set UsedVarla to ( VarlaCount - VarlaNewCount )
-						player.AddItemNS VarlaStone, UsedVarla					
+						player.AddItemNS AAEmptyVarlaStone, UsedVarla					
 						endif
 				
 				
