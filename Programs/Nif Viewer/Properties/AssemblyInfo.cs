@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("NifViewer")]
 [assembly: AssemblyDescription("Oblivion NIF viewing utility and parallax map generator")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Timeslip")]
+[assembly: AssemblyCompany("Oblivion Works")]
 [assembly: AssemblyProduct("")]
 [assembly: AssemblyCopyright("Copyright ©  2006")]
 [assembly: AssemblyTrademark("")]
