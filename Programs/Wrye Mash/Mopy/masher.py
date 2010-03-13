@@ -6636,11 +6636,11 @@ def InitStatusBar():
     """Initialize status bar buttons."""
     MashStatusBar.buttons.append(App_Morrowind())
     MashStatusBar.buttons.append(AutoQuit_Button())
-    #MashStatusBar.buttons.append(
-    #    App_BOSS(
-    #        mosh.dirs['app'].join('Data\\BOSS.bat'),
-    #        Image(r'images/Boss'+mosh.inisettings['iconSize']+'.png'),
-    #        _("Launch BOSS")))
+    MashStatusBar.buttons.append(
+        App_Button(
+            mosh.dirs['app'].join('Data\\BOSS.bat'),
+            Image(r'images/Boss'+mosh.inisettings['iconSize']+'.png'),
+            _("Launch BOSS")))
     if mosh.inisettings['showmodelingtoollaunchers']:
         MashStatusBar.buttons.append(
             App_Button(
