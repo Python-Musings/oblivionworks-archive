@@ -10564,7 +10564,7 @@ def InitStatusBar():
             _("Launch InsanitySorrow's Random NPC Generator")))
     BashStatusBar.buttons.append(
         App_OblivionBookCreator(None,
-            Image(r'images/cog'+bosh.inisettings['iconSize']+'.png'),
+            Image(r'images/OblivionBookCreator'+bosh.inisettings['iconSize']+'.png'),
             _("Launch Oblivion Book Creator")))
     BashStatusBar.buttons.append(
         App_Button(
