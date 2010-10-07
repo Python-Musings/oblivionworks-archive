@@ -1,0 +1,231 @@
+[b]Download[/b]: [url="http://tesnexus.com/downloads/file.php?id=22368"]TesNexus[/url] or [url="https://sourceforge.net/projects/oblivionworks/files"]Sourceforge[/url]
+[b]Readme[/b]: [url="http://wryemusings.com/Wrye%20Bash.html"]Wrye Bash Readme[/url] (Very outdated ... most up to date readme is in the download - the file named Wrye Bash.html in the mopy folder)
+[b]Wrye Bash Wiki[/b]: [url="http://www.uesp.net/wiki/Tes4Mod:Wrye_Bash"]UESP: Wrye Bash FAQs, etc.[/url]
+[b]Screenshots[/b]: [url="http://wryemusings.com/images/WryeBash_01.png"]Mods Tab + Doc Viewer[/url], [url="http://wryemusings.com/images/WryeBash_02.png"]Saves Tab[/url], [url="http://wryemusings.com/images/WryeBash_03.png"]Face Import[/url], [url="http://wryemusings.com/images/WryeBash_05.png"]Bashed Patch[/url]
+[b]Previous Topic[/b]: [url=http://forums.bethsoft.com/index.php?/topic/1109736-relz-wrye-bash-thread-49/][RELZ] Wrye Bash #49[/url]
+[b]Requirements[/b]:
+[list]
+[*]The old "official" setup:
+[list]
+[*]Python 2.5.4 and wxpython 2.8.7.1 ansi () - if using this best to just download the Wrye Python 01 package from [url="http://tesnexus.com/downloads/file.php?id=22368"]TesNexus[/url]
+[/list]
+[*]The newer recommended setup:
+[list]
+[*][url="http://www.python.org/ftp/python/2.6.5/python-2.6.5.msi"]Python 2.6.5[/url], [url="http://downloads.sourceforge.net/wxpython/wxPython2.8-win32-ansi-2.8.10.1-py26.exe"]wxpython 2.8.10.1 ansi[/url], [url="http://sourceforge.net/projects/comtypes/files/comtypes/0.6.2/comtypes-0.6.2.win32.exe/download"]ComTypes[/url], [url="http://www.voidspace.org.uk/downloads/psyco-1.6.win32-py2.6.zip"]psyco 1.6 for Python 2.6[/url], and [url="http://sourceforge.net/project/platformdownload.php?group_id=78018"]PyWin32 for Python 2.6[/url]. (the newer stuff so should be faster, needed for newer versions of Blender/Nifscripts/PyFFI, tested as working well other than one bug to be fixed)
+(Probably best to just download Wrye Python 03 package from [url="http://tesnexus.com/downloads/file.php?id=22368"]TesNexus[/url] unless you like to customize your install)
+[/list][/list]
+
+[b]Overview[/b]:
+[list][*]Wrye Bash has a lot of features. I mean a LOT. It's like twenty tools rolled into one. It includes as subfeatures the entire feature sets of other tools, and offers plenty of other features that no other mod tool has. [s]Except installation. It's the "everything but installation" tool![/s] Now with installation too! 
+[/list]
+[b]Installation[/b]:
+[list][*]First time installation is still a little difficult, but later updates are easy (just unzip latest version into Oblivion directory). However, for first time installation you have to preinstall two other packages and then (sometimes) tweak a shortcut. You can't just download and press the pretty buttons -- you have to follow the readme instructions. If you have followed the instructions and still have problems, post the bugdump. If you haven't followed the instructions and whine that it won't work without posting the bugdump, Wrye will bite your fingers off (it's a monkey thing). Otherwise he's quite helpful.
+[/list]
+[b]Linking[/b]:
+[list][*]If you'd like to link to Bash from somewhere else, please do! But be sure to link to either [url="http://tesnexus.com/downloads/file.php?id=22368"]TESNexus[/url]or [url="http://sourceforge.net/projects/oblivionworks/"]Sourceforge[/url]. Don't link to the actual Bash zip file, since that changes fairly frequently.
+[/list]
+[b]Bain[/b]
+[list][*]Install/uninstall mods from zip, 7z, archives, etc. No OMODs required!
+[/list]
+[b]Bashed Patchers[/b]
+[list][*]Configure and build a custom patch mod to...
+[*]Merge leveled lists
+[*]Merge TNR faces over other changes to npcs
+[*]Merge race eye/hair/body/voice changes over other changes to races
+[*]Tweak clothes: Show amulets with robes, zero weight rings and amulets, etc.
+[*]Tweak misc. GMST settings.
+[/list]
+[b]Repair/Edit Stuff[/b]
+[list][*]Repair animation bug (various animations freezing)
+[*]Repair hair bug (game ctds when viewing race menu after removing a hair mod)
+[*]Remove spells from spell list
+[*]Rename created spells, enchanted items
+[*]Remove bloating (one use of this reduced a 158 Mb savegame to 2.5 Mb)
+[*]Import NPC levels into an existing savegame (essential when switching to/from OOO, Frans, etc.)
+[*]Import PC face from other savegame or any mod (e.g., import any of TNR's faces into game)
+[*]Easily generate html readmes using wiki-like syntax.
+[/list]
+[b]Mod, Savegame, Screenshot Management[/b]
+[list][*]Auto-Ghost mods to reduce espm thrashing.
+[*]Launch Oblivion and TESCS (with or without OBSE).
+[*]Mod, save, screenshot file management. (Rename, duplicate, etc.)
+[*]Save Profiles: Have different sets of saves for different npcs with different loadlists, etc.
+[*]Screenshots: View, delete, batch rename, open, etc.
+[*]Readme Browser: Quickly view readme of currently selected mod.
+[*]Quick/Autoswap between SI and pre-SI versions of Oblivion.esm.
+[/list]
+[quote name='dev_akm' date='Apr 2 2007, 03:22 PM']
+You should add a few more things to that list, Wrye. Almost none of the items from my list of the most compelling features in Wrye Bash are on your list:
+
+For everyone:
+[list][*]Accurately and quickly managing your load order (correctly sorts ESMs)
+[*]Locking your load order (so updated mods automatically load in the exact same spot as the old version)
+[*]Checking your load list for problems (missing mod dependencies)
+[*]Checking savegames against load list and syncing load list to savegame
+[*]Cleaning bloated savegames
+[*]Archive Invalidation (now supports BSA-alteration BSA-redirection method)
+[*]Replacers (install/remove texture replacement mods -- really any mod, too)
+[*]Change master entry in savegame (to avoid losing items, quest progress, etc. when the name of a mod has changed)
+[/list]
+
+For mod-makers:
+[list][*]Add a master to a plugin (for mod de-isolation)
+[*]Change master entry in plugin (for mod de-isolation)
+[*]Locking your load order (so changes you make don't move the plugin to the end of your load list)
+[*]Savegame profiles (so you can easily test with only your mod active, then easily switch back to playing with all your mods active)
+[/list]
+[/quote]
+[b]Fallout 3[/b]:
+[list][*]TheLORDofDOOM has taken on making a FO3 version, Wrye4Fallout3... and here's the first little bit of it (not all translated to account for FO3 but it's showing promise). And another, a bit further along, by Valda called [url="http://forums.bethsoft.com/index.php?/topic/1079607-relz-garybash/"]garybash[/url].[/list]
+[b]Other news[/b]:
+[list][*]There is now a listserve for the svn and bug/request/patch/support trackers; if you want to get emails whenever changes to those items happen just join over [url="https://lists.sourceforge.net/lists/listinfo/oblivionworks-committers"]here[/url]. You can also use it for support requests/questions if you desire.[/list]
+[b]Latest Version[/b]:
+=== 287 [22/07/2010] [Waruddar]
+[list]
+[*] BAIN:
+  [list]
+  [*] File skipping (Skip DistantLOD/Voices/Screenshots and '--' directories) was broken by 286. Fixed.
+  [/list]
+[/list]
+=== 286 [21/07/2010] [Lojack,Metallicow,PacificMorrowind,valda,Waruddar]
+[spoiler]
+[list]
+[*] Bashed Patch:
+  [list]
+  [*] 'Replace Form IDs' added (both Bash and CBash)
+    [list]
+    [*] It is just like Import Formids (but slower). It changes the references in the bashed patch instead of in the file itself
+    [*] Included demo file "P1DCandles_Formids.csv", must be used in conjunction with mmmpld's Candles for Kleptos mod
+      [list]
+      [*] When used, all candles are replaced with his pickupable versions
+      [/list]
+    [/list]
+  [*] 'Import Actors: AIPackages' and 'Import Actors: Spells' no longer give an error if active with no selected mods (reported by Shi_shinu)
+  [*] 'Import Actors: Spells' significantly refactored
+    [list]
+    [*] SpellsOnly tag replaced with Actors.SpellsForceAdd
+    [/list]
+  [*] 'Import Sounds' no longer checks invalid variable name on weather records
+  [*] 'Import Spell Stats' no longer checks the wrong bash tag
+    [list]
+    [*] It now works with both Spells and SpellStats tags
+    [/list]
+  [*] 'Tweak Actors':
+    [list]
+    [*] 'As Intended: Imps' and 'As Intended: Boars' work more reliably
+    [*] 'Mayu's Animation Overhaul Skeleton Tweaker' and 'Vanilla Beast Skeleton Tweaker' no longer fail when dealing with unnamed NPCs
+    [*] 'No Bloody Creatures' now correctly sets the record flags
+    [/list]
+  [*] 'Tweak Assorted':
+    [list]
+    [*] 'Number of uses for pre-enchanted weapons and staffs' now has improved handling
+    [*] 'Playable Armor' and 'Playable Clothes' now skip over more items that shouldn't be made playable
+    [/list]
+  [*] 'Tweak Names':
+    [list]
+    [*] 'Armor' and 'Clothes' no longer fail with a keyerror
+      [list]
+      [*] Also fixed misspelling: 'Trowsers' -> 'Trousers'
+      [/list]
+    [*] 'Lore Friendly Names: Dwarven->Dwemer' fixed
+      [list]
+      [*] Expanded to check all text fields except scripts and cell names
+      [*] CBash also checks cell names
+      [/list]
+    [/list]
+  [*] 'Tweak Settings':
+    [list]
+    [*] 'AI: Max Dead Actors' added for both Bash and CBash (based settings posted by showler)
+    [*] 'Essential NPC Unconsciousness' 10s option was previously setting it to 20s
+    [/list]
+  [*] 'Power Exhaustion' no longer assigns to a non-existent variable
+  [*] 'Race Records' now has an expanded description
+    [list]
+    [*] Unlike other import patchers, it works even if no mods are selected
+    [/list]
+  [*] Changed the 'Tweak XXX' patchers SelectAll/DeselectAll buttons to be consistent with the rest of the patchers
+  [*] Custom Values for tweaks fully working
+  [*] The Bashed Patch now shows how long it took to build (as suggested by AdmiralWarron)
+  [*] Lists with enough items to scroll will retain their scroll position after using popup menus
+  [/list]
+[*] BAIN:
+  [list]
+  [*] 'Package Commands':
+    [list]
+    [*] Commands such as duplicating a package no longer result in incorrect ordering
+    [*] 'Copy Conflicts to Project' added
+    [*] Disabled various commands when only non-installable items are selected
+      [*] Install / Anneal / Uninstall / HasExtraData / SkipVoices / Copy Conflicts to Project
+    [*] Markers can now be renamed
+    [/list]
+  [*] 'Package Header Commands':
+    [list]
+    [*] Projects may now be unhidden
+    [/list]
+  [*] Double clicking a package will now open it
+  [*] Implemented valda's patch for partial support of japanese multi-byte characters
+  [*] Refreshing packages now ignore Skipped Directories (those that start with '--' or 'Bash')
+  [*] Selecting sub-packages that contain large numbers of files now refreshes a little more quickly (reported by Vindicator)
+    [list]
+    [*] Still needs more work to make it faster
+    [/list]
+  [*] Sub-package and Esp/m lists now retain their position when selected
+  [*] The "Hide" command now works with multiple packages selected
+    [list]
+    [*] It is disabled if any selected package is a marker
+    [/list]
+  [*] Toggling "Skip DistantLOD" no longer causes packages to be marked dirty (reported by Vindicator)
+  [/list]
+[*] BAIN Wizards:
+  [list]
+  [*] Added For loops (For/Continue/Break/EndWhile)
+  [*] Added While loops (While/Continue/Break/EndWhile)
+  [*] Default keyword wasn't working properly, fixed now
+  [*] Fixed minor bug where allowing unmatched quotes at the end of a line
+  [*] Fixed the increment and decrement operators (++,--)
+  [*] Fixed two typos that caused 'DeSelectSubPackage' (and probably others) to throw an error
+  [*] Removed some debugging prints
+  [*] SelectOne dialogs with no default option have the 'Next' button disabled until an option is selected
+  [*] SelectOne/SelectMany dialogs with no default option will now be shown even during an Auto-WizardReturn
+  [*] Updated wizard documentation for this, and also to include comments (;)
+  [/list]
+[*] CBash:
+  [list]
+  [*] CBash 90% integrated
+  [*] CBash temporarily disabled while remaining issues fixed.
+    [list]
+    [*] Will be re-enabled in a later release
+    [/list]
+  [/list]
+[*] General:
+  [list]
+  [*] 7z updated to latest version
+  [*] Backing Up section added
+  [*] CELL block size calculation corrected (reported by valda)
+    [list]
+    [*] Not as important as it may sound. The size isn't actually used except for error raising.
+    [/list]
+  [*] Face Import no longer fails when the mod index of the record is higher than expected
+  [*] Import/Export Scripts from/to mod/csv optimized/significantly enhanced
+  [*] Import Prices from csv file added
+  [*] Import Archives now works with the new forum PMs
+  [*] INFO definitions fixed (reported by valda)
+  [*] Ini setting added: bSkipHideConfirmation. (suggested by Utumno)
+    [list]
+    [*] When True, the hide confirmation is suppressed.
+    [/list]
+  [*] Launch Buttons for more applications are now supported via Bash.ini (contributed by Metallicow)
+    [list]
+    [*] EVGA Precision,FastStone Image Viewer,FreeMind,PaintShop Photo Pro,Photobie Design Studio,PhotoFiltre,PhotoScape,XnView
+    [/list]
+  [*] Mark Mergeable can now change formerly mergeable mods to non-mergeable
+  [*] Mergeable mods that are a master of non-mergeable mods are no longer considered mergeable
+  [*] Missing resource error on wryemonkey16.jpg has been fixed
+  [*] Non-lower case file extensions used in Bash.ini no longer cause issues (reported by Vindicator)
+  [*] Several readme images updated (contributed by Metallicow)
+  [*] Various cell and reference flags corrected
+  [*] Various typos fixed, and more strings are translatable (as reported by DJK)
+  [*] Slight fix to recognize mods in the BOSS masterlist/taglist that the modname starts with a '!' or '['.
+  [*] Version reading code modified to recognize ver/rev/r/v as well as version (and any combination of seperating whitespace and '.' and ':' (except for r/v).
+  [/list]
+[/list][/spoiler]
