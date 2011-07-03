@@ -10,16 +10,16 @@
 ; Basic Installer Info
 
     Name "Wrye Python 04"
-    OutFile "Wrye Python 04.exe"
+    OutFile "Wrye Python 04a.exe"
     InstallDir "$EXEDIR\Wrye Python"
     RequestExecutionLevel admin	    ; Request Admin rights for Vista/7
 
-    VIProductVersion 4.0.0.0
-    VIAddVersionKey /LANG=${LANG_ENGLISH} "ProductName" "Wrye Python 04"
+    VIProductVersion 4.2.0.0
+    VIAddVersionKey /LANG=${LANG_ENGLISH} "ProductName" "Wrye Python 04a"
     VIAddVersionKey /LANG=${LANG_ENGLISH} "CompanyName" "Wrye Bash development team"
     VIAddVersionKey /LANG=${LANG_ENGLISH} "FileDescription" "Python 2.7 installer for Wrye Bash"
     VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalCopyright" ""
-    VIAddVersionKey /LANG=${LANG_ENGLISH} "FileVersion" "4.0"
+    VIAddVersionKey /LANG=${LANG_ENGLISH} "FileVersion" "4.2"
 
     SetCompressor /SOLID lzma
 
@@ -47,8 +47,8 @@
 
     Section "wxPython 2.8.12.0" SecwxPython
         SetOutPath $INSTDIR
-        File ".\2.7\wxPython2.8-win32-unicode-2.8.12.0-py27.exe"
-        ExecWait "$INSTDIR\wxPython2.8-win32-unicode-2.8.12.0-py27.exe"
+        File ".\2.7\wxPython2.8-win32-ansi-2.8.12.0-py27.exe"
+        ExecWait "$INSTDIR\wxPython2.8-win32-ansi-2.8.12.0-py27.exe"
     SectionEnd
 
     Section "PyWin32 2.16" SecPyWin32
@@ -65,7 +65,7 @@
 
     Section "Cleanup installers" SecCleanup
         Delete "$INSTDIR\python-2.7.1.msi"
-        Delete "$INSTDIR\wxPython2.8-win32-unicode-2.8.12.0-py27.exe"
+        Delete "$INSTDIR\wxPython2.8-win32-ansi-2.8.12.0-py27.exe"
         Delete "$INSTDIR\pywin32-216.win32-py2.7.exe"
         Delete "$INSTDIR\comtypes-0.6.2.win32.exe"
     SectionEnd        
