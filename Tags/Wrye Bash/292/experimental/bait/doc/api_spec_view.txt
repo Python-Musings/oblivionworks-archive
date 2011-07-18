@@ -1,0 +1,26 @@
+
+
+Title: Wrye Bash Installer Tab View API Specification
+Author: Myk Taylor (myk002)
+Status: working draft
+
+
+class View:
+  __init__(self, wxParent, presenter, stateManager=None)
+    Creates and configures bait widget hierarchies
+
+  start(self)
+    Loads saved state, starts threads and subcomponents (including presenter)
+
+  shutdown(self)
+    Saves any dirty state, shuts down threads and subcomponents
+
+  pause(self)
+    Suggests that bait suspend operations; may not take effect immediately
+
+  resume(self)
+    Resumes from a pause
+
+
+
+The stateManager object is some abstraction of state-saving functionality.  It may need to be a multiprocess-aware entity if state from all three modules are being written to the same location.  It is mostly TBD.

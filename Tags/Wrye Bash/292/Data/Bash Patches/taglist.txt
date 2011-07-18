@@ -1,0 +1,3748 @@
+\ Taglist for Wrye Bash; derived from BOSS Masterlist revision 2608.
+\% A Bashed Patch suggestion for the mod above.
+
+!BurningItems 0.4.esp
+% {{BASH:Scripts}}
+!Oblivion_PL.esp
+% {{BASH:Names}}
+(DC) Sutch Reborn Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+(DC) Sutch Reborn.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+(JQ&SG) Fighters Guild United.esp
+% {{BASH:Invent}}
+(JQ) Fighters Guild United.esp
+% {{BASH:Invent}}
+001_LM_ElvenGardenRetreat.esp
+% {{BASH:Invent}}
+01_SenTinel's Katanas.esp
+% {{BASH:Invent}}
+1DemonSword.esp
+% {{BASH:Invent}}
+1em_Vilja MMM FCOM Fix.esp
+% {{BASH:Factions, Relations, NoMerge}}
+1em_Vilja MMM Fix.esp
+% {{BASH:Factions, NoMerge}}
+1em_Vilja Not Essential Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+1em_Vilja OOO FCOM Fix.esp
+% {{BASH:Factions, Relations, NoMerge}}
+1em_Vilja Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+1em_Vilja_as_Argonian Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+1em_Vilja_as_Chocolate_Elf Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+1em_Vilja_as_Custom_by_4GVN Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+1em_Vilja_as_Custom_by_Gonzoguns Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+1em_Vilja_as_Custom_by_Xtudo Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+1em_Vilja_as_High_Imperial Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+1em_Vilja_as_Moonshadow_Elf_MU Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+1em_Vilja_as_Moonshadow_Elf_Stranger Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+1em_Vilja_as_Tabaxi Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+1em_Vilja_as_Vampire Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+1em_Vilja_Bruse_as_Clydesdale_horse_by_Xtudo.esp
+% {{BASH:Graphics}}
+300 Feudal Empire.esp
+% {{BASH:Invent, Graphics}}
+300 Regal Imperial City 2.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+300_Anthems_Enhanced_Races-7820.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+300_Artifacts.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+300_Lore_Dialogue_Updated.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+4 New Races for Rens-Beautiful People.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+75barena.esp
+% {{BASH:NpcFaces, Actors.Stats}}
+7roads.esp
+% {{BASH:Actors.ACBS, Factions, Invent, Relations, Scripts}}
+7roads_screens.esp
+% {{BASH:Graphics}}
+[GFX]_Initial_Glow-all.esp
+% {{BASH:Graphics, NoMerge}}
+[GFX]_Initial_Glow-creatures.esp
+% {{BASH:Graphics, NoMerge}}
+[GFX]_Initial_Glow-self.esp
+% {{BASH:Graphics, NoMerge}}
+_darker dungeons.esp
+% {{BASH:C.Light, Deactivate}}
+_darker_dungeons.esp
+% {{BASH:C.Light, Deactivate}}
+_Ren_Beauty_Pack_Full_anime_voice.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+_Ren_BeautyPack_full + Soya's hair.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+_Ren_BeautyPack_full.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+_Ren_BeautyPack_full_-_1.1_DV.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+_Ren_BeautyPack_full_-_DV_Eshme_Compatible.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+_Ren_BeautyPack_full_RW.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+_Ren_BeautyPack_onlyhairs.esp
+% {{BASH:Hair}}
+A Blades House.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+a4sEWVE_Drains.esp
+% {{BASH:Graphics, NoMerge}}
+a4sEWVE_Fire.esp
+% {{BASH:Graphics, NoMerge}}
+a4sEWVE_Frost.esp
+% {{BASH:Graphics, NoMerge}}
+a4sEWVE_Full.esp
+% {{BASH:Graphics, NoMerge}}
+a4sEWVE_Shock.esp
+% {{BASH:Graphics, NoMerge}}
+a4sEWVE_SoulTrap.esp
+% {{BASH:Graphics, NoMerge}}
+a4sFlamingNightmare-OOO.esp
+% {{BASH:Graphics, Scripts, ScriptContents}}
+a4sFlamingNightmare.esp
+% {{BASH:Graphics, Scripts, ScriptContents}}
+a4VnlObSI_HiResHGEC-BBB-Fems+RmMales.esp
+% {{BASH:Body-F, Body-M, Graphics, R.Ears, R.Head, R.Mouth, R.Teeth, Voice-F, Voice-M}}
+aaaBorsBedrolls.esp
+% {{BASH:Invent, Relev}}
+Absolutely_Sexy_MarketDistrict.esp
+% {{BASH:NpcFaces, Invent, NoMerge}}
+AC Stock Armor.esp
+% {{BASH:Graphics}}
+AC_Gold_Coins.esp
+% {{BASH:Graphics}}
+Adonnays Elven Weaponry.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Advanced_Water.esp
+% {{BASH:C.Water}}
+AdvancedWater.esp
+% {{BASH:C.Water}}
+AdventurersItemMod.esp
+% {{BASH:Invent, Relations}}
+AFK_Weye Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+AFK_Weye.esp
+% {{BASH:C.Owner, Factions}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+AgarMoreVariedSpellEffects.esp
+% {{BASH:Sound}}
+AgarVariedSpellSounds_SupremeMagicka.esp
+% {{BASH:Sound}}
+AGEHA Tortured Souls OOO.esp
+% {{BASH:Delev, Relev}}
+AGEHA Tortured Souls.esp
+% {{BASH:Delev, Relev}}
+Ahtata Arquamer female got hair.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Ahtata Arquamer spike4hair.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations, Body-F, Body-M}}
+ahtata dremora.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+ahtata Ork.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Ahtata_Khabaxi.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+AinmhiRace-RensBeautyPackFull.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+AinmhiRace-RensBeautyPackHairsOnly.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+AinmhiRace.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Akavirdownloadpack1.1.esp
+% {{BASH:Invent}}
+AlchemistsCave-COBL.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+AliveWaters - Koi Addon.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+AliveWaters.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Aliyah.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+All Manly.esp
+% {{BASH:Graphics, NoMerge}}
+All Natural - Indoor Weather Filter For Mods.esp
+% {{BASH:Filter, C.Climate, Deactivate}}
+All Natural - MMM Patch.esp
+% {{BASH:Scripts}}
+All Natural - Real Lights.esp
+% {{BASH:Graphics, Scripts}}
+All Natural - SI.esp
+% {{BASH:C.Climate}}
+All Natural.esp
+% {{BASH:C.Climate}}
+All_hair_and_eyes-1841.esp
+% {{BASH:Hair, Eyes}}
+allinonebasement_COBLnoCM.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Alliria_CRP_Communications.esp
+% {{BASH:Roads}}
+Alliria_CRP_CrossOwnership.esp
+% {{BASH:Factions}}
+Alluring Books.esp
+% {{BASH:Graphics}}
+Alluring Potion Bottles v2.esp
+% {{BASH:Graphics}}
+Alluring Potion Bottles v3.esp
+% {{BASH:Graphics}}
+Alluring Potion Bottles v3OOO.esp
+% {{BASH:Graphics}}
+Alluring Potion Bottles.esp
+% {{BASH:Graphics}}
+Alluring Wine Bottles.esp
+% {{BASH:Graphics}}
+Almalexia.esp
+% {{BASH:Graphics, NpcFaces, R.Ears}}
+Altair_Race.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Alternate Script Effect Icon.esp
+% {{BASH:Graphics}}
+Alternative Start by Robert Evrae.esp
+% {{BASH:Relations, Invent}}
+Amajor7 Imperial Furniture.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+AMB.esp
+% {{BASH:Body-M}}
+AmbientTownSounds.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+AMD.esp
+% {{BASH:Body-M}}
+AmidalaSaramHair.esp
+% {{BASH:Hair, Eyes}}
+amQuests.esp
+% {{BASH:Hair}}
+Ancient Elven Sorcerer - DV.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Ancient Elven Sorcerer - EV.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Ancient Elven Sorcerer.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Ancient Elven Sorceress - DV.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Ancient Elven Sorceress - EV.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+AncientTowers Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Anwolf Race.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Aos Si.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics, R.Description}}
+Apachii_Goddess_Store Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Apachii_Goddess_Store.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Apachii_Heroes_Store.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Arabian Elves.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Arachnophobia-2343.esp
+% {{BASH:Delev}}
+Arcana Restored.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+archrobe.esp
+% {{BASH:Graphics}}
+ardah Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+ArdigaWolfessRealEyesAddonVanilla.esp
+% {{BASH:Eyes}}
+Arena_BattlesV1.1.esp
+% {{BASH:Relations}}
+Arena_BattlesV1.2DV.esp
+% {{BASH:Relations}}
+Arena_BattlesV1.2EV.esp
+% {{BASH:Relations}}
+ArenaEyeCandyArmor.esp
+% {{BASH:Graphics}}
+ArgonianFeets.esp
+% {{BASH:Invent}}
+Arkestar - Name Rat 1 - Potions.esp
+% {{BASH:Names}}
+Armamentarium.esm
+% {{BASH:Relev}}
+ArmamentariumFran.esm
+% {{BASH:Relev}}
+Armamentium female.esp
+% {{BASH:Graphics, NoMerge}}
+Armblade.esp
+% {{BASH:Invent}}
+Armor-Clothing-Weapons Merger.esp
+% {{BASH:Graphics, Invent, Delev, Relev}}
+armored coats.esp
+% {{BASH:Invent}}
+ArmorOfTheWhiteFox.esp
+% {{BASH:Invent}}
+Artefacts of the Ancestors.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Artifacts Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Artifacts.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+ArtifactsFemaleArmor.esp
+% {{BASH:Graphics, NoMerge}}
+Arwen companion.esp
+% {{BASH:Hair, Eyes}}
+As Intended - OOO Boars & Imps.esp
+% {{BASH:Actors.Spells}}
+As Intended - OOO Boars.esp
+% {{BASH:Actors.Spells}}
+As Intended - OOO Imps.esp
+% {{BASH:Actors.Spells}}
+As Intended - Vanilla Boars & Imps.esp
+% {{BASH:Actors.Spells}}
+As Intended - Vanilla Boars.esp
+% {{BASH:Actors.Spells}}
+As Intended - Vanilla Imps.esp
+% {{BASH:Actors.Spells}}
+Ash Elves.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+AsharasCMPartners.esp
+% {{BASH:Hair, Eyes}}
+AsharasSirensAndTritons.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Asian Race.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+AsianElves.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Assassins Creed - Altair's Gear - Heavy Armor.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Assassins Creed - Altair's Gear - HeavyArmor+ThrowingKnives.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Assassins Creed - Altair's Gear - Light Armor.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Assassins Creed - Altair's Gear - ThrowingKnives.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Assassins Creed - Altair's Gear- HeavyArmor.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Assassins Creed - Altair's Gear.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Atmospheric Loading Screens - No Text.esp
+% {{BASH:Graphics}}
+Atmospheric Loading Screens - Original Text.esp
+% {{BASH:Graphics}}
+Atmospheric Loading Screens - Random Quotes.esp
+% {{BASH:Graphics}}
+Atmospheric Loading Screens.esp
+% {{BASH:Graphics}}
+Atmospheric Oblivion.esp
+% {{BASH:Scripts}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Auriel's Books.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Auriel's_Retreat Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+AutoEquip.esp
+? Contains a dirty edit to the GREETING Dialog Topic. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Avariel.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Ayelid Wells.esp
+% {{BASH:Scripts, Scriptcontents}}
+Ayleid Loot EXtension.esp
+% {{BASH:Invent}}
+Ayleid Wells.esp
+% {{BASH:Scripts, Scriptcontents}}
+Ayleid.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+AyleidArrows.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+AyleidGlass.esp
+% {{BASH:Graphics}}
+AyleidMeteorIronWeaponsVANILLA.esp
+% {{BASH:Invent, Relev}}
+Bab.esp
+% {{BASH:Body-M, Body-F}}
+Babarized AleanneGlass.esp
+% {{BASH:Graphics}}
+Babarized CompleteMagePack.esp
+% {{BASH:Graphics}}
+Babarized DiverseImperialArmor.esp
+% {{BASH:Graphics}}
+Babarized GlassArmorPack.esp
+% {{BASH:Graphics}}
+Babarized Loths.esp
+% {{BASH:Graphics}}
+Babarized Loths2.esp
+% {{BASH:Graphics}}
+Babarized RegionalLegionSoldiers.esp
+% {{BASH:Graphics}}
+babehair_EV.esp
+% {{BASH:Hair}}
+Balance fixes.esp
+% {{BASH:Delev, Relev}}
+Balance Settings.esp
+% {{BASH:Delev, Relev}}
+Bald_Hairstyle.esp
+% {{BASH:Hair}}
+Bamboo Armor.esp
+% {{BASH:Invent}}
+Banes Steel Helm Replacer.esp
+% {{BASH:Graphics}}
+Bards of Cyrodiil.esp
+% {{BASH:Relations}}
+Bartholm Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+bartholm.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Bashed Delayers - MERGE ONLY.esp
+% {{BASH:Filter, Deactivate}}
+Bashed Delayers E - MERGE ONLY.esp
+% {{BASH:Filter, Deactivate}}
+Bashed Delayers NE - MERGE ONLY.esp
+% {{BASH: Filter, Deactivate}}
+Battle_Tattoos_v1.esp
+% {{BASH:Invent}}
+Battlehorn_mobs.esp
+% {{BASH:NoMerge, Stats}}
+BCCheydinhal-CheydinhalFalls patch.esp
+% {{BASH:C.Water}}
+BCCheydinhalFULL-CheydinhalFalls patch.esp
+% {{BASH:C.Water}}
+BCCheydinhalFULLB&M-CheydinhalFalls patch.esp
+% {{BASH:C.Water}}
+BCChorrol-ChorrolHinterland fix.esp
+% {{BASH:C.Water}}
+BCChorrol-ChorrolHinterland patch.esp
+% {{BASH:C.Water}}
+BCSkingrad-SkingradOutskirts patch.esp
+% {{BASH:C.Water}}
+BD&R - Deepgrave.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+beardy.esp
+% {{BASH:NpcFaces}}
+Beautiful Amazon.esp
+% {{BASH:NpcFaces, NoMerge}}
+Beautiful People 2ch-Ed Ashara's Sirens and Tritons.esp
+% {{BASH:Hair, Eyes, R.Relations}}
+Beautiful People 2ch-Ed Chocolate Elves.esp
+% {{BASH:Hair, Eyes, R.Relations}}
+Beautiful People 2ch-Ed Cute Elves.esp
+% {{BASH:Hair, Eyes, R.Relations}}
+Beautiful People 2ch-Ed MS Elves - NoSc.esp
+% {{BASH:Hair, Eyes, R.Relations}}
+Beautiful People 2ch-Ed MS Elves - Sc.esp
+% {{BASH:Hair, Eyes, R.Relations}}
+Beautiful People 2ch-Ed Nec Mystic High Elf Remake.esp
+% {{BASH:Hair, Eyes, R.Relations}}
+Beautiful People 2ch-Ed Sheogorath Eye.esp
+% {{BASH:NoMerge, NpcFaces}}
+Beautiful People 2ch-Ed Vanilla Race for RMV4.esp
+% {{BASH:Body-M, Hair, Eyes, R.Relations}}
+Beautiful People 2ch-Ed Vanilla Race for TFF&RMV4.esp
+% {{BASH:Body-F, Body-M, Hair, Eyes, R.Relations}}
+Beautiful People 2ch-Ed Vanilla Race for TFF.esp
+% {{BASH:Body-F, Hair, Eyes, R.Relations}}
+Beautiful People 2ch-Ed Vanilla Race.esp
+% {{BASH:Hair, Eyes, R.Relations}}
+Beautiful People 2ch-Ed.esm
+% {{BASH:Eyes, Graphics, Hair, R.Relations}}
+Beautiful People Robert - Hair merged.esp
+% {{BASH:NpcFaces, Hair, Eyes, Body-M, Graphics}}
+Beautiful People.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+Beautiful PeopleV22 - MaleReplacerV4.esp
+% {{BASH:NpcFaces, Hair, Eyes, Body-M, Graphics}}
+Beautiful Women Vwalk Full UOS.esp
+% {{BASH:Actors.Anims, NpcFaces, NoMerge}}
+Beautiful Women Vwalk Full.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Beautiful_Women_DB_Addon Vwalk UOS.esp
+% {{BASH:Actors.Anims, NpcFaces, NoMerge}}
+Beautiful_Women_DB_Addon Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Beautiful_Women_DB_Addon.esp
+% {{BASH:NpcFaces, NoMerge}}
+Beautiful_Women_NiceOnly Vwalk UOS.esp
+% {{BASH:Actors.Anims, NpcFaces, NoMerge}}
+Beautiful_Women_NiceOnly Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Beautiful_Women_NiceOnly.esp
+% {{BASH:NpcFaces, NoMerge}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Beautiful_Women_NotSoNice_Bonus Vwalk UOS.esp
+% {{BASH:Actors.Anims, NpcFaces, NoMerge}}
+Beautiful_Women_NotSoNice_Bonus Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Beautiful_Women_NotSoNice_Bonus.esp
+% {{BASH:NpcFaces, NoMerge}}
+Beautiful_Women_Revised.esp
+% {{BASH:NpcFaces, NoMerge}}
+Beautiful_Women_Revised_DB.esp
+% {{BASH:NpcFaces, NoMerge}}
+Beautiful_Women_Revised_NotSoNice.esp
+% {{BASH:NpcFaces, NoMerge}}
+Beautiful_Women_Revised_SI.esp
+% {{BASH:NpcFaces, NoMerge}}
+Beautiful_Women_SI Vwalk UOS.esp
+% {{BASH:Actors.Anims, NpcFaces, NoMerge}}
+Beautiful_Women_SI Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Beautiful_Women_SI.esp
+% {{BASH:NpcFaces, NoMerge}}
+Beautiful_Women_Vampires Vwalk UOS.esp
+% {{BASH:Actors.Anims, NpcFaces, NoMerge}}
+Beautiful_Women_Vampires Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Beautiful_Women_Vampires.esp
+% {{BASH:NpcFaces, NoMerge}}
+Beautiful_Women_Vampires_50 Vwalk UOS.esp
+% {{BASH:Actors.Anims, NpcFaces, NoMerge}}
+Beautiful_Women_Vampires_50 VWalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Beautiful_Women_Vampires_50.esp
+% {{BASH:NpcFaces, NoMerge}}
+BeautifulPeople2.2+TweakedGenericFaces.esp
+% {{BASH:NpcFaces, Hair, Eyes}}
+BeautifulPeople2.2+TweakedGenericFacesLITE.esp
+% {{BASH:NpcFaces, Hair, Eyes}}
+BeldaElysium.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Belles Bouteilles.esp
+% {{BASH:Graphics}}
+Benirus Manor Remade.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Better Abandoned House - Complete.esp
+% {{BASH:C.Name, C.Owner, Graphics, Names}}
+Better Abandoned House - Interior Only.esp
+% {{BASH:C.Name, C.Owner, Graphics, Names}}
+Better Abandoned House.esp
+% {{BASH:C.Name, C.Owner, Graphics, Names}}
+Better and realistic prices.esp
+% {{BASH:Stats, Deactivate}}
+Better Cities - Open Better Cities.esp
+% {{BASH:Actors.AIPackages}}
+Better Cities - Unique Landscape Cheydinhal Falls.esp
+% {{BASH:C.Water}}
+Better Cities - Unique Landscape Chorrol Hinterland.esp
+% {{BASH:C.Water}}
+Better Cities - Unique Landscape Skingrad Outskirts.esp
+% {{BASH:C.Water}}
+Better Cities and IC Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Better Cities Full - B&M Edition Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Better Cities Full Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Better Clocks.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Better Dark Brotherhood Sanctuary.esp
+% {{BASH:Names, NpcFaces}}
+Better Hunting for OOO.esp
+% {{BASH:Stats}}
+Better Imperial City Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Better Looking Dark Elves.esp
+% {{BASH:Body-M, Body-F, R.Ears, R.Head, Hair}}
+Better Looking Dremora.esp
+% {{BASH:Body-M, Body-F, R.Ears, R.Head, Hair}}
+Better Looking Redguards Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Better Looking Redguards-Mergeable Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Better Looking Redguards-Mergeable.esp
+% {{BASH:Body-M, Body-F, R.Ears, R.Head, Hair}}
+Better Looking Redguards.esp
+% {{BASH:Body-M, Body-F, R.Ears, R.Head, Hair}}
+Better Looking Wood Elves COBL.esp
+% {{BASH:Body-M, Body-F, R.Ears, R.Head, Hair}}
+Better Looking Wood Elves Vanilla Black Eyes.esp
+% {{BASH:Body-M, Body-F, R.Ears, R.Head, Hair}}
+Better Looking Wood Elves Vanilla.esp
+% {{BASH:Body-M, Body-F, R.Ears, R.Head, Hair}}
+Better Loot v1.0.esp
+% {{BASH:Delev}}
+Better Potions and Poisons.esp
+% {{BASH:Graphics}}
+Better Redguard v2 Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Better Redguard v2.esp
+% {{BASH:NpcFaces, Body-F, Body-M, NoMerge}}
+Better-Horse-Eyes.esp
+% {{BASH:Graphics, NoMerge}}
+BetterBedroll.esp
+% {{BASH:Invent}}
+BetterGold Rus.esp
+% {{BASH:Graphics}}
+bgBalancingDVCore.esp
+% {{BASH:Eyes, Hair, R.Relations, R.Description, R.Skills, R.Attributes-F, R.Attributes-M, R.ChangeSpells}}
+bgBalancingDVOptionalNPCDiversity, TNR Merge Better Redguards.esp
+% {{BASH:NpcFaces, Invent, NoMerge}}
+bgBalancingDVOptionalSeamReducerHighElfFix.esp
+% {{BASH:Body-M}}
+bgBalancingEVCore.esp
+% {{BASH:Eyes, Hair, R.Relations, R.Description, R.Skills, R.Attributes-F, R.Attributes-M, R.ChangeSpells}}
+bgBalancingEVOptionalFangs.esp
+% {{BASH:R.Teeth}}
+bgBalancingEVOptionalFCOMAdditions.esp
+% {{BASH:Actors.Stats, Actors.ACBS, NpcFaces}}
+bgBalancingEVOptionalNPCDiversity, Beautification Better Redguards.esp
+% {{BASH: NpcFaces, Invent, NoMerge}}
+bgBalancingEVOptionalNPCDiversity, Beautification.esp
+% {{BASH:NpcFaces, NoMerge}}
+bgBalancingEVOptionalNPCDiversity, for Wrye Bash Better Redguards.esp
+% {{BASH: NpcFaces, Invent, NoMerge}}
+bgBalancingEVOptionalNPCDiversity, TNR Merge Better Redguards.esp
+% {{BASH: NpcFaces, Invent, NoMerge}}
+bgBalancingEVOptionalNPCDiversity, TNR Merge.esp
+% {{BASH:NpcFaces, NoMerge}}
+bgBalancingEVOptionalNPCDiversity, Vanilla Better Redguards.esp
+% {{BASH: NpcFaces, Invent, NoMerge}}
+bgBalancingEVOptionalNPCDiversity, Vanilla.esp
+% {{BASH:NpcFaces, NoMerge}}
+bgBalancingEVOptionalSeamReducerHighElfFix.esp
+% {{BASH:Body-M}}
+bgIntegrationEV - Alternative NPC Faces by LazyMonk.esp
+% {{BASH:NpcFaces, NoMerge}}
+bgIntegrationEV Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+bgMagicDV.esp
+% {{BASH:Names, Delev, Relev}}
+bgMagicDVAddEnVar.esp
+% {{BASH:Relev}}
+bgMagicDVShader.esp
+% {{BASH:NoMerge, Graphics}}
+bgMagicEV Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+bgMagicEV.esp
+% {{BASH:Names, Delev, Relev}}
+bgMagicEVAddEnVar.esp
+% {{BASH:Relev}}
+bgMagicEVShader.esp
+% {{BASH:NoMerge, Graphics}}
+bgMagicSpellTomes_for_WryeBash.esp
+% {{BASH:Relev}}
+bgScriptEffectSilencer.esp
+% {{BASH:Sound, Graphics}}
+bgShaderStandAloneEV.esp
+% {{BASH:Graphics}}
+BHC_Expanded.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+BigDunmerEars.esp
+% {{BASH:Body-M, Body-F, NpcFaces}}
+Bigger Nords & Orcs.esp
+% {{BASH:Body-M, Body-F}}
+Bigger_Dremora-2369.esp
+% {{BASH:Body-M, Body-F}}
+Bigger_Dremora.esp
+% {{BASH:Body-M, Body-F}}
+Birthsigns Expanded.esp
+% {{BASH:Names}}
+BlackGlovesEng.esp
+% {{BASH:Invent}}
+BlackGlovesEng_noNPCchanges.esp
+% {{BASH:Invent}}
+BlackGlovesRus.esp
+% {{BASH:Invent}}
+BlackLoadNoTip.esp
+% {{BASH:Graphics}}
+Blade Of Woe Replacer.esp
+% {{BASH:Graphics}}
+BladeOfTheHaunted Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+BladeOfTheHaunted.esp
+% {{BASH:Factions}}
+BladeOfTheHauntedDV.esp
+% {{BASH:Factions}}
+BladeofWoe.esp
+% {{BASH:Graphics}}
+Blades Ceremonial Armour.esp
+% {{BASH:Graphics}}
+bladesfactionmod.esp
+% {{BASH:Factions, Invent, Relations}}
+Blood&Mud Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Blood&Mud.esp
+% {{BASH:Hair, NpcFaces}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+BloodSpray.esp
+% {{BASH:Graphics}}
+Bob's Armory Oblivion.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Bodybuilder Body.esp
+% {{BASH:Body-M, Body-F}}
+Bonds Crystal Isles an Adventure Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Book Jackets DLC.esp
+% {{BASH:Graphics, NoMerge}}
+Book Jackets Oblivion - BP - SSBFL.esp
+% {{BASH:Graphics, Scripts}}
+Book Jackets Oblivion - BP.esp
+% {{BASH:Graphics}}
+Book Jackets Oblivion - SSBFL.esp
+% {{BASH:Graphics, Scripts}}
+Book Jackets Oblivion.esp
+% {{BASH:Graphics}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Bosmer Meat Mandate.esp
+% {{BASH:Invent}}
+Bow Damage Balanced.esp
+% {{BASH:Stats, Deactivate}}
+Bow_Damage_Equalizer.esp
+% {{BASH:Stats}}
+BP + Robert's + BR + Hair Packs.esp
+% {{BASH:NpcFaces, Hair, Eyes, Body-M, Graphics}}
+BP Cosmetic Compilation.esp
+% {{BASH:NpcFaces, Hair, Eyes}}
+BP-Cosmetic Compilation-MaleBodyReplacer.esp
+% {{BASH:NpcFaces, Hair, Eyes, Body-M, Graphics}}
+BP-Cosmetic Compilation.esp
+% {{BASH:NpcFaces, Hair, Eyes}}
+BP-Cosmetic_Compilation-Alternative-VanillaRaceonly.esp
+% {{BASH:NpcFaces, Hair, Eyes}}
+BP-Cosmetic_Compilation-Alternative.esp
+% {{BASH:NpcFaces, Hair, Eyes}}
+BP_and_Soya.esp
+% {{BASH:NpcFaces, Hair, Eyes}}
+BP_Roberts_BR_Hair.esp
+% {{BASH:NpcFaces, Hair, Eyes, Body-M, Graphics}}
+BPMerchantStorage.esp
+% {{BASH:Invent}}
+Brandon's Misc Rebalance.esp
+% {{BASH:Stats, Deactivate}}
+Brigand's Gear.esp
+% {{BASH:Invent}}
+BrotherhoodRenewed.esp
+% {{BASH:Actors.AIPackages, Factions}}
+brownclydesdale.esp
+% {{BASH:Graphics}}
+BrumaMGRestored Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+BulkyNord.esp
+% {{BASH:Body-M, Body-F}}
+BulkyOrcs.esp
+% {{BASH:Body-M, Body-F}}
+BurningItems 0.2.esp
+% {{BASH:Scripts}}
+Buyable Ayldeid Dishes.esp
+% {{BASH:Invent}}
+BWs Argonian Hair.esp
+% {{BASH:Graphics, Hair}}
+C&C - The Blackwood Company - OOO.esp
+% {{BASH:C.Owner, Names, Relations}}
+C&C - The Blackwood Company.esp
+% {{BASH:C.Owner, Relations}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+CaesarOneWithNature.esp
+% {{BASH:Factions}}
+CapsAdmin.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+Capucine's Aquamer Race.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Capucine'sEyeSelection+NewHair.esp
+% {{BASH:Hair, Eyes}}
+Capucines Character Expansion - No NPC Change.esp
+% {{BASH:Hair, Eyes, Graphics}}
+Capucines Character Expansion.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+Capucines_Beautiful People.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+Castle Tirith and Tirith Town Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Castle_Tirith Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+CastleInTheMountain.esp
+% {{BASH:Invent}}
+Cat_eyes.esp
+% {{BASH:Eyes}}
+Cat_eyes_add.esp
+% {{BASH:Eyes}}
+Cats & Rats.esp
+% {{BASH:Scripts}}
+Cava Obscura - Cyrodiil.esp
+% {{BASH:C.Light, Deactivate}}
+Cava Obscura - Filter Patch For Mods.esp
+% {{BASH:C.Light, Deactivate, Filter}}
+Cava Obscura - SI.esp
+% {{BASH:C.Light, Deactivate}}
+CCR - Capucine.esp
+% {{BASH:NpcFaces, Hair, Eyes}}
+CCR - EE.esp
+% {{BASH:NpcFaces, Hair, Eyes}}
+CDEP-UnderpallCave.esp
+% {{BASH:C.Light, C.Water}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Cernasite - DragonEyes - GE.esp
+% {{BASH:Eyes}}
+Cernasite - DragonEyes.esp
+% {{BASH:Eyes}}
+cf_Improved_Barter_Gold.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+CG - Necessity Pack.esp
+% {{BASH:Actors.AIData, Invent}}
+ChallangingThieveryFull.esp
+% {{BASH:Invent}}
+ChallangingThieveryNoHouseAdditions.esp
+% {{BASH:Invent}}
+ChangeSomeCyrodiilLadies.esp
+% {{BASH:NpcFaces, NoMerge}}
+ChimerofLight_Race.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+Chocolate Elves RBP.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+Chocolate Elves.esm
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Chocolate Elves.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+Choices and Consequences - OOO.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Choices and Consequences.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Chrome Amazon Armor.esp
+% {{BASH:Graphics}}
+cidnothump.esp
+% {{BASH:Sound}}
+cidnothumpMMversion.esp
+% {{BASH:Sound}}
+Cliff's Daggerfall Uriel Septim and Ocato.esp
+% {{BASH:NpcFaces, NoMerge}}
+Cliff_BetterLetters.esp
+% {{BASH:Names}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Cliff_BetterLetters_RU.esp
+% {{BASH:Names}}
+Cliff_CountyNames.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+ClocksOfCyrodiil.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+ClothGloves.esp
+% {{BASH:Invent}}
+CM Alexander.esp
+% {{BASH:Hair, NpcFaces}}
+CM Boromir.esp
+% {{BASH:Graphics, NpcFaces}}
+CM Companion Jessica Alba.esp
+% {{BASH:Hair, Eyes}}
+CM Companion Megan Fox.esp
+% {{BASH:Hair, Eyes}}
+CM Faramir.esp
+% {{BASH:Graphics, NpcFaces}}
+CM Frodo.esp
+% {{BASH:Graphics, Hair, NpcFaces, R.Relations}}
+CM Legolas.esp
+% {{BASH:Graphics, Hair, NpcFaces, R.Relations}}
+CM Never.esp
+% {{BASH:Hair, Eyes}}
+CM NixReslain.esp
+% {{BASH:Graphics, Hair, NpcFaces, R.Relations}}
+CM Partners Extra NPCs Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+CM Partners Extra NPCs.esp
+% {{BASH:Hair, Eyes}}
+CM Partners Marker NPCs Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+CM Partners Marker NPCs.esp
+% {{BASH:Hair, Eyes}}
+CM Partners More NPCs NE Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+CM Partners More NPCs NE.esp
+% {{BASH:Hair, Eyes}}
+CM Partners More NPCs Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+CM Partners More NPCs.esp
+% {{BASH:Hair, Eyes}}
+CM Partners NPC NE Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+CM Partners NPC NE.esp
+% {{BASH:Hair, Eyes}}
+CM Partners NPC Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+CM Partners NPC.esp
+% {{BASH:Hair, Eyes}}
+CM Partners Special NPCs Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+CM Partners Special NPCs.esp
+% {{BASH:Hair, Eyes}}
+CM Partners Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+CM_Better Wine.esp
+% {{BASH:Graphics, Deactivate}}
+CM_Kailinda Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+CM_LoreleiU.esp
+% {{BASH:Hair, Eyes}}
+CMAll.esp
+% {{BASH:NpcFaces, Hair, Eyes, Body-M, Body-F, Graphics, R.Relations}}
+CMAll2.esp
+% {{BASH:NpcFaces, Hair, Eyes, Body-M, Body-F, Graphics, R.Relations}}
+CMAllXenius.esp
+% {{BASH:NpcFaces, Hair, Eyes, Body-M, Body-F, Graphics, R.Relations}}
+CMPartner_Xenia Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+CMpartnerTifa.esp
+% {{BASH:Graphics, Hair, NpcFaces, R.Ears, R.Head, R.Mouth, R.Teeth}}
+CNPR DB for OOO.esp
+% {{BASH:Invent, Graphics}}
+CNRP Bruma4OOO.esp
+% {{BASH:Invent}}
+CNRP Brumav02.esp
+% {{BASH:Invent}}
+CNRP Cheydinhal.esp
+% {{BASH:Invent}}
+CNRP Cheydinhal4OOO.esp
+% {{BASH:Invent}}
+CNRP Chorrol.esp
+% {{BASH:Invent}}
+CNRP Chorrol4OOO.esp
+% {{BASH:Invent}}
+CNRP DB for OOO.esp
+% {{BASH:Invent, Graphics}}
+CNRP DB.esp
+% {{BASH:Invent, Graphics}}
+CNRP FB for OOO.esp
+% {{BASH:Invent}}
+CNRP FightersGuild.esp
+% {{BASH:Invent}}
+CNRP FightersGuild4OOO.esp
+% {{BASH:Invent}}
+Cobl - NPCDiversity - TNR Merge.esp
+% {{BASH: NpcFaces, Invent, NoMerge}}
+Cobl Bookjackets.esp
+% {{BASH:Graphics}}
+Cobl Filter Late MERGE ONLY.esp
+% {{BASH: Filter, Deactivate}}
+Cobl Races - Balanced.esp
+% {{BASH:Body-F, Body-M, Eyes, Hair, R.Relations, R.Description, R.Skills, R.Attributes-F, R.Attributes-M, R.ChangeSpells}}
+Cobl Races TNR SI.esp
+% {{BASH:NpcFaces, NoMerge}}
+Cobl Races TNR.esp
+% {{BASH:NpcFaces, NoMerge}}
+Cobl Races.esp
+% {{BASH: Eyes, Hair, R.Relations, Voice-M, Voice-F, R.Description, R.Skills, R.Attributes-F, R.Attributes-M, R.ChangeSpells}}
+Colourwheels Sexy Female NPCs Vwalk UOS.esp
+% {{BASH:Actors.Anims, NpcFaces, NoMerge}}
+Colourwheels Sexy Female NPCs Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Colourwheels Sexy Female NPCs.esp
+% {{BASH:Actors.Anims, NpcFaces}}
+Colourwheels Sexy Imperial Legion Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Colourwheels Sexy Imperial Legion.esp
+% {{BASH:Actors.ACBS, Invent, NpcFacesForceFullImport}}
+Colourwheels Sexy Oblivion OverHaul.esp
+% {{BASH:Actors.Anims, Graphics, Invent, NPC.Race, NpcFaces}}
+Colourwheels Sexy SI Armor & Clothing Replacer.esp
+% {{BASH:Graphics}}
+Colourwheels Sexy Stock Armor & Clothing Replacer.esp
+% {{BASH:Graphics}}
+Colourwheels Sexy Tifa.esp
+% {{BASH:NpcFaces}}
+Companion Neeshka Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Companion Neeshka.esp
+% {{BASH:Hair}}
+companion_chocolate Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+companion_iceelves.esp
+% {{BASH:Hair, Eyes}}
+companion_moonelves Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Complete Names - DV.esp
+% {{BASH:Names}}
+Complete Names.esp
+% {{BASH:Names}}
+CompleteMagePack.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Comprehensive Style Collection RM.esp
+% {{BASH:Hair, Eyes}}
+Corean Hairs and Elaborate Eyes Merged.esp
+% {{BASH:NpcFaces, Hair, Eyes}}
+Corean_hair_for_Original_race.esp
+% {{BASH:Hair}}
+CoreRandmonClothing4Npcs.esp
+% {{BASH:Filter, Invent, IIM, Deactivate}}
+Cosmetic Compilation - No JPeepers or NPC Changes.esp
+% {{BASH:NpcFaces, Hair, Eyes}}
+Cosmetic Compilation - No JPeepers.esp
+% {{BASH:NpcFaces, Hair, Eyes}}
+Cosmetic Compilation - No NPC Changes.esp
+% {{BASH:NpcFaces, Hair, Eyes}}
+Cosmetic Compilation XXL DV.esp
+% {{BASH:NpcFaces, Hair, Eyes}}
+Cosmetic Compilation.esp
+% {{BASH:NpcFaces, Hair, Eyes}}
+Creature Diversity.esp
+% {{BASH:Relev}}
+Creatures20.esp
+% {{BASH:Actors.AIData, Actors.AIPackages, Actors.Stats, Actors.Spells, Factions, Graphics, Names, Relev}}
+CreaturesFactionalised.esp
+% {{BASH:Factions, Relations, Actors.AIData}}
+CrimsonScarArmor.esp
+% {{BASH:Invent}}
+Crowded Cities 15 Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Crowded Cities 30 Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Crowded Roads 15 Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Crowded Roads 23 Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Crowded Roads 7 Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Crowded Roads Advanced less crowded Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Crowded Roads Advanced less crowded.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Crowded Roads Advanced Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Crowded Roads Revisited.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Crowded Roads Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+crusadercg.esp
+% {{BASH:Invent}}
+Cryptic Blue Blood Ayleid Dining Set.esp
+% {{BASH:Names, Graphics, Stats}}
+Cryptic Festive Ayleid Dining Set.esp
+% {{BASH:Names, Graphics, Stats}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Cryptic Frosted Ayleid Dining Set.esp
+% {{BASH:Names, Graphics, Stats}}
+Cryptic Lake View Ayleid Dining Set.esp
+% {{BASH:Names, Graphics, Stats}}
+Cryptic Snowy Oak Ayleid Dining Set.esp
+% {{BASH:Names, Graphics, Stats}}
+Cryptic White Rose Ayleid Dining Set.esp
+% {{BASH:Names, Graphics, Stats}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Cryptic's Buyable Ayleid Dining Sets.esp
+% {{BASH:Invent}}
+CSC RM CW EL.esp
+% {{BASH:Body-M, Hair, Eyes}}
+CSC RM CW.esp
+% {{BASH:Body-M, Hair, Eyes}}
+CSC RM.esp
+% {{BASH:Body-M, Hair, Eyes}}
+CSC.esp
+% {{BASH:Hair, Eyes}}
+CSCP.esp
+% {{BASH:NpcFaces, NoMerge}}
+CSR - Fine Iron.esp
+% {{BASH:Graphics}}
+CSR - Golden Saint.esp
+% {{BASH:Graphics, Stats}}
+CT-Argonian Headstyles-EE+MM.esp
+% {{BASH:Graphics, Hair, Eyes}}
+CT-Argonian Headstyles-EE.esp
+% {{BASH:Graphics, Hair, Eyes}}
+CT-Argonian Headstyles-MM.esp
+% {{BASH:Graphics, Hair, Eyes}}
+CT-Argonian Headstyles.esp
+% {{BASH:Graphics, Hair}}
+CT-Com's Torch Compendium.esp
+% {{BASH:Actors.AIData}}
+CUO_BadGuy_Specific_Loot_DIRTY.esp
+% {{BASH:Delev, Relev}}
+CUO_Bravil.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+CUO_Bruma.esp
+% {{BASH:Invent}}
+CUO_UnleveledNpcs&Creatures.esp
+% {{BASH:Delev, Relev}}
+CUO_UnLeveledPotions.esp
+% {{BASH:Delev, Relev}}
+Cure Disease Overhaul - Deadly Diseases (Non-OBSE).esp
+% {{BASH:Actors.Spells, SpellStats, Stats}}
+Cure Disease Overhaul - Deadly Diseases (OBSE).esp
+% {{BASH:Actors.Spells, SpellStats, Stats}}
+Cure Disease Overhaul - Extreme Diseases.esp
+% {{BASH:Actors.Spells, SpellStats}}
+Curseman's Anti Extinction Mod.esp
+% {{BASH:Delev, Relev}}
+Custom Hairs for Vanilla Race.esp
+% {{BASH:Hair}}
+Cute Sexy Elves.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+CuteElf11.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+CuteElfBody.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+CV - Templar Fortress.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Cybiades Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Cybiades.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Cyrodiil Border Regions 1.2.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+cyrodiil transportation network 1.3 wz.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Cyrodiil Travel Services Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Cyrodiil Travel-Feldscar-Vergayun-Faregyl Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Cyrodiil Travel-Vergayun-Faregyl Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Cyrodilic Brandy.esp
+% {{BASH:Graphics, Deactivate}}
+DAAanila.esp
+% {{BASH:Hair, Eyes}}
+DAAlien.esp
+% {{BASH:Hair, Eyes}}
+DAAltair.esp
+% {{BASH:Hair, Eyes}}
+DABrinn.esp
+% {{BASH:Hair, Eyes}}
+DAClair.esp
+% {{BASH:Hair, Eyes}}
+DAConan.esp
+% {{BASH:Hair, Eyes}}
+DADark Seducers.esp
+% {{BASH:Hair, Eyes}}
+DADemons.esp
+% {{BASH:Hair, Eyes}}
+Daedric Healer Robes.esp
+% {{BASH:Invent}}
+daedric sky armor.esp
+% {{BASH:Invent}}
+DAEluna.esp
+% {{BASH:Hair, Eyes}}
+DAEva.esp
+% {{BASH:Hair, Eyes}}
+DAFeria.esp
+% {{BASH:Hair, Eyes}}
+Daggerfall NPCs.esp
+% {{BASH:Delev}}
+DAGimli.esp
+% {{BASH:Hair, Eyes}}
+DAGolden Saint.esp
+% {{BASH:Hair, Eyes}}
+DAIsrithr.esp
+% {{BASH:Hair, Eyes}}
+DAJackSparrow.esp
+% {{BASH:Hair, Eyes}}
+DAJadeAmberSheevaTabaxi.esp
+% {{BASH:Hair, Eyes}}
+DAJadeTabaxi.esp
+% {{BASH:Hair, Eyes}}
+DAJynx.esp
+% {{BASH:Hair, Eyes}}
+DAKaleah.esp
+% {{BASH:Hair, Eyes}}
+DAKaleahSuccubus.esp
+% {{BASH:Hair, Eyes}}
+DALeonidas.esp
+% {{BASH:Hair, Eyes}}
+DALineage2Elves.esp
+% {{BASH:Hair, Eyes}}
+DaMage's_Eye_Pack.esp
+% {{BASH:Eyes}}
+DamascusGlamdring.esp
+% {{BASH:Invent}}
+DAMeridiaKatrina.esp
+% {{BASH:Hair, Eyes}}
+DAMerpeople.esp
+% {{BASH:Hair, Eyes}}
+DANecsKarla.esp
+% {{BASH:Hair, Eyes}}
+DANECSSONNET.esp
+% {{BASH:Hair, Eyes}}
+dangerous wilderness.esp
+% {{BASH:Delev, Relev}}
+Dangerous_Overhaul_v0.2.esp
+% {{BASH:Relev}}
+DAPlayableTrollRace.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+DappleClydesdaleupdate.esp
+% {{BASH:Graphics}}
+DARaewyn.esp
+% {{BASH:Hair, Eyes}}
+Dark BrotherHood Hood Replacer V1.2.esp
+% {{BASH:Graphics}}
+Dark Crusader Armor.esp
+% {{BASH:Invent}}
+Dark Dungeons -  SI.esp
+% {{BASH:C.Light, Deactivate}}
+Dark Dungeons.esp
+% {{BASH:C.Light, Deactivate}}
+Dark Katana.esp
+% {{BASH:Invent}}
+Dark Mithril Armour.esp
+% {{BASH:Invent}}
+Dark Seducer Race.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Dark_Seducer_and_Golden_Saint_Race.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Darker Dungeons.esp
+% {{BASH:C.Light, Deactivate}}
+Darkgreen Glass Armour.esp
+% {{BASH:Graphics}}
+DarkLeatherArmor.esp
+% {{BASH:Invent}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+DarknessHollows Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+DASakura.esp
+% {{BASH:Hair, Eyes}}
+DASatyr.esp
+% {{BASH:Hair, Eyes}}
+DASephirothCompanion.esp
+% {{BASH:Hair, Eyes}}
+DATalitha.esp
+% {{BASH:Hair, Eyes}}
+DATiamsGirls.esp
+% {{BASH:Hair, Eyes}}
+DAValeriaCuteElf.esp
+% {{BASH:Hair, Eyes}}
+DAWerewolf.esp
+% {{BASH:Hair, Eyes}}
+DAXivilai.esp
+% {{BASH:Hair, Eyes}}
+DBSRebuiltComplete.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+DeadlyReflex 5 - Combat Moves.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+DeadlyReflex 6 - Combat Moves.esp
+% {{BASH:Graphics}}
+Demon Hunter.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+DemonRace.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+DesertArgonian.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+DesuChan's Anime Eyes (Vanilla).esp
+% {{BASH:Eyes}}
+DesuChan's Kawa-Khajiits.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+DesuChan's Persocoms RECONSTRUCTED.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+DesuChan's Persocoms RELOADED.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Different Script Effect Icon - Darkness.esp
+% {{BASH:Graphics}}
+Different Script Effect Icon - Fortify.esp
+% {{BASH:Graphics}}
+Different Script Effect Icon - Lock.esp
+% {{BASH:Graphics}}
+Different Script Effect Icon - Reflect Spell.esp
+% {{BASH:Graphics}}
+Different Script Effect Icon - Resist.esp
+% {{BASH:Graphics}}
+Different Script Effect Icon - Silence.esp
+% {{BASH:Graphics}}
+Different Script Effect Icon - Stunted Magicka.esp
+% {{BASH:Graphics}}
+Different Script Effect Icon - Sun Damage.esp
+% {{BASH:Graphics}}
+Different Script Effect Icon - Vampirism.esp
+% {{BASH:Graphics}}
+Diseased Corpses.esp
+% {{BASH:Scripts}}
+Diverse NPCs.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics, NoMerge}}
+Diverse Races.esp
+% {{BASH:Body-F, Body-M}}
+DKImperials.esm
+% {{BASH:Hair, Eyes}}
+DKImperials.esp
+% {{BASH:Hair, Eyes}}
+DLC_MOBS.esp
+% {{BASH:Deactivate, Stats, NoMerge}}
+DLCBattlehornCastle.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+DLCFrostcrag - Unofficial Patch.esp
+% {{BASH:Actors.ACBS, C.Name, C.Owner, Creatures.Blood}} and remove [C.Climate, C.Light]
+DLCfrostcrag Reborn Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+DLCFrostcrag Spire Revisited Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+DLCFrostcrag Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+DLCFrostcrag.esp
+% {{BASH:C.Name, C.Owner, Factions}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+DLCHorseArmor - Unofficial Patch.esp
+% {{BASH:C.Owner}}
+DLCHorseArmor+Accessories.esp
+% {{BASH:Graphics}}
+DLCHorseArmor+ArmoredImperialSlofsHorses.esp
+% {{BASH:Graphics}}
+DLCHorseArmor+Qarl'sHarvest+ArmoredImperialHorses.esp
+% {{BASH:Graphics}}
+DLCHorseArmor+Qarl'sHarvest+Slof'sBase+Accessories.esp
+% {{BASH:Graphics}}
+DLCHorseArmor+SBLite+QarlsHarvest.esp
+% {{BASH:Graphics}}
+DLCHorseArmor+SBLite.esp
+% {{BASH:Graphics}}
+DLCHorseArmor+Slof'sBase+Accessories.esp
+% {{BASH:Graphics}}
+DLCHorseArmor.esp
+% {{BASH:Scripts}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+DLCHorseArmor_SlofBase.esp
+% {{BASH:Graphics}}
+DLCHorseArmor_SlofEssential.esp
+% {{BASH:Graphics}}
+DLCHorseArmor_SlofNightmare.esp
+% {{BASH:Graphics}}
+DLCHorseArmor_SlofNightmareEssential.esp
+% {{BASH:Graphics}}
+DLCMehrunesRazor - Unofficial Patch.esp
+% {{BASH:Delev, Invent, Relev}}
+DLCMehrunesRazor Vwalk UOP.esp
+% {{BASH:Actors.Anims, NoMerge}}
+DLCMehrunesRazor Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+DLCMehrunesRazor.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+DLCOrrery Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+DLCOrrery.esp
+% {{BASH:Actors.AIPackages}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+DLCShiveringIsles Vwalk DG_DS UOS.esp
+% {{BASH:Actors.Anims, NpcFaces, NoMerge}}
+DLCShiveringIsles Vwalk DG_DS.esp
+% {{BASH:Actors.Anims, NoMerge}}
+DLCShiveringIsles Vwalk UOS.esp
+% {{BASH:Actors.Anims, NpcFaces, NoMerge}}
+DLCShiveringIsles Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+DLCSpellTomes.esp
+% {{BASH:Relev}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+DLCThievesDen - Unofficial Patch.esp
+% {{BASH:Actors.ACBS, Actors.AIData, Actors.Stats, C.Light, C.Music, C.Name, Delev, Relev}}
+DLCThievesDen Vwalk UOP.esp
+% {{BASH:Actors.Anims, NoMerge}}
+DLCThievesDen Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+DLCThievesDen.esp
+% {{BASH:C.Name, C.Light, Actors.ACBS, Actors.AIPackages, Actors.Stats}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+DLCVileLair - Unofficial Patch.esp
+% {{BASH:Graphics}}
+DLCVileLair.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+DMAC Armor.esp
+% {{BASH:Graphics, NoMerge}}
+DMC Stylish - Specialanims.esp
+% {{BASH:Actors.Anims}}
+DMP - Darker Dungeons Rus GoldEdition.esp
+% {{BASH:C.Light, Deactivate}}
+DMP - Darker Dungeons Rus.esp
+% {{BASH:C.Light, Deactivate}}
+DMRA  Skimpy Armor Expanded.esp
+% {{BASH:Graphics, NoMerge}}
+DMRA Replacer OOO Collection.esp
+% {{BASH:Graphics, NpcFaces, Hair, Eyes, Invent, Stats, Actors.Stats, Actors.ACBS}}
+DMRA Stock Armor Skimpy.esp
+% {{BASH:Graphics, NoMerge}}
+DMRA Stock Clothing Replacer.esp
+% {{BASH:Graphics, NoMerge}}
+DMRA Stock Clothing Skimpy.esp
+% {{BASH:Graphics, NoMerge}}
+DMRA Stock Robe Replacer.esp
+% {{BASH:Graphics, NoMerge}}
+DMRA Stock Robe Skimpy Replacer.esp
+% {{BASH:Graphics, NoMerge}}
+doofdillas_potions_recolored_sorted_v0_3_1.esp
+% {{BASH:Graphics, Names}}
+doofdillas_potions_recolored_unsorted_v0_2_1.esp
+% {{BASH:Graphics, Names}}
+dragon weapons.esp
+% {{BASH:Invent}}
+DreamWalker.esp
+% {{BASH:NpcFaces, Hair, Eyes}}
+Dremora Race Playable.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Dremora Race with Tail.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Dremora.esp
+% {{BASH:NpcFaces}}
+DremoraCompanion.esp
+% {{BASH:Hair, Eyes}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+DremoraFemales.esp
+% {{BASH:Voice-F}}
+DrI_Poisons.esp
+% {{BASH:Invent}}
+Drokk's Vampire Mod.esp
+% {{BASH:Scripts, Graphics}}
+DruidsTree.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Dschinni Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+DTC-AR-PluginElaborateEyesFix.esp
+% {{BASH:Eyes}}
+Duke Patrick's Health Alarm RED DEATH with heartbeat NO human yells.esp
+% {{BASH:Sound}}
+Duke Patrick's Health Alarm with Fadeout.esp
+% {{BASH:Sound}}
+Duke Patrick's Health Alarm with RED DEATH.esp
+% {{BASH:Sound}}
+Duke Patrick's Health Alarm.esp
+% {{BASH:Sound}}
+Duke Patrick's magic you can believe in 4p5.esp
+% {{BASH:Sound}}
+Duke Patrick's magic you can believe in 5.esp
+% {{BASH:Sound}}
+Duke Patricks - Fresh Kills Now Alert The NPCs.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Duke Patricks - Health Alarm RED DEATH with heartbeat.esp
+% {{BASH:Sound}}
+Duke Patricks - Magic you can believe in.esp
+% {{BASH:Sound}}
+Duke Patricks - Nosferatu Class Vampires.esp
+% {{BASH:Sound}}
+Duke Patricks Nosferatu Vampires.esp
+% {{BASH:Sound}}
+Duke Patricks Sickness Alarm.esp
+% {{BASH:Sound}}
+Dwarven Mines Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Dwarven Mines.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+dwr.esp
+% {{BASH:Invent}}
+EC-RM White Tabaxi.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+Echo_ChapelChant.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+EE-Cosmetic Compilation.esp
+% {{BASH:NpcFaces, Hair, Eyes}}
+EiAmod Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+EiAmod.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Elaborate HGEBetter Beauty Soya Expansion.esp
+% {{BASH:NpcFaces, Hair, Eyes}}
+ElaborateEyes for Robert's Bodies.esp
+% {{BASH:Hair, Eyes}}
+ElaborateEyes-RensBeautyPackFull.esp
+% {{BASH:Hair, Eyes}}
+ElaborateEyes-RensBeautyPackHairsOnly.esp
+% {{BASH:Hair, Eyes}}
+ElaborateEyes.esp
+% {{BASH:Eyes}}
+ElsweyrAnequina - Races HGEC-Robert.esp
+% {{BASH:R.Mouth, R.Teeth}}
+ElsweyrAnequina v2 Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+ElsweyrAnequina Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+ElsweyrAnequinaFemaleBody.esp
+% {{BASH:Body-F}}
+ElsweyrAnequinaNoSpiders.esp
+% {{BASH:Delev}}
+ElsweyrMinotaurPatch.esp
+% {{BASH:Graphics, NoMerge}}
+Eluna.esp
+% {{BASH:Hair, Eyes}}
+elveons realistic eyes.esp
+% {{BASH:Eyes}}
+Elves Of Lineage II.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Elves Of Lineage II_1.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Emperor's Heavy War Armor.esp
+% {{BASH:Invent}}
+emperorface.esp
+% {{BASH:NpcFaces, NoMerge}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+EnchantedGems_Geomancy.esp
+% {{BASH:Scripts}}
+EnemyFace3.esp
+% {{BASH:Actors.AIPackages, Actors.Spells, NpcFaces, Scripts}}
+Energy - Bandits.esp
+% {{BASH:Delev, Relev}}
+Energy - Beautiful Elves.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+Enhanced Daedric Invasion.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Enhanced Economy - Soulgems.esp
+% {{BASH:Scripts, NoMerge}}
+Enhanced Quest Roleplaying.esp
+% {{BASH:Factions}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Enhanced Water HD_1C.esp
+% {{BASH:C.Water}}
+Enhanced Water ND_1C.esp
+% {{BASH:C.Water}}
+Enhanced Water v1.5 HD.esp
+% {{BASH:C.Water}}
+Enhanced Water v1.5 ND.esp
+% {{BASH:C.Water}}
+Enhanced Water v2.0 HD.esp
+% {{BASH:C.Water}}
+Enhanced Water v2.0 HDMI.esp
+% {{BASH:C.Water}}
+Enhanced Water v2.0 ND.esp
+% {{BASH:C.Water}}
+Erics Crafting Mod.esp
+% {{BASH:Scripts, Invent}}
+ES4_Spell Names by Effect.esp
+% {{BASH:Names}}
+Essential_Merchants.esp
+% {{BASH:Actors.ACBS, NoMerge}}
+Ethereal - Eyes.esp
+% {{BASH:Eyes}}
+EVE_KhajiitFix.esp
+% {{BASH:Body-F}}
+EVE_KnightsoftheNine.esp
+% {{BASH:Graphics, NoMerge}}
+EVE_StockEquipmentReplacer for OOO.esp
+% {{BASH:Graphics, NoMerge}}
+EVE_StockEquipmentReplacer.esp
+% {{BASH:Graphics, NoMerge}}
+EVE_StockEquipmentReplacer4FCOM.esp
+% {{BASH:Graphics, NoMerge}}
+EVE_StockEquipmentReplacer4MMM.esp
+% {{BASH:Graphics, NoMerge}}
+Exnem1 Moonwell and Mystic Night Elf.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Extended Chorrol Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Extended City Series Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Extended Imperial City Version 1.0 Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Extended Skingrad Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+EyeCandy Compilation.esp
+% {{BASH:Body-M, Body-F, NpcFaces, Hair, Eyes, Actors.AIPackages}}
+EyelashesForVanillaRaces1.0.esp
+% {{BASH:NpcFaces, R.Teeth, R.Mouth}}
+EyelashesVanillaRaces.esp
+% {{BASH:NpcFaces, R.Teeth, R.Mouth}}
+EyelashesVannilaRaces.esp
+% {{BASH:NpcFaces, R.Teeth, R.Mouth}}
+Eyja Abriael Human Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+eyja Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+eyja.esp
+% {{BASH:C.Water}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Fable Swords.esp
+% {{BASH:Invent}}
+Factions DB v1.16.esp
+% {{BASH:Actors.ACBS, Actors.AIPackages, Actors.Stats, Graphics, Invent, Names, Scripts, Stats}}
+fadingtorches v2.2b.esp
+% {{BASH:Names}}
+FalxMod.esp
+% {{BASH:Invent}}
+Fantasy Mod.esp
+% {{BASH:Hair, Eyes}}
+Faregyl Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Faregyl.esp
+% {{BASH:Actors.AIPackages, Factions, Relations}}
+Faster Horses.esp
+% {{BASH:Actors.Stats, Actors.ACBS}}
+FB_Dark_Crusader_01.esp
+% {{BASH:Invent}}
+FB_DC_Mega_Pack_OMOD.esp
+% {{BASH:Invent}}
+FCOM_Archery.esp
+% {{BASH:NoMerge, Stats}}
+FCOM_Archery_4_Arma_Complete_patch.esp
+% {{BASH:Stats}}
+FCOM_Archery_Armamentarium.esp
+% {{BASH:NoMerge, Stats}}
+FCOM_Archery_Artifacts.esp
+% {{BASH:Stats}}
+FCOM_Archery_Deadly.esp
+% {{BASH:Stats}}
+FCOM_Archery_Deadly_Armamentarium.esp
+% {{BASH:Stats}}
+FCOM_Archery_Deadly_Artifacts.esp
+% {{BASH:Stats}}
+FCOM_Archery_Deadly_RealSwords.esp
+% {{BASH:Stats}}
+FCOM_Archery_MMM_H&C.esp
+% {{BASH:Stats}}
+FCOM_Archery_RealSwords.esp
+% {{BASH:NoMerge, Stats}}
+FCOM_ArcheryArmamentarium.esp
+% {{BASH:Stats}}
+FCOM_ArcheryHunting&Crafting.esp
+% {{BASH:NoMerge, Stats}}
+FCOM_ArcheryRealSwords.esp
+% {{BASH:Stats}}
+FCOM_BobsArmory.esp
+% {{BASH:Relev, Delev}}
+FCOM_Cobl.esp
+% {{BASH:Delev, Relev}}
+FCOM_Convergence.esm
+% {{BASH:Delev, Factions, Relations, Relev}}
+FCOM_Convergence.esp
+% {{BASH:Actors.ACBS, Actors.AIData, Actors.AIPackagesForceAdd, Actors.CombatStyle, Actors.DeathItem, Actors.Spells, Actors.SpellsForceAdd, Actors.Stats, Delev, Factions, Graphics, Invent, Names, Relations, Relev, Scripts, Stats}}
+FCOM_DiverseGuardUnity.esp
+% {{BASH:Actors.CombatStyle, Actors.Spells, Invent, Scripts}}
+FCOM_FriendlierFactions.esp
+% {{BASH:NoMerge, Relations}}
+FCOM_Hentai Mania.esp
+% {{BASH:Factions, Graphics, Relations, Scripts, Stats}}
+FCOM_HungersUnitySI.esp
+% {{BASH:Factions, Graphics, Invent, Relev}}
+FCOM_Knights.esp
+% {{BASH:Delev, Factions, Relations, Relev}}
+FCOM_OMG.esp
+% {{BASH:Relations, Actors.AIPackages}}
+FCOM_RealSwords.esp
+% {{BASH:Delev, Relev}}
+FCOM_SaferRoads.esp
+% {{BASH:Delev, Relev}}
+FCOM_SlofsHorses.esp
+% {{BASH:Graphics}}
+FCOM_slofsrobetrader.esp
+% {{BASH:Delev, Relev}}
+FCOM_SpawnRatesReduced.esp
+% {{BASH:Delev, Relev}}
+FCOM_SpawnRatesSlightlyReduced.esp
+% {{BASH:Delev, Relev}}
+FCOM_SpawnRatesStronger.esp
+% {{BASH:Delev, Relev}}
+FCOM_WarCry.esp
+% {{BASH:Delev, Relev, Stats}}
+FCOM_WarCryNoSpawn.esp
+% {{BASH:Stats}}
+Feldscar Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Female Helmet Replacer.esp
+% {{BASH:Graphics}}
+Feudal Empire 300.esp
+% {{BASH:Invent, Graphics}}
+FG_Merchant Inventory Realism V 1_5.esp
+% {{BASH:Invent}}
+Fighters Guild Scalemail Full.esp
+% {{BASH:Invent}}
+FineWeapons.esp
+% {{BASH:Graphics}}
+Fireflys Extended Cities Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+First Person Messages.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Fishing in Cyrodiil.esp
+% {{BASH:Invent}}
+Fixed_Repriced_Clutter_11_by_Carpmalenko_POD-9319.esp
+% {{BASH:Stats, Deactivate}}
+fixterms1C_03.esp
+% {{BASH:Names}}
+fixtext1C_04.esp
+% {{BASH:Names}}
+Floydian1 Loading Screens Compilation.esp
+% {{BASH:Graphics, NoMerge}}
+Food Prices Revised 0.1.esp
+% {{BASH:Stats}}
+Fort Akatosh Redux Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Fort Akatosh Redux.esp
+% {{BASH:Relations}}
+Fort Akatosh.esp
+% {{BASH:Relations}}
+FortAkatosh.esp
+% {{BASH:Relations}}
+Fran Armor Add-on.esp
+% {{BASH:Invent}}
+Francesco's Dark Seducer Weapons Patch.esp
+% {{BASH:Delev, Relev}}
+Francesco's Leveled Creatures-Items Mod.esm
+% {{BASH:Invent, Delev, Relev, Actors.AIData, Actors.Stats, Stats}}
+Francesco's Optional Chance of Stronger Enemies.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Francesco's Optional Files 1.esp
+% {{BASH:Delev, Relev}}
+Francesco's Optional Files 2.esp
+% {{BASH:Delev, Relev}}
+Francesco's Optional Files 3.esp
+% {{BASH:Delev, Relev}}
+Francesco's Optional Files 4.esp
+% {{BASH:Delev, Relev}}
+Francesco's Optional Files.esp
+% {{BASH:Delev, Relev}}
+Francesco's Optional Leveled Guards.esp
+% {{BASH:Actors.ACBS, Actors.Stats}}
+FranDarkSeducerWeapFix.esp
+% {{BASH:Delev, Relev}}
+Fransfemale.esp
+% {{BASH:Graphics, NoMerge}}
+FrbitPotionReplacer.esp
+% {{BASH:Graphics, Names, NoMerge}}
+From2ch Lives Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Frostcrag Village Vwalk.esp
+% {{BASH: Actors.Anims, NoMerge}}
+Furniture Prices.esp
+% {{BASH:Stats}}
+Furniture Repriced.esp
+% {{BASH:Stats}}
+Garak's Staff Replacer Artefacts.esp
+% {{BASH:Graphics}}
+Garak's Staff Replacer Blood&Lightning.esp
+% {{BASH:Graphics}}
+Garak's Staff Replacer Fire&Ice.esp
+% {{BASH:Graphics}}
+GatewayRealm Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+GatewayRealm.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+GatewayRealmUL Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+GatewayRealmUL.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Gems.esp
+% {{BASH:Stats, NoMerge}}
+GFX_Initial_Glow-all.esp
+% {{BASH:Graphics, NoMerge}}
+GG_Valeria_Revived.esp
+% {{BASH:Hair, Eyes}}
+GG_Vincente.esp
+% {{BASH:Hair, Eyes}}
+GG_Vincente_Revived.esp
+% {{BASH:Hair, Eyes}}
+GGValeria2_0.esp
+% {{BASH:Hair, Eyes}}
+Ghost_better skulls.esp
+% {{BASH:NoMerge, Graphics}}
+Gift of Kynareth.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+GlenvarCastle Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+GlenvarCastle.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Goblin Realswords+Tribal Shields.esp
+% {{BASH:Graphics}}
+Gold Change II.esp
+% {{BASH:Names}}
+Gold Smelting.esp
+% {{BASH:Scripts}}
+Golden Saint Race.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+GoldenCrest Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Gothic Breton Race.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+GraceHair.esp
+% {{BASH:Hair}}
+Grand Potions.esp
+% {{BASH:Delev, Relev}}
+Grandmaster of Alchemy.esp
+% {{BASH:Factions}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Grashnak.esp
+% {{BASH:Hair, Eyes}}
+GrayFoxOutfit.esp
+% {{BASH:Invent}}
+greyclydesdale.esp
+% {{BASH:Graphics}}
+GrimbotsSpellTomes.esp
+% {{BASH:Graphics, NoMerge}}
+Growlfs Hot Clothes.esp
+% {{BASH:Graphics}}
+GruntsSigilStones.esp
+% {{BASH:Invent}}
+GTAesgaard.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Guard Torches.esp
+% {{BASH:Invent}}
+GuardEquipAndStatFix.esp
+% {{BASH:Actors.Stats, Invent}}
+GuardsofCyrodiil.esp
+% {{BASH:Relations}}
+GuardsofCyrodiilRedux Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+GuilesNameReplace-Scrolls.esp
+% {{BASH:Names}}
+GuilesScrollRenamer.esp
+% {{BASH:Names}}
+GW71_Soulgems.esp
+% {{BASH:Graphics}}
+hackdirtabyss.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"Harvest [Flora] - DLCFrostcrag.esp
+Half Devil.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Half Elves.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Half Orcs.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Half-Devil.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Hammerfell Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Han1.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+handk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Handsome_Gents_Addon.esp
+% {{BASH:NpcFaces, NoMerge}}
+Handsome_Gents_Bonus.esp
+% {{BASH:NpcFaces, NoMerge}}
+Handsome_Gents_DB_Addon.esp
+% {{BASH:NpcFaces, NoMerge}}
+Handsome_Gents_Revised.esp
+% {{BASH:NpcFaces, NoMerge}}
+Handsome_Gents_Revised_DB.esp
+% {{BASH:NpcFaces, NoMerge}}
+Handsome_Gents_Revised_SI.esp
+% {{BASH:NpcFaces, NoMerge}}
+Handsome_Gents_SI.esp
+% {{BASH:NpcFaces, NoMerge}}
+Handsome_Gents_Vampires.esp
+% {{BASH:NpcFaces, NoMerge}}
+Handsome_Gents_Vampires_50.esp
+% {{BASH:NpcFaces, NoMerge}}
+Haowen.esp
+% {{BASH:Hair, Eyes}}
+HaroK Arrow Forge Revisited.esp
+% {{BASH:Invent}}
+Harvest [Flora] - DLCFrostcrag.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Harvest [Flora] - Shivering Isles.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Harvest [Flora].esp
+% {{BASH:Graphics, Scripts}}
+Harvest Containers Filter patch for mods.esp
+% {{BASH:Deactivate, Filter}}
+Haunted_House_v1.5.esp
+% {{BASH:Invent}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+HauntedHouse v1.3.esp
+% {{BASH:Invent}}
+HauntedHouse v1.4.esp
+% {{BASH:Invent}}
+HauntedHouse.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+HauntedLairMod.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Head06 Replacer.esp
+% {{BASH:Body-M, Body-F, NpcFaces}}
+HeartOftheDead Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+HeartoftheDead.esp
+% {{BASH:Actors.AIPackages, Hair}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Hemingweys Capes for EDI.esp
+% {{BASH:Invent}}
+Hemingweys Capes for FCOM_FrancescosNamedBosses.esp
+% {{BASH:Invent}}
+Hemingweys Capes Improved for FCOM.esp
+% {{BASH:Invent, Scripts, Stats}}
+Hemingweys Capes Improved for MMM.esp
+% {{BASH:Invent, Stats}}
+Hemingweys Capes Improved for OOO.esp
+% {{BASH:Invent, Scripts, Stats}}
+Hemingweys Capes Improved.esp
+% {{BASH:Invent, Stats}}
+Hemingweys FCOM Boss Chest Cape Loot.esp
+% {{BASH:Invent}}
+Hemingweys FCOM NPC Capes Improved Bosses Only.esp
+% {{BASH:Invent}}
+Hemingweys FCOM NPC Capes Improved Citizens.esp
+% {{BASH:Invent}}
+Hemingweys FCOM NPC Capes Improved Enemies.esp
+% {{BASH:Invent}}
+Hemingweys FCOM NPC Capes Improved IC Guards.esp
+% {{BASH: Graphics, Invent, Scripts}}
+Hemingweys FCOM NPC Capes Improved Legion Forester.esp
+% {{BASH:Invent}}
+Hemingweys FCOM NPC Capes Improved Regional City Guards.esp
+% {{BASH:Invent}}
+Hemingweys FCOM OOO Cape Patch.esp
+% {{BASH:Scripts}}
+Hemingweys FCOM Show Amulets.esp
+% {{BASH:Stats}}
+Hemingweys MMM Boss Chest Cape Loot.esp
+% {{BASH:Invent}}
+Hemingweys MMM NPC Capes Improved Bosses Only.esp
+% {{BASH:Invent}}
+Hemingweys MMM NPC Capes Improved Citizens.esp
+% {{BASH:Invent}}
+Hemingweys MMM NPC Capes Improved Enemies.esp
+% {{BASH:Invent}}
+Hemingweys MMM NPC Capes Improved IC Guards.esp
+% {{BASH:Invent}}
+Hemingweys MMM NPC Capes Improved Legion Forester.esp
+% {{BASH:Invent}}
+Hemingweys MMM NPC Capes Improved Regional City Guards.esp
+% {{BASH:Invent}}
+Hemingweys MMM Show Amulets.esp
+% {{BASH:Stats}}
+Hemingweys NPC Capes.esp
+% {{BASH:Invent}}
+Hemingweys OOO Boss Chest Cape Loot.esp
+% {{BASH:Invent}}
+Hemingweys OOO Cape Patch.esp
+% {{BASH:Scripts}}
+Hemingweys OOO NPC Capes Improved Bosses Only.esp
+% {{BASH:Invent}}
+Hemingweys OOO NPC Capes Improved Citizens.esp
+% {{BASH:Invent}}
+Hemingweys OOO NPC Capes Improved Enemies.esp
+% {{BASH:Invent}}
+Hemingweys OOO NPC Capes Improved IC Guards.esp
+% {{BASH: Graphics, Invent, Scripts}}
+Hemingweys OOO NPC Capes Improved Legion Forester.esp
+% {{BASH:Invent}}
+Hemingweys OOO NPC Capes Improved Regional City Guards.esp
+% {{BASH:Invent}}
+Hemingweys OOO Show Amulets.esp
+% {{BASH:Stats}}
+Hemingweys VAN Boss Chest Cape Loot.esp
+% {{BASH:Invent}}
+Hemingweys VAN NPC Capes Improved Bosses Only.esp
+% {{BASH:Invent}}
+Hemingweys VAN NPC Capes Improved Citizens.esp
+% {{BASH:Invent}}
+Hemingweys VAN NPC Capes Improved Enemies.esp
+% {{BASH:Invent}}
+Hemingweys VAN NPC Capes Improved IC Guards.esp
+% {{BASH:Invent}}
+Hemingweys VAN NPC Capes Improved Legion Forester.esp
+% {{BASH:Invent}}
+Hemingweys VAN NPC Capes Improved Regional City Guards.esp
+% {{BASH:Invent}}
+Hemingweys VAN Show Amulets.esp
+% {{BASH:Stats}}
+Hentai Mania addon Break Undies.esp
+% {{BASH:Scripts, Stats}}
+Hentai Mania Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Hentai Mania.esp
+% {{BASH:Hair, Invent, Scripts, C.Owner}}
+HentaiMania2 Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+HentaiMania2_Merged_Hell Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+HentaiMania2_Merged_Nightmare Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Hentari.esp
+% {{BASH:Graphics, Actors.Anims}}
+Heroes of Cyrodiil.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+HGEC Glass Replacement.esp
+% {{BASH:Graphics, NoMerge}}
+HGEC_AmazonArmor.esp
+% {{BASH:Graphics}}
+HGEC_Rogue01.esp
+% {{BASH:Graphics}}
+HGEC_special_armor_repl.esp
+% {{BASH:Graphics, NoMerge}}
+HGEC_special_armor_repl_for_OOO.esp
+% {{BASH:Graphics, NoMerge}}
+Hidden_Elves.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+HiddenSkulls.esp
+% {{BASH:Invent}}
+High_Imperial_Trio.esp
+% {{BASH:Hair, Eyes}}
+HoarfrostCastle Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+HoarfrostCastle.esp
+% {{BASH:Hair}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+HouseMapMarkersOnlyBought.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+HRMHorseArmor.esp
+% {{BASH:Graphics}}
+HRMHorseArmorSlofsHorsesPatch.esp
+% {{BASH:Graphics}}
+HRMHorseArmorSlofsHorsesPatch20.esp
+% {{BASH:Graphics}}
+HS-Horse-Unicorn.esp
+% {{BASH:Graphics}}
+HS-Horse.esp
+% {{BASH:Graphics}}
+IABaneOils 100.esp
+% {{BASH:Factions}}
+IABaneOils 1000.esp
+% {{BASH:Factions}}
+IABaneOils 250.esp
+% {{BASH:Factions}}
+IABaneOils 500.esp
+% {{BASH:Factions}}
+IABaneOils Wimpy.esp
+% {{BASH:Factions}}
+Ice Elves and Wolf Elves.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+IceElfRace.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Icthylean_Race.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+IDKRRR_C_race.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+IDKRRR_C_race_closed_mouth_version.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+IDKRRR_C_raceRU.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+IDKRRR_KFME4rev.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+IDKRRR_Moira_race.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+idkrrr_sarameyesNhairs4originalrace.esp
+% {{BASH:Graphics, Hair, Eyes}}
+idkrrr_sarams_race.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Illusionary Summons.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Immersive Caves Auto.esp
+% {{BASH:Names}}
+Immersive Caves.esp
+% {{BASH:Names}}
+Immersive Travelers.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+immersive_caves_auto.esp
+% {{BASH:Names}}
+ImpeREAL Empire - Unique Forts - Black Rock - OOO FCOM plugin by Xtudo.esp
+% {{BASH: Invent}}
+ImpeREAL Empire - Unique Forts - Slofs Horses - By Xtudo.esp
+% {{BASH:Graphics, NoMerge}}
+ImpeREAL Empire - Unique Forts Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Imperial Armor Replace.esp
+% {{BASH:Graphics}}
+Imperial City Suburbs Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Imperial_Palace_Armor-2474.esp
+% {{BASH:Graphics}}
+Independent High Elf Body (Replace)(v1.1).esm
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Insanity's Kill Bill Katanas.esp
+% {{BASH:Invent}}
+IOM - Arena.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+IP_Magerobes.esp
+% {{BASH:Graphics}}
+Isrithr.esp
+% {{BASH:Hair, Eyes}}
+Item interchange - Extraction.esp
+% {{BASH:Filter, Deactivate}}
+Item interchange - Placement for FCOM.esp
+% {{BASH:Delev, Filter, IIM, Invent, Relev, Deactivate}}
+Item interchange - Placement for Frostcrag.esp
+% {{BASH:Filter, IIM, Invent, Deactivate}}
+Ivellon.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Jake's Water.esp
+% {{BASH:Graphics}}
+javbs_mod.esp
+% {{BASH:Graphics, Invent}}
+JazzJRKhajiitfeets.esp
+% {{BASH:Invent}}
+JBladesVol2.esp
+% {{BASH:Relev}}
+JCapesBonus.esp
+% {{BASH:Invent}}
+JCPeepers.esp
+% {{BASH:Eyes}}
+JG Elven.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics, R.Relations}}
+Jjiinx_Long Ears.esp
+% {{BASH:Body-M, Body-F, NpcFaces}}
+Jjiinx_MorrowindStyleArgonians.esp
+% {{BASH:NpcFaces, NoMerge}}
+JJR'sWhiskers and Eyebrow.esp
+% {{BASH:NpcFaces, R.Teeth}}
+John's Creature Mod.esp
+% {{BASH:Relev}}
+John's Leveled List Overhaul for OOO.esp
+% {{BASH:Delev, Relev}}
+John's Leveled List Overhaul.esm
+% {{BASH:Graphics}}
+JoinedJaws.esp
+% {{BASH:R.Teeth}}
+JOTN script effect replacer.esp
+% {{BASH:Graphics}}
+JPWikiMod.esp
+% {{BASH:Names}}
+JQ-Fighters_Guild_United.esp
+% {{BASH:Invent}}
+k_HOD_RBP_patch.esp
+% {{BASH:Body-F}}
+Ka Po White.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Ka Po.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Kaleah.esp
+% {{BASH:Hair, Eyes}}
+kaleen.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+KDQ - Rural Line Additions.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+KDshorthair.esp
+% {{BASH:Hair}}
+KendoGirl_Final.esp
+% {{BASH:Hair, Eyes}}
+kgt_Aida.esp
+% {{BASH:Hair}}
+kgt_Avve.esp
+% {{BASH:Hair}}
+Khajiit Fix.esp
+% {{BASH:Body-F}}
+KHStrangers.esp
+% {{BASH:Eyes, Graphics, Hair, NpcFaces, R.Ears, R.Head, R.Mouth, R.Teeth, Voice-M}}
+King_O_POPver2.esp
+% {{BASH:Graphics, Hair, Eyes}}
+Knight of Skeleton.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+KnightlyArmory.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Knights - Book Jackets.esp
+% {{BASH:Graphics, NoMerge}}
+Knights - Unofficial Patch.esp
+% {{BASH:Actors.ACBS, Actors.AIPackages, Factions, Relations}}
+Knights Vwalk UOP.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Knights Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Knights.esp
+% {{BASH:Actors.AIPackages, Factions}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Koldorns Eye Mod.esp
+% {{BASH:Eyes}}
+Kragenir's Death Quest Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Kragenir's Death Quest.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+KSE_v3.esp
+% {{BASH:Graphics, Names, Sound}}
+Kvatch Rebuilt Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Kvatch Rebuilt.esp
+% {{BASH:Actors.AIPackages}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+KvatchAftermath.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+lady_of_the_lake.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Lair_mobs.esp
+% {{BASH:NoMerge, Stats}}
+Lattamer.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+LattamerV3_P-rrtyCure_Hair_Module.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+LC-Compilation-Exnem.esp
+% {{BASH:Graphics, NoMerge}}
+LC-Dragon-Exnem.esp
+% {{BASH:Graphics, NoMerge}}
+LC-Legion-Exnem.esp
+% {{BASH:Graphics, NoMerge}}
+LD_Patrick_Stewart_Sean_Bean.esp
+% {{BASH:NpcFaces}}
+Legendary Abilities-Reflect MOJ.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Legendary Abilities-Shield MOJ.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Legion Faction Mod.esp
+% {{BASH:Relations}}
+Legion Shield Replacer - OOO.esp
+% {{BASH:Graphics}}
+Legion Shield Replacer.esp
+% {{BASH:Graphics}}
+Legion's Horses Armored With Slof's Horse Bases.esp
+% {{BASH:Graphics}}
+Let There Be Darkness - Curse of Hircine.esp
+% {{BASH:C.Light, Deactivate}}
+Let There Be Darkness - Cyrodiil + SI.esp
+% {{BASH:C.Light, Deactivate}}
+Let There Be Darkness - Cyrodiil.esp
+% {{BASH:C.Light, Deactivate}}
+Let There Be Darkness - Elsweyr.esp
+% {{BASH:C.Light, Deactivate}}
+Let There Be Darkness - Glenvar Castle.esp
+% {{BASH:C.Light, Deactivate}}
+Let There Be Darkness - Heart Of the Dead.esp
+% {{BASH:C.Light, Deactivate}}
+Let There Be Darkness - Hoarfrost Castle.esp
+% {{BASH:C.Light, Deactivate}}
+Let There Be Darkness - Knights.esp
+% {{BASH:C.Light, Deactivate}}
+Let There Be Darkness - Kvatch Rebuilt.esp
+% {{BASH:C.Light, Deactivate}}
+Let There Be Darkness - Lost Spires.esp
+% {{BASH:C.Light, Deactivate}}
+Let There Be Darkness - Mehrunes Razor.esp
+% {{BASH:C.Light, Deactivate}}
+Let There Be Darkness - Nacosto.esp
+% {{BASH:C.Light, Deactivate}}
+Let There Be Darkness - OOO.esp
+% {{BASH:C.Light, Deactivate}}
+Let There Be Darkness - Shivering Isles.esp
+% {{BASH:C.Light, Deactivate}}
+Let There Be Darkness - The Elder Council.esp
+% {{BASH:C.Light, Deactivate}}
+Let There Be Darkness - Thievery.esp
+% {{BASH:C.Light, Deactivate}}
+Let There Be Darkness - Thieves Den.esp
+% {{BASH:C.Light, Deactivate}}
+Let There Be Darkness - UL Blackwood Forest.esp
+% {{BASH:C.Light, Deactivate}}
+Let There Be Darkness - UL Brena.esp
+% {{BASH:C.Light, Deactivate}}
+Let There Be Darkness - UL Colovian Highlands.esp
+% {{BASH:C.Light, Deactivate}}
+Let There Be Darkness - UL Lost Coast.esp
+% {{BASH:C.Light, Deactivate}}
+Let There Be Darkness - VH Bloodlines.esp
+% {{BASH:C.Light, Deactivate}}
+Let there be Darkness All Merge.esp
+% {{BASH:C.Light, Deactivate}}
+Let There Be Darkness All.esp
+% {{BASH:C.Light, Deactivate, Filter}}
+Let There Be Darkness.esp
+% {{BASH:C.Light, Deactivate}}
+LetThePeopleDrink-Cobl.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+LetThePeopleDrink-fountainonly-Cobl.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+LetThePeopleDrink-fountainonly.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+LetThePeopleDrink.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Levelled Spell Names.esp
+% {{BASH:Names}}
+Leviathan Daikatana.esp
+% {{BASH:Graphics}}
+Leviathan Soul Gems Abridged.esp
+% {{BASH:Graphics, NoMerge}}
+Lightning Sword.esp
+% {{BASH:Invent}}
+Lilmothiit.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Lima.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Lineage II Elves.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+LittleElf.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Living Economy - Items.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+LJD_HumanMIKA.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+ln.esp
+% {{BASH:Sound}}
+lninroot.esp
+% {{BASH:Sound}}
+Loading Screens - Vanilla No Text.esp
+% {{BASH:Graphics, NoMerge}}
+Loading Screens.esp
+% {{BASH:Graphics, NoMerge}}
+LoadingScreens-OOO.esp
+% {{BASH:Graphics, NoMerge}}
+LoadingScreens.esp
+% {{BASH:Graphics}}
+LoadingScreens_OOO.esp
+% {{BASH:Graphics, NoMerge}}
+LoadingScreensSI-DV.esp
+% {{BASH:Graphics, NoMerge}}
+LoadingScreensSI.esp
+% {{BASH:Graphics, NoMerge}}
+LootableLichHelm_Hvy.esp
+% {{BASH:Invent}}
+LootableLichHelm_Lt.esp
+% {{BASH:Invent}}
+Lop-ears Elf.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+LordKain_Adash_World Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Lorebased Races.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Lost Paladins of the Divines.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+LostSpires_TheOrderofNibenay_patch.esp
+? Needs Wrye Bash "Remove World Orphans" function run on it, as well as TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+LostSwordOfTheAylied.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Louder Nirnroot Sound.esp
+% {{BASH:Sound}}
+Louder Nirnroots.esp
+% {{BASH:Sound}}
+Louder Nirns.esp
+% {{BASH:Sound}}
+Lovers_NA.esp
+% {{BASH:Hair, Eyes}}
+LSBSkullWeapons.1.esp
+% {{BASH:Invent}}
+Lucha's Blood Witch.esp
+% {{BASH:Eyes, Graphics, Hair, NpcFaces, R.Head, R.Mouth, R.Teeth}}
+Lucha's Blood Witcher.esp
+% {{BASH:Eyes, Graphics, Hair, NpcFaces, R.Head, R.Mouth, R.Teeth}}
+Lucha's Serpenta.esp
+% {{BASH:Eyes, Graphics, Hair, NpcFaces, R.Ears, R.Head, R.Mouth, R.Teeth}}
+Luchaire's Dryad Race for MMM.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Luchaire's Dryad Race.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+LycanRace.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Lyn-StoriesFromTheSeaMod.esp
+% {{BASH:Invent}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Lynges_Thieves_Highway-10256.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+M&BAxes.esp
+% {{BASH:Invent}}
+M&BClubs&Hammers.esp
+% {{BASH:Invent}}
+M&BShields.esp
+% {{BASH:Invent}}
+M.O.E. - Better Icon for Script Effects.esp
+% {{BASH:Graphics}}
+M.O.E. - Realistic Prices, Realistic Weights, No Quest Items.esp
+% {{BASH:Stats, Deactivate}}
+Male Body Replacer v 3.esp
+% {{BASH:Body-M}}
+Male Body Replacer.esp
+% {{BASH:Body-M}}
+MaleBodyReplacer.esp
+% {{BASH:Body-M}}
+MaleBodyReplacerV3.esp
+% {{BASH:Body-M}}
+MaleBodyReplacerV4.esp
+% {{BASH:Body-M}}
+Malevolent Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Malevolent.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+MandBSwords.esp
+% {{BASH:Invent}}
+Manga Elves.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+MannimarcoComplete.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+MannimarcoRevisited.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+MannimarcoRevisitedOOO.esp
+% {{BASH:NpcFaces}}
+MarcAntony.esp
+% {{BASH:Hair, Eyes}}
+Mart's Monster Mod - COBL Races TNR.esp
+% {{BASH:NpcFaces, NoMerge}}
+Mart's Monster Mod - Diverse RuneSkull Loot.esp
+% {{BASH:Delev}}
+Mart's Monster Mod - Diverse RuneSkull MMM Loot.esp
+% {{BASH:Delev}}
+Mart's Monster Mod - Diverse RuneSkull OOO Loot.esp
+% {{BASH:Delev}}
+Mart's Monster Mod - Diverse Runeskulls Loot G&GD.esp
+% {{BASH:Delev}}
+Mart's Monster Mod - Diverse Runeskulls Loot OOO.esp
+% {{BASH:Delev}}
+Mart's Monster Mod - Diverse Runeskulls Loot.esp
+% {{BASH:Delev}}
+Mart's Monster Mod - Diverse Runeskulls.esp
+% {{BASH:Delev, Relev}}
+Mart's Monster Mod - DLCHorseArmor+Slofs .esp
+% {{BASH:Graphics}}
+Mart's Monster Mod - Hemingweys NPC and Guard Capes.esp
+% {{BASH:Invent}}
+Mart's Monster Mod - Hunting & Crafting.esp
+% {{BASH:Invent, Scripts, Stats}}
+Mart's Monster Mod - Knights of the Nine Patch.esp
+% {{BASH:Actors.AIData, Actors.AIPackages, Actors.Stats, Delev, Factions, Relations, Relev, Stats}}
+Mart's Monster Mod - Knights.esp
+% {{BASH:Actors.AIData, Actors.AIPackages, Actors.Stats, Delev, Factions, Relations, Relev, Stats}}
+Mart's Monster Mod - Legion Shield Replacer.esp
+% {{BASH:Graphics}}
+Mart's Monster Mod - Midas Creature Ingredients.esp
+% {{BASH:Names}}
+Mart's Monster Mod - Resized Races.esp
+% {{BASH:Body-M, Body-F, R.Relations}}
+Mart's Monster Mod - Shivering Isles.esp
+% {{BASH:Actors.AIData, Actors.AIPackages, Actors.Stats, Delev, Factions, Graphics, Invent, Names, Relations, Relev, Scripts, Stats}}
+Mart's Monster Mod - Slof Horses Complete.esp
+% {{BASH:Actors.AIPackages, Graphics, Scripts}}
+Mart's Monster Mod COBL Races TNR.esp
+% {{BASH:NpcFaces, NoMerge}}
+Mart's Monster Mod for Fran.esp
+% {{BASH:Actors.AIData, Actors.AIPackages, Actors.Stats, Delev, Factions, Graphics, Invent, Names, Relations, Relev, Scripts, Stats}}
+Mart's Monster Mod for Francescos.esp
+% {{BASH:Invent, Relations, Delev, Factions, Graphics, Relev, Scripts}}
+Mart's Monster Mod for OOO - COBL Races TNR.esp
+% {{BASH:NpcFaces, NoMerge}}
+Mart's Monster Mod for OOO - Knights .esp
+% {{BASH:Actors.AIData, Actors.AIPackages, Actors.Stats, Delev, Factions, Relations, Relev, Stats}}
+Mart's Monster Mod for OOO - Knights.esp
+% {{BASH:Actors.AIData, Actors.AIPackages, Actors.Stats, Delev, Factions, Relations, Relev, Stats}}
+Mart's Monster Mod for OOO COBL Races TNR.esp
+% {{BASH:NpcFaces, NoMerge}}
+Mart's Monster Mod for OOO TNR Faces.esp
+% {{BASH:NpcFaces, NoMerge}}
+Mart's Monster Mod for OOO.esm
+% {{BASH:Delev, Factions, Relations, Relev}}
+Mart's Monster Mod for OOO.esp
+% {{BASH:Actors.AIData, Actors.AIPackages, Actors.Stats, Delev, Factions, Graphics, Invent, Names, Relations, Relev, Scripts, Stats}}
+Mart's Monster Mod TNR Faces.esp
+% {{BASH:NpcFaces, NoMerge}}
+Mart's Monster Mod.esm
+% {{BASH:Actors.AIData, Actors.AIPackages, Actors.Spells, Actors.Stats, Delev, Factions, Graphics, Invent, Names, Relations, Relev, Scripts, Stats}}
+Mart's Monster Mod.esp
+% {{BASH:Actors.AIData, Actors.AIPackages, Actors.Stats, Delev, Factions, Graphics, Invent, Names, Relations, Relev, Scripts, Stats}}
+Marts Monster Mod - DLCHorseArmor+Slof.esp
+% {{BASH:Graphics}}
+MD Saddlebags V3.0.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+MD_Natural_Faces_DV.esp
+% {{BASH:Graphics, Hair, Eyes}}
+Mehrunes_mobs.esp
+% {{BASH:NoMerge, Stats}}
+MeosPotionReplacer.esp
+% {{BASH:Graphics}}
+MergedMouth.esp
+% {{BASH:R.Mouth}}
+Merina.esp
+% {{BASH:Hair, Eyes}}
+Mg_Global Item Mod.esp
+% {{BASH:Invent, Scripts, Stats}}
+MGothic Breton Race.esp
+% {{BASH:NpcFaces, Hair, Eyes}}
+MHE v2 - Exnem&Robert Tail.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics, R.Relations, R.Ears, R.Teeth}}
+MHE v2 - Exnem&Robert.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics, R.Relations, R.Ears, R.Teeth}}
+MHE v2 - UFF&Robert Tail.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics, R.Relations, R.Ears, R.Teeth}}
+MHE v2 - UFF&Robert.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics, R.Relations, R.Ears, R.Teeth}}
+MHE v2 Tail.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics, R.Relations, R.Ears, R.Teeth}}
+MHE v2.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics, R.Relations, R.Ears, R.Teeth}}
+MidasSpells.esp
+% {{BASH:Invent}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+MidasSpellTomes.esp
+% {{BASH:Relev}}
+MIEO-ae.esp
+% {{BASH:Stats}}
+Mighty Umbra.esp
+% {{BASH:Graphics, Stats}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+mighty_bows_damage_bonus.esp
+% {{BASH:Stats}}
+mighty_bows_full.esp
+% {{BASH:Stats}}
+Mimics!.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+MIS Low Wind.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+MIS New Sounds Optional Part.esp
+% {{BASH:Scripts}}
+MIS.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+MMC_DarkZoe Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+MMC_Iphigenia Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+MMM - Playable Undead Armors - Oblivion WarCry Compatability Patch.esp
+% {{BASH:Invent}}
+MMM - Playable Undead Armors.esp
+% {{BASH:Invent}}
+MMM-Cobl.esp
+% {{BASH:Delev, Invent}}
+mnp Nighteye Goggles.esp
+% {{BASH:Invent}}
+MOBS DLCs.esp
+% {{BASH:Stats, NoMerge}}
+MOBS Knights.esp
+% {{BASH:NoMerge, Stats}}
+MOBS MehrunesRazor.esp
+% {{BASH:Stats}}
+MOBS SI.esp
+% {{BASH:NoMerge, Stats}}
+MOBS.esp
+% {{BASH:NoMerge, Stats}}
+MOBS_Knights.esp
+% {{BASH:Stats}}
+MODAssassinsCreed2_Revisited.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+moDem's City Life - BP Compat Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+moDem's City Life - BP Compat.esp
+% {{BASH:Hair}}
+moDem's City Life Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+moDem's City Life.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Modified Bandits.esp
+% {{BASH:Delev}}
+Moogles.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Moon Elven Race.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Moonshadow Elves - NoSc.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Moonshadow Elves - Sc.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Moonshadow-Elves_NoSc_DV.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Moonshadow-Elves_Sc_DV.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Moriarcis.esp
+% {{BASH:Hair}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Morrigan Swords Axes and Shield by Jojjo v1_1.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Morrowind Lockpicking.esp
+% {{BASH:Relev}}
+Mounted_Spellcasting.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+MP Human Eyes Vanilla Makeover.esp
+% {{BASH:Eyes}}
+MTCDirtierBandits.esp
+% {{BASH:Invent}}
+MTCRiverShackv1.2.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+MTCThievesGrottoV4.1 Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+MUIA.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+MW Style Dremora.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+mystery of mausoleum Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Mystic Dark Elf and Mystic Dunmer for MM.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics, Body-F, Body-M, R.Relations}}
+Mystic_DarkElf.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+mz_Shields.esp
+% {{BASH:Graphics, Deactivate}}
+mz_Shields_SI.esp
+% {{BASH:Graphics, NoMerge}}
+Na'vi race.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+NakedNord.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+NameReplacer-Clothing.esp
+% {{BASH:Names}}
+Nanaelas Heartbreak.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Naruto's_Eyes_bY_Van_Groud.esp
+% {{BASH:Graphics, Hair, Eyes}}
+Nascosto Isles 3.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Natural Interiors.esp
+% {{BASH:C.Climate}}
+Naughty_Joana_01 Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Nec - Extra Mystic Elf Face.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Nec Character Eva-Remake.esp
+% {{BASH:Hair, Eyes}}
+Nec Mystic Dark Elf-Remake.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Nec Mystic High Elf-Remake.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+Nec-Character_Clair.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Nec-Character_Eva.esp
+% {{BASH:Hair, Eyes}}
+Nec-Character_Karla.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Nec-Character_Sonnet_Mature.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Nec-Character_Sonnet_Spoiled.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Nec-Character_Sonnet_Sweet.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Nec-Elf_Kaleah.esp
+% {{BASH:Hair, Eyes}}
+Nec-Mystic Dark ElF.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+Nec_Mystic_Dark_Elf_DV.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+Nephilim.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics, Actors.Spells, R.Description, R.Skills, R.Attributes-F, R.Attributes-M}}
+New Exnem Compatible Armors.esp
+% {{BASH:Graphics, NoMerge}}
+New Frostmourne Sword by Jojjo v1_0.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+New Potions by Tealpanda.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+New Potions.esp
+% {{BASH:Graphics, NoMerge}}
+New_Sheoth_Palace_LOD_fix-10076.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+NewAnimation.esp
+% {{BASH:Actors.Anims, NoMerge}}
+NewMGQuests.esp
+% {{BASH:Actors.AIPackages}}
+newsheogorath.esp
+% {{BASH:NpcFaces}}
+NirnrootPlants.esp
+% {{BASH:Graphics}}
+No psychic guards v1.2.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+NordFemaleMuscles.esp
+% {{BASH:Body-F}}
+Nords With Beards.esp
+% {{BASH:Hair}}
+Northern Front.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+NoScriptHitVisual.esp
+% {{BASH:Sound, Graphics}}
+NRB4 OCLR Road Record.esp
+% {{BASH: Deactivate, Roads}}
+NRB4 OCReborn Road Record.esp
+% {{BASH: Deactivate, Roads}}
+NRB4 Standard Road Record.esp
+% {{BASH:Deactivate, Roads}}
+Nude Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+NV Imperial Guard Horse Armour.esp
+% {{BASH:Graphics}}
+OBG - Buechermod - Bilder - BP.esp
+% {{BASH:Graphics}}
+Obl-IM.esp
+% {{BASH:Names, Stats, Relev, Delev, Invent, Sound, Factions, Graphics}}
+Oblivifall - Losing My Religion.esp
+% {{BASH:Hair, Invent, C.Owner, Actors.AIPackages}}
+Oblivifall - New Classes Regular Fonts.esp
+% {{BASH:R.Description}}
+Oblivifall - New Classes.esp
+% {{BASH:R.Description}}
+Oblivion Alive Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Oblivion Vwalk UOS.esp
+% {{BASH:Actors.Anims, NpcFaces, NoMerge}}
+Oblivion Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Oblivion WarCry EV.esp
+% {{BASH:Actors.ACBS, Actors.AIData, Actors.DeathItem, Actors.Stats, Delev, Graphics, Invent, Relev, Stats}}
+Oblivion WarCry.esp
+% {{BASH:Actors.ACBS, Actors.AIData, Actors.DeathItem, Actors.Stats, Delev, Graphics, Invent, Relev, Stats}}
+Oblivion_Deutsch_Patch_KotN.esp
+% {{BASH:Names}}
+Oblivion_Deutsch_v3_1.esp
+% {{BASH:Names}}
+Oblivion_Deutsch_v5_0.esp
+% {{BASH:Names}}
+Oblivion_SI Vwalk Full TNR UOS.esp
+% {{BASH:Actors.Anims, NpcFaces, NoMerge}}
+Oblivion_SI Vwalk Full TNR.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Oblivion_SI Vwalk Full UOS.esp
+% {{BASH:Actors.Anims, NpcFaces, NoMerge}}
+Oblivion_SI Vwalk Full.esp
+% {{BASH:Actors.Anims, NoMerge}}
+OblivionMsg.esp
+% {{BASH:Names}}
+OBSE Save Skill Books For Later DV.esp
+% {{BASH:Scripts}}
+OBSE-Storms & Sound SI.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Obsidian armor.esp
+% {{BASH:Graphics}}
+OCC-KOTN-Patch.esp
+% {{BASH:Actors.AIPackages}}
+Oddbasket Glass Replace ALT.esp
+% {{BASH:Graphics}}
+Oddbasket Glass Replace NoEnch ALT.esp
+% {{BASH:Graphics}}
+Oddbasket Glass Replace NoEnch.esp
+% {{BASH:Graphics}}
+Oddbasket Glass Replace.esp
+% {{BASH:Graphics}}
+OE-Enhanced Races V1.35.esp
+% {{BASH:Eyes, Hair, R.Head, SpellStats}}
+Olga.esp
+% {{BASH:Hair, Eyes}}
+OMOBS.esp
+% {{BASH:NoMerge, Stats}}
+OMOBS_FRAN.esp
+% {{BASH:NoMerge, Stats}}
+OMOBS_MMM.esp
+% {{BASH:Stats}}
+OMOBS_MMM_H&C_Ammo.esp
+% {{BASH:Stats}}
+OMOBS_OOO_missing_Oblivion_Bow_Ammo.esp
+% {{BASH:Stats}}
+OMOBS_SI.esp
+% {{BASH:NoMerge, Stats}}
+OOO 1.32-Cobl.esp
+% {{BASH:Delev, Invent}}
+OOO Harvest Containers Filter patch for mods.esp
+% {{BASH:Deactivate, Filter}}
+OOO-Better_Priced_Clutter.esp
+% {{BASH:Stats}}
+OOO-Magic_Script_Effect_Fix.esp
+% {{BASH:Sound, Graphics}}
+Open Cities Classic Road Record.esp
+% {{BASH: Deactivate, Roads}}
+Open Cities LR Road Record.esp
+% {{BASH: Deactivate, Roads}}
+Open Cities New Sheoth.esp
+% {{BASH:Actors.AIPackages}}
+Open Cities Reborn Road Record.esp
+% {{BASH: Deactivate, Roads}}
+Open Cities Road Record.esp
+% {{BASH: Deactivate, Roads}}
+OrenCM.esp
+% {{BASH:Graphics, Hair, NPCFaces}}
+Origin of the Mages Guild.esp
+% {{BASH:Actors.AIPackages}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Oscuro's_Oblivion_Overhaul Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Oscuro's_Oblivion_Overhaul.esm
+% {{BASH:Actors.Spells, Graphics, Invent, Scripts, Stats, Relations}}
+Oscuro's_Oblivion_Overhaul.esp
+% {{BASH:Actors.ACBS, Actors.AIData, Actors.AIPackages, Actors.CombatStyle, Actors.Spells, Actors.Stats, Delev, Factions, Graphics, Invent, Names, R.ChangeSpells, Relations, Relev, Scripts, Stats}}
+OSM-All Genders.esp
+% {{BASH:Graphics, Invent, Deactivate}}
+OWC - New Dimension.esp
+% {{BASH:Actors.ACBS, Actors.DeathItem, Actors.Spells, Actors.Stats, Body-F, Body-M, Delev, Eyes, Graphics, Hair, Invent, Names, NPC.Race, R.ChangeSpells, R.Head, R.Relations, Relev, Scripts, Stats}}
+P1DseeYouSleep.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+p2p'sAshDraconian.esm
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+pale_rider's Paladin Equipment_unenchanted_eng.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Personality Idles - Modified version.esp
+% {{BASH:Actors.Anims}}
+Personality Idles 4 - Cleanned version.esp
+% {{BASH:Actors.Anims, NoMerge}}
+PersonalPackGuars.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+PetsOfChorrol.esp
+% {{BASH:Hair, Eyes}}
+PhoenixEquipment.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+PHVanillaEyesAddon.esp
+% {{BASH:Eyes}}
+PinkGlassArmor.esp
+% {{BASH:Graphics}}
+PJs Spell Compendium - Spell Requirements.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+PlayableSheogorathMod.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+PMSneakySummonCompatibility.esp
+% {{BASH:IIM, Filter, Invent, Deactivate}}
+Portable Campsite.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Prettier Vampire Faces.esp
+% {{BASH:NpcFaces, NoMerge}}
+Priced_Clutter-2312.esp
+% {{BASH:Stats}}
+Primate Rank Fix.esp
+% {{BASH:Factions}}
+PTRoamingNPCs Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+PWRunSpeed.esp
+% {{BASH:Actors.Stats, NoMerge}}
+PyFFI-Optimized Vanilla Meshes Patch.esp
+% {{BASH:Graphics, NoMerge}}
+Q - Gem Value Modifier - Realistic v1.1.esp
+% {{BASH:Stats}}
+Qarls_Harvest.esm
+% {{BASH:Scripts}}
+qazHorseCommand -horsearmor.esp
+% {{BASH:Scripts}}
+QuietFeet HorseArmor.esp
+% {{BASH:Sound}}
+QuietFeet Max.esp
+% {{BASH:Sound}}
+Rainbows.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Ramy Enfant.esp
+% {{BASH:Hair, Eyes}}
+Ranokoas Organized Potions.esp
+% {{BASH:Names, Deactivate}}
+RANs_WildTabaxi_101.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Rational Names, 2.esp
+% {{BASH:Names}}
+Raven Elves.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+real_tools.esp
+% {{BASH:Scripts}}
+RealBanditsAndHighwaymen.esp
+% {{BASH:Invent}}
+Realistic Water.esp
+% {{BASH:C.Water, Graphics}}
+realistic-weapon-reach-mod.esp
+% {{BASH:Stats}}
+realistic_weapon_reach_mod_ks.esp
+% {{BASH:Stats}}
+realistic_weapon_reach_mod_ks_d.esp
+% {{BASH:Stats}}
+RealitySpectre'sBetterPotions.esp
+% {{BASH:Graphics}}
+RealitySpectreStars2HeavenBetterPotionsOOOEffects.esp
+% {{BASH:Graphics}}
+RealSwords - Argonian HI-NPC.esp
+% {{BASH:Invent}}
+RealSwords - Argonian HI.esp
+% {{BASH:Invent}}
+RealSwords - Argonian LO-NPC.esp
+% {{BASH:Invent}}
+RealSwords - Argonian LO.esp
+% {{BASH:Invent}}
+RealSwords - Bosmer HI-NPC.esp
+% {{BASH:Invent}}
+RealSwords - Bosmer HI.esp
+% {{BASH:Invent}}
+RealSwords - Bosmer LO-NPC.esp
+% {{BASH:Invent}}
+RealSwords - Bosmer LO.esp
+% {{BASH:Invent}}
+RealSwords - Breton HI-NPC.esp
+% {{BASH:Invent}}
+RealSwords - Breton HI.esp
+% {{BASH:Invent}}
+RealSwords - Breton LO-NPC.esp
+% {{BASH:Invent}}
+RealSwords - Breton LO.esp
+% {{BASH:Invent}}
+RealSwords - Combined.esp
+% {{BASH:Invent}}
+RealSwords - Goblin.esp
+% {{BASH:Invent}}
+RealSwords - Khajiit HI v1.3.esp
+% {{BASH:Invent}}
+RealSwords - Khajiit HI-NPC v1.3.esp
+% {{BASH:Invent}}
+RealSwords - Khajiit LO v1.3.esp
+% {{BASH:Invent}}
+RealSwords - Khajiit LO-NPC v1.3.esp
+% {{BASH:Invent}}
+RealSwords - Nord HI-NPC SI.esp
+% {{BASH:Invent}}
+RealSwords - Nord HI-NPC.esp
+% {{BASH:Invent}}
+RealSwords - Nord HI-SI.esp
+% {{BASH:Invent}}
+RealSwords - Nord HI.esp
+% {{BASH:Invent}}
+RealSwords - Nord LO-NPC SI.esp
+% {{BASH:Invent}}
+RealSwords - Nord LO-NPC.esp
+% {{BASH:Invent}}
+RealSwords - Nord LO-SI.esp
+% {{BASH:Invent}}
+RealSwords - Nord LO.esp
+% {{BASH:Invent}}
+RealSwords - Orc HI v1.0.esp
+% {{BASH:Invent}}
+RealSwords - Orc HI_NPC v1.0.esp
+% {{BASH:Invent}}
+RealSwords - Orc LO v1.0.esp
+% {{BASH:Invent}}
+RealSwords - Orc LO-NPC v1.0.esp
+% {{BASH:Invent}}
+RealSwords - Redguard HI-NPC.esp
+% {{BASH:Invent}}
+RealSwords - Redguard HI.esp
+% {{BASH:Invent}}
+RealSwords - Redguard LO-NPC.esp
+% {{BASH:Invent}}
+RealSwords - Redguard LO.esp
+% {{BASH:Invent}}
+Reaper's Coldstone Town Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Reaper's The Dark Tower Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+REBetterDrinks.esp
+% {{BASH:Graphics, Invent}}
+REBetterLCB.esp
+% {{BASH:Graphics, Deactivate}}
+rebornaylieds.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+RedBag - Items Repriced v2.esp
+% {{BASH:Stats, Deactivate}}
+Redguard Guards.esp
+% {{BASH:Body-M, Body-F, R.Ears, R.Head, Hair, NpcFaces}}
+Region Revive - Lake Rumare Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Region Revive - Lake Rumare.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Ren + Exnem.esp
+% {{BASH:NpcFaces, Hair, Eyes}}
+Ren's hair on Young Hot NPCs Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Ren's hair on Young Hot NPCs.esp
+% {{BASH:NpcFaces, Hair}}
+Ren_Soya_KD's.esp
+% {{BASH:NpcFaces, Hair, Eyes}}
+RenCorpseMod.esp
+% {{BASH:Graphics, Names}}
+RenCorpseMod_1C.esp
+% {{BASH:Graphics, Names}}
+RenGuardOverhaul.esp
+% {{BASH:Actors.AIData}}
+replace_glass.esp
+% {{BASH:Graphics}}
+Return Of Shadows Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Return Of Shadows.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Reznod_Mannequin.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+RGMsNavatar.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Rhianna Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Rhianna.esp
+% {{BASH:Hair, Eyes}}
+RhiannaII-essential.esp
+% {{BASH:Hair, Eyes}}
+RhiannaII.esp
+% {{BASH:Hair, Eyes}}
+Riddick Saber Claws.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Riddick.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Ride_Wild_Horses_2.0.esp
+% {{BASH:Actors.AIData}}
+Riflers Races.esp
+% {{BASH:Hair, Eyes, R.Relations}}
+RimmenAN.esp
+% {{BASH:Filter, C.Climate, Deactivate}}
+Rinn.esp
+% {{BASH:Hair, Eyes}}
+Robe Replacer2.esp
+% {{BASH:Graphics, Invent}}
+Roberts Armamentium female.esp
+% {{BASH:Graphics, NoMerge}}
+ROHJ2.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Roleplaying Dialogues.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+ROM Patch - Alternative Start.esp
+% {{BASH:Scripts}}
+ROM Patch - Armamentarium.esp
+% {{BASH:Stats}}
+ROM Patch - Better Cities.esp
+% {{BASH:Stats}}
+ROM Patch - Bobs Armory.esp
+% {{BASH:Stats}}
+ROM Patch - Knights.esp
+% {{BASH:Actors.ACBS, Actors.Stats, Delev, SpellStats, Stats}}
+ROM Patch - MMM H&C.esp
+% {{BASH:Actors.Stats, Factions, Names, Scripts, Stats}}
+ROM Patch - MMM.esp
+% {{BASH:Actors.Stats, Factions, Names, Scripts, Stats}}
+ROM Revised Oblivion Mod.esp
+% {{BASH:Actors.ACBS, Actors.AIData, Actors.AIPackages, Actors.CombatStyle, Actors.Spells, Actors.Stats, Delev, Factions, Graphics, Invent, Names, R.ChangeSpells, R.Description, R.Relations, R.Skills, Relations, Relev, Scripts, Sound, SpellStats, Stats}}
+RomancingAhnassi.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Royal Glass.esp
+% {{BASH:Invent}}
+Royal Shields.esp
+% {{BASH:Invent}}
+RTFemaleReplacerV12.esp
+% {{BASH:Graphics}}
+RTSNoZombies.esp
+% {{BASH:Delev}}
+RTT Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+RTT.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Ruin.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Ruins of Tarnesia.esp
+% {{BASH:NpcFaces}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+RumpleMod Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+RustyItems for OOO.esp
+% {{BASH:Graphics, NoMerge}}
+RustyItems.esp
+% {{BASH:Graphics}}
+S.I.C.A.F.U.I.S.v1.2.esp
+% {{BASH:Actors.ACBS, Actors.Stats, Invent, Stats}}
+Sack of Pants.esp
+% {{BASH:Graphics}}
+Sack of PantsRU.esp
+% {{BASH:Graphics}}
+Saerileth.esp
+% {{BASH:Hair, Eyes}}
+Sagerbliv Weapons v20.esp
+% {{BASH:Stats, Names}}
+Saint Hiryu's Artifacts.esp
+% {{BASH:Invent}}
+Salmo the Baker, Cobl.esp
+% {{BASH:C.Owner, Names, Invent, Factions, Actors.Stats, NPC.class, Actors.AIData, Actors.AIPackages, Graphics}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Salutrian Elves.esp
+% {{BASH:NpcFaces, Eyes, Graphics, Hair, R.Attributes-F, R.Attributes-M, R.Description, R.Ears, R.Head, R.Mouth, R.Skills, R.Teeth}}
+SarahCM.esp
+% {{BASH:Hair}}
+Saram_Corean_NPC_Hair_1_0.esp
+% {{BASH:Hair}}
+Sauron_Armor_Chest.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+SB IC Palace Tower Light Mod v1.1 - Constant Yellow Light.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+SciptIcon Replacer.esp
+% {{BASH:Graphics}}
+Script effect - Bash icon.esp
+% {{BASH:Graphics}}
+ScriptEffectIconReplace.esp
+% {{BASH:Graphics}}
+ScriptEffectSubduer.esp
+% {{BASH:Graphics}}
+SecludedGladeCottage.esp
+% {{BASH:Invent}}
+Secure Guild Chest.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Self-Preservation v1.0.esp
+% {{BASH:Scripts}}
+SentientWeapon.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Sexual_SpiderDaedra.esp
+% {{BASH:Graphics, Deactivate}}
+sexycompanion Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+sgLighterQuivers.esp
+% {{BASH:Stats}}
+sgLighterQuiversOOO.esp
+% {{BASH:Stats}}
+Shadow Hunter Races v1.1.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Shadow's Balance Price Fixv2.0.esp
+% {{BASH:Stats, Deactivate}}
+Shadow's Merged Value FixesNOBLOODPOTv2.0.esp
+% {{BASH:Stats, Deactivate}}
+Shadow's Merged Value Fixesv2.0.esp
+% {{BASH:Stats, Deactivate}}
+ShadowElf.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Shads Hunting & Fauna.esp
+% {{BASH:Invent}}
+Sharingan and Uchiha Clan.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Shaun's Weapon Replacers.esp
+% {{BASH:Graphics}}
+Shdw_Armor Set_Sotonhorian.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Sheo Race.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+ShezriesTownsMaster Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Shining Creatures.esp
+% {{BASH:Invent}}
+Shining Creatures_AtronachFlame.esp
+% {{BASH:Invent}}
+Shining Creatures_AtronachFrost.esp
+% {{BASH:Invent}}
+Shining Creatures_DLCFrostcrag.esp
+% {{BASH:Invent}}
+Shining Creatures_OOO.esp
+% {{BASH:Invent}}
+Shining Creatures_WillOWisp.esp
+% {{BASH:Invent}}
+ShinySeptims_Septimus.esp
+% {{BASH:Graphics}}
+ShinySeptims_Trajanus.esp
+% {{BASH:Graphics}}
+ShiveringIsleTravellers Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+ShiveringIsleTravellers.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Shrouded Armor X.esp
+% {{BASH:Graphics}}
+SI Public Music.esp
+% {{BASH:C.Music}}
+Side's Backpacks (COBL).esp
+% {{BASH:Invent}}
+Side's Backpacks.esp
+% {{BASH:Invent}}
+Sin's Expanded Light Armor Kit [Chest].esp
+% {{BASH:Invent}}
+sir_balin_mod.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+SIRMS.esp
+% {{BASH:Invent, Names}}
+SK_Berserk_v0.6.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Skillbookssave.esp
+% {{BASH:Scripts}}
+Slof's Better Bodies.esp
+% {{BASH:Body-M, Body-F, Eyes, Graphics}}
+Slof's Black Unicorn.esp
+% {{BASH:Graphics}}
+Slof's Brighter Arena Raiments.esp
+% {{BASH:Graphics}}
+Slof's Clouded Leopard.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics, R.Teeth, R.Relations}}
+Slof's Devil.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics, R.Teeth, R.Relations}}
+Slof's Drow Race.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics, R.Teeth, R.Relations}}
+Slof's Extra Horses.esp
+% {{BASH:Graphics}}
+Slof's Horses Base.esp
+% {{BASH:Graphics}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Slof's Horses Essential.esp
+% {{BASH:Graphics}}
+Slof's Horses HA Essential.esp
+% {{BASH:Graphics}}
+Slof's Nightmare.esp
+% {{BASH:Graphics}}
+Slof's Oblivion Better Beasts.esp
+% {{BASH:NpcFaces, R.Teeth, Body-M, Body-F}}
+Slof's Oblivion Robe Trader.esp
+% {{BASH:Graphics}}
+Slof's Playable Xivilai.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Slof's Snow Leopard Race.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics, R.Teeth, R.Relations}}
+SM Plugin Refurbish - Battlehorn.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Smaller Elf ears.esp
+% {{BASH:Body-M, Body-F, NpcFaces}}
+SnakeLightningSpeed.esp
+% {{BASH:Graphics}}
+SnowAndHarukoCMPartners.esp
+% {{BASH:Hair, Eyes}}
+SNR Citizens UFF.esp
+% {{BASH:Hair, Eyes, Invent}}
+SNR Citizens.esp
+% {{BASH:Hair, Eyes, Invent}}
+SNR Dark brotherhood.esp
+% {{BASH:Hair, Eyes, Invent}}
+SNR Dremorae UFF.esp
+% {{BASH:Hair, Eyes, Invent, Body-F, Voice-F}}
+SNR Dremorae.esp
+% {{BASH:Hair, Eyes, Invent, Body-F, Voice-F}}
+SNR Fighter Guild UFF.esp
+% {{BASH:Hair, Eyes, Invent}}
+SNR Fighter Guild.esp
+% {{BASH:Hair, Eyes, Invent}}
+SNR Guards.esp
+% {{BASH:Hair, Eyes, Invent}}
+SNR Mage Guild UFF.esp
+% {{BASH:Hair, Eyes, Invent}}
+SNR Mage Guild.esp
+% {{BASH:Hair, Eyes, Invent}}
+SNR Thieves Guild UFF.esp
+% {{BASH:Hair, Eyes, Invent}}
+SNR Thieves Guild.esp
+% {{BASH:Hair, Eyes, Invent}}
+SNR Villains UFF.esp
+% {{BASH:Hair, Eyes, Invent}}
+SNR Villains.esp
+% {{BASH:Hair, Eyes, Invent}}
+Solace.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+SolaceRace.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics, R.Teeth, R.Relations}}
+Sonia Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Sonia.esp
+% {{BASH:Hair, Eyes}}
+Soqui Race.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+SoT_TheOrderofNibenay.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Sotha Sil Race.esp
+% {{BASH:Eyes, Graphics, Hair, NpcFaces, R.Ears}}
+Soulgem Magic.esp
+% {{BASH:Scripts}}
+SoVvM Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Soya 4 Hair Pack - English.esp
+% {{BASH:Hair}}
+Soya 4 Hair Pack.esp
+% {{BASH:Hair}}
+soya_04hair.esp
+% {{BASH:Hair}}
+soyaenbp.esp
+% {{BASH:NpcFaces, Hair, Eyes}}
+Spartan Race v1.5.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+SPARTAN VIs Diverse City Guards v1 2.esp
+% {{BASH:Invent}}
+spartanspears.esp
+% {{BASH:Invent}}
+Specular_Fix_1.1.esp
+% {{BASH:Graphics}}
+Spells and Enchanting at guilds.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+spellstrip 1.0.esp
+% {{BASH:Graphics, NoMerge}}
+Spirit's Edge.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Split Expansion Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+SRJIrresponsibleHorses.esp
+% {{BASH:Actors.AIData, NoMerge}}
+Star's Fury.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Stars_elves.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics, R.Teeth, R.Relations}}
+StarX Vampire Deaths.esp
+% {{BASH:Scripts}}
+Steel Helm Replacer.esp
+% {{BASH:Graphics, NoMerge}}
+StockClothingArmor-forExnems.esp
+% {{BASH:Graphics, NoMerge}}
+StockClothingArmorBBBHGEC_Standard_ECupLBotPPN.esp
+% {{BASH:Graphics, NoMerge}}
+StockClothingArmorHGECFighterD.esp
+% {{BASH:Graphics}}
+StockClothingArmorHGECnormalD.esp
+% {{BASH:Graphics}}
+StokerWolff.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Storms & Sound.esp
+% {{BASH:C.Owner}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+StrongerAllies.esp
+% {{BASH:Invent}}
+Suliin V1.2.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Sun_&_Night_Elves.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+sun_night_elves.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+SunderedKeep.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+sunk ships.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+SupremeMagicka.esp
+% {{BASH:Names, Graphics}}
+Sylar_INNMergedCyrodillInnsRevised vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Sylar_INNMergedCyrodillInnsRevisedV1.1 vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+T.I.E4MODS.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+T.I.E4MODSOOO+FCOM.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Tabaxi Race 2.0.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Tabaxi_Race_BAB.esp
+% {{BASH:NpcFaces, Hair, Eyes, Body-F, Graphics, R.Relations}}
+Tabaxi_Race_BAB_Robert.esp
+% {{BASH:NpcFaces, Hair, Eyes, Body-F, Body-M, Graphics, R.Relations}}
+tabaxi_race_CE.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Tabaxi_Race_Default.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Tabaxi_Race_Robert.esp
+% {{BASH:NpcFaces, Hair, Eyes, Body-M, Graphics, R.Relations}}
+Tales from Elsweyr Anequina.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+talon.esp
+% {{BASH:Invent}}
+Tamara.esp
+% {{BASH:Hair, Eyes}}
+Tamriel NPCs Revamped.esp
+% {{BASH:NpcFaces, NoMerge}}
+TamrielTransportationNetwork Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+TamrielTravellers Cosmetics Cobl or RBP.esp
+% {{BASH:NoMerge, NpcFaces}}
+TamrielTravellers Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+TamrielTravellers4MMM Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+TamrielTravellers4OOO Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+TamrielTravellers4OOO.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+TamrielTravellersHorseTextures.esp
+% {{BASH:NoMerge, Graphics}}
+TamrielTravellersItemsNPC.esp
+% {{BASH:Filter, Delev, Relev, Deactivate}}
+TamrielTravellersItemsVendor.esp
+% {{BASH:Filter, Delev, Relev, Deactivate}}
+Tantrivaylia Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Tavern-Goers 2 Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Taverners Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+tda_Armoury.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+tda_WitchKingHelm.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+TealcCM2partner.esp
+% {{BASH:Graphics, Hair, NpcFaces}}
+Teleport Arrows.esp
+% {{BASH:Invent}}
+Terimer.esp
+% {{BASH:Hair, Eyes}}
+TFF & ROBERT & Slof's Better Beasts.esp
+% {{BASH:NpcFaces, Hair, Eyes, Body-M, Body-F, R.Teeth, Graphics, NoMerge}}
+TFF ROBERT Cosmetic Compilation.esp
+% {{BASH:NpcFaces, Graphics, Hair, Eyes, Body-M, Body-F, Graphics}}
+TFF_Armor_Base.esp
+% {{BASH:Graphics}}
+TFF_Armor_OOO.esp
+% {{BASH:Graphics}}
+TFF_Clothing_Base.esp
+% {{BASH:Graphics}}
+TFF_Clothing_SI.esp
+% {{BASH:Graphics}}
+TFF_FantasyFigures_Armour_Fantasy.esp
+% {{BASH:Graphics}}
+TFF_FantasyFigures_Armour_RealGlass.esp
+% {{BASH:Graphics}}
+TFF_FantasyFigures_Clothing_Base.esp
+% {{BASH:Graphics}}
+TFF_FantasyFigures_Clothing_SI.esp
+% {{BASH:Graphics}}
+TFF_Races_Base.esp
+% {{BASH:NpcFaces, Hair, Eyes, Body-F, Graphics}}
+TGND.esp
+% {{BASH:Graphics, NoMerge}}
+TGND_SI.esp
+% {{BASH:Graphics, NoMerge}}
+The Ayleid Steps Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+The Ayleid Steps.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+The Big Merger.esp
+% {{BASH: NpcFaces, Hair, eyes, Graphics, Names, Invent, Stats, Relations, Factions, Deflst, Delev, relev, Actors.ACBS, Actors.Stats, Deflst, Delev, Relev}}
+The Complete Dremora.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+The Crimson Queen.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+The forgotten Castle.esp
+% {{BASH:Hair}}
+The Little Weapon Pack OB.esp
+% {{BASH:Invent}}
+The Lost Spires Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+The Lost Spires.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+The Mystery of the Dulan cult.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+The SilverDragonArmorQuest.esp
+% {{BASH:Invent}}
+The Southlanders.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+TheElderCouncil_TempleOfTheOne.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+TheForgottenShields.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+TheStorytellersBrotherQuest.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+thievery.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Thieves Arsenal.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Thievesden_mobs.esp
+% {{BASH:NoMerge, Stats}}
+Things Found Fence.esp
+% {{BASH:Actors.AIData}}
+TIE Cats.esp
+% {{BASH:Graphics}}
+TIE Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge }}
+TIE Weapon + Armor Filter.esp
+% {{BASH:Filter, Stats, Deactivate}}
+TIE+Frans NPC Inventory.esp
+% {{BASH:NoMerge}}
+TIE.esp
+% {{BASH:Actors.ACBS, Actors.AIData, Actors.DeathItem, Actors.Spells, Actors.Stats, C.RecordFlags, Delev, Invent, NpcFaces, Relations, Relev, Scripts, Stats}}
+tkHairPack01.esp
+% {{BASH:Hair}}
+TNR - ALL RACES FINAL DV.esp
+% {{BASH:NpcFaces, NoMerge}}
+TNR - ALL RACES FINAL.esp
+% {{BASH:NpcFaces, NoMerge}}
+TNR - All Races for OOO.esp
+% {{BASH:NpcFaces, NoMerge}}
+TNR - all.esp
+% {{BASH:NpcFaces, NoMerge}}
+TNR - ShiveringIsles no helms Vwalk UOS.esp
+% {{BASH:Actors.Anims, NpcFaces, NoMerge}}
+TNR - ShiveringIsles no helms Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+TNR - ShiveringIsles no helms.esp
+% {{BASH:NpcFaces, NoMerge}}
+TNR - ShiveringIsles.esp
+% {{BASH:NpcFaces, NoMerge}}
+TNR - THE ALTMER.esp
+% {{BASH:NpcFaces, NoMerge}}
+TNR - THE ARGONIANS.esp
+% {{BASH:NpcFaces, NoMerge}}
+TNR - THE BOSMER.esp
+% {{BASH:NpcFaces, NoMerge}}
+TNR - THE BRETONS.esp
+% {{BASH:NpcFaces, NoMerge}}
+TNR - THE DUNMER.esp
+% {{BASH:NpcFaces, NoMerge}}
+TNR - THE IMPERIALS.esp
+% {{BASH:NpcFaces, NoMerge}}
+TNR - THE KHAJIIT.esp
+% {{BASH:NpcFaces, NoMerge}}
+TNR - THE NORDS.esp
+% {{BASH:NpcFaces, NoMerge}}
+TNR - THE ORCS.esp
+% {{BASH:NpcFaces, NoMerge}}
+TNR - THE REDGUARDS.esp
+% {{BASH:NpcFaces, NoMerge}}
+TNR ALL RACES FINAL Vwalk UOS.esp
+% {{BASH:Actors.Anims, NpcFaces, NoMerge}}
+TNR ALL RACES FINAL Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+TNR ALL RACES FINAL.esp
+% {{BASH:NpcFaces, NoMerge}}
+TNR- All Races.esp
+% {{BASH:NpcFaces, NoMerge}}
+Tolkien Elves.esp
+% {{BASH:Eyes, Graphics, Hair, NpcFaces, R.Ears, R.Head, R.Mouth, R.Teeth}}
+TOTF Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+TOTF.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Town Guard Armor Replacers.esp
+% {{BASH:Graphics}}
+TR_Stirk Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge }}
+TR_Stirk.esp
+% {{BASH:Graphics}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Traduccion mejorada KoT9.esp
+% {{BASH:Names}}
+Traduccion Mejorada Oblivion Clan DLAN.esp
+% {{BASH:Names}}
+Traduccion Mejorada S.I.esp
+% {{BASH:Names}}
+Tramps.esp
+% {{BASH:Relev}}
+Trap.esp
+% {{BASH:R.Attributes-F, R.Attributes-M, R.ChangeSpells, R.Description, R.Relations, R.Skills}}
+travellers-new balance Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+treasure maps v1.esp
+% {{BASH:Invent}}
+TRoN 0-59-1b Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+TRoN Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+TRoN.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+TUR_GemDust.esp
+% {{BASH:Scripts}}
+TweakedGenericFaces-LITE.esp
+% {{BASH:NpcFaces, NoMerge}}
+TweakedGenericFaces.esp
+% {{BASH:NpcFaces, NoMerge}}
+Tyrael Companion.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+UFF & RM Gold and Silver Daedric Armor.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+UFF Amazon Armor.esp
+% {{BASH:Graphics}}
+Ulrim's Horses - DLCHorseArmor+OOO.esp
+% {{BASH:Graphics}}
+Ulrim's Horses - DLCHorseArmor.esp
+% {{BASH:Graphics}}
+Ulrim's Horses - HRMHorseArmor+OOO.esp
+% {{BASH:Graphics}}
+Ulrim's Horses - HRMHorseArmor.esp
+% {{BASH:Graphics}}
+Ulrim's Horses - LegionArmor.esp
+% {{BASH:Graphics}}
+Ulrim's Horses - OOO+LegionArmor.esp
+% {{BASH:Graphics}}
+Ulrim's Horses - OOO.esp
+% {{BASH:Graphics}}
+Ulrim's Horses - Vanilla.esp
+% {{BASH:Graphics}}
+Ulrim's Horses for OOO.esp
+% {{BASH:Graphics}}
+Ulrim's Horses.esp
+% {{BASH:Graphics}}
+un-leveled-shops.esp
+% {{BASH:Invent, Relev}}
+UnderdarkSaga Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+UnderdarkSaga.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Ungarion1TheWelkyndSword.esp
+% {{BASH:Actors.Stats, Actors.Class, Actors.Spells, Invent, Scripts}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Unique Enticing Skill Books.esp
+% {{BASH:Graphics}}
+Unique Eyes Selection - DV.esp
+% {{BASH:Eyes}}
+Unique Eyes Selection - EV.esp
+% {{BASH:Eyes}}
+Universitum Arcanorum Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Unofficial Oblivion Patch DV.esp
+% {{BASH:Actors.ACBS,  Actors.AIData, Actors.AIPackages, Actors.CombatStyle, Actors.DeathItem, Actors.Spells, Actors.Stats, C.Climate, C.Light, C.Music, C.Name, C.Owner, Creatures.Blood, Delev, Factions, Invent, NPC.Class, Names, Relations, Relev, Scripts, Stats}} and remove [C.Water]
+Unofficial Oblivion Patch-mobs.esp
+% {{BASH:Actors.ACBS,  Actors.AIData, Actors.AIPackages, Actors.CombatStyle, Actors.DeathItem, Actors.Spells, Actors.Stats, C.Climate, C.Light, C.Music, C.Name, C.Owner, Creatures.Blood, Delev, Factions, Invent, NPC.Class, Names, Relations, Relev, Scripts, Stats}} and remove [C.Water]
+Unofficial Oblivion Patch.esp
+% {{BASH:Actors.ACBS,  Actors.AIData, Actors.AIPackages, Actors.CombatStyle, Actors.DeathItem, Actors.Spells, Actors.Stats, C.Climate, C.Light, C.Music, C.Name, C.Owner, Creatures.Blood, Delev, Factions, Invent, NPC.Class, Names, Relations, Relev, Scripts, Stats}} and remove [C.Water]
+Unofficial Shivering Isles Patch DV.esp
+% {{BASH:Actors.ACBS, Actors.AIData, Actors.AIPackages, Actors.DeathItem, Actors.Stats, C.Climate, C.Light, C.Name, C.Owner, Delev, Factions, Invent, Names, Relev, Scripts, Stats, Relations}}
+Unofficial Shivering Isles Patch.esp
+% {{BASH:Actors.ACBS, Actors.AIData, Actors.AIPackages, Actors.DeathItem, Actors.Stats, C.Climate, C.Light, C.Name, C.Owner, Delev, Factions, Invent, Names, Relev, Scripts, Stats, Relations}}
+upperGothicClutter.esp
+% {{BASH:Graphics}}
+VA_BetterGold.esp
+% {{BASH:Graphics}}
+VA_GlamdringSword.esp
+% {{BASH:Invent}}
+Valhalla Asgardia Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Valley_View_Estate.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Vampire Alchemy V1.1.esp
+% {{BASH:Invent}}
+Vampire Cuirass NPC.esp
+% {{BASH:Invent}}
+Vampire Hunting - Order Of The Virtuous Blood Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Vampire Hunting - Order Of The Virtuous Blood.esp
+% {{BASH:Actors.ACBS, Actors.Spells, Actors.Stats, Factions, Invent, Scripts}}
+? Versions under 2.6: Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide" or better yet update to the latest.
+VAs Better Gold with no Menu Icon.esp
+% {{BASH:Graphics}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+VaultsofCyrodiil.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+vendorfreedom.esp
+% {{BASH:relev}}
+Vergayun Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Verwen Brewery UL_AY_AC Compatable.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Vexend Race.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+VHBloodlines 1.2.esp
+% {{BASH:Actors.AIData, Actors.AIPackages}}
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Viconia Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+ViconiaChapterTwo Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Vincente Valtieri Imperial.esp
+% {{BASH:Voice-M}}
+VipCxj_HairEyeSet.esp
+% {{BASH:Hair, Eyes}}
+Visually Enchanted Damage and Absorb with Particles.esp
+% {{BASH:Graphics, Deactivate}}
+Visually Enchanted Drains 1.esp
+% {{BASH:Graphics}}
+Visually Enchanted Drains.esp
+% {{BASH:Graphics, Deactivate}}
+Visually Enchanted Fire 1.esp
+% {{BASH:Graphics, Deactivate}}
+Visually Enchanted Fire 2.esp
+% {{BASH:Graphics, Deactivate}}
+Visually Enchanted Fire 3.esp
+% {{BASH:Graphics, Deactivate}}
+Visually Enchanted Fire.esp
+% {{BASH:Graphics, Deactivate}}
+Visually Enchanted Frost 1.esp
+% {{BASH:Graphics, Deactivate}}
+Visually Enchanted Frost 2.esp
+% {{BASH:Graphics, Deactivate}}
+Visually Enchanted Frost 3.esp
+% {{BASH:Graphics, Deactivate}}
+Visually Enchanted Frost.esp
+% {{BASH:Graphics, Deactivate}}
+Visually Enchanted Shock 1.esp
+% {{BASH:Graphics, Deactivate}}
+Visually Enchanted Shock 2.esp
+% {{BASH:Graphics, Deactivate}}
+Visually Enchanted Shock 3.esp
+% {{BASH:Graphics, Deactivate}}
+Visually Enchanted Shock.esp
+% {{BASH:Graphics, Deactivate}}
+Visually Enchanted SoulTrap 1.esp
+% {{BASH:Graphics}}
+Visually Enchanted SoulTrap.esp
+% {{BASH:Graphics, Deactivate}}
+Visually Enhanced Arena.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Voldemort.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics, R.Relations}}
+WAC - Cat Crash Fix.esp
+% {{BASH:Actors.Skeleton, NoMerge}}
+WAC - Companions.esp
+% {{BASH:Factions}}
+WAC - Crowded Roads Revisited Fix4v1.0b.esp
+% {{BASH:Delev, Relev}}
+WAC - Dead Knights Fix.esp
+% {{BASH:Relations}}
+WAC - Dead Knights.esp
+% {{BASH:Actors.ACBS, Actors.Stats, Actors.AIData, Actors.AIPackages}}
+WAC - Gladiator.esp
+% {{BASH:Actors.AIPackages, Delev, Graphics, Invent, Relev, Stats}}
+WAC - Horses.esp
+% {{BASH:Delev, Graphics, Names, Relev}}
+WAC - ItemLootFix4v1.0b.esp
+% {{BASH:Actors.Stats, Actors.AIData, Delev, Factions, Invent, Relev, Stats, Relations}}
+WAC - ItemLootFix4v1.0bFran.esp
+% {{BASH:Actors.Stats, Actors.AIData, Delev, Factions, Invent, Relev, Stats, Relations}}
+WAC - ItemLootFix4v1.0bMMM.esp
+% {{BASH:Actors.Stats, Actors.AIData, Delev, Factions, Invent, Relev, Stats, Relations}}
+WAC - ItemLootFix4v1.0bOOO.esp
+% {{BASH:Actors.Stats, Actors.AIData, Delev, Factions, Invent, Relev, Stats, Relations}}
+WAC - Legion.esp
+% {{BASH:Graphics, Invent}}
+WAC - Legion_FemaleFix.esp
+% {{BASH:Graphics}}
+WAC - OverSpawn.esp
+% {{BASH:Actors.ACBS, Actors.Spells, Actors.Stats, Delev, Graphics, Invent, Relations, Relev}}
+WAC - OverSpawn4OOO.esp
+% {{BASH:Delev, Relev}}
+WAC - OverSpawn4v1.0bFCOM.esp
+% {{BASH:Delev, Relev}}
+WAC - OverSpawn4v1.0bFran.esp
+% {{BASH:Delev, Relev}}
+WAC - OverSpawn4v1.0bOOO.esp
+% {{BASH:Delev, Relev}}
+WAC - OverSpawn4v1.0bOWCND.esp
+% {{BASH:Delev, Relev}}
+WAC - TCOS Invent only.esp
+% {{BASH:Invent}}
+WAC - TCOS Shops.esp
+% {{BASH:Graphics, Invent}}
+WAC - TCOS.esp
+% {{BASH:Actors.ACBS, Actors.Stats, Eyes, Delev, Graphics, Invent, NPC.Race, R.Teeth, Relev}}
+WAC - TCOSFix.esp
+% {{BASH:Delev, Invent, Relev}}
+WAC - TCOSFix4v1.0b.esp
+% {{BASH:Delev, Invent, Relev}}
+WAC - WeaponReachMOBS.esp
+% {{BASH:Stats}}
+WAC BM plus.esp
+% {{BASH:Actors.ACBS, Actors.Spells, Actors.Stats, Graphics}}
+WAC GiantPatch plus.esp
+% {{BASH:Actors.ACBS, Actors.Spells, Actors.Stats, Graphics}}
+WAC Giants Patch.esp
+% {{BASH:Graphics}}
+WAC HorsePath v1.esp
+% {{BASH:Graphics}}
+WAC MinotaurPatch plus.esp
+% {{BASH:Actors.ACBS, Actors.Anims, Actors.Spells, Graphics}}
+WAC OgrePatch.esp
+% {{BASH:Graphics}}
+WAC v1 BulkyMonsters.esp
+% {{BASH:Graphics}}
+WACESM_Ingredients_Rebalance.esp
+% {{BASH:Stats}}
+WACESM_MiscItemsRebal.esp
+% {{BASH:Stats}}
+Waterfront Shack.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+WatersEdgeImproved.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+wd purse of wonders.esp
+% {{BASH:Scripts}}
+Weapon Expansion Pack for Oblivion Nthusiasts.esp
+% {{BASH:Delev, Graphics, Invent, Names, Relev, Scripts, Stats}}
+WeaponsOfTheNine.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+West Roads.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Weye.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+WhiskersAll.esp
+% {{BASH:R.Teeth}}
+WieraRace_EV.esp
+% {{BASH:NpcFaces, Hair, Eyes}}
+Windfall Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Windfall.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+witchkingsword.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Wolven Anthros.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Woman's Move.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Wyverex's - Runes.esp
+% {{BASH:Invent, Relev}}
+X.Dea.Obscura.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+X.Demon.Race.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+X.Deus.Obscurus.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+X.Falmer.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+X.Moon.Elf.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+X.Nature.Elf.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+X.Night.Elf.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+X.Night.Walker.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+X.Races.Comp.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics}}
+X.Vampire.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+x117race.esm
+% {{BASH:Hair}}
+x117race.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+Xena Warrior Princess.esp
+% {{BASH:Invent}}
+Xenia_CMPartner Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+XeniaRace.esp
+% {{BASH:NpcFaces, Hair, Eyes, R.Relations}}
+xeoex Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+xeoex.esm
+% {{BASH:Body-F, Body-M, Eyes}}
+xeoex.esp
+% {{BASH:NpcFaces, Hair, Eyes, Graphics, NPC.Race, R.Ears, R.Head, R.Mouth, R.Teeth}}
+xeoexpeople.esp
+% {{BASH:Actors.Stats, Eyes, Hair, NPC.Race, NpcFaces}}
+xul Vwalk Full.esp
+% {{BASH:Actors.Anims, NoMerge}}
+xulArriusCreek.esp
+% {{BASH:C.Water}}
+xulAspenWood Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+xulBravilBarrowfields Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+xulBrenaRiverRavine Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+xulChorrolHinterland Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+xulCliffsOfAnvil Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+xuldarkforest.esp
+% {{BASH:C.Music,C.Water}}
+xulImperialIsle Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+xulRollingHills_EV Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+xulSkingradOutskirts Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Younger  Women's_1C Gold.esp
+% {{BASH:NpcFaces, NoMerge}}
+Younger Hotter NPC's 0.99.esp
+% {{BASH:NpcFaces, NoMerge}}
+Younger Hotter NPC's v1.0 Vwalk.esp
+% {{BASH:Actors.Anims, NoMerge}}
+Younger Hotter NPC's v1.0.esp
+% {{BASH:NpcFaces, NoMerge}}
+YoungerHotterNPCwithPussies.esp
+% {{BASH:NpcFaces, NoMerge}}
+YoungerNPCs.esp
+% {{BASH:NpcFaces, NoMerge}}
+Your_Personal_Museum_Updated-9300.esp
+? Needs TES4Edit cleaning: "http://cs.elderscrolls.com/constwiki/index.php/TES4Edit_Cleaning_Guide"
+Zatoichi.esp
+% {{BASH:Invent}}
+ZBRE.esp
+% {{BASH:Hair}}
+ZelsHairfixRenshairV1_5.esp
+% {{BASH:Hair}}
+Zira's Horse Theme Loadscreens.esp
+% {{BASH:Graphics}}
+Zombie Replacer_cn.esp
+% {{BASH:Graphics, NoMerge}}
+Zombie Replacer_en.esp
+% {{BASH:Graphics, NoMerge}}
+ZUAmberMadnessOverhaul.esp
+% {{BASH:Actors.ACBS, Actors.AIData, Actors.AIPackages, Actors.CombatStyle, Actors.DeathItem, Actors.Spells, Actors.Stats, Body-F, Body-M, C.RecordFlags, Delev, Factions, Graphics, Invent, Names, R.Head, R.Relations, Relations, Relev, Scripts, SpellStats, Stats}}
+ZUSIO-MMM SI-patch.esp
+% {{BASH:Factions}}
