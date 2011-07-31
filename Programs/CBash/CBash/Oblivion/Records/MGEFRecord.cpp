@@ -894,7 +894,7 @@ STRING MGEFRecord::GetStrType()
 
 bool MGEFRecord::IsKeyedByEditorID()
     {
-    return true;
+    return false;
     }
 
 SINT32 MGEFRecord::ParseRecord(unsigned char *buffer, const UINT32 &recSize)

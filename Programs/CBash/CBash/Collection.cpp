@@ -769,8 +769,8 @@ Record * Collection::CopyRecord(ModFile *&curModFile, Record *&curRecord, ModFil
     //Give the record a new formID if it isn't an override record
     if(!options.SetAsOverride)
         RecordCopy->formID = DestRecordFormID ? DestRecordFormID : NextFreeExpandedFormID(DestModFile);
-    //else if(RecordCopy->IsKeyedByEditorID()) //Assign the formID to the destination mod so that FormIDMasterUpdater doesn't add unneeded masters
-    //    RecordCopy->formID = NextFreeExpandedFormID(DestModFile);
+    else if(RecordCopy->IsKeyedByEditorID()) //Assign the formID to the destination mod so that FormIDMasterUpdater doesn't add unneeded masters
+        RecordCopy->formID = NextFreeExpandedFormID(DestModFile);
 
     //See if the destination mod masters need updating
     //Ensure the record has been fully read
