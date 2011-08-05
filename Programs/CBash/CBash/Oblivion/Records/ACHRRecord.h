@@ -70,5 +70,5 @@ class ACHRRecord : public Record
 
         bool operator ==(const ACHRRecord &other) const;
         bool operator !=(const ACHRRecord &other) const;
-		virtual bool equals(const Record *other) const {return ((Record *)this)->equals(other) && *this == *(ACHRRecord *)other;}
+		virtual bool equals(const Record *other) const {return *this == *(ACHRRecord *)other;}
     };
