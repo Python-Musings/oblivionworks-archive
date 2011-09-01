@@ -632,18 +632,19 @@ bool CELLRecord::operator ==(const CELLRecord &other) const
         {
         //Order doesn't matter
         for(UINT32 x = 0; x < XCLR.size(); ++x)
-		{
-			for(UINT32 y = 0; y < XCLR.size(); ++y)
-			{
-				bool good = false;
-				if (XCLR[x] == other.XCLR[y])
-					// Found it's match
-					good = true;
-					break;
-				if (!good)
-					return false;
-			}
-		}
+        {
+            bool good = false;
+            for(UINT32 y = 0; y < XCLR.size(); ++y)
+            {
+                if (XCLR[x] == other.XCLR[y])
+                {
+                    // Found it's match
+                    good = true;
+                    break;
+                }
+            }
+            if (!good) return false;
+        }
         return true;
         }
 
