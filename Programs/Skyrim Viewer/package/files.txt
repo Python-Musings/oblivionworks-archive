@@ -1,0 +1,4 @@
+Skyrim Viewer.exe
+Skyrim Viewer.ini
+python27.dll
+README.txt
