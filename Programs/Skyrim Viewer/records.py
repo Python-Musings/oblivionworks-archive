@@ -98,7 +98,7 @@ class FormIdLookup(object):
         if recType:
             return "[%02X%06X] %s record in '[%02X] %s': %s" % (
                 longId,recordId,recType,masterIdex,master.s,edid)
-        if master not in self.data:
+        if master not in self.data or 'TES4' not in self.data[master]:
             return "[%02X%06X] Cannot resolve - '[%02X] %s' is not loaded" % (
                 longId,recordId,masterIdex,master.s)
         return '[%02X%06X] Record not found' % (longId,recordId)

@@ -37,10 +37,12 @@ resources = {
     }
 
 # For 'Type' popup menu
-TypePopup = [
-    #Type,RequiredSize,MenuId
-    ('Goto Record',wx.NewId()),
-    (None,None),
+# Goto... Menu
+GotoPopup = [
+    ('Record',wx.NewId()),
+    ('String',wx.NewId()),
+    ]
+ViewAsPopup = [
     ('CString',wx.NewId()),
     ('PString',wx.NewId()),
     ('BString',wx.NewId()),
@@ -62,6 +64,10 @@ TypePopup = [
     (None,None),
     ('Use Global Definition',wx.NewId()),
     ('Save as Global Definition',wx.NewId()),
+    ]
+SubrecordPopup = [
+    ('Goto',GotoPopup),
+    ('View as',ViewAsPopup),
     ]
 
 def AskSkyrimPath():
@@ -408,8 +414,8 @@ class CustomFormatDialog(wx.Dialog):
     def OnAdd(self,event=None):
         if event: event.Skip()
         menu = wx.Menu()
-        for Type,Id in TypePopup:
-            if not Type or Type in ('Goto Record','Raw','Custom','Save as Global Definition','Use Global Definition'):
+        for Type,Id in ViewAsPopup:
+            if not Type or Type in ('Raw','Custom','Save as Global Definition','Use Global Definition'):
                 continue
             menu.AppendCheckItem(Id,Type)
         self.Bind(wx.EVT_MENU,self.OnMenu)
@@ -1059,11 +1065,35 @@ class MyFrame(wx.Frame):
 
         def OnMenu(event):
             id = event.GetId()
-            for Type,Id in TypePopup:
+            # Goto submenu
+            for Type,Id in SubrecordPopup[0][1]:
                 if Id == id:
-                    if Type == 'Custom':
-                        self.CustomFormatDialog(config,'%s:%s (%s bytes)'%(recType,subType,subSize))
-                    elif Type == 'Goto Record':
+                    if Type == 'String':
+                        # Goto the string definition
+                        stringId = bfRead(subData,UInt32)
+                        subData.seek(0)
+                        root = self.data[plugin]['ui']['strings']
+                        item,cookie = self.tree.GetFirstChild(root)
+                        while item.IsOk():
+                            label = self.tree.GetItemText(item)
+                            stringIdStart = int(label[:8],16)
+                            stringIdStop = int(label[-8:],16)
+                            if stringIdStart <= stringId <= stringIdStop:
+                                self.tree.EnsureVisible(item)
+                                self.tree.SelectItem(item)
+                                break
+                        if not item.IsOk(): return
+                        search = '%08X' % stringId
+                        for i in xrange(self.list.GetItemCount()):
+                            item = self.list.GetItem(i,0)
+                            item = item.GetText()
+                            print i, item
+                            if search == item:
+                                self.list.SetItemState(i,wx.LIST_STATE_SELECTED,wx.LIST_STATE_SELECTED)
+                                self.list.EnsureVisible(i)
+                                break
+                    elif Type == 'Record':
+                        # Goto the record definition
                         formId = bfRead(subData,UInt32)
                         subData.seek(0)
                         shortId,longId,recordId = records.FormIdTable.ShortToLongFid(formId)
@@ -1074,6 +1104,12 @@ class MyFrame(wx.Frame):
                             if item.IsOk:
                                 self.tree.EnsureVisible(item)
                                 self.tree.SelectItem(item)
+                    return
+            # View as submenu
+            for Type,Id in SubrecordPopup[1][1]:
+                if Id == id:
+                    if Type == 'Custom':
+                        self.CustomFormatDialog(config,'%s:%s (%s bytes)'%(recType,subType,subSize))
                     elif Type == 'Use Global Definition':
                         if subType in self.record_configs[recType]:
                             del self.record_configs[recType][subType]
@@ -1103,66 +1139,84 @@ class MyFrame(wx.Frame):
         menu = wx.Menu()
         isCustom = len(config) > 1
         records.StringTable.SetStrings(self.data[plugin]['strings'])
-        for Type,Id in TypePopup:
-            if Id is None:
-                menu.AppendSeparator()
-            else:
-                if Type == 'Custom':
-                    menu.AppendCheckItem(Id,Type)
-                    menu.Check(Id,isCustom)
-                elif Type == 'Goto Record':
-                    added = False
-                    if subSize == 4:
-                        formId = bfRead(subData,UInt32)
-                        subData.seek(0)
-                        shortId,longId,recordId = records.FormIdTable.ShortToLongFid(formId)
-                        if longId is not None:
-                            _recType,edid,masterIdex,master = records.FormIdTable.FindWinningRecord(shortId,longId,recordId)
-                            if _recType:
-                                added = True
-                                menu.AppendCheckItem(Id,"Goto [%02X%06X] in '[%02X] %s'" % (longId,recordId,masterIdex,master.s))
-                    if not added:
-                        menu.AppendCheckItem(Id,Type)
-                        menu.Enable(Id,False)
-                elif Type == 'Use Global Definition':
-                    notUsingGlobal = subType in self.record_configs.get(recType,{})
-                    globalAvail = subType in records.RecordDef.globalConfig
-                    menu.AppendCheckItem(Id,Type)
-                    menu.Check(Id,not notUsingGlobal)
-                    menu.Enable(Id,globalAvail)
-                elif Type == 'Save as Global Definition':
-                    item = wx.MenuItem(menu,Id,Type)
-                    notUsingGlobal = subType in self.record_configs.get(recType,{})
-                    menu.AppendItem(item)
-                    item.Enable(notUsingGlobal)
+        for text,submenu in SubrecordPopup:
+            subMenu = wx.Menu()
+            for Type,Id in submenu:
+                if Id is None:
+                    subMenu.AppendSeparator()
                 else:
-                    Unpacker,ReqSize,Eval,Format = records.Types[Type.lower()]
-                    usable = (ReqSize == subSize or ReqSize is None)
-                    if usable:
-                        try:
-                            value = bfRead(subData,Unpacker)
-                            if Eval: value = Eval(value)
-                            if Format: value = Format % value
-                            label = '%s - %s' % (Type,value)
-                            extent = self.GetTextExtent(label)
-                            a = 0
-                            while extent[0] > 600:
-                                a -= 10
-                                extent = self.GetTextExtent(label[:a])
-                            if a < 0: label = label[:a] + '...'
-                        except:
-                            label = Type
-                        finally:
+                    if Type == 'Custom':
+                        subMenu.AppendCheckItem(Id,Type)
+                        subMenu.Check(Id,isCustom)
+                    elif Type == 'Record':
+                        added = False
+                        if subSize == 4:
+                            formId = bfRead(subData,UInt32)
                             subData.seek(0)
+                            shortId,longId,recordId = records.FormIdTable.ShortToLongFid(formId)
+                            if longId is not None:
+                                _recType,edid,masterIdex,master = records.FormIdTable.FindWinningRecord(shortId,longId,recordId)
+                                if _recType:
+                                    added = True
+                                    subMenu.Append(Id,"Record [%02X%06X] in '[%02X] %s'" % (longId,recordId,masterIdex,master.s))
+                        if not added:
+                            subMenu.Append(Id,Type)
+                            subMenu.Enable(Id,False)
+                    elif Type == 'String':
+                        stringId = bfRead(subData,UInt32)
+                        subData.seek(0)
+                        subMenu.Append(Id,Type)
+                        subMenu.Enable(Id,stringId in self.data[plugin]['strings'])
+                    elif Type == 'Use Global Definition':
+                        notUsingGlobal = subType in self.record_configs.get(recType,{})
+                        globalAvail = subType in records.RecordDef.globalConfig
+                        subMenu.AppendCheckItem(Id,Type)
+                        subMenu.Check(Id,not notUsingGlobal)
+                        subMenu.Enable(Id,globalAvail)
+                    elif Type == 'Save as Global Definition':
+                        item = wx.MenuItem(menu,Id,Type)
+                        notUsingGlobal = subType in self.record_configs.get(recType,{})
+                        subMenu.AppendItem(item)
+                        item.Enable(notUsingGlobal)
                     else:
-                        label = Type
-                    try:
-                        menu.AppendCheckItem(Id,label)
-                    except UnicodeDecodeError:
-                        menu.AppendCheckItem(Id,Type)
-                    menu.Check(Id,Type.lower()==unpacker_name or (Unpacker is None and Type=='Raw'))
-                    menu.Enable(Id,usable)
-                self.Bind(wx.EVT_MENU,OnMenu,id=Id)
+                        Unpacker,ReqSize,Eval,Format = records.Types[Type.lower()]
+                        usable = (ReqSize == subSize or ReqSize is None)
+                        if usable:
+                            try:
+                                value = bfRead(subData,Unpacker)
+                                if Eval: value = Eval(value)
+                                if Format: value = Format % value
+                                label = '%s - %s' % (Type,value)
+                                extent = self.GetTextExtent(label)
+                                a = 0
+                                while extent[0] > 600:
+                                    a -= 10
+                                    extent = self.GetTextExtent(label[:a])
+                                if a < 0: label = label[:a] + '...'
+                            except:
+                                label = Type
+                            finally:
+                                subData.seek(0)
+                        else:
+                            label = Type
+                        try:
+                            subMenu.AppendCheckItem(Id,label)
+                        except UnicodeDecodeError:
+                            subMenu.AppendCheckItem(Id,Type)
+                        subMenu.Check(Id,Type.lower()==unpacker_name or (Unpacker is None and Type=='Raw'))
+                        subMenu.Enable(Id,usable)
+                    self.Bind(wx.EVT_MENU,OnMenu,id=Id)
+            enabled = False
+            for menuItem in subMenu.GetMenuItems():
+                if menuItem.IsEnabled():
+                    enabled = True
+                    break
+            if enabled:
+                menu.AppendSubMenu(subMenu,text)
+            else:
+                id = wx.NewId()
+                menu.Append(id,text)
+                menu.Enable(id,False)
 
         self.PopupMenu(menu)
         records.StringTable.SetStrings()
