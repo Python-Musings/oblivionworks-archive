@@ -61,35 +61,29 @@ class CStringStruct(StrippedStruct):
         bfWrite(file,UByte,0)
 
 class PascalStringStruct(StrippedStruct):
+    def __init__(self,sizeSize=UByte,*args):
+        StrippedStruct.__init__(self,*args)
+        self.sizeSize = sizeSize
+
     def unpack(self,file):
-        return self.strip(file.read(bfRead(file,UByte)))
+        return self.strip(file.read(bfRead(file,self.sizeSize)))
 
     def pack(self,file,string):
-        strLen = min(len(string),255)
-        bfWrite(file,UByte,strLen)
-        file.write(string[:strLen])
-
-class LongStringStruct(StrippedStruct):
-    def unpack(self,file):
-        return self.strip(file.read(bfRead(file,UInt32)))
-
-    def pack(self,file,string):
-        strLen = min(len(string),0xFFFFFFFF) # Probably errors before that
-        bfWrite(file,UInt32,strLen)
-        file.write(UInt32,strLen)
+        numBytes = self.sizeSize.size
+        maxLen = (1 << numBytes) - 1
+        strLen = min(len(string),maxLen)
+        bfWrite(file,self.sizeSize,strLen)
         file.write(string[:strLen])
 
 # Custom unpackers (with NULL characters stripped)
 NETString = NETStringStruct()
 CString = CStringStruct()
-PascalString = PascalStringStruct()
-LongString = LongStringStruct()
+PascalString = PascalStringStruct(UByte)
 
 # Raw versions (with NULL characters intact)
 NETStringRaw = NETStringStruct('')
 CStringRaw = CStringStruct('')
-PascalStringRaw = PascalStringStruct('')
-LongStringRaw = LongStringStruct('')
+PascalStringRaw = PascalStringStruct(UByte,'')
 
 def bfUnpack(ins,format):
     return struct.unpack(format,ins.read(struct.calcsize(format)))

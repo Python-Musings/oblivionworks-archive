@@ -44,27 +44,20 @@ def GetSkyrimPath():
                     _winreg.CloseKey(key)
     return None
 
-class Plugins(list):
+class Plugins(object):
     """Manages plugins.txt"""
-    def __init__(self,dataPath):
+    def __init__(self):
         # Plugins.txt
         self.file = GetAppDataPath().join('plugins.txt')
         self.mtime = 0
         self.size = 0
-        # Data files
-        self.dataPath = dataPath
         # the plugins
         self.all = [] # all plugins, sorted by load order
         self.active = [] # active plugins, sorted by load order
-        # Read the stuff
-        self.refresh()
 
-    def getPath(self):
-        return self.dataPath
-
-    def refresh(self):
+    def refresh(self,dataPath):
         # Scan the Data directory
-        self.all = (self.dataPath.join(x) for x in self.dataPath.list())
+        self.all = (dataPath.join(x) for x in dataPath.list())
         self.all = (x for x in self.all if x.exists and not x.isdir)
         self.all = (x for x in self.all if reModExt.match(x.cext))
         self.all = sorted(self.all,key=lambda x: x.mtime)

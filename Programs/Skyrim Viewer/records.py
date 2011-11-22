@@ -54,7 +54,10 @@ class FormIdLookup(object):
         return (modIndex,modId,recordId)
 
     def FindWinningRecord(self,shortId,longId,recordId):
-        thisId = self.plugins.index(self.plugin)
+        if self.plugin.cext == '.ess':
+            thisId = 0xFF
+        else:
+            thisId = self.plugins.index(self.plugin)
 
         def _Eval(file):
             data = self.data[file]
@@ -150,7 +153,8 @@ Types = {
     #type: (unpacker,required_size,eval_function,display_format)
     'cstring': (bf.CString,None,None,None),
     'pstring': (bf.PascalString,None,None,None),
-    'lstring': (bf.LongString,None,None,None),
+    'bstring': (bf.PascalStringStruct(bf.UInt16),None,None,None),
+    'lstring': (bf.PascalStringStruct(bf.UInt32),None,None,None),
     'lstringa': (LStringA,None,None,None),
     'uint16': (bf.UInt16,2,None,None),
     'int16': (bf.Int16,2,None,None),
