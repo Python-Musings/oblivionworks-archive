@@ -69,34 +69,34 @@ class Path(object):
 
     @staticmethod
     def getDesktop(common=False):
-        return Path(unicode(winshell.desktop(common)))
+        return Path(winshell.desktop(common))
     @staticmethod
     def getAppData(common=False):
-        return Path(unicode(winshell.application_data(common)))
+        return Path(winshell.application_data(common))
     @staticmethod
     def getLocalAppData():
-        return Path(unicode(winshell.local_application_data()))
+        return Path(winshell.local_application_data())
     @staticmethod
     def getFavorites(common=False):
-        return Path(unicode(winshell.favourites(common)))
+        return Path(winshell.favourites(common))
     @staticmethod
     def getStartMenu(common=False):
-        return Path(unicode(winshell.start_menu(common)))
+        return Path(winshell.start_menu(common))
     @staticmethod
     def getPrograms(common=False):
-        return Path(unicode(winshell.programs(common)))
+        return Path(winshell.programs(common))
     @staticmethod
     def getStartup(common=False):
-        return Path(unicode(winshell.startup(common)))
+        return Path(winshell.startup(common))
     @staticmethod
     def getPersonal():
-        return Path(unicode(winshell.personal_folder()))
+        return Path(winshell.personal_folder())
     @staticmethod
     def getRecent():
-        return Path(unicode(winshell.recent()))
+        return Path(winshell.recent())
     @staticmethod
     def getSendTo():
-        return Path(unicode(winshell.sendto()))
+        return Path(winshell.sendto())
 
     def setcwd(self):
         """Set cwd. Works as either instance or class method."""

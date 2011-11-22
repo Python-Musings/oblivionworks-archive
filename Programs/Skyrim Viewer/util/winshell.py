@@ -41,7 +41,8 @@ class x_winshell (Exception):
 #  support it, so I added this workaround.
 #
 def get_path (folder_id):
-  return shell.SHGetPathFromIDList (shell.SHGetSpecialFolderLocation (0, folder_id))
+  return shell.SHGetFolderPath(0, folder_id, None, 0)
+  #return shell.SHGetPathFromIDList (shell.SHGetSpecialFolderLocation (0, folder_id))
 
 def desktop (common=0):
   "What folder is equivalent to the current desktop?"
