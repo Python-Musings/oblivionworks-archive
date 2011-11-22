@@ -2,7 +2,6 @@ from __future__ import division
 
 import os
 import _winreg
-import threading
 import cStringIO
 import zlib
 import ConfigParser
@@ -27,7 +26,6 @@ PluginExts = ('.esp','.esm')
 StringsExts = ('.STRINGS','.DLSTRINGS','.ILSTRINGS')
 
 settings = {
-    'list.search.OnChar': False,
     'language': None,
     'load.masters': True,
     'load.strings': True,
@@ -45,6 +43,7 @@ TypePopup = [
     (None,None),
     ('CString',wx.NewId()),
     ('PString',wx.NewId()),
+    ('BString',wx.NewId()),
     ('LString',wx.NewId()),
     ('LStringA',wx.NewId()),
     ('StringId',wx.NewId()),
@@ -522,15 +521,14 @@ class MyFrame(wx.Frame):
             if strg:
                 self.tree.SetItemText(strg,'Strings')
 
-    def __init__(self, dataPath):
+    def __init__(self):
         wx.Frame.__init__(self, None, wx.ID_ANY, 'Skyrim Viewer',size=(800,600))
-        self.dataPath = GPath(dataPath)
-        self.activeSearch = settings['list.search.OnChar']
+        if resources['icons']: self.SetIcons(resources['icons'])
         self.listMode = NONE
         self.workers = {}
         self.loadedPlugins = []
 
-        self.plugins = Plugins(self.dataPath)
+        self.plugins = Plugins()
         self.data = {}
 
         # Setup the Toolbar ----------------------------------------------------
@@ -687,8 +685,6 @@ class MyFrame(wx.Frame):
         if not skyrimPath:
             return
         settings['skyrim'] = skyrimPath
-        self.dataPath = skyrimPath.join('Data')
-        self.plugins.dataPath = self.dataPath
 
     def OnEnforceGlobal(self,event):
         globalTypes = records.RecordDef.globalConfig.keys()
@@ -876,7 +872,7 @@ class MyFrame(wx.Frame):
         prgs.setFull(len(plugins))
         for i,file in enumerate(plugins):
             prgs(i,'%s: Loading strings...' % file.s)
-            dir = self.plugins.getPath().join('Strings')
+            dir = settings['skyrim'].join('Data','Strings')
             strings_files = [dir.join('%s_%s%s' % (file.sbody,settings['language'],x)) for x in StringsExts]
             strings_files = [x for x in strings_files if x.exists and not x.isdir]
             if not strings_files: continue
@@ -1268,7 +1264,7 @@ class MyFrame(wx.Frame):
     def OnOpen(self,event):
         """Pick plugins to load"""
         event.Skip()
-        self.plugins.refresh()
+        self.plugins.refresh(settings['skyrim'].join('Data'))
         dialog = LoadDialog(self.plugins,self.record_configs.keys())
         ret = dialog.ShowModal()
         if ret == wx.ID_CANCEL:
@@ -1305,16 +1301,20 @@ class MyFrame(wx.Frame):
         """Runs in a seperate thread.  A ThreadExit exception will be raised
            if the thread is requested termination."""
         try:
+            dataPath = settings['skyrim'].join('Data')
+            self.data.clear()
+            self.ClearUI()
+
             self.progress.setFull(100)
 
             # Step 1: load files, determine if any masters are missing/required
-            # ~5% of progress
+            # ~5% of progress?
             subprogress = ui.SubProgress(self.progress,0,5)
             subprogress.setFull(len(files))
-            self.data = {}
 
             def parseRecord(ins,root,data,prgs=ui.BaseProgress):
-                recType,recSize,flags,formId,versionControl,unk = ins.unpack('4s 5I')
+                (recType,recSize,flags,
+                 formId,versionControl,unk) = bfUnpack(ins,'4s 5I')
                 # Save data for display
                 ins.seek(-24,os.SEEK_CUR)
                 _header = cStringIO.StringIO(ins.read(24))
@@ -1335,7 +1335,7 @@ class MyFrame(wx.Frame):
                         item = self.tree.AppendItem(root,'%02X%06X' % (longId,recordId))
                 compressed = bool(flags & 0x40000)
                 if compressed:
-                    size = ins.read(UInt32)
+                    size = bfRead(ins,UInt32)
                     try:
                         recData = zlib.decompress(ins.read(recSize-4))
                         if len(recData) != size:
@@ -1346,19 +1346,15 @@ class MyFrame(wx.Frame):
                         data[formId] = [recType,'ERROR - an exception occured: %s' % e]
                         ins.seek(eor)
                         return
+                    recSize = size
                 else:
                     recData = ins.read(recSize)
                 recData = cStringIO.StringIO(recData)
 
-                recData.seek(0,os.SEEK_END)
-                eod = recData.tell()
-                recData.seek(0)
-
-                
                 data[formId] = [recType,('Record Header',_header)]
                 formData = data[formId]
                 edid = ''
-                while recData.tell() < eod:
+                while recData.tell() < recSize:
                     subType = recData.read(4)
                     subSize = bfRead(recData,UInt16)
                     subData = cStringIO.StringIO(recData.read(subSize))
@@ -1370,45 +1366,48 @@ class MyFrame(wx.Frame):
                     self.tree.SetItemText(item,edid,1)
                 ins.seek(eor)
 
-            masters = []
-            def loadHeader(file):
-                data = OrderedDict()
-                with BinaryFile(self.plugins.getPath().join(file).s) as ins:
-                    recType = ins.read(4)
-                    if recType == 'TES4':
-                        ins.seek(-4,os.SEEK_CUR)
-                        parseRecord(ins,None,data)
-                if not data: return data
-                if not isinstance(data[0],str):
-                    data['TES4'] = data[0]
-                del data[0]
-                return data
+            def loadHeader(ins):
+                recType = ins.read(4)
+                if recType != 'TES4': return None
+                ins.seek(-4,os.SEEK_CUR)
+                data = {}
+                parseRecord(ins,None,data)
+                # TES4 record is always formId 0x00000000
+                if 0 not in data: return None
+                if isinstance(data[0],str): return None
+                return data[0]
 
-            def loadMasters(data):
-                data.setdefault('masters',[])
-                for subType,subData in data['TES4'][1:]:
-                    if subType == 'MAST':
-                        master = GPath(bfRead(subData,CString))
-                        data['masters'].append(master)
-                        if master in masters:
-                            continue
-                        masters.append(master)
-                        if settings['load.masters']:
-                            data = loadHeader(master)
-                            if 'TES4' in data:
-                                self.data[master] = data
-                                loadMasters(data)
+            masters = []
+            def loadMasters(file):
+                thisMasters = []
+                with BinaryFile(dataPath.join(file).s) as ins:
+                    header = loadHeader(ins)
+                    if not header: return
+                    recHeader = header[1][1]
+                    recHeader.seek(8) # Skip type,datasize
+                    flags = bfRead(recHeader,UInt32)
+                    if flags & 0x80: self.data[file]['strings'] = StringTable()
+                    for subType,subData in header[2:]:
+                        if subType == 'MAST':
+                            subData.seek(0)
+                            master = GPath(bfRead(subData,CString))
+                            thisMasters.append(master)
+                self.data[file]['masters'] = thisMasters
+                for master in thisMasters:
+                    if master in masters: continue
+                    masters.append(master)
+                    self.data[master] = OrderedDict()
+                    if settings['load.masters']:
+                        loadMasters(master)
 
             subprogress(0,'Pre-scanning')
             for i,file in enumerate(files):
                 records.FormIdTable.SetPlugin(file)
                 # Read TES4 record
                 subprogress(i)
-                data = loadHeader(file)
-                if 'TES4' in data:
-                    masters.append(file)
-                    self.data[file] = data
-                    loadMasters(data)
+                masters.append(file)
+                self.data[file] = OrderedDict()
+                loadMasters(file)
             masters.sort(key=lambda x: self.plugins.all.index(x))
             if settings['load.masters']:
                 files = masters
@@ -1418,7 +1417,6 @@ class MyFrame(wx.Frame):
             records.FormIdTable.SetData(self.data)
 
             # Step 2: update the UI with the new items
-            self.ClearUI()
             root = self.tree.GetRootItem()
             for i,file in enumerate(masters):
                 item = self.tree.AppendItem(root,'[%02X] %s' % (i,file.s))
@@ -1429,21 +1427,12 @@ class MyFrame(wx.Frame):
                         'header': hedr,
                         'strings': None,
                         }
-                    self.data[file]['strings'] = StringTable()
             self.searchMods.Enable(True)
 
             # Step 3: Load the STRINGS for each plugin
             # ~10% of progress?
             if settings['load.strings']:
-                strings_to_load = []
-                for file in files:
-                    if 'TES4' not in self.data[file]: continue
-                    subType,subData = self.data[file]['TES4'][1] # Record Header
-                    subData.seek(8) # Skip type - 4 bytes, and size - 4 bytes
-                    flags = bfRead(subData,UInt32)
-                    subData.seek(0)
-                    if flags & 0x80: # hasStrings
-                        strings_to_load.append(file)
+                strings_to_load = [x for x in files if 'strings' in self.data[x]]
                 subprogress = ui.SubProgress(self.progress,5,15)
                 self.LoadStrings(strings_to_load,subprogress)
             else:
@@ -1453,7 +1442,8 @@ class MyFrame(wx.Frame):
             # ~85% of progress?
             def parseGRUP(ins,root,data,prgs):
                 prgs(ins.tell())
-                recType,groupSize,label,groupType,stamp,unk = ins.unpack('4s I 4s I I I')
+                (recType,groupSize,label,
+                 groupType,stamp,unk) = bfUnpack(ins,('4s I 4s I I I'))
                 label = cStringIO.StringIO(label)
 
                 grup_info = grup_types.get(groupType,('Unknown','%s',4,False))
@@ -1465,7 +1455,14 @@ class MyFrame(wx.Frame):
 
                 label = bfRead(label,grup_info[2])
                 if grup_info[3]:
-                    formId = '%08X' % label
+                    shortId,longId,recordId = records.FormIdTable.ShortToLongFid(label)
+                    if longId is None:
+                        # missing master, item was added to tree control as
+                        # shortId,recordId, and colored pink
+                        formId = '%02X%06X' % (shortId,recordId)
+                    else:
+                        # use the resolved formId to search
+                        formId = '%02X%06X' % (longId,recordId)
                     parent = self.tree.FindItem(data['ui']['root'],formId)
                     if parent.IsOk():
                         root = self.tree.AppendItem(parent,grup_info[0])
@@ -1485,7 +1482,7 @@ class MyFrame(wx.Frame):
                     else:
                         parseRecord(ins,root,data,prgs)
 
-            files = [self.plugins.getPath().join(x) for x in files]
+            files = [dataPath.join(x) for x in files]
             total = max(sum(x.size for x in files),1)
             subprogress = ui.SubProgress(self.progress,15,100)
             subprogress.setFull(total)
@@ -1509,8 +1506,11 @@ class MyFrame(wx.Frame):
                         recType = ins.read(4)
                         size = ins.read(UInt32)
                         if recType == 'TES4':
-                            # Already parsed
-                            ins.seek(size+16,os.SEEK_CUR)
+                            ins.seek(-8,os.SEEK_CUR)
+                            parseRecord(ins,None,data)
+                            if 0 in data:
+                                data['TES4'] = data[0]
+                                del data[0]
                         elif recType != 'GRUP':
                             self.tree.AppendItem(root,'ERROR - %s' % recType)
                             break
@@ -1518,6 +1518,7 @@ class MyFrame(wx.Frame):
                             # GRUP
                             ins.seek(-8,os.SEEK_CUR)
                             parseGRUP(ins,root,data,subprogress2)
+
                 # Remove any items without children (except Header and Strings)
                 child,cookie = self.tree.GetFirstChild(root)
                 while child.IsOk():
@@ -1660,6 +1661,7 @@ def main():
         skyrimPath = AskSkyrimPath()
     if not skyrimPath:
         return
+    settings['skyrim'] = skyrimPath
 
     if not settings['language']:
         iniPath = GetSavesPath().join('Skyrim.ini')
@@ -1676,7 +1678,6 @@ def main():
                 if iniConfig.has_option('General','sLanguage'):
                     settings['language'] = iniConfig.get('General','sLanguage').strip()
 
-    dataPath = skyrimPath.join('Data').s
     icons = wx.IconBundle()
     for size in (16,32,48,64,128):
         icon = wx.Icon(resources['main_ico'],wx.BITMAP_TYPE_ICO,size,size)
@@ -1684,9 +1685,7 @@ def main():
             icons.AddIcon(icon)
     resources['icons'] = icons
 
-    frame = MyFrame(dataPath)
-    if icons:
-        frame.SetIcons(icons)
+    frame = MyFrame()
     app.SetTopWindow(frame)
     frame.Show()
     frame.Center()

@@ -87,18 +87,18 @@ setup(
                 'mswsock.dll',  # Prevent x64 versions (for win32api)
                 'powrprof.dll', # Prevent x64 versions (for win32api)
                 ],
-            #'excludes': [
-            #    '_ssl',     # Suggested in the py2exe tutorial
-            #    'doctest',  # Suggested in the py2exe tutorial
-            #    'pdb',      # Suggested in the py2exe tutorial
-            #    'unittest', # Suggested in the py2exe tutorial
-            #    'difflib',  # Suggested in the py2exe tutorial
-            #    'pywin',                # Suggested in the wxPython example
-            #    'pywin.debugger',       # Suggested in the wxPython example
-            #    'pywin.debugger.dbgcon',# Suggested in the wxPython example
-            #    'pywin.dialogs',        # Suggested in the wxPython example
-            #    'pywin.dialogs.list',   # Suggested in the wxPython example
-            #    ],
+            'excludes': [
+                '_ssl',     # Suggested in the py2exe tutorial
+                'doctest',  # Suggested in the py2exe tutorial
+                'pdb',      # Suggested in the py2exe tutorial
+                'unittest', # Suggested in the py2exe tutorial
+                'difflib',  # Suggested in the py2exe tutorial
+                'pywin',                # Suggested in the wxPython example
+                'pywin.debugger',       # Suggested in the wxPython example
+                'pywin.debugger.dbgcon',# Suggested in the wxPython example
+                'pywin.dialogs',        # Suggested in the wxPython example
+                'pywin.dialogs.list',   # Suggested in the wxPython example
+                ],
             'ignores': [
                 'psyco'
                 ],
