@@ -14,7 +14,7 @@
     InstallDir "$TEMP\PythonInstallers"
     RequestExecutionLevel admin	    ; Request Admin rights for Vista/7
 
-    VIProductVersion 7.0.0.0
+    VIProductVersion 8.0.0.0
     VIAddVersionKey /LANG=${LANG_ENGLISH} "ProductName" "Wrye Python 08"
     VIAddVersionKey /LANG=${LANG_ENGLISH} "CompanyName" "Wrye Bash development team"
     VIAddVersionKey /LANG=${LANG_ENGLISH} "FileDescription" "Python 2.7 installer for Wrye Bash"
