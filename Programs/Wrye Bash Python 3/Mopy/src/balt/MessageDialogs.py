@@ -42,7 +42,7 @@ def VistaDialog(parent,message,title,buttons=[],checkBox=None,icon=None,commandL
     if expander:
         dialog.set_expander(expander,False,not footer)
     if checkBox:
-        if isinstance(checkBox,string):
+        if isinstance(checkBox,str):
             dialog.set_check_box(checkBox,False)
         else:
             dialog.set_check_box(checkBox[0],checkBox[1])
