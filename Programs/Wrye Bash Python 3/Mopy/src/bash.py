@@ -31,10 +31,6 @@ import sys
 def VerifyRequirements():
     """Check to see if all required dependancies are installed."""
     errors = []
-    #--Python 3.2
-    if sys.version_info[0:2] != (3,2):
-        errors.append(_('Python 3.2 is required.  Current version %(version)s')
-                      % {'version':sys.version_info})
     #--wxPython
     try:
         import wx
@@ -43,6 +39,10 @@ def VerifyRequirements():
         errors.append(_('wxPython is required.  Get wxPhoenix: %(url)s')
                       % {'url':'http://wiki.wxpython.org/ProjectPhoenix'})
         haveWx = False
+    #--Python 3.2
+    if sys.version_info[0:2] != (3,2):
+        errors.append(_('Python 3.2 is required.  Current version %(version)s')
+                      % {'version':sys.version_info})
     #--pywin32
     try:
         import win32api
@@ -57,14 +57,14 @@ def VerifyRequirements():
 
     if errors:
         # First, try to show the error in the GUI
-        msg = '\n'.join(errors)
+        msg = '\n\n'.join(errors)
         shown = False
         if haveWx:
             try:
-                from bash.balt import ShowError
-                ShowError(None,msg)
+                from src.balt import ShowError
+                ShowError(None,msg,'Wrye Bash')
                 shown = True
-            except:
+            except Exception as e:
                 pass
         if not shown:
             # wx failed, try Tkinter
