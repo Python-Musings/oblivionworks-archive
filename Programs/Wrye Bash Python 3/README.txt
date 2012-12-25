@@ -16,3 +16,17 @@ I'm doing a seperate folder rather than a branch for a few reasons:
    b) py2exe - Pretty much non-existant for Python 3.  So I'll probably have
       to either port py2exe to Python 3, or try an alternate solution (freeze
       or something)
+
+
+Requirements:
+1) Python 3.2 (grab the 32-bit version - wxPhoenix is only available in 32-bit)
+
+     http://www.python.org/download/releases/3.2.3/
+
+2) wxPython Phoenix (grab the latest 3.2 version)
+
+     http://wxpython.org/Phoenix/snapshot-builds/
+
+3) pywin32 (grab latest 32-bit version for 3.2)
+
+     https://sourceforge.net/projects/pywin32/files/pywin32/
