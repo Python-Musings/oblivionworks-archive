@@ -56,37 +56,39 @@ def VerifyRequirements():
         errors.append(_('pywin32 218 is required.'))
 
     if errors:
+        msg = (_('Cannot start Wrye Bash.  Please ensure that Python dependancies are installed correctly:')
+               + '\n\n' +
+               '\n\n'.join(errors))
         # First, try to show the error in the GUI
-        msg = '\n\n'.join(errors)
         shown = False
         if haveWx:
             try:
                 from src.balt import ShowError
                 ShowError(None,msg,'Wrye Bash')
                 shown = True
-            except Exception as e:
+            except:
                 pass
         if not shown:
             # wx failed, try Tkinter
             try:
-                import Tkinter
-                root = Tkinter.Tk()
-                frame = Tkinter.Frame(root)
+                import tkinter
+                root = tkinter.Tk()
+                frame = tkinter.Frame(root)
                 frame.pack()
-                button = Tkinter.Button(frame,text=_('Quit'),fg='red',
+                button = tkinter.Button(frame,text=_('Quit'),fg='red',
                                         command=root.destroy,pady=15,borderwidth=15,
-                                        relief=Tkinter.GROOVE)
-                button.pack(fill=Tkinter.BOTH,expand=1,side=Tkinter.BOTTOM)
-                text = Tkinter.Text(frame)
-                text.insert(Tkinter.END,msg)
-                text.config(state=Tkinter.DISABLED)
+                                        relief=tkinter.GROOVE)
+                button.pack(fill=tkinter.BOTH,expand=1,side=tkinter.BOTTOM)
+                text = tkinter.Text(frame)
+                text.insert(tkinter.END,msg)
+                text.config(state=tkinter.DISABLED)
                 text.pack()
                 root.mainloop()
                 shown = True
             except:
                 pass
         if not shown:
-            # even Tkinter failed
+            # even tkinter failed
             print(msg)
         return False
     return True
