@@ -30,3 +30,12 @@ Requirements:
 3) pywin32 (grab latest 32-bit version for 3.2)
 
      https://sourceforge.net/projects/pywin32/files/pywin32/
+
+Also recommended:
+1) Python Launcher for Windows:  Allows you to have multiple version of Python
+   installed, and a shebang line at the beginning determines which version
+   of Python runs your script (not needed for Linux, already part of the shell).
+   This is installed by default with Python 3.3, but not earlier.  Wrye Bash
+   trunk and Python 3 versions both have shebang lines so they work with this.
+
+   http://blog.python.org/2011/07/python-launcher-for-windows_11.html
