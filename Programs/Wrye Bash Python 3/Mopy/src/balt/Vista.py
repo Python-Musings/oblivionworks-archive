@@ -559,7 +559,7 @@ class TaskDialog(object):
                 radio = self._radio_buttons[wparam]
             else:
                 radio = wparam
-            args.append(wparam)
+            args.append(radio)
 
         elif notification == VERIFICATION_CLICKED:
             args.append(wparam)
