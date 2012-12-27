@@ -28,6 +28,7 @@
 # Imports ----------------------------------------------------------------------
 import wx
 from . import Vista
+from src.bolt.Regex import reURL,reURLCode
 
 def VistaDialog(parent,message,title,buttons=[],checkBox=None,icon=None,commandLinks=True,footer='',expander=[],heading=''):
     heading = heading if heading is not None else title
@@ -36,11 +37,11 @@ def VistaDialog(parent,message,title,buttons=[],checkBox=None,icon=None,commandL
                               buttons=[x[1] for x in buttons],
                               icon=icon,
                               parenthwnd=parent.GetHandle() if parent else None)
-    dialog.bind(Vista.HYPERLINK_CLICKED,Vista.StartURL)
+    dialog.bind(Vista.HYPERLINK_CLICKED,Vista.StartURLCallback)
     if footer:
         dialog.set_footer(footer)
     if expander:
-        dialog.set_expander(expander,False,not footer)
+        dialog.set_expander(expander,not isinstance(expander,list),not footer)
     if checkBox:
         if isinstance(checkBox,str):
             dialog.set_check_box(checkBox,False)
@@ -58,7 +59,27 @@ def VistaDialog(parent,message,title,buttons=[],checkBox=None,icon=None,commandL
 
 def AskStyled(parent,message,title,style,**kwdargs):
     """Shows a modal MessageDialog"""
+    urls = []
+    parseURLs = kwdargs.pop('parseURLs',False)
+    matches = reURLCode.findall(message)
+    for text,url in matches:
+        full = '[['+text+'|'+url+']]'
+        if parseURLs:
+            urls.append((text,url))
+        message = message.replace(full,url)
+    if parseURLs and not urls:
+        matches = reURL.findall(message)
+        for url in matches:
+            urls.append((url,url))
     if Vista.Available:
+        footer = []
+        for url in urls:
+            footer.append('<A href="%(url)s">%(title)s</A>' % {'url':url[1],
+                                                               'title':url[0]})
+        if footer:
+            footer = (_('Show links'),
+                      _('Hide links'),
+                      '\n'.join(footer))
         buttons = []
         icon = None
         if style & wx.YES_NO:
@@ -81,6 +102,7 @@ def AskStyled(parent,message,title,style,**kwdargs):
                              title=title,
                              icon=icon,
                              buttons=buttons,
+                             expander=footer,
                              **kwdargs)
     else:
         dialog = wx.MessageDialog(parent,message,title,style)

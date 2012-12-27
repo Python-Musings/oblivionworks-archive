@@ -80,6 +80,9 @@ def StartURL(url):
         import webbrowser
         webbrowser.open(url,new=2)
 
+def StartURLCallback(dialog,url):
+    StartURL(url)
+
 #==TaskDialog =================================================================
 #==============================================================================
 BUTTONID_OFFSET                 = 1000
