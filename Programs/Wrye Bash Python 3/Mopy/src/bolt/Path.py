@@ -178,7 +178,7 @@ class Path(object):
     @staticmethod
     def tempdir():
         """Returns directory where temp files and directories are made."""
-        return GPath(tempfile.gettempdir())
+        return GPath(_tempfileGettempdir())
 
     #--Member Methods ------------------------------------------------------
     __slots__ = ('_s','_cs','_sroot','_csroot','_shead','_stail','_ext','_cext',
