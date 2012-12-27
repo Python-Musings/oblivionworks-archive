@@ -41,6 +41,7 @@ from binascii import crc32
 #--Libraries
 try:
     import win32api
+    from win32com.shell import shell, shellcon
     _win32apiGetFileVersionInfo = win32api.GetFileVersionInfo
     _win32apiHIWORD = win32api.HIWORD
     _win32apiLOWORD = win32api.LOWORD
@@ -150,37 +151,31 @@ def GPathPurge():
             del _gpaths[key]
 
 #-------------------------------------------------------------------------------
+def getcwd():
+    """Get the current working directory."""
+    return GPath(_osGetcwd())
+
+def getNorm(name):
+    """Return normalized path for specified string/path object."""
+    if not name: return name
+    elif isinstance(name,Path): return name._s
+    return _osPathNormpath(name)
+
+def getCase(name):
+    """Return normalized path + normalizes case for string/path object."""
+    if not name: return name
+    if isinstance(name,Path): return name._s
+    return _osPathNormcase(_osPathNormpath(name))
+
+def tempdir():
+    """Returns directory where temp files are made."""
+    return GPath(_tempfileGettempdir())
+
+
 class Path(object):
     """A file path.  May be a directory or filename, a full path or relative
        path.  Can include the drive or not.  Supports Pickling."""
 
-    #--Class Methods -------------------------------------------------------
-
-    @staticmethod
-    def getcwd():
-        """Get the current working directory."""
-        return Path(_osGetcwd())
-
-    @staticmethod
-    def getNorm(name):
-        """Return normalized path for specified string/path object."""
-        if not name: return name
-        elif isinstance(name,Path): return name._s
-        return _osPathNormpath(name)
-
-    @staticmethod
-    def getCase(name):
-        """Returns the normalized path and normalized case for name/path."""
-        if not name: return name
-        if isinstance(name,Path): return name._cs
-        return _osPathNormcase(_osPathNormpath(name))
-
-    @staticmethod
-    def tempdir():
-        """Returns directory where temp files and directories are made."""
-        return GPath(_tempfileGettempdir())
-
-    #--Member Methods ------------------------------------------------------
     __slots__ = ('_s','_cs','_sroot','_csroot','_shead','_stail','_ext','_cext',
                  '_sbody','_csbody')
 
@@ -219,11 +214,11 @@ class Path(object):
 
     def __add__(self,other):
         """Add two path strings together.  Does not insert path seperators."""
-        return GPath(self._s + Path.getNorm(other))
+        return GPath(self._s + getNorm(other))
 
     def __div__(self,other):
         """Join to paths together with path seperator."""
-        return GPath(_osPathJoin(self._s,Path.getNorm(other)))
+        return GPath(_osPathJoin(self._s,getNorm(other)))
 
     def __hash__(self):
         """Has function for use as a key for containers."""
@@ -232,27 +227,27 @@ class Path(object):
     #--Comparison functions (__cmp__ doesn't exist in Python 3)
     def __lt__(self,other):
         """Comparison less than."""
-        return self._cs < Path.getCase(other)
+        return self._cs < getCase(other)
 
     def __le__(self,other):
         """Comparison less than or equal to."""
-        return self._cs <= Path.getCase(other)
+        return self._cs <= getCase(other)
 
     def __gt__(self,other):
         """Comparison greater than."""
-        return self._cs > Path.getCase(other)
+        return self._cs > getCase(other)
 
     def __ge__(self,other):
         """Comparison greather than or equal to."""
-        return self._cs >= Path.getCase(other)
+        return self._cs >= getCase(other)
 
     def __eq__(self,other):
         """Comparison equals function."""
-        return self._cs == Path.getCase(other)
+        return self._cs == getCase(other)
 
     def __ne__(self,other):
         """Comparison not equals function."""
-        return self._cs != Path.getCase(other)
+        return self._cs != getCase(other)
 
     #--Properties ----------------------------------------------------------
     @property
@@ -494,7 +489,7 @@ class Path(object):
 
     def join(*args):
         """Joins self with path elements, using path seperators."""
-        norms = [Path.getNorm(x) for x in args]
+        norms = map(getNorm,args)
         return GPath(_osPathJoin(*norms))
 
     def list(self):
@@ -533,7 +528,7 @@ class Path(object):
 
     def relpath(self,path):
         """Returns self's relative path to path."""
-        return GPath(_osPathRelpath(self._s,Path.getNorm(path)))
+        return GPath(_osPathRelpath(self._s,getNorm(path)))
 
     #--Helper functions
     @staticmethod
@@ -620,7 +615,7 @@ class Path(object):
     def copyTo(self,dest):
         """Copies self to destination."""
         if _osPathIsdir(self._s):
-            _shutilCopytree(self._s,Path.getNorm(dest))
+            _shutilCopytree(self._s,getNorm(dest))
         else:
             dest = GPath(dest)
             if dest._shead and not _osPathExists(dest._shead):
@@ -669,3 +664,54 @@ class Path(object):
     def setcwd(self):
         """Set current working directory to self."""
         _osChdir(self._s)
+
+class PathUnion(object):
+    """A Path-like object for directories.  Minimal functions, just useful
+       for specifying 2 or more search paths for files."""
+    __slots__ = ('_dirs',)
+
+    def __init__(self,*names,mode=-1):
+        self._dirs = [GPath(x) for x in names]
+        if mode == -1:
+            self._dirs.reverse()
+
+    def __repr__(self):
+        """Representaion of a PathUnion"""
+        return 'PathUnion(%s)' % self._dirs
+
+    def list(self):
+        """Returns list of filenames/dirnames in this union."""
+        items = set()
+        for dirname in self._dirs:
+            items |= set(dirname.list())
+        return list(items)
+
+    def join(self,*args):
+        norms = [getNorm(x) for x in args]
+        for dirname in self._dirs:
+            full = _osPathJoin(dirname._s,*norms)
+            if _osPathExists(full):
+                return GPath(full)
+        else:
+            # None exist, use first directory to create
+            return self._dirs[0].join(*norms)
+
+# Initialize Shell Paths -------------------------------------------------------
+def _shell_path(name):
+    if not win32api: return None
+    try:
+        folder_id = getattr(shellcon,'CSIDL_'+name)
+        return GPath(shell.SHGetFolderPath(0,folder_id,None,0))
+    except AttributeError:
+        return None
+
+Desktop = _shell_path('DESKTOP')
+AppData = _shell_path('APPDATA')
+LocalAppData = _shell_path('LOCAL_APPDATA')
+Favorites = _shell_path('FAVORITES')
+StartMenu = _shell_path('STARTMENU')
+Programs = _shell_path('PROGRAMS')
+Startup = _shell_path('STARTUP')
+Personal = _shell_path('PERSONAL')
+Recent = _shell_path('RECENT')
+SendTo = _shell_path('SENDTO')

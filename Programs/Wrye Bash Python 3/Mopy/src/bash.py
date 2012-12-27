@@ -27,6 +27,41 @@
 #--Standard
 import os
 import sys
+import builtins
+import traceback
+
+# Install dummy translation function
+builtins.__dict__['_'] = lambda x: x
+
+def ErrorMessage(message):
+    """Show an error message using GUI if possible."""
+    try:
+        # Try wx first
+        import wx
+        from src.balt import ShowError
+        ShowError(None,message,'Wrye Bash - Error',parseURLs=True)
+    except:
+        # That failed, try Tkinter
+        try:
+            import tkinter
+            import tkinter.ttk as ttk
+            root = tkinter.Tk()
+            root.title('Wrye Bash')
+            frame = ttk.Frame(root,padding='3 3 3 3')
+            frame.pack()
+            style = ttk.Style()
+            style.configure('TButton')
+            button = ttk.Button(text=_('Quit'),command=root.destroy)
+            button.pack()#side=tkinter.BOTTOM)
+            text = tkinter.Text(frame,wrap='word')
+            text.insert(1.0,msg)
+            text.config(state=tkinter.DISABLED)
+            text.pack()
+            root.mainloop()
+        except:
+            # That failed, print to console
+            print('Error:', message)
+
 
 def VerifyRequirements():
     """Check to see if all required dependancies are installed."""
@@ -69,68 +104,47 @@ def VerifyRequirements():
         msg = (_('Cannot start Wrye Bash!  Please ensure that Python dependancies are installed correctly.')
                + '\n\n' +
                '\n\n'.join(errors))
-        # First, try to show the error in the GUI
-        shown = False
-        if haveWx:
-            try:
-                from src.balt import ShowError
-                ShowError(None,msg,'Wrye Bash',parseURLs=True)
-                shown = True
-            except Exception as e:
-                raise
-                #print(e)
-                #pass
-        if not shown:
-            # wx failed, try Tkinter
-            try:
-                import tkinter
-                import tkinter.ttk as ttk
-                root = tkinter.Tk()
-                root.title('Wrye Bash')
-                frame = ttk.Frame(root,padding='3 3 3 3')
-                frame.pack()
-                style = ttk.Style()
-                style.configure('TButton')
-                button = ttk.Button(text=_('Quit'),command=root.destroy)
-                button.pack()#side=tkinter.BOTTOM)
-                text = tkinter.Text(frame,wrap='word')
-                text.insert(1.0,msg)
-                text.config(state=tkinter.DISABLED)
-                text.pack()
-                root.mainloop()
-                shown = True
-            except Exception as e:
-                print('Error with tkinter:', e)
-                pass
-        if not shown:
-            # even tkinter failed
-            print(msg)
+        ErrorMessage(msg)
         return False
     return True
 
 def main():
-    #--Setup translations
     try:
-        from src.bolt import Translations
-        Translations.Install()
+        #--Initialize directories
+        import src.dirs
+        src.dirs.InitDirs()
+        from src.dirs import dirs
+        #--Setup translations
+        try:
+            from src.bolt import Translations
+            Translations.Install(path=dirs['l10n'])
+        except Exception as e:
+            # Translations fail.  Install a NULL Translations
+            # _ function so at least we don't get errors there.
+            print('Error installing Translations:')
+            traceback.print_exc()
+        #--Check for dependencies
+        if not VerifyRequirements():
+            return
+        #--Start wxApp
+        import wx
+        app = wx.App()
+        #--Test for single instance
+        from src.bolt import OneInstanceChecker
+        if not OneInstanceChecker.Start():
+            return
+        del OneInstanceChecker
+        #--Run the app!
+        #  For now we're just using a dummy frame until we flesh this out
+        frame = wx.Frame(None,wx.ID_ANY,_('Haha!'))
+        frame.Show()
+        app.MainLoop()
     except Exception as e:
-        # Translations fail.  Install a NULL Translations
-        # _ function so at least we don't get errors there.
-        print('Error installing Translations:', e)
-        builtins.__dict__['_'] = lambda x: x
-    #--Check for dependencies
-    if not VerifyRequirements():
-        return
-    #--Start wxApp
-    import wx
-    app = wx.App()
-    #--Test for single instance
-    from src.bolt import OneInstanceChecker
-    if not OneInstanceChecker.Start():
-        return
-    del OneInstanceChecker
-    #--Run the app!
-    #  For now we're just using a dummy frame until we flesh this out
-    frame = wx.Frame(None,wx.ID_ANY,_('Haha!'))
-    frame.Show()
-    app.MainLoop()
+        #--Something bad happened, try to show it in GUI mode.
+        import io
+        o = io.StringIO()
+        o.write(_('Could not start Wrye Bash:'))
+        o.write('\n\n')
+        traceback.print_exc(file=o)
+        ErrorMessage(o.getvalue())
+        raise

@@ -35,11 +35,11 @@
 # Imports ----------------------------------------------------------------------
 import locale
 import gettext
-import shutil
 import sys
-import os
 import traceback
 import subprocess
+
+from src.bolt.Path import GPath
 
 #--Setup locale
 if locale.getlocale() == (None,None):
@@ -56,21 +56,19 @@ def Dump(language,outPath,*files):
         # No files specified.  Assume this file is located in root/src/bolt
         # and we'll dump every .py file in root recursively
         files = []
-        mopy = os.path.dirname(os.path.dirname(os.path.dirname(
-                               os.path.realpath(__file__))))
-        for root,dirs,fnames in os.walk(mopy):
-            for file in files:
-                body,ext = os.path.splitext(file)
-                ext = os.path.normcase(ext)
-                if ext == '.py':
-                    files.append(os.path.join(root,file))
+        mopy = GPath(__file__).realpath.head.head.head
+        files = [root.join(file).s for root,dirs,fnames in mopy.walk() for file in fnames
+                 if file.cext == '.py']
+        print('files:')
+        for file in files:
+            print(file)
     #--Output files
     outTxt = '%sNEW.txt' % language
-    fullTxt = os.path.join(outPath,outTxt)
-    tmpTxt = os.path.join(outPath,'%NEW.tmp' % language)
-    oldTxt = os.path.join(outPath,'%s.txt' % language)
+    fullTxt = outPath.join(outTxt)
+    tmpTxt = outPath.join('%sNEW.tmp' % language)
+    oldTxt = outPath.join('%s.txt' % language)
     #--First dump a fresh translation file
-    args = ['p','-a','-o',fullTxt]
+    args = ['p','-a','-o',fullTxt.s]
     args.extend(files)
     if hasattr(sys,'frozen'):
         # Frozen app, the tool scripts aren't accessable
@@ -82,8 +80,8 @@ def Dump(language,outPath,*files):
         pygettext.main()
         sys.argv = old_argv
     else:
-        p = os.path.join(sys.prefix,'Tools','i18n','pygettext.py')
-        args[0] = p
+        p = GPath(sys.prefix).join('Tools','i18n','pygettext.py')
+        args[0] = p.s
         subprocess.call(args,shell=True)
     return outTxt
 
@@ -92,23 +90,22 @@ def Install(language=None,path=None):
        installs a translation for the default language."""
     if not language:
         language = locale.getlocale()[0].split('_',1)[0]
-    path = path if path else 'l10n'
+    path = path if path else GPath('l10n')
     if language.lower() == 'german':
         language = 'de'
-    txt,po,mo = (os.path.join(path,language+ext)
+    txt,po,mo = (path.join(language+ext)
                  for ext in ('.txt','.po','.mo'))
     #--Test for no translation for the language
-    if not os.path.exists(txt) and not os.path.exists(mo):
+    if not txt.exists and not mo.exists:
         if language.lower() != 'english':
             print('No translation file for language:', language)
         trans = gettext.NullTranslations()
     else:
         try:
             # See if translation needs to be recompiled
-            if not os.path.exists(mo) or (os.path.getmtime(txt) >
-                                          os.path.getmtime(mo)):
-                shutil.copy(txt,po)
-                args= ['m','-o',mo,po]
+            if not mo.exists or txt.mtime > mo.mtime:
+                txt.copyTo(po)
+                args= ['m',po.s]
                 if hasattr(sys,'frozen'):
                     # Same thing as for 'Dump' for frozen
                     # apps.
@@ -118,12 +115,12 @@ def Install(language=None,path=None):
                     msgfmt.main()
                     sys.argv = old_argv
                 else:
-                    m = os.path.join(sys.prefix,'Tools','i18n','msgfmt.py')
-                    args[0] = m
+                    m = GPath(sys.prefix).join('Tools','i18n','msgfmt.py')
+                    args[0] = m.s
                     subprocess.call(args,shell=True)
-                os.remove(po)
+                po.remove()
             # Create GNU translations
-            with open(mo,'rb') as ins:
+            with mo.open('rb') as ins:
                 trans = gettext.GNUTranslations(ins)
         except:
             print('Error loading translation file for', language)
