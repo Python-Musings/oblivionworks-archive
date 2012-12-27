@@ -66,7 +66,7 @@ def VerifyRequirements():
                       + '\n    %s' % url)
 
     if errors:
-        msg = (_('Cannot start Wrye Bash.  Please ensure that Python dependancies are installed correctly.')
+        msg = (_('Cannot start Wrye Bash!  Please ensure that Python dependancies are installed correctly.')
                + '\n\n' +
                '\n\n'.join(errors))
         # First, try to show the error in the GUI
@@ -86,7 +86,8 @@ def VerifyRequirements():
                 import tkinter
                 import tkinter.ttk as ttk
                 root = tkinter.Tk()
-                frame = ttk.Frame(root,padding="3 3 3 3")
+                root.title('Wrye Bash')
+                frame = ttk.Frame(root,padding='3 3 3 3')
                 frame.pack()
                 style = ttk.Style()
                 style.configure('TButton')
