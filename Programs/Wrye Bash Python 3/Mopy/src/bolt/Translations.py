@@ -25,11 +25,7 @@
 """This module handles translation functions for Wrye Bash."""
 
 """TODO:
-      1) Store the .txt files in Mopy\l10n
-         Store the compiled .mo files in the users local app data
-         directory.  This will avoid bash trying to create new files
-         in its own directory, for if Bash is installed in a UAC location
-      2) Actually implement the "update from old txt" part of 'Dump'
+      1) Actually implement the "update from old txt" part of 'Dump'
    """
 
 # Imports ----------------------------------------------------------------------
