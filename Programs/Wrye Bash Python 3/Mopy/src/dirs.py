@@ -27,14 +27,13 @@
 # Imports ----------------------------------------------------------------------
 from src.bolt import Path
 from src.bolt.Path import GPath, PathUnion
-
-# Globals ----------------------------------------------------------------------
-# dirs holds the list of all directories setup.  Keys are string objects
-dirs = {}
+import src.bass as bass
 
 def InitDirs():
     # Initialize directories.  To make sure Bash follows symlinks and stuff
-    # corectly, we'll use the 'realpath' portion of this.
+    # corectly, we'll use the 'realpath' portion of this.'
+    bass.dirs = {}
+    dirs = bass.dirs
 
     # app - directory that Wrye Bash is installed to.  Older version of Bash
     #       this was the path to the *game*.  Now it's Wrye Bash, mostly
@@ -56,6 +55,9 @@ def InitDirs():
     dirs['user.bash'] = dirs['user'].join('Wrye Bash')
 
     # l10n - contains the uncompiled translation files shipped with bash
-    dirs['l10n'] = PathUnion(dirs['app'].join('l10n'),
-                             dirs['user.bash'].join('l10n'))
+    if bass.opts.portable:
+        dirs['l10n'] = dirs['app'].join('l10n')
+    else:
+        dirs['l10n'] = PathUnion(dirs['app'].join('l10n'),
+                                 dirs['user.bash'].join('l10n'))
     
