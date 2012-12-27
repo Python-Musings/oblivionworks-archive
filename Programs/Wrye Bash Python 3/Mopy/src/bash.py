@@ -36,27 +36,37 @@ def VerifyRequirements():
         import wx
         haveWx = True
     except ImportError:
-        errors.append(_('wxPython is required.  Get wxPhoenix: %(url)s')
-                      % {'url':'http://wiki.wxpython.org/ProjectPhoenix'})
+        errors.append(_('wxPython is required.  None detected.  Get it from:') +
+                      '\n    http://wiki.wxpython.org/ProjectPhoenix')
         haveWx = False
     #--Python 3.2
     if sys.version_info[0:2] != (3,2):
-        errors.append(_('Python 3.2 is required.  Current version %(version)s')
-                      % {'version':sys.version_info})
+        url = 'http://www.python.org/download/releases/3.2.3/'
+        if haveWx:
+            url = '[[Python 3.2|'+url+']]'
+        errors.append(
+            (_('Python 3.2 is required.  Current version is %(version)s.  Get it from:')
+             % {'version':'.'.join(map(str,sys.version_info[0:3]))})
+            + '\n    %s' % url)
     #--pywin32
+    url = 'https://sourceforge.net/projects/pywin32/files/pywin32/'
+    if haveWx:
+        url = '[[pywin32 218|'+url+']]'
     try:
         import win32api
         version = win32api.GetFileVersionInfo(win32api.__file__,'\\')
         version = version['FileVersionLS'] >> 16
         if version < 218:
             errors.append(
-                _('pywin32 218 is required.  Current version %(version)s')
-                % {'version':version})
+                (_('pywin32 218 is required.  Current version is %(version)s.  Get it from:')
+                 % {'version':version})
+                + '\n    %s' % url)
     except ImportError:
-        errors.append(_('pywin32 218 is required.'))
+        errors.append(_('pywin32 218 is required.  None detected.  Get it from:')
+                      + '\n    %s' % url)
 
     if errors:
-        msg = (_('Cannot start Wrye Bash.  Please ensure that Python dependancies are installed correctly:')
+        msg = (_('Cannot start Wrye Bash.  Please ensure that Python dependancies are installed correctly.')
                + '\n\n' +
                '\n\n'.join(errors))
         # First, try to show the error in the GUI
@@ -64,28 +74,32 @@ def VerifyRequirements():
         if haveWx:
             try:
                 from src.balt import ShowError
-                ShowError(None,msg,'Wrye Bash')
+                ShowError(None,msg,'Wrye Bash',parseURLs=True)
                 shown = True
-            except:
-                pass
+            except Exception as e:
+                raise
+                #print(e)
+                #pass
         if not shown:
             # wx failed, try Tkinter
             try:
                 import tkinter
+                import tkinter.ttk as ttk
                 root = tkinter.Tk()
-                frame = tkinter.Frame(root)
+                frame = ttk.Frame(root,padding="3 3 3 3")
                 frame.pack()
-                button = tkinter.Button(frame,text=_('Quit'),fg='red',
-                                        command=root.destroy,pady=15,borderwidth=15,
-                                        relief=tkinter.GROOVE)
-                button.pack(fill=tkinter.BOTH,expand=1,side=tkinter.BOTTOM)
-                text = tkinter.Text(frame)
-                text.insert(tkinter.END,msg)
+                style = ttk.Style()
+                style.configure('TButton')
+                button = ttk.Button(text=_('Quit'),command=root.destroy)
+                button.pack()#side=tkinter.BOTTOM)
+                text = tkinter.Text(frame,wrap='word')
+                text.insert(1.0,msg)
                 text.config(state=tkinter.DISABLED)
                 text.pack()
                 root.mainloop()
                 shown = True
-            except:
+            except Exception as e:
+                print('Error with tkinter:', e)
                 pass
         if not shown:
             # even tkinter failed
@@ -95,8 +109,14 @@ def VerifyRequirements():
 
 def main():
     #--Setup translations
-    from src.bolt import Translations
-    Translations.Install()
+    try:
+        from src.bolt import Translations
+        Translations.Install()
+    except Exception as e:
+        # Translations fail.  Install a NULL Translations
+        # _ function so at least we don't get errors there.
+        print('Error installing Translations:', e)
+        builtins.__dict__['_'] = lambda x: x
     #--Check for dependencies
     if not VerifyRequirements():
         return
