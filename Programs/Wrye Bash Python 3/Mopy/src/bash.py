@@ -29,6 +29,9 @@ import os
 import sys
 import builtins
 import traceback
+#--Local
+import src.barg as barg
+import src.bass as bass
 
 # Install dummy translation function
 builtins.__dict__['_'] = lambda x: x
@@ -110,14 +113,15 @@ def VerifyRequirements():
 
 def main():
     try:
+        #--Parse command line
+        barg.parse()
         #--Initialize directories
         import src.dirs
         src.dirs.InitDirs()
-        from src.dirs import dirs
         #--Setup translations
         try:
             from src.bolt import Translations
-            Translations.Install(path=dirs['l10n'])
+            Translations.Install(path=bass.dirs['l10n'])
         except Exception as e:
             # Translations fail.  Install a NULL Translations
             # _ function so at least we don't get errors there.
