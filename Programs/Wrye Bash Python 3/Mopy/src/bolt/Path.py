@@ -60,6 +60,8 @@ _osMakedirs = os.makedirs
 _osRemove = os.remove
 _osRemovedirs = os.removedirs
 _osStartfile = os.startfile
+_osListdir = os.listdir
+_osW_OK = os.W_OK
 #--stat
 _statFlags = stat.S_IWUSR|stat.S_IWOTH
 #--os.path
@@ -80,6 +82,8 @@ _osPathGetctime = os.path.getctime
 _osPathGetmtime = os.path.getmtime
 _osPathSep = os.path.sep
 _osPathAltsep = os.path.altsep
+_osPathRelpath = os.path.relpath
+_osPathRealpath = os.path.realpath
 #--sys
 _sysGetrefcount = sys.getrefcount
 #--time
