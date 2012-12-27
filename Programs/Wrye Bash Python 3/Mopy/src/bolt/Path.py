@@ -229,9 +229,30 @@ class Path(object):
         """Has function for use as a key for containers."""
         return hash(self._cs)
 
-    def __cmp__(self):
-        """Comparison function."""
-        return cmp(self._cs,Path.getCase(other))
+    #--Comparison functions (__cmp__ doesn't exist in Python 3)
+    def __lt__(self,other):
+        """Comparison less than."""
+        return self._cs < Path.getCase(other)
+
+    def __le__(self,other):
+        """Comparison less than or equal to."""
+        return self._cs <= Path.getCase(other)
+
+    def __gt__(self,other):
+        """Comparison greater than."""
+        return self._cs > Path.getCase(other)
+
+    def __ge__(self,other):
+        """Comparison greather than or equal to."""
+        return self._cs >= Path.getCase(other)
+
+    def __eq__(self,other):
+        """Comparison equals function."""
+        return self._cs == Path.getCase(other)
+
+    def __ne__(self,other):
+        """Comparison not equals function."""
+        return self._cs != Path.getCase(other)
 
     #--Properties ----------------------------------------------------------
     @property
