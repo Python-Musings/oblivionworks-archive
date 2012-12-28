@@ -27,4 +27,4 @@
 
 # Globals ----------------------------------------------------------------------
 dirs = None     # Directories
-opts = None     # Command line arguements
+opts = None     # Command line arguments

@@ -67,7 +67,7 @@ def Dump(language,outPath,*files):
     args = ['p','-a','-o',fullTxt.s]
     args.extend(files)
     if hasattr(sys,'frozen'):
-        # Frozen app, the tool scripts aren't accessable
+        # Frozen app, the tool scripts aren't accessible
         # Instead, they're included in the package as an
         # importable module
         import pygettext

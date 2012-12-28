@@ -603,4 +603,3 @@ class TaskDialog(object):
                                    self._progress_bar['range'])
         windll.user32.SendMessageW(self.__handle, _SETPBARPOS,
                                    self._progress_bar['pos'], 0)
-

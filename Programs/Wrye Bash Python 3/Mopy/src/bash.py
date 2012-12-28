@@ -67,7 +67,7 @@ def ErrorMessage(message):
 
 
 def VerifyRequirements():
-    """Check to see if all required dependancies are installed."""
+    """Check to see if all required dependencies are installed."""
     errors = []
     #--wxPython
     try:
@@ -104,7 +104,7 @@ def VerifyRequirements():
                       + '\n    %s' % url)
 
     if errors:
-        msg = (_('Cannot start Wrye Bash!  Please ensure that Python dependancies are installed correctly.')
+        msg = (_('Cannot start Wrye Bash!  Please ensure that Python dependencies are installed correctly.')
                + '\n\n' +
                '\n\n'.join(errors))
         ErrorMessage(msg)
