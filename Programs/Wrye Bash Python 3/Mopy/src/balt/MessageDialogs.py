@@ -22,7 +22,7 @@
 #
 # ==============================================================================
 
-"""This modules implements commond modal dialogs used for showing information,
+"""This modules implements common modal dialogs used for showing information,
    warnings, and errors."""
 
 # Imports ----------------------------------------------------------------------
@@ -128,5 +128,5 @@ def ShowOk(parent,message,title='',**kwdargs):
     return AskStyled(parent,message,title,wx.OK,**kwdargs)
 
 def ShowError(parent,message,title='Error',**kwdargs):
-    """Shows a modalerror message."""
+    """Shows a modal error message."""
     return AskStyled(parent,message,title,wx.OK|wx.ICON_HAND,**kwdargs)

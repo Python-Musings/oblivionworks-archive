@@ -117,7 +117,7 @@ if os.name == 'nt':
 #-------------------------------------------------------------------------------
 Path = None  # Place holder, so GPath doesn't have undefined 'Path'
 
-#--GPaths: global dicationary of saved Path class objects, to avoid duplication
+#--GPaths: global dictionary of saved Path class objects, to avoid duplication
 #  when dealing with lots of path items.
 _gpaths = {}
 _gpathsGet = _gpaths.get
@@ -142,7 +142,7 @@ def GPath(name):
     else: return _gpathsSetdefault(norm,Path(norm))
 
 def GPathPurge():
-    """Cleans out the _gpaths dictionary of unuused Path object."""
+    """Cleans out the _gpaths dictionary of unused Path object."""
     for key in _gpathsKeys():
         if sysGetrefcount(_gpaths[key]) == 2:
             # 1 for the reference actually in _gpaths
@@ -205,7 +205,7 @@ class Path(object):
         return len(self._s)
 
     def __repr__(self):
-        """Representaion of Path object."""
+        """Representation of Path object."""
         return 'Path('+repr(self._s)+')'
 
     def __str__(self):
@@ -213,11 +213,11 @@ class Path(object):
         return self._s
 
     def __add__(self,other):
-        """Add two path strings together.  Does not insert path seperators."""
+        """Add two path strings together.  Does not insert path separators."""
         return GPath(self._s + getNorm(other))
 
     def __div__(self,other):
-        """Join to paths together with path seperator."""
+        """Join to paths together with path separator."""
         return GPath(_osPathJoin(self._s,getNorm(other)))
 
     def __hash__(self):
@@ -238,7 +238,7 @@ class Path(object):
         return self._cs > getCase(other)
 
     def __ge__(self,other):
-        """Comparison greather than or equal to."""
+        """Comparison greater than or equal to."""
         return self._cs >= getCase(other)
 
     def __eq__(self,other):
@@ -551,7 +551,7 @@ class Path(object):
                 _subprocessCall(cmd,stdout=_subprocessPIPE,
                                 startupinfo=startupinfo)
             except UnicodeError:
-                # Unicode filenames, could not be enoded to
+                # Unicode filenames, could not be encoded to
                 # pass to subprocess
                 flags = _statFlags
                 osChmod = _osChmod

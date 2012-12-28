@@ -31,7 +31,7 @@ import src.bass as bass
 
 def InitDirs():
     # Initialize directories.  To make sure Bash follows symlinks and stuff
-    # corectly, we'll use the 'realpath' portion of this.'
+    # correctly, we'll use the 'realpath' portion of this.'
     bass.dirs = {}
     dirs = bass.dirs
 
@@ -51,7 +51,7 @@ def InitDirs():
     # user - User's My Documents directory
     dirs['user'] = Path.Personal
 
-    # user.bash - Wrye Bash subdirectory of user's driectory
+    # user.bash - Wrye Bash subdirectory of user's directory
     dirs['user.bash'] = dirs['user'].join('Wrye Bash')
 
     # l10n - contains the uncompiled translation files shipped with bash
