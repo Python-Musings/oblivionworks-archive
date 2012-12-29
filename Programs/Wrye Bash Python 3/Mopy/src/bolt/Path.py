@@ -671,12 +671,27 @@ class Path(object):
 
 class PathUnion(object):
     """A Path-like object for directories.  Minimal functions, just useful
-       for specifying 2 or more search paths for files."""
-    __slots__ = ('_dirs',)
+       for specifying 2 or more search paths for files.
 
-    def __init__(self,*names,mode=-1):
+       MODE_ORDER - when searching for matches for join, the first occurance
+           of an existing file is used.  When no match is found, the last
+           directory of the union is used.
+       MODE_TIMESTAMP - when searching for matches for join, the file with the
+           newest timestamp is used.  When no match is found, the last
+           directory of the union is uses.
+       MODE_REVERSE - Modifies the above, so MODE_ORDER uses the last occurance,
+           and no file uses the first directory of the union, MODE_TIMESTAMP
+           uses the oldest file."""
+    __slots__ = ('_dirs','_mode')
+
+    MODE_ORDER = 1
+    MODE_REVERSE = 2
+    MODE_TIMESTAMP = 4
+
+    def __init__(self,*names,mode=MODE_ORDER):
         self._dirs = [GPath(x) for x in names]
-        if mode == -1:
+        self._mode = mode
+        if mode & PathUnion.MODE_REVERSE:
             self._dirs.reverse()
 
     def __repr__(self):
@@ -691,14 +706,39 @@ class PathUnion(object):
         return list(items)
 
     def join(self,*args):
+        """Retrun Path object from joining directory with names.  How
+           the true path is decided by creation mode."""
         norms = [getNorm(x) for x in args]
-        for dirname in self._dirs:
-            full = _osPathJoin(dirname._s,*norms)
-            if _osPathExists(full):
-                return GPath(full)
-        else:
-            # None exist, use first directory to create
-            return self._dirs[0].join(*norms)
+        if self._mode & PathUnion.MODE_TIMESTAMP:
+            # Newest/oldest file returned
+            if self._mode & PathUnion.MODE_REVERSE:
+                def getmatch(old,new):
+                    if not old: return new
+                    if _osPathGetmtime(old) < _osPathGetmtime(new):
+                        return old
+                    return new
+            else:
+                def getmatch(old,new):
+                    if not old: return new
+                    if _osPathGetmtime(old) < _osPathGetmtime(new):
+                        return new
+                    return old
+            match = None
+            for dirname in self._dirs:
+                full = _osPathJoin(dirname._s,*norms)
+                if _osPathExists(full):
+                    match = getmatch(match,full)
+                    print(match)
+            if match:
+                return GPath(match)
+        else: # MODE_ORDER
+            # First/last match returned
+            for dirname in self._dirs:
+                full = _osPathJoin(dirname._s,*norms)
+                if _osPathExists(full):
+                    return GPath(full)
+        # None exist, use first directory to create
+        return self._dirs[0].join(*norms)
 
 # Initialize Shell Paths -------------------------------------------------------
 def _shell_path(name):

@@ -101,7 +101,8 @@ def Install(language=None,pathRead=None,pathWrite=None):
     else:
         try:
             # See if translation needs to be recompiled
-            if not mo.exists or txt.mtime > mo.mtime:
+            txtMtime = txt.mtime
+            if not mo.exists or txtMtime != mo.mtime:
                 txt.copyTo(po)
                 args= ['m',po.s,'-o',mo.s]
                 if hasattr(sys,'frozen'):
@@ -117,6 +118,7 @@ def Install(language=None,pathRead=None,pathWrite=None):
                     args[0] = m.s
                     subprocess.call(args,shell=True)
                 po.remove()
+                mo.mtime = txtMtime
             # Create GNU translations
             with mo.open('rb') as ins:
                 trans = gettext.GNUTranslations(ins)
