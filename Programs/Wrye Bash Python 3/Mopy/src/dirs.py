@@ -51,6 +51,9 @@ def InitDirs():
     # user - User's My Documents directory
     dirs['user'] = Path.Personal
 
+    # appdata - User's Local App Data directoyr + Wrye Bash
+    dirs['appdata'] = Path.LocalAppData.join('Wrye Bash')
+
     # user.bash - Wrye Bash subdirectory of user's directory
     dirs['user.bash'] = dirs['user'].join('Wrye Bash')
 
@@ -60,4 +63,9 @@ def InitDirs():
     else:
         dirs['l10n'] = PathUnion(dirs['app'].join('l10n'),
                                  dirs['user.bash'].join('l10n'))
-    
+
+    # l10n.compiled - contains the compiled translation files
+    if bass.opts.portable:
+        dirs['l10n.compiled'] = dirs['app'].join('l10n')
+    else:
+        dirs['l10n.compiled'] = dirs['appdata'].join('l10n')

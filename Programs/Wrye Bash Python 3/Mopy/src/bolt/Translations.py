@@ -81,16 +81,18 @@ def Dump(language,outPath,*files):
         subprocess.call(args,shell=True)
     return outTxt
 
-def Install(language=None,path=None):
+def Install(language=None,pathRead=None,pathWrite=None):
     """Install translation for language.  If language is not specified,
        installs a translation for the default language."""
     if not language:
         language = locale.getlocale()[0].split('_',1)[0]
-    path = path if path else GPath('l10n')
+    pathRead = pathRead if pathRead else GPath('l10n')
+    pathWrite = pathWrite if pathWrite else pathRead
     if language.lower() == 'german':
         language = 'de'
-    txt,po,mo = (path.join(language+ext)
-                 for ext in ('.txt','.po','.mo'))
+    txt = pathRead.join(language+'.txt')
+    po = pathWrite.join(language+'.po')
+    mo = pathWrite.join(language+'.mo')
     #--Test for no translation for the language
     if not txt.exists and not mo.exists:
         if language.lower() != 'english':
@@ -101,7 +103,7 @@ def Install(language=None,path=None):
             # See if translation needs to be recompiled
             if not mo.exists or txt.mtime > mo.mtime:
                 txt.copyTo(po)
-                args= ['m',po.s]
+                args= ['m',po.s,'-o',mo.s]
                 if hasattr(sys,'frozen'):
                     # Same thing as for 'Dump' for frozen
                     # apps.
