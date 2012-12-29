@@ -728,7 +728,6 @@ class PathUnion(object):
                 full = _osPathJoin(dirname._s,*norms)
                 if _osPathExists(full):
                     match = getmatch(match,full)
-                    print(match)
             if match:
                 return GPath(match)
         else: # MODE_ORDER
