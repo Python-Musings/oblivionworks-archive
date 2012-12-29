@@ -44,12 +44,13 @@ def _OnExit():
     except OSError as e:
         print(e)
 
-def Start(restarting=False,timeout=10):
+def Start(lockDir=None,restarting=False,timeout=10):
     """Check for an instance of this program already running.  If there is,
        return False. Otherwise, create a lock file and return True.
        If restarting is True, will wait timeout seconds before attempting."""
     global pidPath, lockFp
-    pidPath = os.path.join(os.getcwd(),'pidFile.tmp')
+    lockDir = lockDir if lockDir else os.getcwd()
+    pidPath = os.path.join(lockDir,'pidFile.tmp')
     lockFp = None
 
     if restarting:
