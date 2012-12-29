@@ -121,7 +121,8 @@ def main():
         #--Setup translations
         try:
             from src.bolt import Translations
-            Translations.Install(path=bass.dirs['l10n'])
+            Translations.Install(pathRead=bass.dirs['l10n'],
+                                 pathWrite=bass.dirs['l10n.compiled'])
         except Exception as e:
             # Translations fail.  Install a NULL Translations
             # _ function so at least we don't get errors there.
