@@ -77,8 +77,9 @@ def InitDirs():
     if bass.opts.portable:
         dirs['l10n'] = dirs['app'].join('l10n')
     else:
-        dirs['l10n'] = PathUnion(dirs['app'].join('l10n'),
-                                 dirs['user.bash'].join('l10n'))
+        dirs['l10n'] = PathUnion(dirs['user.bash'].join('l10n'),
+                                 dirs['app'].join('l10n'),
+                                 mode=PathUnion.MODE_TIMESTAMP)
 
     # l10n.compiled - contains the compiled translation files
     if bass.opts.portable:
