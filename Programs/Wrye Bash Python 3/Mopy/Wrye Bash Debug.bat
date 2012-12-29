@@ -1,4 +1,4 @@
-@ECHO OFF && PUSHD "%~dp0" && SETLOCAL EnableDelayedExpansion
+@ECHO OFF && PUSHD "%~dp0"
 
 :: Wrye Bash Debug.bat
 ::
@@ -7,9 +7,13 @@
 
 
 :: initialize variables
-SET OUTFILE=startup.log
+SET OUTFILE=%USERPROFILE%\My Documents\Wrye Bash\startup.log
 SET PYPATH=
 
+SETLOCAL EnableDelayedExpansion
+
+ECHO Creating log file at '%OUTFILE%'.
+ECHO Creating log file at '%OUTFILE%'. >"%OUTFILE%"
 
 :: adapt to the output format of reg on the current OS in the current locale
 :: use a known present key that has a known value for the format autodetection
@@ -61,8 +65,8 @@ IF NOT x"%PYTHON%"==x"" GOTO FOUNDPYTHON
 
 
 :NOTFOUND
-ECHO Python not found >%OUTFILE%
-ECHO Python not found
+ECHO Python not found. >>"%OUTFILE%"
+ECHO Python not found.
 GOTO END
 
 
@@ -70,11 +74,11 @@ GOTO END
 SET PYTHON=%PYPATH%pythonw.exe
 
 :FOUNDPYTHON
-ECHO Found Python at '%PYTHON%'
-ECHO Found Python at '%PYTHON%' >%OUTFILE%
-ECHO Launching Wrye Bash in debug mode
-ECHO Launching Wrye Bash in debug mode >>%OUTFILE%
-"%PYTHON%" "Wrye Bash.pyw" -d %1 %2 %3 %4 %5 %6 %7 %8 %9 >>%OUTFILE% 2>&1
+ECHO Found Python at '%PYTHON%'.
+ECHO Found Python at '%PYTHON%'. >>"%OUTFILE%"
+ECHO Launching Wrye Bash in debug mode.
+ECHO Launching Wrye Bash in debug mode. >>"%OUTFILE%"
+"%PYTHON%" "Wrye Bash.pyw" -d %1 %2 %3 %4 %5 %6 %7 %8 %9 >>"%OUTFILE%" 2>&1
 
 
 :END
