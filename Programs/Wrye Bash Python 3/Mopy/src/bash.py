@@ -136,7 +136,11 @@ def main():
         app = wx.App()
         #--Test for single instance
         from src.bolt import OneInstanceChecker
-        if not OneInstanceChecker.Start():
+        if bass.opts.portable:
+            oicDir = None # Use defalt
+        else:
+            oicDir = bass.dirs['appdata'].s
+        if not OneInstanceChecker.Start(oicDir):
             return
         del OneInstanceChecker
         #--Run the app!
