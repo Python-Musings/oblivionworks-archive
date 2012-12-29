@@ -94,6 +94,7 @@ _timeMktime = time.mktime
 _randomRandint = random.randint
 #--tempfile
 _tempfileMktemp = tempfile.mktemp
+_tempfileMkdtemp = tempfile.mkdtemp
 _tempfileGettempdir = tempfile.gettempdir
 #--codecs
 _codecsOpen = codecs.open
@@ -171,6 +172,9 @@ def tempdir():
     """Returns directory where temp files are made."""
     return GPath(_tempfileGettempdir())
 
+def makeTempdir(suffix='',prefix='tmp'):
+    """Creates a new temporary directory."""
+    return GPath(_tempfileMkdtemp(suffix,prefix))
 
 class Path(object):
     """A file path.  May be a directory or filename, a full path or relative

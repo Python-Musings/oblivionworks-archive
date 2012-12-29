@@ -25,9 +25,19 @@
 """Initialize all the directories Wrye Bash will possibly need."""
 
 # Imports ----------------------------------------------------------------------
+#--Standard
+import atexit
+#--Local
 from src.bolt import Path
 from src.bolt.Path import GPath, PathUnion
 import src.bass as bass
+
+def _OnExit():
+    """Cleans out any temporary files or directories created by Bash."""
+    try:
+        bass.dirs['temp'].rmtree()
+    except Exception as e:
+        pass
 
 def InitDirs():
     # Initialize directories.  To make sure Bash follows symlinks and stuff
@@ -53,6 +63,12 @@ def InitDirs():
 
     # appdata - User's Local App Data directoyr + Wrye Bash
     dirs['appdata'] = Path.LocalAppData.join('Wrye Bash')
+
+    # temp - Wrye Bash's base directory for all temp files/folders this run
+    dirs['temp'] = Path.makeTempdir(prefix='WryeBash_')
+    # Now that our temp dir is created, register our cleanup function
+    # that removes temporary directories
+    atexit.register(_OnExit)
 
     # user.bash - Wrye Bash subdirectory of user's directory
     dirs['user.bash'] = dirs['user'].join('Wrye Bash')
