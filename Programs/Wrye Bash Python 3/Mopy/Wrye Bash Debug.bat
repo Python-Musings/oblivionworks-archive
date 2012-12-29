@@ -10,6 +10,8 @@
 SET OUTFILE=%USERPROFILE%\My Documents\Wrye Bash\startup.log
 SET PYPATH=
 
+MKDIR "%USERPROFILE%\My Documents\Wrye Bash"
+
 SETLOCAL EnableDelayedExpansion
 
 ECHO Creating log file at '%OUTFILE%'.
