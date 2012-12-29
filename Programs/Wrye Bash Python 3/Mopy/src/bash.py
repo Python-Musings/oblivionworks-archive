@@ -126,8 +126,8 @@ def main():
         except Exception as e:
             # Translations fail.  Install a NULL Translations
             # _ function so at least we don't get errors there.
-            print('Error installing Translations:')
-            traceback.print_exc()
+            # TODO: use logging to print
+            pass
         #--Check for dependencies
         if not VerifyRequirements():
             return
@@ -147,6 +147,7 @@ def main():
         #  For now we're just using a dummy frame until we flesh this out
         frame = wx.Frame(None,wx.ID_ANY,_('Haha!'))
         frame.Show()
+        frame.SetIcon(wx.Icon('bash.ico'))
         app.MainLoop()
     except Exception as e:
         #--Something bad happened, try to show it in GUI mode.
