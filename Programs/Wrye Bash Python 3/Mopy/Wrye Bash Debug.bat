@@ -7,10 +7,11 @@
 
 
 :: initialize variables
-SET OUTFILE=%USERPROFILE%\My Documents\Wrye Bash\startup.log
+SET OUTPATH=%USERPROFILE%\My Documents\Wrye Bash
 SET PYPATH=
 
-MKDIR "%USERPROFILE%\My Documents\Wrye Bash"
+IF NOT EXIST "%OUTPATH%" MKDIR "%OUTPATH%"
+SET OUTFILE=%OUTPATH%\startup.log
 
 SETLOCAL EnableDelayedExpansion
 
