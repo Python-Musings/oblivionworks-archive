@@ -1,0 +1,174 @@
+Continuing from the [topic=1434759]previous thread[/topic]...
+
+[b]What does Wrye Bash do?[/b]
+[LIST]
+[*]It makes it safe to try out new mods because it will restore everything to the way it was when you uninstall a mod[/*]
+[*]It makes more mods compatible with each other by importing information from different mods into a "bashed patch"[/*]
+[*]It allows you to exceed the 255 mod threshold by automatically merging some types of mods for you[/*]
+[/LIST]
+
+[b]FAQ[/b]:
+[spoiler]
+[LIST=1]
+[*]What the heck do all these acronyms mean?[/*]
+[/LIST]
+[indent=1]Yeah, to save typing, we often sling around terminology that can be confusing to newcomers. Here's a quick rundown of what we mean:[/indent]
+[LIST]
+[*][b]WB[/b]: Wrye Bash. Written in Python.[/*]
+[*][b]WBSA[/b]: Wrye Bash Standalone. Wrye Bash packaged with the required Python interpreter and all dependencies into one neat executable package. Still internally runs on Python, but since the interpreter is internal to the exe, no Python components are required to be installed.[/*]
+[*][b]PBash[/b]: A Bashed Patch built with the "classic" Python mode patchers. These patchers read, process, and write mod records all in Python.[/*]
+[*][b]BAIN[/b]: BAsh INstaller. You use it from the WB Installers tab[/*]
+[*][b]BAIN archive[/b]: A mod released in a format that can be installed by BAIN[/*]
+[*][b]BAIT[/b]: Bash Asynchronous Installer Tab. In development (pre-beta) and will replace the current implementation of BAIN. Will use multi-threading to have a UI that still responds while it processes data (calculates CRC's, installs mods, etc).[/*]
+[*][b]CBash[/b]:
+[LIST]
+[*]A Bashed Patch built with the CBash (see #2) mode patchers. These patchers still do mod processing in Python, but utilize CBash.dll to do the file reading and writing.[/*]
+[*]A C++ written DLL with a C API, that is used for reading and writing ESP/ESM format files. This is the only part of Wrye Bash not written in Python (well, except for calls to 7z.exe to extract things).[/*]
+[*]The practical benefits of using CBash are:
+[LIST]
+[*]Building the bashed patch is much faster[/*]
+[*]More plugins are mergeable, giving you the ability to cram more goodness into the game[/*]
+[*]In the future, more interesting kinds of tweaks will be practical to implement[/*]
+[/LIST]
+[/*]
+[/LIST]
+[/*]
+[/LIST]
+[/spoiler]
+[b]Download[/b]: [url=http://oblivion.nexusmods.com/mods/22368]Oblivion Nexus[/url] and, of course, [url=http://sourceforge.net/projects/oblivionworks/files/]SourceForge[/url].  A great site that used to mirror the installers: [url=http://www.fliggerty.com/phpBB3/viewtopic.php?f=54&t=4233]GHF[/url] however, the available instllers are out of date 294 is the newest.
+
+[b]Documentation[/b]:
+[LIST]
+[*][url=http://oblivionworks.svn.sourceforge.net/viewvc/oblivionworks/Programs/Wrye Bash/Mopy/Docs/Wrye Bash General Readme.html]Official General Readme[/url] (also included in the download as "Wrye Bash General Readme.html" in the Mopy folder)[/*]
+[*]alt3rn1ty's [url=http://oblivion.nexusmods.com/mods/35230]Wrye Bash Pictorial Guide[/url] (For Oblivion, new guide for Skyrim pending)[/*]
+[*]Metallicow's BAIN [url=http://oblivion.nexusmods.com/mods/38857]Demo Wizard[/url][/*]
+[*]Translated documentation and guides: [url=http://guides.tesfans.org/wrye bash/]简体中文[/url][/*]
+[/LIST]
+[b]Requirements and Installation[/b]: 
+ 
+Short version: 
+ 
+Just use the installer and install to the Skyrim folder! When you install dependencies, just install them to their default locations.
+ 
+For the Standalone version you may need one of the MSVC Redistributable packadges:
+ 
+I suggest looking here for the approproate version [url=http://support.microsoft.com/kb/2019667]Latest Supported Visual C++ Downloads[/url].  The previous link may have more up to date information but here are some direct links [url=http://www.microsoft.com/en-us/download/details.aspx?id=5553]MSVC++ 2005 Redistributable Suite SP1[/url], [url=http://www.microsoft.com/en-us/download/details.aspx?id=10986]MSVC++ 2008 SP1 Redistributable[/url], [url=http://www.microsoft.com/en-us/download/details.aspx?id=23691]MSVC++ 2010 Redistributable Service Pack 1[/url], [url=http://www.microsoft.com/en-us/download/details.aspx?id=30679]MSVC++ 2012 Redistributable Update 3[/url].
+ 
+Long version:
+[spoiler]
+There are two versions available: the Python version and the Standalone version. They are functionally equivalent. Most people should run the Standalone version since it is slightly simpler (no external Python components to install). You don't need to install the Python version, however, you can if you want to be more involved with development or if you already have Python installed on your system for other reasons.
+ 
+First, if you're using Windows XP, Wrye Bash needs the [url=http://www.microsoft.com/download/en/details.aspx?id=14431]MSVC++ 2005 SP1 Redistributable with ATL Security Update[/url] installed, the x86 version. This is required for the custom 7z executable that Wrye Bash uses to run. Later versions of Windows already have this installed.
+ 
+If you're using the Standalone version, the only other thing you need to install manually is the [url=http://www.microsoft.com/downloads/details.aspx?familyid=a5c84275-3b97-4ab7-a40d-3802b2af5fc2]MSVC++ 2008 Redistributable[/url].
+ 
+If you are using the Python version, dependency installation will be handled automatically by the installer. However, if you want or need to do things manually:
+[spoiler]
+ 
+[url=http://www.python.org/ftp/python/2.7.3/python-2.7.3.msi]Python 2.7.3[/url]
+[url=http://sourceforge.net/projects/wxpython/files/wxPython/2.8.12.1/wxPython2.8-win32-unicode-2.8.12.1-py27.exe]wxPython 2.8.12.1 unicode for Python 2.7[/url]
+[url=http://sourceforge.net/projects/comtypes/files/comtypes/0.6.2/comtypes-0.6.2.win32.exe/download]comtypes 0.6.2[/url]
+[url=http://sourceforge.net/projects/pywin32/files/pywin32/Build]PyWin32 for Python 2.7[/url]
+Other setups [i]may[/i] work, but this is the only officially supported setup.
+Python 3.x: [b]NOT supported[/b]
+ 
+Note that the 32-bit versions are required even if you are on a 64-bit operating system
+[/spoiler]
+Then:
+[LIST]
+[*]For manual installations of either the Standalone or Python versions, extract the archive in your Skyrim game folder so that the Mopy directory appears in the Skyrim directory[/*]
+[*]For Python versions, run by double-clicking on Wrye Bash Launcher.pyw[/*]
+[*]For WBSA (Wrye Bash StandAlone), run by double-clicking on Wrye Bash.exe[/*]
+[/LIST]
+Remember! In Windows Vista and up, don't install Skyrim in the Program Files folder due to User Account Control! See File Permissions.
+See Also [url=http://oblivionworks.svn.sourceforge.net/viewvc/oblivionworks/Programs/Wrye]File Permissions[/url]
+[/spoiler]
+[b]Development[/b]:
+The project is hosted at [url=https://sourceforge.net/projects/oblivionworks/]SourceForge[/url]. You'll need a SourceForge account to create or add data to bug reports and feature requests. Feeling brave? SVN versions are not guaranteed to be release quality. If you want to help us test new features and track down bugs look for a new installer in the downloads section on the Skyrim or Oblivion Nexus or at this mirror: [url=https://code.google.com/p/wrye-bash/downloads/list]Wrye Bash SVN Installer[/url]
+
+[b]Reporting Bugs[/b]: Try to give us enough information to diagnose your problem. The following information is useful to us:
+[spoiler]
+[LIST]
+[*]What version of Wrye Bash are you using? If you're using the SVN, be sure to include the revision number.[/*]
+[*]What are all the symptoms? Be sure to include what you did (step-by-step is helpful), what you expected, and what happened.[/*]
+[*]What do you see? Error messages are very valuable to us.[/*]
+[*]What version of Windows are you using? Is UAC enabled and is Oblivion in the default directory? (If it is, please install it somewhere else. This can cause lots of problems)[/*]
+[*]Are you using a bash.ini? If so, include its contents (in spoiler tags, please!)[/*]
+[*]Is the problem related to the Bashed Patch? If so include the following:
+[LIST]
+[*]Your Load Order (in spoiler tags). Get this by right clicking on a column header in the Mods tab, and selecting 'List Mods...'[/*]
+[*]Your Bashed Tags (in spoiler tags). Get this by right clicking on a column header in the Mods tab, and selecting 'List Bash Tags...'[/*]
+[*]Your Bashed Patch config (in spoiler tags). Get this by right clicking on the Bashed Patch and selecting 'List Patch Config...'[/*]
+[/LIST]
+[/*]
+[*]If you're using the WBSA, things are a bit trickier. There are currently a few known issues:
+[LIST=1]
+[*]Wrye Bash wont work correctly if you launch it from the command line (DOS). Always launch by double clicking the exe or a shortcut to it.[/*]
+[*]Due to issue #1, no debug mode is available. Some errors that happen will still be printed either to a "Wrye Bash.exe.txt" file, or to the "stdout/stderr" window that shows up with errors sometimes.[/*]
+[/LIST]
+[/*]
+[*]If you think you've found an error in the WBSA, be sure to uninstall ALL python components and test it again first, to be sure we get an accurate report. Having python installed can sometimes trick the WBSA into thinking that it has all of the files it requires, even if it really doesn't.[/*]
+[/LIST]
+[/spoiler]
+[b]Linking[/b]: If you'd like to link to Bash from somewhere else, please do! But be sure to link to either [url=http://oblivion.nexusmods.com/mods/22368]Oblivion Nexus[/url] or [url=http://sourceforge.net/projects/oblivionworks/]SourceForge[/url]. Don't link to the actual download file, since that changes fairly frequently.
+
+[b]Related Projects[/b]:
+[LIST]
+[*]The Official [topic=1465301]Wrye Bash for Skyrim thread[/topic].[/*]
+[*]Load orders should be managed with [url=https://code.google.com/p/better-oblivion-sorting-software/downloads/list]BOSS for Skyrim[/url], which also supplies updated lists of tags used for importing (though even if you don't use BOSS, a basic taglist is shipped with each version of Wrye Bash)[/*]
+[*]Valda ported and maintains Wrye Bash for Fallout3 ([topic=1211142]Wrye Flash[/topic]) and Fallout3 New Vegas ([topic=1234195]Wrye Flash NV[/topic])[/*]
+[/LIST]
+
+[b]Changelog for Latest Version[/b]:
+[size=5]304 [2013/06/30][Various community members][/size]
+[spoiler]
+[LIST]
+[*]Fixed bug in libloadorder that would stop it from including Update.esm in its list of active plugins if Skyrim.esm wasn't listed in plugins.txt. [wrinklyninja][/*]
+[*]Fixed libloadorder version display in Bash's log. [wrinklyninja][/*]
+[*]Fixed Bash not passing Update.esm in a list of plugins to activate to libloadorder. liblo.py now returns the active plugin list in load order (which libloadorder doesn't), preventing needless load order 'mismatches' being 'corrected'. [wrinklyninja][/*]
+[*]Fixed issue with Oblivion introduced in r2952. [wrinklyninja][/*]
+[*]It is now impossible to deactivate Skyrim.esm and Update.esm, the game force loads them. [d4id4los][/*]
+[*]Fix for bug #243 "Annealing an activated esp breaks load order.". Anneal will now properly remove deleted plugins from load order. [d4id4los][/*]
+[*]Fix for bug #244 "Automatically activating the bashed patch after rebuild does not work." [d4id4los][/*]
+[*]Fix for bug #245 "Auto-Anneal can not be disabled" [d4id4los][/*]
+[*]Possible fix for special characters in system language name crashing Wrye Bash. [d4id4los][/*]
+[*]Changes to the text of List Masters... to make translation easier. [d4id4los][/*]
+[*]Fixed renaming mods in the mods tab causing an exception to be thrown. [d4id4los][/*]
+[*]Fixed error-messages for Installer Wizards. [d4id4los][/*]
+[*]Changes to the restart button tool-tip to make it translatable. [d4id4los][/*]
+[*]Make Headlines in getModList translatable. [d4id4los][/*]
+[*]Fix renaming/deleting mod files outside of Wrye Bash causing load order issues. [d4id4los][/*]
+[*]Fix for an exception in bain wizzards, introduced in rev. 2966 [d4id4los][/*]
+[*]Fix for Bug #246 'Better naming scheme for backups' [Mr_and_Mrs_D][/*]
+[*]Fix for Bug #247 'Do not report 0 KB for non empty files, plugins, BCFs etc' [Mr_and_Mrs_D][/*]
+[*]Fix for Bash not installing more than one mod at a time for Oblivion. [d4id4los][/*]
+[*]Wrye Bash Un-Installer was leaving behind a few files which have not been accounted for. [d4id4los][/*]
+[*]Fix for Bug #256 'Skip Docs skips translation files for Mods'. [d4id4los][/*]
+[*]Fix for Bug #258 "#258 LO mismatch between loadorder.txt and plugins.txt causes a crash on statup" [d4id4los][/*]
+[*]Fix for bug #251 "'Do you want to enable Installers?' dialog throws exception". [d4id4los][/*]
+[*]Added option to view BSA conflicts in Installer tab. This is an experimental feature and still needs work. [d4id4los][/*]
+[*]New Dragonborn Files added for Clean Data installer function. [Sharlikran][/*]
+[/LIST]
+[/spoiler]
+[b]Changelog for Latest Version[/b]:
+[size=5]303 [2013/01/02] [Various community members][/size]
+[spoiler]
+[LIST]
+[*][Oblivion] Fixed issues with CBash saying that files don't exist during the patch building process. [Lojack][/*]
+[*]Uninstalling a mod in BAIN should no longer throw an error that the ESP/ESM could not be found if it was removed. [Lojack][/*]
+[*]Encoding format for INI Tweak files has been fixed. [Lokack][/*]
+[*]Typo corrections, unused variables, and other minor issues cleaned up. [Various][/*]
+[*]The bash_default.ini file has been cleaned up to remove unused entries and tidy up documentation. [Lojack][/*]
+[*]BAIN should now properly inform the user if an archive being installed is corrupted. [Lojack][/*]
+[*]Numerous changes have been made for better UAC support when installed on Vista, Windows 7, and Windows 8. (Note that Windows 8 is not yet officially supported but should still work.) [Lojack][/*]
+[*]BAIN should no longer leave behind empty folders when a mod is uninstalled. [Lojack][/*]
+[*]Better support for running Bash from within a folder containing Unicode characters. [Lojack][/*]
+[*][Skyrim] Bash can now see string files inside of a BSA and will no longer mark mods with red bars because the files were not packaged loose. [Lojack][/*]
+[*]Bash will no longer throw errors if it encounters Nehrim.esm (the filename) in a Data folder not belonging to a Nehrim install. [Lojack][/*]
+[*]Updated the Windows icon used for Bash to something more visually appealing. [Wrinklyninja][/*]
+[*]Updated UI icon for BOSS. [Wrinklyninja][/*]
+[*][Skyrim] Removed the non-functional inventory prompt tweak for buying and selling as Skyrim does not use the value. [Arthmoor][/*]
+[*]Deleting ghosted mods from the mods tab should no longer throw up errors about deleting the game's master files. [Lojack][/*]
+[*]Several updates to the documentation for Bash. [Lojack][/*]
+[/LIST]
+[/spoiler]
