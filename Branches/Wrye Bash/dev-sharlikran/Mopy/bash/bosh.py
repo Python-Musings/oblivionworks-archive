@@ -4116,18 +4116,21 @@ class Plugins:
         # Remove non existent plugins from load order
         self.removeMods(removedFiles)
         # Add new plugins to load order
-        indexFirstEsp = None
+        indexFirstEsp = 0
+        while modInfos[self.LoadOrder[indexFirstEsp]].isEsm():
+            indexFirstEsp += 1
         for mod in addedFiles:
             if modInfos.data[mod].isEsm():
-                if indexFirstEsp is None:
-                    indexFirstEsp = 0
-                    while modInfos[self.LoadOrder[indexFirstEsp]].isEsm():
-                        indexFirstEsp += 1
-                    self.addMods([mod], indexFirstEsp)
-                else:
-                    self.addMods([mod], indexFirstEsp)
+                self.addMods([mod], indexFirstEsp)
+                indexFirstEsp += 1
             else:
                 self.addMods([mod])
+        # Check to see if any esm files are loaded below an esp and reorder as neccessar
+        for mod in self.LoadOrder[indexFirstEsp:]:
+            if modInfos.data[mod].isEsm():
+                self.LoadOrder.remove(mod)
+                self.LoadOrder.insert(indexFirstEsp, mod)
+                indexFirstEsp += 1
         # Save changes if necessary
         if removedFiles or addedFiles:
             self.saveLoadOrder()
@@ -6551,13 +6554,18 @@ class ConfigHelpers:
         if not liblo.liblo:
             raise bolt.BoltError(u'The libloadorder API could not be loaded.')
         deprint(u'Using libloadorder API version:', liblo.version)
+        
+        bapi.Init(dirs['compiled'].s)
+        # That didn't work - Wrye Bash isn't installed correctly
+        if not bapi.BAPI:
+            raise bolt.BoltError(u'The BOSS API could not be loaded.')
+        deprint(u'Using BOSS API version:', bapi.version)
 
         global boss
         if bush.game.name == u'Oblivion' and dirs['mods'].join(u'Nehrim.esm').isfile():
             boss = bapi.BossDb(dirs['app'].s,u'Nehrim')
         else:
             boss = bapi.BossDb(dirs['app'].s,bush.game.name)
-        deprint(u'Using BOSS API version:', bapi.version)
         bapi.RegisterCallback(bapi.BOSS_API_WARN_LO_MISMATCH,
                               ConfigHelpers.libloLOMismatchCallback)
                               

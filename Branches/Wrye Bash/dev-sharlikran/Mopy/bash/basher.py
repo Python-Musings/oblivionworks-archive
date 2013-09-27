@@ -1053,6 +1053,7 @@ class List(wx.Panel):
         #--Mark sort as dirty
         if self.selectedFirst:
             self.sortDirty = 1
+            self.colReverse[self.sort] = not self.colReverse.get(self.sort,0)
 
     def GetSortSettings(self,col,reverse):
         """Return parsed col, reverse arguments. Used by SortSettings.
@@ -2583,6 +2584,7 @@ class INIPanel(SashPanel):
 
     def SetBaseIni(self,path=None):
         """I like carrots because they are healthy"""
+		# """Sets the target INI file."""
 		# REFACTOR Set what? What to show in the ini tab? Or where to tweaks should apply? What target? Target file for edits? Then why is this in the GUI class?
 		# BTW, why set anything at all? 
         refresh = True
@@ -2598,7 +2600,7 @@ class INIPanel(SashPanel):
         if not isGameIni:
             if not path:
                 path = choicePath
-            ini = bosh.bestIniFile(path)
+            ini = bosh.BestIniFile(path)
             refresh = bosh.iniInfos.ini != ini
             bosh.iniInfos.setBaseIni(ini)
             self.button.Enable(True)
@@ -5132,6 +5134,7 @@ class BashNotebook(wx.Notebook, balt.TabDragMixin):
         self.Bind(balt.EVT_NOTEBOOK_DRAGGED, self.OnTabDragged)
         #--Setup Popup menu for Right Click on a Tab
         self.Bind(wx.EVT_CONTEXT_MENU, self.DoTabMenu)
+        self.Bind(wx.EVT_MOUSE_CAPTURE_LOST, self._onMouseCaptureLost)
 
     def DoTabMenu(self,event):
         pos = event.GetPosition()
@@ -5179,6 +5182,12 @@ class BashNotebook(wx.Notebook, balt.TabDragMixin):
             bolt.GPathPurge()
             self.GetPage(event.GetSelection()).OnShow()
             event.Skip()
+ 
+    def _onMouseCaptureLost(self, event):
+        """Handle the onMouseCaptureLost event
+        Currently does nothing, but is necessary because without it the first run dialog in OnShow will throw an exception.
+        """
+        pass
 
 #------------------------------------------------------------------------------
 class BashStatusBar(wx.StatusBar):
@@ -11935,7 +11944,7 @@ class INI_CreateNew(Link):
         # Now edit it with the values from the target INI
         iniList.data.refresh()
         oldTarget = iniList.data.ini
-        target = bosh.bestIniFile(path)
+        target = bosh.BestIniFile(path)
         settings,deleted = target.getSettings()
         new_settings,deleted = oldTarget.getSettings()
         deleted = {}
