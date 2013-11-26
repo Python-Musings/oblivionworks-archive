@@ -17441,9 +17441,10 @@ class MelIcons(MelGroup):
 #    else if MainRecord.Signature = 'FACT' then
 #      Result := 2;
 #end;
-#Basically the Idea is if it is it's an NPC_ then it's a FormID of a [GLOB]												
-#if it is it's an FACT (Faction) then it's a 4Byte integer Rank of the faction.
-#If it's not NPC_ or FACT then it's unknown and just a 4Byte integer
+#Basically the Idea is this;
+#When it's an NPC_ then it's a FormID of a [GLOB]												
+#When it's an FACT (Faction) then it's a 4Byte integer Rank of the faction.
+#When it's not an NPC_ or FACT then it's unknown and just a 4Byte integer
 
 #class MelCoed(MelStruct):
 # wbCOED := wbStructExSK(COED, [2], [0, 1], 'Extra Data', [
@@ -17460,7 +17461,8 @@ class MelCoed(MelOptStruct):
     def __init__(self):
         MelOptStruct.__init__(self,'COED','=IIf',(FID,'owner'),(FID,'rank_or_glob_or_unk'), ('rank'))
 
-# Once more records are entered needs update for wbCOEDOwnerDecider
+# When all of Skyrim's records are entered this needs to be updated
+# To more closly resemple the wbCOEDOwnerDecider from TES5Edit
 #-------------------------------------------------------------------------------
 class MelKeywords(MelFidList):
     """Handle writing out the KSIZ subrecord for the KWDA subrecord"""
