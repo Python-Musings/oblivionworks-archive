@@ -17327,29 +17327,15 @@ class MelDestructible(MelGroup):
 
     def __init__(self,attr='destructible'):
         """Initialize elements."""
-        MelGroup.__init__(self,attr,
+        MelGroup.__init__(
+            self,attr,
             # 'vatsTargetable' is either True or False              
-            MelStruct('DEST','IBBBB hH','health','count','vatsTargetable'),
+            MelStruct('DEST','IBBBB','health','count','vatsTargetable','unknown1', 'unknown'),
             MelGroups('stages',
-                MelStruct('DSTD','=4B4I','health','index','damageStage',(MelDestructible.MelDestTypeFlags,'flags',0L),
-                    'selfDamagePerSecond',(FID,'explosion',None),(FID,'debris',None),'debrisCount'),
-                MelGroup('models',
-                    MelString('DMDL','model'),
-                    # DMDT Not decoded in TES5Edit
-                    MelBase('DMDT','dmdt'),
-                    #  wbDMDSs := wbArrayS(DMDS, 'Alternate Textures', -- This is a Sorted Array
-                    #    wbStructSK([0, 2], 'Alternate Texture', [ -- I forget what the [0,2] means you would have to ask Zilav
-                    #      wbLenString('3D Name'), -- 4byte length code
-                    #      wbFormIDCk('New Texture', [TXST]),
-                    #      wbInteger('3D Index', itS32)
-                    #    ]),
-                    #  -1);
-                    MelGroups('alternateTexture',
-                        # '3dName' is a string with a 4 byte Length code
-                        MelStruct('DMDS','4sIi','3dName',(FID,'explosion',None),'3dIndex',),
-                    ),
-                ),
-            ),
+                      MelStruct('DSTD','=4B4I','health','index','damageStage',(MelDestructible.MelDestTypeFlags,'flags',0L),
+                                'selfDamagePerSecond',(FID,'explosion',None),(FID,'debris',None),'debrisCount'),
+                      MelAltModel('models', 'DMDL')
+                      ),
             MelBase('DSTF','dstf_p'), # Appears just to signal the end of the destruction data
         )
 
@@ -17482,6 +17468,22 @@ class MelComponents(MelStructs):
         if components:
             # Only write the COCT/CNTO subrecords if count > 0
             out.packSub('COCT','I',len(components))
+            MelStructs.dumpData(self,record,out)
+
+class MelPerks(MelStructs):
+    """Handle writing PRKZ subrecord for the PRKR subrecord"""
+    def dumpData(self,record,out):
+        perks = record.__getattribute__(self.attr)
+        if perks:
+            out.packSub('PRKZ','<I',len(perks))
+            MelStructs.dumpData(self,record,out)
+
+class MelSpells(MelStructs):
+    """Handle writing out the SPCT subrecord for the SPLO subrecord"""
+    def dumpData(self, record, out):
+        spells = record.__getattribute__(self.attr)
+        if spells:
+            out.packSub('SPCT','<I',len(spells))
             MelStructs.dumpData(self,record,out)
 
 # Verified Correct for Skyrim
@@ -20997,8 +20999,98 @@ class MreCobj(MelRecord):
 
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# NPC_ ------------------------------------------------------------------------
+class MreNpc_(MelRecord):
+    """Npc"""
+    classType = 'NPC_'
+    class MelNpcCnto(MelGroups):
+        def __init__(self):
+            MelGroups.__init__(self,'container',
+                MelStruct('CNTO','=2I',(FID,'item',None),'count'),
+                MelCoed(),
+                )
+
+        def dumpData(self,record,out):
+            # Only write the COCT/CNTO/COED subrecords if count > 0
+            out.packSub('COCT','I',len(record.container))
+            MelGroups.dumpData(self,record,out)
+            
+    melSet = MelSet(MelString('EDID', 'eid'),
+                    MelVmad(),
+                    MelBounds(),
+                    MelStruct('ACBS', '<IHHHHHHHHHH', 'base_flags', 'base_magicka', 'base_stamina',
+                              'base_level', 'base_minlevel', 'base_maxlevel', 'base_speed', 'base_disposition',
+                              'base_template_flags', 'base_health', 'base_bleedout'),
+                    MelStructs('SNAM', '<IB3s', 'factions', (FID, 'faction'), 'rank', 'snam_unused'),
+                    MelOptStruct('INAM', '<I', (FID, 'deathitem')),
+                    MelOptStruct('VTCK', '<I', (FID, 'voicetype')),
+                    MelOptStruct('TPLT', '<I', (FID, 'template')),
+                    MelStruct('RNAM', '<I', (FID, 'race')),
+                    MelDestructible(),
+                    MelNull('SPCT'),
+                    MelSpells('SPLO', '<I', 'spells', (FID, 'spell')),
+                    MelOptStruct('WNAM', '<I', (FID, 'worm_armor')),
+                    MelOptStruct('ANAM', '<I', (FID, 'away_model_name')),
+                    MelOptStruct('ATKR', '<I', (FID, 'attack_race')),
+                    MelStructs('ATKD', '<ffIIfffIfff', 'attack_data', 'damage', 'chance',
+                               (FID, 'spell'), 'flags', 'angle',
+                               'angle', 'stagger', 'type',
+                               'knockdown', 'recovery_time', 'fatigue'),
+                    MelStrings('ATKE', 'attack_events'),
+                    MelOptStruct('SPOR', '<I', (FID, 'spectator')),
+                    MelOptStruct('OCOR', '<I', (FID, 'observe')),
+                    MelOptStruct('GWOR', '<I', (FID, 'guard_warn')),
+                    MelOptStruct('ECOR', '<I', (FID, 'combat')),
+                    MelNull('PRKZ'),
+                    MelPerks('PRKR', '<IB3s', 'perks', (FID, 'perk'), 'rank', 'unused'),
+                    MelNull('COCT'),
+                    MelNpcCnto(),
+                    MelStruct('AIDT', '<BBBBBBBBIII', 'aggression', 'confidence',
+                              'engergy', 'morality', 'mood', 'assistance', 'ai_flags',
+                              'ai_unknown', 'warn', 'warn_attack', 'attack'),
+                    MelStructs('PKID', '<I', 'ai_packages', (FID, 'package')),
+                    MelNull('KSIZ'),
+                    MelKeywords('KWDA', '<I', (FID, 'keywords')),
+                    MelStruct('CNAM', '<I', (FID, 'class')),
+                    MelLString('FULL', 'full'),
+                    MelLString('SHRT', 'short_alias'),
+                    MelBase('DATA', 'marker'),
+                    MelStruct('DNAM', '<18s18sHHHHfB3s', 'base_skills', 'mod_skills',
+                              'calc_health', 'calc_magicka', 'calc_stamina', 'dnam_unused1',
+                              'far_away_distance', 'geared_up_weapons', 'dnam_unused2'),
+                    MelStructs('PNAM', '<I', 'head_part_addons', (FID, 'addon')),
+                    MelOptStruct('HCLF', '<I', (FID, 'hair_color')),
+                    MelOptStruct('ZNAM', '<I', (FID, 'combat_style')),
+                    MelOptStruct('GNAM', '<I', (FID, 'gifts')),
+                    MelStruct('NAM5', '<H', 'NAM5'),
+                    MelStruct('NAM6', '<f', 'height'),
+                    MelStruct('NAM7', '<f', 'weight'),
+                    MelStruct('NAM8', '<I', 'sound_level'),
+                    MelGroups('event_sound',
+                              MelStruct('CSDT', '<I', 'sound_type'),
+                              MelGroups('sound',
+                                        MelStruct('CSDI', '<I', (FID, 'sound')),
+                                        MelStruct('CSDC', '<B', 'chance'))),
+                    MelOptStruct('CSCR', '<I', (FID, 'audio_template')),
+                    MelOptStruct('DOFT', '<I', (FID, 'default_outfit')),
+                    MelOptStruct('SOFT', '<I', (FID, 'sleep_outfit')),
+                    MelOptStruct('DPLT', '<I', (FID, 'default_package')),
+                    MelOptStruct('CRIF', '<I', (FID, 'crime_faction')),
+                    MelOptStruct('FTST', '<I', (FID, 'face_texture')),
+                    MelOptStruct('QNAM', '<fff', 'skin_tone_r' ,'skin_tone_g', 'skin_tone_b'),
+                    MelOptStruct('NAM9', '<ffffffffffffffffff4s', 'nose_long', 'nose_up',
+                                 'jaw_up', 'jaw_wide', 'jaw_forward', 'cheeks_up', 'cheeks_back',
+                                 'eyes_up', 'eyes_out', 'brows_up', 'brows_out', 'brows_forward',
+                                 'lips_up', 'lips_out', 'chin_wide', 'chin_down', 'chin_underbite',
+                                 'eyes_back', 'nam9_unused'),
+                    MelGroups('face_parts',
+                              MelStruct('NAMA', '<iiii', 'nose', 'unknown', 'eyes', 'mouth')),
+                    MelGroups('face_tint_layer',
+                              MelStruct('TINI', '<H', 'tint_item'),
+                              MelStruct('TINC', '<4B', 'r', 'g', 'b' ,'a'),
+                              MelStruct('TINV', '<i', 'tint_value'),
+                              MelStruct('TIAS', '<h', 'unknown'),
+                              ),)
+# Not fully tested
 #------------------------------------------------------------------------------
 # Marker for organization please don't remove ---------------------------------
 # PACK ------------------------------------------------------------------------
@@ -21261,9 +21353,9 @@ def init():
         MreFstp, MreFsts, MreFurn, MreGmst, MreGras, MreHazd, MreHdpt, MreIdle, 
         MreIdlm, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt, MreLgtm, 
         MreLscr, MreLvli, MreLvln, MreLvsp, MreMato, MreMatt, MreMesg, MreMgef,
-        MreMisc, MreMovt, MreMstt, MreMusc, MreOtft, MreProj, MreRfct, MreSlgm,
-        MreSndr, MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst,
-        MreVtyp, MreWoop,
+        MreMisc, MreMovt, MreMstt, MreMusc, MreNpc_, MreOtft, MreProj, MreRfct,
+        MreSlgm, MreSndr, MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree,
+        MreTxst, MreVtyp, MreWoop,
         MreHeader,
         ))
 
