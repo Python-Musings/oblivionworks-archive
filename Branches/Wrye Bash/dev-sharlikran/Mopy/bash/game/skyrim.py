@@ -18283,20 +18283,125 @@ class MreHeader(MreHeaderBase):
 
 # MAST and DATA need to be grouped together like MAST DATA MAST DATA, are they that way already?
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# ACHR ------------------------------------------------------------------------
-#------------------------------------------------------------------------------
 class MreAchr(MelRecord):
-
+    """Activator."""
     classType = 'ACHR'
 
+	ACHRTopicDataFlags = bolt.Flags(0L,bolt.Flags.getNames(
+        (0, 'topicRef'),
+        (1, 'topicSubtype'),
+    ))
+	
+    # -------------------------
+	# class MelACHRPDTOHandeler(MelGroup):
+    # -------------------------
+	# wbPDTO :=
+	#   wbStruct(PDTO, 'Topic Data', [
+	#   wbInteger('Type', itU32, wbEnum([
+	#     'Topic Ref',
+	#     'Topic Subtype'
+	#   ])),
+	#   wbUnion('Data', wbTypeDecider, [
+	#     wbFormIDCk('Topic', [DIAL, NULL]),
+	#     wbString('Subtype', 4)
+	#   ])
+	# ]);
+	# wbPDTOs := wbRArray('Topic', wbPDTO, cpNormal, False, nil);
+	# wbPDTOs,
+	# -------------------------
+	# wbUnion means that a condition has to be met. When the condition is 0  
+	# it uses the first line, 1 is the next line.
+	# -------------------------
+	# wbEnum is an Enumeration and I don't know how to handle them.  For now
+	# make them flags so that if the patcher needs to mitigate the change 
+	# it will be there already.
+	# -------------------------
+	# wbPDTOs,
+	# -------------------------
+	# Data in PDTO needs decide if it's a FormID or String.
+	# Because one is four bytes and the other is a string with a four
+	# byte length.  [00000008] 'A string' not [08] 'A string'
+    # -------------------------
+	# class MelACHRPDTOHandeler(MelGroup):
+    # -------------------------
+	# Handle the flags first
+	# (ACHRTopicDataFlags,'topicDataFlags',0L),
+	# Then decide if it is a string or FormID.			
+	# If it's a valid string then it's a string, 
+	# if it's a valid FormID then it's a FormID
+	# Output the record with the flags first then the Data
+	# Also this need to be repeating for as many as are present.
+	# like with MelGroups, or MelFids it's repeating
+	# PDTO, PDTO, PDTO, PDTO...	
+    # -------------------------
+	
     melSet = MelSet(
         MelString('EDID','eid'),
         MelVmad(),
         #These last two don't have other records to reference for how to enter them
         # wbFormIDCk(NAME, 'Base', [NPC_], False, cpNormal, True),
         # wbFormIDCk(XEZN, 'Encounter Zone', [ECZN]),
-        )
+		# TES5Edit cares about what the FormID type is such as NPC_ or ECZN, Wrye Bash does not.
+		# Use the four letter name of the record and then the label within quotes from TES5Edit
+		MelFid('NAME','base'),
+		MelFid('XEZN','encounterZone'),
+
+        # {--- Ragdoll ---}
+
+        # wbXRGD := wbByteArray(XRGD, 'Ragdoll Data');
+        # wbXRGB := wbByteArray(XRGB, 'Ragdoll Biped Data');
+        # wbByteArray without a parameter or "0" means that the data is 
+		# read from the file just as it is found, and written without being altered. 
+        MelBase('XRGD','xrgd_p'),
+		MelBase('XRGB','xrgb_p'),
+		# A Struct in TES5Edit either contains fields or records.
+		# Wrye Bash uses MelStruct for fields and MelGroup for Records.
+
+        # {--- Patrol Data ---}
+
+		MelGroup('patrolData',
+            MelStruct('XPRD','f','idleTime',),
+		    # In TES5Edit wbEmpty is normally a Marker with no value like an 
+			# empty xml tag <record></record> or <record />
+            MelNull('XPPA','f','patrolScriptMarker',),
+            MelFid('INAM','idle'),
+			MelGroup('patrolData',
+				# wbUnknown means it has not or cannot be decoded
+				MelBase('SCHR','schr_p'),
+				MelBase('SCDA','scda_p'),
+				MelBase('SCTX','sctx_p'),
+				MelBase('QNAM','qnam_p'),
+				MelBase('SCRO','scro_p'),
+				),
+            # Should Be -> MelACHRPDTOHandeler(),
+			MelBase('PDTO','pdto_p'),
+            MelFid('TNAM','topic'),
+            ),
+        # End of "MelGroup('patrolData',"
+
+        # {--- Leveled Actor ----}
+
+        # {--- Merchant Container ----}
+
+        # {--- Extra ---}
+
+        # {--- Activate Parents ---}
+
+        # {--- Linked Ref ---}
+
+        # {--- Enable Parent ---}
+
+        # {--- Ownership ---}
+
+        # {--- Emittance ---}
+
+        # {--- MultiBound ---}
+
+        # {--- Flags ---}
+
+        # {--- 3D Data ---}
+
+		)
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
 class MreActi(MelRecord):
