@@ -18286,6 +18286,19 @@ class MreHeader(MreHeaderBase):
 # Marker for organization please don't remove ---------------------------------
 # ACHR ------------------------------------------------------------------------
 #------------------------------------------------------------------------------
+class MreAchr(MelRecord):
+
+    classType = 'ACHR'
+
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelVmad(),
+        #These last two don't have other records to reference for how to enter them
+        # wbFormIDCk(NAME, 'Base', [NPC_], False, cpNormal, True),
+        # wbFormIDCk(XEZN, 'Encounter Zone', [ECZN]),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
 class MreActi(MelRecord):
     """Activator."""
     classType = 'ACTI'
