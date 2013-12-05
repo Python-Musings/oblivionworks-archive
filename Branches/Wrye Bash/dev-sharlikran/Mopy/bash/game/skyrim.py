@@ -17329,13 +17329,37 @@ class MelDestructible(MelGroup):
         """Initialize elements."""
         MelGroup.__init__(
             self,attr,
-            # 'vatsTargetable' is either True or False              
-            MelStruct('DEST','IBBBB','health','count','vatsTargetable','unknown1', 'unknown'),
+            # 'vatsTargetable' is either True or False
+			# wbInteger('Health', itS32),  The S means signed
+            MelStruct('DEST','iBB2s','health','count','vatsTargetable','dest_unused'),
+			# wbRArray('Stages',
             MelGroups('stages',
-                      MelStruct('DSTD','=4B4I','health','index','damageStage',(MelDestructible.MelDestTypeFlags,'flags',0L),
-                                'selfDamagePerSecond',(FID,'explosion',None),(FID,'debris',None),'debrisCount'),
-                      MelAltModel('models', 'DMDL')
-                      ),
+				# wbRStruct('Stage', [
+				MelGroup('stage',
+				    #wbStruct(DSTD, 'Destruction Stage Data', [
+                    MelStruct('DSTD','=4B4I','health','index','damageStage',(MelDestructible.MelDestTypeFlags,'flags',0L),
+                              'selfDamagePerSecond',(FID,'explosion',None),(FID,'debris',None),'debrisCount'),
+					# wbRStructSK([0], 'Model', [
+					MelGroup('model',
+						MelAltModel('models', 'DMDL')
+						# DMDT Not decoded in TES5Edit
+-                      	MelBase('DMDT','dmdt_undecoded'),
+		                #  wbDMDSs := wbArrayS(DMDS, 'Alternate Textures', -- This is a Sorted Array
+		                #    wbStructSK([0, 2], 'Alternate Texture', [ -- I forget what the [0,2] means you would have to ask Zilav
+		                #      wbLenString('3D Name'), -- 4byte length code
+		                #      wbFormIDCk('New Texture', [TXST]),
+		                #      wbInteger('3D Index', itS32)
+		                #    ]),
+		                #  -1);
+						# wbArrayS(DMDS, 'Alternate Textures',
+		                MelGroups('alternateTexture',
+		                    # '3dName' is a string with a 4 byte Length code
+		                    # What do I change '4s' to?
+		                    MelStruct('DMDS','4sIi','3dName',(FID,'explosion',None),'3dIndex',),
+		                ),
+                    ),
+                ),
+            ),
             MelBase('DSTF','dstf_p'), # Appears just to signal the end of the destruction data
         )
 
