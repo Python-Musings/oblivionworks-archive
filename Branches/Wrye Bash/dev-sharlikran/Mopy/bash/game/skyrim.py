@@ -17333,32 +17333,13 @@ class MelDestructible(MelGroup):
             # wbInteger('Health', itS32),  The S means signed
             MelStruct('DEST','iBB2s','health','count','vatsTargetable','dest_unused'),
             # wbRArray('Stages',
-            MelGroups('stages',
                 # wbRStruct('Stage', [
-                MelGroup('stage',
                     # wbStruct(DSTD, 'Destruction Stage Data', [
-                    MelStruct('DSTD','=4B4I','health','index','damageStage',(MelDestructible.MelDestTypeFlags,'flags',0L),
-                              'selfDamagePerSecond',(FID,'explosion',None),(FID,'debris',None),'debrisCount'),
                     # wbRStructSK([0], 'Model', [
-                    MelGroup('model',
-                        MelAltModel('models', 'DMDL'),
-                        # DMDT Not decoded in TES5Edit
-                        MelBase('DMDT','dmdt_undecoded'),
-                        #  wbDMDSs := wbArrayS(DMDS, 'Alternate Textures', -- This is a Sorted Array
-                        #    wbStructSK([0, 2], 'Alternate Texture', [ -- I forget what the [0,2] means you would have to ask Zilav
-                        #      wbLenString('3D Name'), -- 4byte length code
-                        #      wbFormIDCk('New Texture', [TXST]),
-                        #      wbInteger('3D Index', itS32)
-                        #    ]),
-                        #  -1);
-                        # wbArrayS(DMDS, 'Alternate Textures',
-                        MelGroups('alternateTexture',
-                            # '3dName' is a string with a 4 byte Length code
-                            # What do I change '4s' to
-                            MelStruct('DMDS','4sIi','3dName',(FID,'explosion',None),'3dIndex',)
-                        ),
-                    ),
-                ),
+            MelGroups('stages',
+                MelStruct('DSTD','=4B4I','health','index','damageStage',(MelDestructible.MelDestTypeFlags,'flags',0L),
+                          'selfDamagePerSecond',(FID,'explosion',None),(FID,'debris',None),'debrisCount'),
+                MelModel('model','DMDL'),
             ),
             MelBase('DSTF','dstf_p'), # Appears just to signal the end of the destruction data
         )
@@ -17631,31 +17612,8 @@ class MelMODS(MelBase):
 # Verified Correct for Skyrim
 #-------------------------------------------------------------------------------
 class MelModel(MelGroup):
-    """Represents The Main model record."""
-    # MODB and MODD need investigation. Could be unused legacy records
-    typeSets = {
-        'MODL': ('MODL','MODB','MODT','MODS','MODD'),
-        }
-    def __init__(self,attr='model',type='MODL'):
-        """Initialize."""
-        types = self.__class__.typeSets[type]
-        MelGroup.__init__(self,attr,
-            MelString(types[0],'modPath'),
-            MelOptStruct(types[1],'f','modb'),
-            MelBase(types[2],'modt_p'),
-            MelMODS(types[3],'mod_s'),
-            MelOptStruct(types[4],'=B','modelFlags'),
-            )
-
-    def debug(self,on=True):
-        """Sets debug flag on self."""
-        for element in self.elements[:2]: element.debug(on)
-        return self
-
-#-------------------------------------------------------------------------------
-class MelAltModel(MelGroup):
-    """Represents a Alternate model record."""
-    # Use this until MODB and MODD have been investigated further
+    """Represents a model record."""
+    # MODB and MODD are no longer used by TES5Edit
     typeSets = {
         'MODL': ('MODL','MODT','MODS'),
         'MOD2': ('MOD2','MO2T','MO2S'),
@@ -17664,7 +17622,7 @@ class MelAltModel(MelGroup):
         'MOD5': ('MOD5','MO5T','MO5S'),
         'DMDL': ('DMDL','DMDT','DMDS'),
         }
-    def __init__(self,attr='altModel',type='MODL'):
+    def __init__(self,attr='model',type='MODL'):
         """Initialize."""
         types = self.__class__.typeSets[type]
         MelGroup.__init__(self,attr,
@@ -18397,9 +18355,9 @@ class MreAchr(MelRecord):
                 MelBase('QNAM','qnam_p'),
                 MelBase('SCRO','scro_p'),
             ),
-			# Should Be -> MelACHRPDTOHandeler(),
-			MelBase('PDTO','pdto_p'),
-			MelFid('TNAM','topic'),
+            # Should Be -> MelACHRPDTOHandeler(),
+            MelBase('PDTO','pdto_p'),
+            MelFid('TNAM','topic'),
         ),
         # End of MelGroup('patrolData',"
 
@@ -18439,7 +18397,7 @@ class MreActi(MelRecord):
         MelVmad(),
         MelBounds(),
         MelLString('FULL','full'),
-        MelAltModel(),
+        MelModel(),
         MelDestructible(),
         MelNull('KSIZ'),
         MelKeywords('KWDA','keywords'),
@@ -18463,7 +18421,7 @@ class MreTact(MelRecord):
         MelVmad(),
         MelBounds(),
         MelLString('FULL','full'),
-        MelAltModel(),
+        MelModel(),
         MelDestructible(),
         MelNull('KSIZ'),
         MelKeywords('KWDA','keywords'),
@@ -18508,7 +18466,7 @@ class MreAlch(MelRecord):
         MelNull('KSIZ'),
         MelKeywords('KWDA','keywords'),
         MelLString('DESC','description'),
-        MelAltModel(),
+        MelModel(),
         MelDestructible(),
         MelIcons(),
         MelOptStruct('YNAM','I',(FID,'pickupSound')),
@@ -18537,7 +18495,7 @@ class MreAmmo(MelRecord):
         MelString('EDID','eid'),
         MelBounds(),
         MelLString('FULL','full'),
-        MelAltModel(),
+        MelModel(),
         MelIcons(),
         MelDestructible(),
         MelFid('YNAM','pickupSound'),
@@ -18557,7 +18515,7 @@ class MreAnio(MelRecord):
     classType = 'ANIO'
     melSet = MelSet(
         MelString('EDID','eid'),
-        MelAltModel(),
+        MelModel(),
         MelString('BNAM','unloadEvent'),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
@@ -18575,9 +18533,9 @@ class MreArmo(MelRecord):
         MelLString('FULL','full'),
         MelOptStruct('EITM','I',(FID,'enchantment')),
         MelOptStruct('EAMT','H','enchantmentAmount',),
-        MelAltModel('model1','MOD2'),
+        MelModel('model1','MOD2'),
         MelIcons(),
-        MelAltModel('model3','MOD4'),
+        MelModel('model3','MOD4'),
         MelString('ICO2','ico2_n'),
         MelString('MIC2','mic2_n'),
         MelBipedObjectData(),
@@ -18610,10 +18568,10 @@ class MreArma(MelRecord):
         MelBipedObjectData(),
         MelFid('RNAM','race'),
         MelBase('DNAM','dnam_p'),
-        MelAltModel('male_model','MOD2'),
-        MelAltModel('female_model','MOD3'),
-        MelAltModel('male_model_1st','MOD4'),
-        MelAltModel('female_model_1st','MOD5'),
+        MelModel('male_model','MOD2'),
+        MelModel('female_model','MOD3'),
+        MelModel('male_model_1st','MOD4'),
+        MelModel('female_model_1st','MOD5'),
         MelOptStruct('NAM0','I',(FID,'skin0')),
         MelOptStruct('NAM1','I',(FID,'skin1')),
         MelOptStruct('NAM2','I',(FID,'skin2')),
@@ -18668,7 +18626,7 @@ class MreBook(MelRecord):
         MelVmad(),
         MelBounds(),
         MelLString('FULL','full'),
-        MelAltModel(),
+        MelModel(),
         MelIcons(),
         MelLString('DESC','description'),
         MelDestructible(),
@@ -18766,7 +18724,7 @@ class MreClmt(MelRecord):
         MelStruct('WLST','IiI',(FID,'weather',None),'chance',(FID,'global',None),),
         MelLString('FNAM','sunTexture'),
         MelLString('GNAM','sunGlareTexture'),
-        MelAltModel(),
+        MelModel(),
         MelStruct('TNAM','6B','timingBegin','timingEnd','sunsetBegin','sunsetEnd',
         'volatility','moonsPhaseLength',),
         )
@@ -18897,7 +18855,7 @@ class MreCont(MelRecord):
         MelVmad(),
         MelBounds(),
         MelLString('FULL','full'),
-        MelAltModel(),
+        MelModel(),
         # One Count: COCT 
         # Handled by MreContCnto
         MelNull('COCT'),
@@ -19149,7 +19107,7 @@ class MreDoor(MelRecord):
         MelVmad(),
         MelBounds(),
         MelLString('FULL','full'),
-        MelAltModel(),
+        MelModel(),
         MelDestructible(),
         MelFid('SNAM','openSound'),
         MelFid('ANAM','openSound'),
@@ -19503,7 +19461,7 @@ class MreFurn(MelRecord):
         MelVmad(),
         MelBounds(),
         MelLString('FULL','full'),
-        MelAltModel(),
+        MelModel(),
         MelDestructible(),
         MelNull('KSIZ'),
         MelKeywords('KWDA','keywords'),
@@ -19643,7 +19601,7 @@ class MreHdpt(MelRecord):
     melSet = MelSet(
         MelString('EDID','eid'),
         MelLString('FULL','full'),
-        MelAltModel(),
+        MelModel(),
         MelStruct('DATA','B',(HdptTypeFlags,'hdptDataFlags',0L),),
         MelStruct('PNAM','I',(HdptTypeFlags02,'hdptDataFlags02',0L),),
         MelFids('HNAM','extraParts'),
@@ -19686,7 +19644,7 @@ class MreMstt(MelRecord):
         MelString('EDID','eid'),
         MelBounds(),
         MelString('FULL','full'),
-        MelAltModel(),
+        MelModel(),
         MelDestructible(),
         MelStruct('DATA','B',(MsttTypeFlags,'flags',0L),),
         MelFid('SNAM','sound'),
@@ -19714,7 +19672,7 @@ class MreIdlm(MelRecord):
         MelStruct('IDLC','B','animationCount',),
         MelStruct('IDLT','f','idleTimerSetting'),
         MelFidList('IDLA','animations'),
-        MelAltModel(),
+        MelModel(),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
@@ -19777,7 +19735,7 @@ class MreProj(MelRecord):
         MelString('EDID','eid'),
         MelBounds(),
         MelString('FULL','full'),
-        MelAltModel(),
+        MelModel(),
         MelDestructible(),
         MelProjData('DATA','2H3f2I3f2I3f3I4f2I',(ProjTypeFlags,'flags',0L),(ProjectileTypes,'type',0L),
                   ('gravity',0.00000),('speed',10000.00000),('range',10000.00000),
@@ -19815,7 +19773,7 @@ class MreHazd(MelRecord):
         MelString('EDID','eid'),
         MelBounds(),
         MelLString('FULL','full'),
-        MelAltModel(),
+        MelModel(),
         MelStruct('DATA','I4f5I','limit','radius','lifetime',
                   'imageSpaceRadius','targetInterval',(HazdTypeFlags,'flags',0L),
                   (FID,'spell'),(FID,'light'),(FID,'impactDataSet'),(FID,'sound'),),
@@ -19831,7 +19789,7 @@ class MreSlgm(MelRecord):
         MelString('EDID','eid'),
         MelBounds(),
         MelString('FULL','full'),
-        MelAltModel(),
+        MelModel(),
         MelIcons(),
         MelDestructible(),
         MelFid('YNAM','soundPickUp'),
@@ -19874,7 +19832,7 @@ class MreExpl(MelRecord):
         MelString('EDID','eid'),
         MelBounds(),
         MelString('FULL','full'),
-        MelAltModel(),
+        MelModel(),
         MelFid('EITM','objectEffect'),
         MelFid('MNAM','imageSpaceModifier'),
         MelStruct('DATA','6I5f2I',(FID,'light',None),(FID,'sound1',None),(FID,'sound2',None),
@@ -19951,7 +19909,7 @@ class MreBptd(MelRecord):
 
     melSet = MelSet(
         MelString('EDID','eid'),
-        MelAltModel(),
+        MelModel(),
         MelLString('BPTN','partName'),
         MelString('PNAM','poseMatching'),
         MelString('BPNN','partNode'),
@@ -19980,7 +19938,7 @@ class MreAddn(MelRecord):
     melSet = MelSet(
         MelString('EDID','eid'),
         MelBounds(),
-        MelAltModel(),
+        MelModel(),
         MelBase('DATA','data_p'),
         MelOptStruct('SNAM','I',(FID,'ambientSound')),
         MelBase('DNAM','addnFlags'),
@@ -20103,7 +20061,7 @@ class MreIpct(MelRecord):
 
     melSet = MelSet(
         MelString('EDID','eid'),
-        MelAltModel(),
+        MelModel(),
         MelStruct('DATA','fIffIBBH','effectDuration',(IpctEffectOrientation,'orientationFlags',0L),
                   'angleThreshold','placementRadius', (IpctSoundLevel,'soundLevel',0L),
                   (IpctTypeFlags,'flags',0L),(IpctResultFlags,'resultFlags',0L),'unknown1'
@@ -20394,7 +20352,7 @@ class MreArto(MelRecord):
     melSet = MelSet(
         MelString('EDID','eid'),
         MelBounds(),
-        MelAltModel(),
+        MelModel(),
         MelStruct('DNAM','I',(ArtoTypeFlags,'flags',0L)),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
@@ -20411,7 +20369,7 @@ class MreMato(MelRecord):
 
     melSet = MelSet(
         MelString('EDID','eid'),
-        MelAltModel(),
+        MelModel(),
         MelGroups('wordsOfPower',
         	MelBase('SNAM','propertyData',),
         	),
@@ -20528,7 +20486,7 @@ class MreGras(MelRecord):
     melSet = MelSet(
         MelString('EDID','eid'),
         MelBounds(),
-        MelAltModel(),
+        MelModel(),
         MelStruct('DATA','4B2HI4f4B','density','minSlope','maxSlope',
                   ('unused1',null1),'waterDistance',('unused2',null2),
                   (GrasWaterDistFlags,'flags',0L),'posRange',
@@ -20595,7 +20553,7 @@ class MreIngr(MelRecord):
         MelString('FULL','full'),
         MelNull('KSIZ'),
         MelKeywords('KWDA','keywords'),
-        MelAltModel(),
+        MelModel(),
         MelIcons(),
         MelFid('ETYP','equipmentType',),
         MelFid('YNAM','soundPickUp'),
@@ -20616,7 +20574,7 @@ class MreKeym(MelRecord):
         MelVmad(),
         MelBounds(),
         MelString('FULL','full'),
-        MelAltModel(),
+        MelModel(),
         MelIcons(),
         MelDestructible(),
         MelFid('SCRI','script'),
@@ -21072,7 +21030,7 @@ class MreMisc(MelRecord):
         MelVmad(),
         MelBounds(),
         MelLString('FULL','full'),
-        MelAltModel(),
+        MelModel(),
         MelIcons(),
         MelDestructible(),
         MelOptStruct('YNAM','I',(FID,'pickupSound')),
@@ -21101,7 +21059,7 @@ class MreAppa(MelRecord):
         MelVmad(),
         MelBounds(),
         MelLString('FULL','full'),
-        MelAltModel(),
+        MelModel(),
         MelIcons(),
         MelDestructible(),
         MelFid('YNAM','pickupSound'),
@@ -21376,7 +21334,7 @@ class MreStat(MelRecord):
     melSet = MelSet(
         MelString('EDID','eid'),
         MelBounds(),
-        MelAltModel(),
+        MelModel(),
         MelStruct('DNAM','fI','maxAngle30to120',(FID,'material'),),
         # Contains null-terminated mesh filename followed by random data up to 260 bytes
         MelBase('MNAM','distantLOD'),
@@ -21392,7 +21350,7 @@ class MreTree(MelRecord):
     melSet = MelSet(
         MelString('EDID','eid'),
         MelBounds(),
-        MelAltModel(),
+        MelModel(),
         MelFid('PFIG','harvestIngredient'),
         MelFid('SNAM','harvestSound'),
         MelStruct('PFPC','4B','spring','summer','fall','wsinter',),
@@ -21414,7 +21372,7 @@ class MreFlor(MelRecord):
         MelVmad(),
         MelBounds(),
         MelLString('FULL','full'),
-        MelAltModel(),
+        MelModel(),
         MelDestructible(),
         MelNull('KSIZ'),
         MelKeywords('KWDA','keywords'),
