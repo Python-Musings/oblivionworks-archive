@@ -17381,7 +17381,7 @@ class MelOwnership(MelGroup):
         if record.ownership and record.ownership.owner:
             MelGroup.dumpData(self,record,out)
 
-# Needs systax check but otherwise Correct for Skyrim
+# Needs syntax check but otherwise Correct for Skyrim
 #------------------------------------------------------------------------------
 class MelIcons(MelGroup):
     """Handles ICON and MICO."""
@@ -17409,7 +17409,7 @@ class MelIcons(MelGroup):
 #        if record.iconsIaM and record.iconsIaM.icon:
 #            MelGroup.dumpData(self,record,out)
 
-# Needs systax check but otherwise Correct for Skyrim
+# Needs syntax check but otherwise Correct for Skyrim
 #------------------------------------------------------------------------------
 #function wbCOEDOwnerDecider(aBasePtr: Pointer; aEndPtr: Pointer; const aElement: IwbElement): Integer;
 #var
