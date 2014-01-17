@@ -1,0 +1,2044 @@
+plugins:
+  - name: BrokenSteel.esm
+    tag:
+      - Actors.ACBS
+      - Actors.AIPackages
+      - Relev
+  - name: Unofficial Fallout 3 Patch.esm
+    tag:
+      - C.Music
+      - Deflst
+      - Delev
+      - Factions
+      - Invent
+      - Names
+      - Relations
+      - Relev
+      - Stats
+  - name: Lings.esm
+    tag:
+      - Hair
+  - name: LingsDLC.esm
+    tag:
+      - Eyes
+      - Hair
+  - name: HairPack.esm
+    tag:
+      - Eyes
+      - Hair
+  - name: FNNsys.esm
+    tag:
+      - Scripts
+  - name: FaceMe.esm
+    tag:
+      - Eyes
+      - Hair
+      - NPC.Race
+      - NpcFaces
+  - name: Destruction.esm
+    tag:
+      - Destructible
+      - Scripts
+  - name: xCALIBR.esm
+    tag:
+      - Graphics
+      - Names
+      - Stats
+  - name: xCALIBRuniverse.esm
+    tag:
+      - Graphics
+      - Invent
+      - Names
+      - Sound
+      - Stats
+  - name: Project Beauty.esm
+    tag:
+      - Body-F
+      - Body-M
+      - Eyes
+      - Hair
+      - NPC.Race
+      - NpcFaces
+      - R.Mouth
+      - R.Teeth
+      - Voice-F
+      - Voice-M
+  - name: FACE3.esm
+    tag:
+      - Body-F
+      - Body-M
+      - Eyes
+      - Hair
+      - NPC.Race
+      - NpcFaces
+      - R.Mouth
+      - R.Teeth
+      - Voice-F
+      - Voice-M
+  - name: CFWRv4.esm
+    tag:
+      - Deflst
+      - Delev
+      - Graphics
+      - Invent
+      - Names
+      - Scripts
+      - Stats
+  - name: "[DC RANGER ARSENAL v3 MASTER].esm"
+    tag:
+      - Deflst
+  - name: CFWR.esm
+    tag:
+      - Delev
+      - Graphics
+      - Relev
+      - Stats
+  - name: GNRBuilding_BoS.esm
+    tag:
+      - Invent
+  - name: RoadWardens.esm
+    tag:
+      - Actors.ACBS
+      - Actors.AIData
+      - Actors.AIPackages
+      - Actors.CombatStyle
+      - Actors.Stats
+      - Factions
+      - Invent
+      - ScriptContents
+      - Scripts
+  - name: EVE.esm
+    tag:
+      - Graphics
+      - Invent
+      - Scripts
+      - Sound
+  - name: EWE Energy Weapons Enhanced.esm
+    tag:
+      - Deflst
+      - Graphics
+      - Invent
+      - Relev
+      - Scripts
+      - Stats
+  - name: FOOK2 - Main.esm
+    tag:
+      - Factions
+      - Invent
+      - Relations
+      - Stats
+  - name: FO3 Wanderers Edition - Main File.esm
+    tag:
+      - Actors.ACBS
+      - Actors.Stats
+      - Deflst
+      - Delev
+      - Invent
+      - Names
+      - Relations
+      - Relev
+      - Stats
+  - name: FWE - Combat Overhaul_Core.esm
+    tag:
+      - Graphics
+      - Names
+  - name: Mart's Mutant Mod.esm
+    tag:
+      - Delev
+      - Invent
+      - Names
+      - Relations
+      - Scripts
+  - name: Arwen_Core.esm
+    tag:
+      - Actors.Animations
+  - name: Xepha's Dynamic Weather.esm
+    tag:
+      - C.Climate
+      - Sound
+  - name: Shojo Race.esm
+    tag:
+      - Eyes
+      - Hair
+  - name: XENH.esm
+    tag:
+      - Eyes
+      - Hair
+  - name: EnhancedChildren.esm
+    tag:
+      - Eyes
+      - Hair
+  - name: AliciasCuteShop.esm
+    tag:
+      - Stats
+  - name: Abbreviated Effects.esm
+    tag:
+      - Names
+  - name: DALCO Inventory Sorter - Fallout 3 & All DLCs.esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - Unofficial Fallout 3 Patch (Base Game).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: Unofficial Fallout 3 Patch - Operation Anchorage.esp
+    tag:
+      - Deflst
+      - Names
+  - name: Unofficial Fallout 3 Patch - The Pitt.esp
+    tag:
+      - Deflst
+      - Names
+  - name: Unofficial Fallout 3 Patch - Broken Steel.esp
+    tag:
+      - Deflst
+      - Names
+      - NoMerge
+  - name: Unofficial Fallout 3 Patch - Point Lookout.esp
+    tag:
+      - Deflst
+      - Invent
+      - Names
+      - Stats
+  - name: Unofficial Fallout 3 Patch - Mothership Zeta.esp
+    tag:
+      - Deflst
+      - Names
+  - name: Error Correction.esp
+    tag:
+      - Scripts
+  - name: FireLightFix.esp
+    tag:
+      - C.Light
+  - name: BlackWidowBurkeFix.esp
+    tag:
+      - Scripts
+  - name: PyromaniacFix-Burnmaster.esp
+    tag:
+      - Deflst
+  - name: PyromaniacFix-Burnmaster-BS.esp
+    tag:
+      - Deflst
+  - name: PyromaniacFix-Both.esp
+    tag:
+      - Deflst
+  - name: PyromaniacFix-Both-BS.esp
+    tag:
+      - Deflst
+  - name: PyromaniacFix-Both+Nuka.esp
+    tag:
+      - Deflst
+  - name: PyromaniacFix-Both+Nuka-BS.esp
+    tag:
+      - Deflst
+  - name: MS11fix.esp
+    tag:
+      - Actors.AIPackages
+      - C.Light
+      - Invent
+      - Scripts
+  - name: BetterGamePerformance.esp
+    tag:
+      - Deflst
+      - Delev
+  - name: Stop Insulting Me Outcasts.esp
+    tag:
+      - Factions
+  - name: DALCO Inventory Sorter - Fallout 3 (Base Game).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - Operation Anchorage.esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - Unofficial Fallout 3 Patch (Operation Anchorage).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - The Pitt.esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - Unofficial Fallout 3 Patch (The Pitt).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - Broken Steel.esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - Point Lookout.esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - Unofficial Fallout 3 Patch (Point Lookout).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - Mothership Zeta.esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - Unofficial Fallout 3 Patch (Mothership Zeta).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - Unofficial Fallout 3 Patch (Fallout 3 & All DLCs).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - CALIBR.esp
+    tag:
+      - Names
+      - NoMerge
+  - name: Project Beauty- Broken Steel.esp
+    tag:
+      - Deactivate
+      - NoMerge
+      - NPC.Race
+      - NpcFaces
+  - name: Project Beauty- Point Lookout.esp
+    tag:
+      - Deactivate
+      - NoMerge
+      - NPC.Race
+      - NpcFaces
+  - name: Raider preset beta.esp
+    tag:
+      - Deactivate
+      - NoMerge
+      - NPC.Race
+      - NpcFaces
+  - name: Project Beauty HD version [Hair Fix].esp
+    tag:
+      - Deactivate
+      - NoMerge
+      - NPC.Race
+      - NpcFaces
+  - name: FACE3 - NPCS.esp
+    tag:
+      - Deactivate
+      - NoMerge
+      - NPC.Race
+      - NpcFaces
+  - name: FACE3 - DLC04 Point Lookout.esp
+    tag:
+      - Deactivate
+      - NoMerge
+      - NPC.Race
+      - NpcFaces
+  - name: FACE3 NPCS - DLC03 Broken Steel.esp
+    tag:
+      - Deactivate
+      - NoMerge
+      - NPC.Race
+      - NpcFaces
+  - name: DALCO Inventory Sorter - Dynamic Crosshair.esp
+    tag:
+      - Names
+  - name: FaceMe.esp
+    tag:
+      - Deactivate
+      - NoMerge
+      - NPC.Race
+      - NpcFaces
+  - name: FaceMe-Broken Steel.esp
+    tag:
+      - Deactivate
+      - NoMerge
+      - NPC.Race
+      - NpcFaces
+  - name: Shojo NPC.esp
+    tag:
+      - Invent
+      - NPC.Race
+      - NpcFaces
+  - name: Moira-EXSP.esp
+    tag:
+      - Deactivate
+      - NoMerge
+      - NPC.Race
+      - NpcFaces
+  - name: BatteriesPlusV1_2.esp
+    tag:
+      - Graphics
+  - name: Realistic icons.esp
+    tag:
+      - Graphics
+  - name: DALCO Inventory Sorter - CASM.esp
+    tag:
+      - Names
+      - NoMerge
+  - name: EVE - RH Ironsights Patch.esp
+    tag:
+      - Graphics
+  - name: ReneersRadioMod.esp
+    tag:
+      - Scripts
+  - name: Despicable Dashwood v2.esp
+    tag:
+      - Actors.ACBS
+      - Invent
+  - name: HeirApparent.esp
+    tag:
+      - Scripts
+  - name: IntoTheDeepWoods.esp
+    tag:
+      - Scripts
+  - name: Lawbringer Boutnies Ver1.1.esp
+    tag:
+      - Invent
+  - name: NotSoFast.esp
+    tag:
+      - Scripts
+  - name: PLweightadjust.esp
+    tag:
+      - Invent
+      - Scripts
+      - Stats
+  - name: The Mantis Imperative - Mantis.esp
+    tag:
+      - Relev
+  - name: Action for men v3.0.esp
+    tag:
+      - Invent
+  - name: FF_DestructibleRadios.esp
+    tag:
+      - Destructible
+  - name: Angry Scientists.esp
+    tag:
+      - Invent
+  - name: ScrapMetal.esp
+    tag:
+      - Invent
+  - name: ScrapMetal_H.esp
+    tag:
+      - Invent
+  - name: ScrapMetal_Q.esp
+    tag:
+      - Invent
+  - name: CreateScrapMetal.esp
+    tag:
+      - Invent
+  - name: MrLabTechnician - FWE.esp
+    tag:
+      - Deflst
+      - Delev
+  - name: Placeable Lights Basic Edition v2.1.esp
+    tag:
+      - Actors.AIData
+      - Relev
+  - name: Placable Lights v2.1.esp
+    tag:
+      - Actors.AIData
+      - Relev
+  - name: SelfSurgeryKit.esp
+    tag:
+      - Relev
+  - name: DALCO Inventory Sorter - Sack of Holding.esp
+    tag:
+      - Names
+      - NoMerge
+  - name: Chems and Meds Re-Textures Pack.esp
+    tag:
+      - Graphics
+  - name: MAXdog.esp
+    tag:
+      - Graphics
+  - name: ShadySands.esp
+    tag:
+      - Factions
+      - Relations
+  - name: SuperSledgeBeatdown.esp
+    tag:
+      - Scripts
+  - name: BA_InventorySorterAnchorage.esp
+    tag:
+      - Names
+  - name: BA_InventorySorterBrokenSteel.esp
+    tag:
+      - Names
+  - name: BA_InventorySorterGOTY.esp
+    tag:
+      - Names
+  - name: BA_InventorySorterPointLookout.esp
+    tag:
+      - Names
+  - name: BA_InventorySorterThePitt.esp
+    tag:
+      - Names
+  - name: BA_InventorySorterZeta.esp
+    tag:
+      - Names
+  - name: AmmoSorter - Start.esp
+    tag:
+      - Names
+  - name: AmmoSorter - End.esp
+    tag:
+      - Names
+  - name: Scenic_Loading_Background.esp
+    tag:
+      - Graphics
+  - name: Scenic_Loading_Background_PointofLookoutDLC.esp
+    tag:
+      - Graphics
+  - name: Scenic_Loading_Background_OperationAnchorageDLC.esp
+    tag:
+      - Graphics
+  - name: loadingsc.esp
+    tag:
+      - Graphics
+  - name: Destruction - Main.esp
+    tag:
+      - Destructible
+      - Graphics
+      - Scripts
+  - name: Destruction - DLC.esp
+    tag:
+      - Destructible
+      - Scripts
+  - name: Classic Fallout Weapons BETA.esp
+    tag:
+      - Invent
+      - Relev
+  - name: Mannequin.esp
+    tag:
+      - Actors.AIData
+  - name: BombayTradingCo.esp
+    tag:
+      - Actors.AIPackages
+      - Invent
+      - Names
+      - Scripts
+      - Stats
+  - name: CarvanTrader.esp
+    tag:
+      - Actors.ACBS
+      - Actors.Stats
+      - Invent
+      - Names
+      - R. Attributes-F
+      - R. Attributes-M
+      - R.Skills
+      - Scripts
+  - name: Clothed American Soldiers.esp
+    tag:
+      - Invent
+  - name: Clothed Sarah Lyons.esp
+    tag:
+      - Invent
+  - name: Clothed Sarah Lyons - Sleepwear.esp
+    tag:
+      - Invent
+  - name: Confessor Cromwell has a Break_EV.esp
+    tag:
+      - Actors.AIPackages
+  - name: Essential Caravan Merchants.esp
+    tag:
+      - Actors.ACBS
+  - name: Essential_Zeta_Allies.esp
+    tag:
+      - Actors.ACBS
+  - name: Named Wastelanders.esp
+    tag:
+      - Names
+  - name: Named Wasteland.esp
+    tag:
+      - Names
+  - name: royphilipsevil.esp
+    tag:
+      - Actors.ACBS
+      - Actors.AIData
+  - name: royphilipsveryevil.esp
+    tag:
+      - Actors.ACBS
+      - Actors.AIData
+  - name: royphilipsveryevilwmask.esp
+    tag:
+      - Actors.ACBS
+      - Actors.AIData
+  - name: royphilipsevilwmask.esp
+    tag:
+      - Actors.ACBS
+      - Actors.AIData
+  - name: Wasteland Gigolo.esp
+    tag:
+      - Scripts
+  - name: megaton_lighting.esp
+    tag:
+      - C.Light
+  - name: MegatonLights.esp
+    tag:
+      - C.Light
+  - name: Towers Hill.esp
+    tag:
+      - Invent
+  - name: DALCO Inventory Sorter - Underground Hideout (Fallout 3 & All DLCs).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: Vault 89 (player home) V1-35.esp
+    tag:
+      - Scripts
+  - name: FOOK2 - Main.esp
+    tag:
+      - Delev
+      - Relev
+  - name: FOOK2 - [DESTRUCTION] Main.esp
+    tag:
+      - Destructible
+      - Scripts
+  - name: FOOK2 - [DESTRUCTION] DIK.esp
+    tag:
+      - Destructible
+      - Scripts
+  - name: FOOK2 - [DESTRUCTION] Mothership Zeta.esp
+    tag:
+      - Destructible
+      - Scripts
+  - name: Apocalypse Armory.esp
+    tag:
+      - Delev
+      - Graphics
+      - Invent
+      - Names
+      - Relev
+      - Sound
+      - Stats
+  - name: Apocalypse Armory - CALIBR.esp
+    tag:
+      - Delev
+      - Relev
+  - name: Apocalypse Armory - xCALIBR.esp
+    tag:
+      - Deflst
+      - Names
+      - Stats
+  - name: FO3 Wanderers Edition - Main File.esp
+    tag:
+      - Actors.ACBS
+      - Actors.AIData
+      - Actors.AIPackages
+      - Actors.CombatStyle
+      - Actors.Stats
+      - Deflst
+      - Delev
+      - Destructible
+      - Graphics
+      - Invent
+      - Names
+      - Relev
+      - Scripts
+      - Stats
+  - name: DALCO Inventory Sorter - FWE (Main File).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: FO3 Wanderers Edition - DLC Anchorage.esp
+    tag:
+      - Deflst
+  - name: DALCO Inventory Sorter - FWE (Operation Anchorage).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - FWE (The Pitt).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - FWE (Broken Steel).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: FO3 Wanderers Edition - DLC Point Lookout.esp
+    tag:
+      - Delev
+      - Relev
+  - name: DALCO Inventory Sorter - FWE (Point Lookout).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - FWE (Mothership Zeta).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - FWE (Alternate Travel).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: FO3 Wanderers Edition - Followers Enhanced.esp
+    tag:
+      - Actors.ACBS
+      - Actors.AIData
+      - Actors.Stats
+  - name: DALCO Inventory Sorter - FWE (Followers Enh).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: FO3 Wanderers Edition - Followers Enhanced (BrokenSteel).esp
+    tag:
+      - Actors.ACBS
+      - Actors.AIData
+      - Actors.Stats
+  - name: DALCO Inventory Sorter - FWE (Followers Enh (BrS)).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: FO3 Wanderers Edition - Optional Worn Weapons.esp
+    tag:
+      - Delev
+      - Relev
+  - name: FO3 Wanderers Edition - Talon Loot Crash Fix.esp
+    tag:
+      - Delev
+      - Relev
+  - name: FWE_Overhaul Kit - Main.esp
+    tag:
+      - Actors.ACBS
+      - Deflst
+      - Delev
+      - Graphics
+      - Invent
+      - Names
+      - Relev
+      - Sound
+      - Stats
+  - name: FWE_Overhaul Kit - Equipment .esp
+    tag:
+      - Actors.ACBS
+      - Deflst
+      - Delev
+      - Graphics
+      - Invent
+      - Names
+      - Relev
+      - Scripts
+      - Sound
+      - Stats
+  - name: FWE - Combat Overhaul_Equipment.esp
+    tag:
+      - Actors.ACBS
+      - Deflst
+      - Delev
+      - Graphics
+      - Invent
+      - Names
+      - Relev
+      - Scripts
+      - Sound
+      - Stats
+  - name: WeaponModKits.esp
+    tag:
+      - Actors.AIData
+      - Delev
+      - Invent
+      - Names
+      - Relev
+  - name: DALCO Inventory Sorter - Weapon Mod Kits (Base).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: WeaponModKits - FWE Master Release.esp
+    tag:
+      - Deflst
+      - Names
+      - Relev
+  - name: WeaponModKits - FWE Optional Worn Weapons.esp
+    tag:
+      - Delev
+  - name: DALCO Inventory Sorter - WMK - FWE Master Release.esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - Weapon Mod Kits (DLC Anchorage).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - WMK - FWE (DLC Anchorage).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - Weapon Mod Kits (DLC ThePitt).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - WMK - FWE (DLC ThePitt).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - Weapon Mod Kits (DLC BrS).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - WMK - FWE (DLC BrS).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - Weapon Mod Kits (DLC PointLookout).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - WMK - FWE (DLC PointLookout).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - Weapon Mod Kits (DLC Zeta).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: DALCO Inventory Sorter - WMK - FWE (DLC Zeta).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: CRAFTable_WMKs_skill_requirements_lead_pipe_no_assault_rifle_and_laser_pistol_.esp
+    tag:
+      - Invent
+  - name: CRAFTable_WMKs_skill_requirements_no_assault_rifle_and_laser_pistol.esp
+    tag:
+      - Invent
+  - name: CRAFTable_WMKs_skill_requirements_lead_pipe.esp
+    tag:
+      - Invent
+  - name: CRAFTable_WMKs.esp
+    tag:
+      - Invent
+  - name: CRAFTable_WMKs_no_assault_rifle_and_laser_pistol.esp
+    tag:
+      - Invent
+  - name: CRAFTable_WMKs_lead_pipe_no_assault_rifle_and laser_pistol.esp
+    tag:
+      - Invent
+  - name: CRAFTable_WMKs_lead_pipe.esp
+    tag:
+      - Invent
+  - name: CRAFTable_WMKs_skill_req_Amodeus.esp
+    tag:
+      - Invent
+  - name: T3T_WMK1.esp
+    tag:
+      - Deflst
+      - Stats
+  - name: 3EFskewer.esp
+    tag:
+      - Stats
+  - name: 44Magnum.esp
+    tag:
+      - Deflst
+      - Stats
+  - name: 7_HolsterForHandGunsV1_1.esp
+    tag:
+      - Invent
+  - name: Accurate Assault Rifles 1.2.esp
+    tag:
+      - Stats
+  - name: AddWanda_v2_blk_eot.esp
+    tag:
+      - Invent
+  - name: AlexScorpion's  and Weijiesen's Smoking Fun.esp
+    tag:
+      - Invent
+  - name: AlexScorpion's and Weijiesen's Smoking Fun.esp
+    tag:
+      - Invent
+  - name: alienblasterammo.esp
+    tag:
+      - Stats
+  - name: ColtM4Carbines_RHIronSights.esp
+    tag:
+      - Graphics
+  - name: Drone Cannon Fix.esp
+    tag:
+      - Graphics
+  - name: EWE Supermutant Energy Weapons.esp
+    tag:
+      - Relev
+  - name: laserPistolRetextured-IronSightsPatch.esp
+    tag:
+      - Graphics
+  - name: laserRifleRetexturedScoped.esp
+    tag:
+      - Graphics
+  - name: laserRifleRetextured-IronSightsPatch.esp
+    tag:
+      - Graphics
+  - name: laserScatterGunRetextured.esp
+    tag:
+      - Graphics
+  - name: More308Ammo.esp
+    tag:
+      - Relev
+  - name: Silenced DKS-501.esp
+    tag:
+      - Deflst
+      - Invent
+      - Names
+      - Relev
+      - Stats
+  - name: Tactical Weapons by gRs Frederyck.esp
+    tag:
+      - Invent
+  - name: Tactical Weapons-Calibr-V3 762 fix.esp
+    tag:
+      - Invent
+  - name: frederyck calibr fix-excalibrified.esp
+    tag:
+      - Invent
+  - name: WattzLasers.esp
+    tag:
+      - Delev
+      - Relev
+      - Stats
+  - name: WMKAA12Shotgun.esp
+    tag:
+      - Graphics
+  - name: DALCO Inventory Sorter - WMKAA12Shotgun.esp
+    tag:
+      - Names
+      - NoMerge
+  - name: xCALIBRmunitions.esp
+    tag:
+      - Delev
+      - Relev
+  - name: "[DC RANGER ARSENAL v3 MASTER].esm"
+    tag:
+      - Deflst
+  - name: BBBackpacks-v1-1.esp
+    tag:
+      - Stats
+  - name: BnB special armors.esp
+    tag:
+      - Invent
+      - Relev
+  - name: BoS_DX.esp
+    tag:
+      - Graphics
+  - name: BoSDX.esp
+    tag:
+      - Graphics
+  - name: WinterizedT51bDX.esp
+    tag:
+      - Graphics
+  - name: Outcast DX.esp
+    tag:
+      - Graphics
+  - name: Outcast DX - FWE patch.esp
+    tag:
+      - Graphics
+  - name: Tribal_DX.esp
+    tag:
+      - Deflst
+      - Graphics
+  - name: BoS_FOOKedition_Armor.esp
+    tag:
+      - Graphics
+  - name: Cat Outfit Fanged.esp
+    tag:
+      - Eyes
+  - name: Cat Outfit Only.esp
+    tag:
+      - Eyes
+  - name: clearhelmets4radsuits.esp
+    tag:
+      - Graphics
+  - name: COL Enclave VER2.esp
+    tag:
+      - Graphics
+  - name: COL Enclave Hell.esp
+    tag:
+      - Graphics
+  - name: K2_ArmorsRedone_Raiders.esp
+    tag:
+      - Graphics
+  - name: K2_GirlieGirlVaultBabe.esp
+    tag:
+      - Invent
+  - name: ModBetterPArmorVanilla.esp
+    tag:
+      - Stats
+  - name: ModBetterPArmorAnchorage.esp
+    tag:
+      - Stats
+  - name: ModBetterPArmorPitt.esp
+    tag:
+      - Stats
+  - name: ModBetterPArmorSteel.esp
+    tag:
+      - Stats
+  - name: DALCO Inventory Sorter - IGM.esp
+    tag:
+      - Names
+      - NoMerge
+  - name: RD_ElderLyonsRobe.esp
+    tag:
+      - Graphics
+  - name: SimpleEyePatch.esp
+    tag:
+      - Eyes
+      - Invent
+  - name: Test-Weapon_additional armor.esp
+    tag:
+      - Invent
+  - name: vaultgirlrp.esp
+    tag:
+      - Graphics
+      - Invent
+  - name: WasteWearGloves.esp
+    tag:
+      - Relev
+  - name: LingsPrettyThings.esp
+    tag:
+      - Eyes
+      - Hair
+      - Invent
+      - Names
+      - NPC.Class
+      - NPC.Race
+      - NpcFaces
+      - R.Attributes-F
+      - R.Attributes-M
+      - R.Description
+      - R.Head
+      - R.Mouth
+      - R.Teeth
+      - Voice-F
+  - name: xCALIBRuniverse_LingsBrokenSteel.esp
+    tag:
+      - Actors.ACBS
+      - Hair
+      - NpcFaces
+  - name: xCALIBRuniverse_LingsPrettyThings.esp
+    tag:
+      - Actors.ACBS
+      - Invent
+      - NPC.Class
+      - Voice-F
+  - name: Goth Girls Multipack.esp
+    tag:
+      - Eyes
+      - Hair
+      - Invent
+      - NPC.Race
+      - NpcFaces
+  - name: moirared.esp
+    tag:
+      - Invent
+  - name: Reclothing For LPT and Flash.esp
+    tag:
+      - Invent
+  - name: AutoGates.esp
+    tag:
+      - Scripts
+  - name: Bobbleheads Begone.esp
+    tag:
+      - Scripts
+  - name: CantaburyCommonsGuards.esp
+    tag:
+      - Actors.ACBS
+  - name: CantaburyCommonsGuards - DTO.esp
+    tag:
+      - Actors.ACBS
+      - Invent
+  - name: cyber_meat.esp
+    tag:
+      - Graphics
+  - name: Dread Dogmeat.esp
+    tag:
+      - Scripts
+  - name: OverMightyGold.esp
+    tag:
+      - Invent
+  - name: More Ammo.esp
+    tag:
+      - Relev
+  - name: More Ammo (Explosive).esp
+    tag:
+      - Relev
+  - name: Slightly More Ammo.esp
+    tag:
+      - Relev
+  - name: Slightly More Ammo (Explosive).esp
+    tag:
+      - Relev
+  - name: Everso Slightly More Ammo.esp
+    tag:
+      - Relev
+  - name: Scavenger World - Updated v0.07.esp
+    tag:
+      - Relev
+  - name: Scavenger World - Updated v0.08.esp
+    tag:
+      - Relev
+  - name: Scavenger World - FWE Edition v0.07.esp
+    tag:
+      - Relev
+  - name: Scavenger World - FWE Edition v0.08.esp
+    tag:
+      - Relev
+  - name: ScavengerWasteland.esp
+    tag:
+      - Actors.AIData
+      - Invent
+      - Relev
+      - Scripts
+  - name: SimpleSmokeo.esp
+    tag:
+      - Actors.AIPackages
+      - Actors.Animations
+      - Delev
+      - Invent
+      - Names
+      - Relev
+  - name: Start_Energy_Weapon.esp
+    tag:
+      - Invent
+  - name: WRK - Plugin.esp
+    tag:
+      - Invent
+      - Relev
+  - name: ZORTS - Custom HP.esp
+    tag:
+      - Scripts
+  - name: ZORTS - Custom HP - FOOK2.esp
+    tag:
+      - Scripts
+  - name: ZORTS - Custom HP - FWE.esp
+    tag:
+      - Scripts
+  - name: Replenishment.esp
+    tag:
+      - Scripts
+  - name: UWWUT.esp
+    tag:
+      - Graphics
+  - name: UWWUT - The Pitt Addon.esp
+    tag:
+      - Graphics
+  - name: UWWUT - Broken Steel Addon.esp
+    tag:
+      - Graphics
+  - name: UWWUT - WMK Addon.esp
+    tag:
+      - Graphics
+  - name: UWWUT_WT.esp
+    tag:
+      - Graphics
+      - Stats
+  - name: UWWUT_WT - TP Addon.esp
+    tag:
+      - Graphics
+      - Stats
+  - name: UWWUT_WT - BS Addon.esp
+    tag:
+      - Graphics
+      - Stats
+  - name: UWWUT_WT - WMK Addon.esp
+    tag:
+      - Graphics
+      - Stats
+  - name: WeaponModKits-Unique.esp
+    tag:
+      - Graphics
+  - name: unique_uniques.esp
+    tag:
+      - Graphics
+  - name: unique_uniquesCut.esp
+    tag:
+      - Graphics
+  - name: unique_uniquesDLC.esp
+    tag:
+      - Graphics
+  - name: unique_uniquesCutDLC.esp
+    tag:
+      - Graphics
+  - name: Less Useless Karma Gifts.esp
+    tag:
+      - Delev
+      - Relev
+  - name: Less Useless Karma Gifts 2.0.esp
+    tag:
+      - Delev
+      - Relev
+  - name: AfrosNukaCola.esp
+    tag:
+      - Graphics
+      - Stats
+  - name: Nuka Cola Enhanced.esp
+    tag:
+      - Graphics
+      - Stats
+  - name: Nuka Cola Enhanced - FWE.esp
+    tag:
+      - Graphics
+      - Stats
+  - name: Bottle That Water Alternative.esp
+    tag:
+      - Scripts
+      - Stats
+  - name: Bottle That Water Alternative - Broken Steel.esp
+    tag:
+      - Scripts
+      - Stats
+  - name: Empty Nuka-Cola Quantum Bottles.esp
+    tag:
+      - Names
+  - name: PlasmaWeaponsRedesignRebalance.esp
+    tag:
+      - Graphics
+      - Sound
+  - name: PlasmaRifleRedesign.esp
+    tag:
+      - Graphics
+      - Sound
+  - name: PlasmaRifleRedesign_A321only.esp
+    tag:
+      - Graphics
+      - Sound
+  - name: PlasmaRifleRedesign_standardonly.esp
+    tag:
+      - Graphics
+      - Sound
+  - name: PlasmaPistolRedesign.esp
+    tag:
+      - Graphics
+      - Sound
+  - name: Water Bottles 3000.esp
+    tag:
+      - Deactivate
+      - Graphics
+      - NoMerge
+  - name: schematics2.esp
+    tag:
+      - Graphics
+      - NoMerge
+  - name: Item Descriptions Img.esp
+    tag:
+      - Graphics
+      - NoMerge
+  - name: Gunfire Sound Range Increased.esp
+    tag:
+      - Deactivate
+      - NoMerge
+      - Sound
+  - name: Weld - Badge.esp
+    tag:
+      - Actors.Anims
+      - Graphics
+      - Invent
+  - name: Weld - Badge and Hat.esp
+    tag:
+      - Actors.Anims
+      - Graphics
+      - Invent
+  - name: Weld and Steel - Badges.esp
+    tag:
+      - Actors.Anims
+      - Graphics
+      - Invent
+  - name: Weld and Steel - Badges, only Weld hat.esp
+    tag:
+      - Actors.Anims
+      - Graphics
+      - Invent
+  - name: Deputy Weld and Steel - Badges and Hats.esp
+    tag:
+      - Actors.Anims
+      - Graphics
+      - Invent
+  - name: Deputy Weld and Steel - Badges Steel Hat.esp
+    tag:
+      - Actors.Anims
+      - Graphics
+      - Invent
+  - name: GaryHoloTape.esp
+    tag:
+      - Names
+  - name: Trucker Holotapes.esp
+    tag:
+      - Names
+  - name: EVE.esp
+    tag:
+      - Delev
+      - Graphics
+      - Relev
+      - Scripts
+      - Sound
+      - Stats
+  - name: EVE Operation Anchorage.esp
+    tag:
+      - Graphics
+      - Sound
+  - name: EVE - FWE Master Release.esp
+    tag:
+      - Actors.ACBS
+      - Graphics
+      - Invent
+      - Sound
+      - Stats
+  - name: EVE - FWE Master Release (Follower Enhanced).esp
+    tag:
+      - Graphics
+      - Sound
+  - name: EVE - FWE Master Release (pulse fix).esp
+    tag:
+      - Actors.ACBS
+      - Graphics
+      - Invent
+      - Stats
+  - name: EVE Anchorage - FWE DLC Anchorage.esp
+    tag:
+      - Graphics
+      - Sound
+  - name: EVE - FWE with WeaponModKits.esp
+    tag:
+      - Graphics
+      - Sound
+  - name: Apocalypse Armory + EVE.esp
+    tag:
+      - Delev
+      - Relev
+  - name: Mart's Mutant Mod.esp
+    tag:
+      - Delev
+      - Relev
+  - name: DALCO Inventory Sorter - Mart's Mutant Mod (Main).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: Mart's Mutant Mod - UF3P.esp
+    tag:
+      - Invent
+  - name: Mart's Mutant Mod - DLC Anchorage.esp
+    tag:
+      - Scripts
+  - name: Mart's Mutant Mod - DLC The Pitt.esp
+    tag:
+      - Delev
+      - Relev
+      - Scripts
+  - name: Mart's Mutant Mod - DLC Broken Steel.esp
+    tag:
+      - Delev
+      - Relev
+      - Scripts
+  - name: DALCO Inventory Sorter - Mart's Mutant Mod (DLC Broken Steel).esp
+    tag:
+      - Names
+      - NoMerge
+  - name: Mart's Mutant Mod - DLC Point Lookout.esp
+    tag:
+      - Delev
+      - Relev
+      - Scripts
+  - name: Project Beauty- Point Lookout MMM.esp
+    tag:
+      - Deactivate
+      - NoMerge
+      - NPC.Race
+      - NpcFaces
+  - name: Mart's Mutant Mod - DLC Zeta.esp
+    tag:
+      - Scripts
+  - name: DangerousRadroaches_MMM.esp
+    tag:
+      - Actors.CombatStyle
+  - name: Mart's Mutant Mod - No Abominable Mutants.esp
+    tag:
+      - Relev
+  - name: Mart's Mutant Mod - No Corpse Flies.esp
+    tag:
+      - Relev
+  - name: Mart's Mutant Mod - No Floaters.esp
+    tag:
+      - Relev
+  - name: Mart's Mutant Mod - No Geckos.esp
+    tag:
+      - Relev
+  - name: Mart's Mutant Mod - No Iguanas.esp
+    tag:
+      - Relev
+  - name: Mart's Mutant Mod - No Stalker Creatures.esp
+    tag:
+      - Relev
+  - name: Mart's Mutant Mod - No Wanamingos.esp
+    tag:
+      - Relev
+  - name: Mart's Mutant Mod - Feral Ghoul Rampage.esp
+    tag:
+      - Relev
+  - name: Mart's Mutant Mod - Increased Increased Spawns.esp
+    tag:
+      - Relev
+  - name: Mart's Mutant Mod - Increased Spawns.esp
+    tag:
+      - Relev
+  - name: Mart's Mutant Mod - Reduced Wasteland Spawns.esp
+    tag:
+      - Delev
+      - Relev
+  - name: Mart's Mutant Mod - Tougher Traders.esp
+    tag:
+      - Actors.Stats
+      - Factions
+      - Relations
+  - name: Mart's Mutant Mod - Natural Selection.esp
+    tag:
+      - Relations
+  - name: Mart's Mutant Mod - Project Beauty (HD Addition).esp
+    tag:
+      - NoMerge
+      - NPC.Race
+      - NpcFaces
+  - name: Mart's Mutant Mod - Project Beauty.esp
+    tag:
+      - NoMerge
+      - NPC.Race
+      - NpcFaces
+  - name: Mart's Mutant Mod - Project Beauty + FWE.esp
+    tag:
+      - NoMerge
+      - NPC.Race
+      - NpcFaces
+  - name: CP - FACE3 NPCS [MMM].esp
+    tag:
+      - NoMerge
+      - NPC.Race
+      - NpcFaces
+  - name: CP - FACE3 [MMM] Racefix.esp
+    tag:
+      - NoMerge
+      - NPC.Race
+      - NpcFaces
+  - name: Mart's Mutant Mod - FOOK2.esp
+    tag:
+      - Relations
+  - name: Mart's Mutant Mod - FOOK2 - DIK.esp
+    tag:
+      - Relations
+  - name: Mart's Mutant Mod - FWE Master Release.esp
+    tag:
+      - Invent
+      - Relations
+  - name: DALCO Inventory Sorter - MMM - FWE.esp
+    tag:
+      - Names
+      - NoMerge
+  - name: Mart's Mutant Mod - FWE Master Release + DLCs.esp
+    tag:
+      - Invent
+      - Relations
+      - Scripts
+  - name: Mart's Mutant Mod - FWE Master Release + Project Beauty.esp
+    tag:
+      - NoMerge
+      - NPC.Race
+      - NpcFaces
+  - name: Mart's Mutant Mod - FWE with EVE.esp
+    tag:
+      - Invent
+      - Relations
+  - name: Mart's Mutant Mod - Project Beauty + FWE.esp
+    tag:
+      - NoMerge
+      - NPC.Race
+      - NpcFaces
+  - name: Mart's Mutant Mod - Project Beauty (HD Addition).esp
+    tag:
+      - NoMerge
+      - NPC.Race
+      - NpcFaces
+  - name: MMM - FWE_Combat Overhaul Master Release.esp
+    tag:
+      - Actors.ACBS
+      - Actors.Stats
+      - Factions
+      - Graphics
+      - Invent
+      - Relations
+      - Scripts
+      - Stats
+  - name: ARC - Assembled Robotic Companions.esp
+    tag:
+      - Invent
+      - Stats
+  - name: slaveraider_newlook.esp
+    tag:
+      - Graphics
+  - name: CharonImproved.esp
+    tag:
+      - Actors.AIPackages
+  - name: llama's Vanilla Followers for Charon Improved.esp
+    tag:
+      - Actors.ACBS
+      - Actors.AIPackages
+      - Stats
+  - name: Get Your Cherry Back.esp
+    tag:
+      - Actors.ACBS
+      - Actors.AIPackages
+  - name: CompanionCherry.esp
+    tag:
+      - Actors.Stats
+  - name: MTC RealWildnessLife.esp
+    tag:
+      - Relations
+  - name: mesme.esp
+    tag:
+      - Actors.ACBS
+  - name: RI_LootTableRI.esp
+    tag:
+      - Delev
+  - name: RI_LootTablePN.esp
+    tag:
+      - Delev
+  - name: Imp's More Complex Needs.esp
+    tag:
+      - Delev
+      - Relev
+      - Stats
+  - name: IMCN - 5 DLC Merged.esp
+    tag:
+      - Stats
+  - name: IMCN - Operation Anchorage.esp
+    tag:
+      - Stats
+  - name: IMCN - The Pitt.esp
+    tag:
+      - Stats
+  - name: IMCN - Broken Steel.esp
+    tag:
+      - Stats
+  - name: IMCN - Point Lookout.esp
+    tag:
+      - Stats
+  - name: IMCN - Mothership Zeta.esp
+    tag:
+      - Stats
+  - name: IMCN - FWE Compatibility and Ingestibles.esp
+    tag:
+      - Stats
+  - name: IMCN - FOOK2 Ingestibles.esp
+    tag:
+      - Stats
+  - name: IMCN - BLTC Compatibility and Ingestibles.esp
+    tag:
+      - Stats
+  - name: IMCN - RiPnO Compatibility and Ingestibles.esp
+    tag:
+      - Stats
+  - name: IMCN - MMM Meats, Bloods, and Eyeballs.esp
+    tag:
+      - Delev
+      - Relev
+      - Stats
+  - name: All Companions Essential.esp
+    tag:
+      - Actors.ACBS
+  - name: AMPUTATE!.esp
+    tag:
+      - Scripts
+  - name: Attentater's Wasteland Economy.esp
+    tag:
+      - Names
+  - name: BA_RepairVanilla.esp
+    tag:
+      - Deflst
+  - name: BA_RepairThePitt.esp
+    tag:
+      - Deflst
+  - name: BA_RepairGOTY.esp
+    tag:
+      - Deflst
+  - name: bittercup_6.esp
+    tag:
+      - Delev
+      - Relev
+      - ScriptContents
+  - name: ChildKiller.esp
+    tag:
+      - Actors.ACBS
+      - Scripts
+  - name: EWE DLC Addon.esp
+    tag:
+      - Deflst
+      - Graphics
+      - Stats
+  - name: Ghouls Cohabitate.esp
+    tag:
+      - ScriptContents
+  - name: infiltrations.esp
+    tag:
+      - Scripts
+  - name: Laboratory.esp
+    tag:
+      - Scripts
+  - name: QuantumLab.esp
+    tag:
+      - Scripts
+  - name: Laboratory (BS).esp
+    tag:
+      - Scripts
+  - name: Laboratory (PL).esp
+    tag:
+      - Scripts
+  - name: QuantumLab (PL).esp
+    tag:
+      - Scripts
+  - name: Laboratory (MZ).esp
+    tag:
+      - Scripts
+  - name: QuantumLab (MZ).esp
+    tag:
+      - Scripts
+  - name: Laboratory (BS & PL).esp
+    tag:
+      - Scripts
+  - name: Laboratory (BS & MZ).esp
+    tag:
+      - Scripts
+  - name: Laboratory (PL & MZ).esp
+    tag:
+      - Scripts
+  - name: QuantumLab (PL & MZ).esp
+    tag:
+      - Scripts
+  - name: LightweightFoodSanitizer.esp
+    tag:
+      - Stats
+  - name: MiscWeightFix.esp
+    tag:
+      - Stats
+  - name: Owned!.esp
+    tag:
+      - Factions
+  - name: RRRU +4 UFP.esp
+    tag:
+      - Deflst
+  - name: RRRU +4.esp
+    tag:
+      - Deflst
+  - name: Skill Modification Assignment.esp
+    tag:
+      - Scripts
+      - Stats
+  - name: DALCO Inventory Sorter - SMA.esp
+    tag:
+      - Names
+      - NoMerge
+  - name: SuperStim.esp
+    tag:
+      - Scripts
+  - name: SpiderAnts.esp
+    tag:
+      - Relev
+  - name: TenpennyGhoulsAtPeace.esp
+    tag:
+      - ScriptContents
+  - name: Weapon Repair Kits.esp
+    tag:
+      - Relev
+  - name: WRK Final - Plugin.esp
+    tag:
+      - Invent
+      - Relev
+  - name: WRK Final - Point Lookout.esp
+    tag:
+      - Invent
+  - name: Arwen_Realism_Core.esp
+    tag:
+      - Actors.CombatStyle
+      - Actors.Stats
+      - Destructible
+      - Names
+      - Relev
+      - Sound
+      - Stats
+  - name: Arwen_GOTY_Realism_Core.esp
+    tag:
+      - NoMerge
+  - name: Arwen_Hard-Core.esp
+    tag:
+      - Actors.CombatStyle
+      - Actors.Stats
+      - Destructible
+      - Names
+      - Relev
+      - Stats
+  - name: Arwen_GOTY_Hard-Core.esp
+    tag:
+      - NoMerge
+  - name: Arwen_Med-Tec.esp
+    tag:
+      - Names
+  - name: Arwen_GOTY_Med-Tec.esp
+    tag:
+      - Names
+      - Relev
+      - Stats
+  - name: Arwen_MMM_Med-Tec_Patch.esp
+    tag:
+      - Relev
+      - Scripts
+  - name: Arwen_MMM_Patch.esp
+    tag:
+      - Scripts
+  - name: Arwen_EVE_Patch.esp
+    tag:
+      - Graphics
+      - Sound
+      - Stats
+  - name: Phalanx-MainFollowerModule.esp
+    tag:
+      - Actors.ACBS
+      - Actors.AIPackages
+  - name: GH-HealingRebalanceMod_Infirmary+Lab.esp
+    tag:
+      - Scripts
+  - name: DALCO Inventory Sorter - Max Level Workaround.esp
+    tag:
+      - Names
+  - name: DALCO Inventory Sorter - Max Level Workaround (BS).esp
+    tag:
+      - Names
+  - name: DALCO Inventory Sorter - Max Level Workaround (HP).esp
+    tag:
+      - Names
+  - name: DALCO Inventory Sorter - Max Level Workaround (HP-BS).esp
+    tag:
+      - Names
+  - name: FelloutWithLightingOverhual-1.0.esp
+    tag:
+      - C.Light
+  - name: Realistic Interior Lighting.esp
+    tag:
+      - C.Light
+  - name: Realistic Interior Lighting - BS.esp
+    tag:
+      - C.Light
+  - name: Realistic Interior Lighting - OA.esp
+    tag:
+      - C.Light
+  - name: Realistic Interior Lighting - PL.esp
+    tag:
+      - C.Light
+  - name: DarkerInteriorsFallOut3.esp
+    tag:
+      - C.Light
+  - name: DarkerInteriorsAnchorage.esp
+    tag:
+      - C.Light
+  - name: DarkerInteriorsThePitt.esp
+    tag:
+      - C.Light
+  - name: DarkerInteriorsBrokenSteel.esp
+    tag:
+      - C.Light
+  - name: DarkerInteriorsPointLookout.esp
+    tag:
+      - C.Light
+  - name: DarkerInteriorsZeta.esp
+    tag:
+      - C.Light
+  - name: URWL47.esp
+    tag:
+      - C.Light
+  - name: URWL48.esp
+    tag:
+      - C.Light
+  - name: URWL.esp
+    tag:
+      - C.Light
+  - name: URWL-Normal Color Saturation.esp
+    tag:
+      - C.Light
+  - name: URWLRain.esp
+    tag:
+      - C.Climate
+      - C.Light
+  - name: NColorDCInteriors.esp
+    tag:
+      - C.Light
+  - name: Xepha's Darkened Interiors.esp
+    tag:
+      - C.Light
+  - name: Xepha's Darkened Interiors - OA.esp
+    tag:
+      - C.Light
+  - name: Xepha's Darkened Interiors - BS.esp
+    tag:
+      - C.Light
+  - name: Xepha's Darkened Interiors - PL.esp
+    tag:
+      - C.Light
+  - name: Xepha's Dynamic Weather - Main.esp
+    tag:
+      - C.Climate
+  - name: Xepha's Dynamic Weather - Anchorage.esp
+    tag:
+      - C.Climate
+  - name: Xepha's Dynamic Weather - The Pitt.esp
+    tag:
+      - C.Climate
+  - name: Xepha's Dynamic Weather - Broken Steel.esp
+    tag:
+      - C.Climate
+  - name: Xepha's Dynamic Weather - Point Lookout.esp
+    tag:
+      - C.Climate
+  - name: Xepha's Dynamic Weather - Main + DLC Merged.esp
+    tag:
+      - C.Climate
+  - name: 20th Century v4 ALIVE (Vendor).esp
+    tag:
+      - Invent
+  - name: 20th Century v4 ALIVE (NPC_Settler).esp
+    tag:
+      - Invent
+  - name: 20th Century v4 ALIVE (Raider).esp
+    tag:
+      - Invent
+  - name: 20th Century v4 ALIVE (RivetCity).esp
+    tag:
+      - Invent
+  - name: 20th Century v4 ALIVE (Brotherhood_Outcast).esp
+    tag:
+      - Invent
+  - name: 20th Century v4 ALIVE (SuperMutant).esp
+    tag:
+      - Invent
+  - name: 20th Century v4 ALIVE (Vault 101).esp
+    tag:
+      - Invent
+  - name: 20th Century v4 ALIVE (Chinese Ghoul).esp
+    tag:
+      - Invent
+  - name: 20th Century v4 ALIVE (Talon_Regulator).esp
+    tag:
+      - Invent
+  - name: 20th Century v5 ALIVE (Vendor).esp
+    tag:
+      - Invent
+  - name: 20th Century v5 ALIVE (Containers).esp
+    tag:
+      - Invent
+  - name: 20th Century v5 ALIVE (NPC_Settler).esp
+    tag:
+      - Invent
+  - name: 20th Century v5 ALIVE (Vault 101).esp
+    tag:
+      - Invent
+  - name: 20th Century v5 ALIVE (RivetCity).esp
+    tag:
+      - Invent
+  - name: 20th Century v5 ALIVE (Raider).esp
+    tag:
+      - Invent
+  - name: 20th Century v5 ALIVE (Slaver).esp
+    tag:
+      - Invent
+  - name: 20th Century v5 ALIVE (Chinese Ghoul).esp
+    tag:
+      - Invent
+  - name: 20th Century v5 ALIVE (SuperMutant).esp
+    tag:
+      - Invent
+  - name: 20th Century v5 ALIVE (Talon_Regulator).esp
+    tag:
+      - Invent
+  - name: 20th Century v5 ALIVE (Brotherhood_Outcast).esp
+    tag:
+      - Invent
+  - name: FWE-20thCent Ammo Weight in Names.esp
+    tag:
+      - Names
+  - name: FWE Realistic Ammo Weight in Names inc. 20th Cent.esp
+    tag:
+      - Names
+  - name: CFWR_EVE_LoadLast.esp
+    tag:
+      - Graphics
+      - Names
+      - Stats
+  - name: Dog lover's mod.esp
+    tag:
+      - Deflst
+      - Delev
+  - name: Dog lover's mod NO ANCHORAGE.esp
+    tag:
+      - Deflst
+      - Delev
+  - name: MMM dog lover's mod.esp
+    tag:
+      - Deflst
+      - Delev
+  - name: AinzBeautifuleEyes.esp
+    tag:
+      - Eyes
+  - name: CUSTOM RACES.esp
+    tag:
+      - Eyes
+      - Hair
+  - name: DIM CUSTOM RACES V2.esp
+    tag:
+      - Eyes
+      - Hair
+  - name: EwwGhoulyBody.esp
+    tag:
+      - Body-F
+  - name: HairPack_2chPlus.esp
+    tag:
+      - Hair
+  - name: HairPack_2chPlus+.esp
+    tag:
+      - Hair
+  - name: HairPack_2chPlus+EYE.esp
+    tag:
+      - eyes
+      - Hair
+  - name: VB_Hair_Shojo+CotW_15.esp
+    tag:
+      - Hair
+  - name: Shojo Race.esp
+    tag:
+      - Eyes
+      - Hair
+  - name: XENH.esp
+    tag:
+      - Eyes
+      - Hair
+  - name: "\"[Nukomimi-San] Starter.esp\""
+    tag:
+      - Eyes
+      - Hair
+  - name: EZCompanion_Type-N.esp
+    tag:
+      - Eyes
+      - Hair
+  - name: AAAAlbino_LingsBOG.esp
+    tag:
+      - Eyes
+      - Hair
+  - name: Mez's Merged Patch 5-0 - DLC-FWE-WMK-MMM.esp
+    tag:
+      - Deflst
+      - Delev
+      - Factions
+      - Invent
+      - Relations
+      - Relev
+      - Scripts
+  - name: FNNsys - FWE.esp
+    tag:
+      - Scripts
+  - name: xCALIBRuniverse.esp
+    tag:
+      - Actors.DeathItems
+      - Delev
+      - Graphics
+      - Invent
+      - Names
+      - Relev
+      - Sound
+      - Stats
+  - name: xCALIBRUniverse - WMK.esp
+    tag:
+      - Graphics
+      - Names
+      - Sound
+      - Stats
+  - name: xCALIBRUniverse_FWE_FPS.esp
+    tag:
+      - Graphics
+      - Invent
+      - Names
+      - Sound
+      - Stats
+  - name: xCALIBRUniverse_FWE_Tactical.esp
+    tag:
+      - Graphics
+      - Invent
+      - Names
+      - Sound
+      - Stats
+  - name: xCALIBR_override.esp
+    tag:
+      - Graphics
+      - Names
+  - name: xCALIBR_override_unsorted.esp
+    tag:
+      - Graphics
+      - Names
+  - name: xCALIBR_override_FWE5.esp
+    tag:
+      - Graphics
+      - Names
+  - name: xCALIBR_FWE5_Override.esp
+    tag:
+      - Graphics
+      - Names
+  - name: xCALIBRammo_FWE.esp
+    tag:
+      - Graphics
+      - Names
+  - name: xCALIBR_2CW_CP.esp
+    tag:
+      - Graphics
+      - Names
+  - name: xCALIBR_2CW_CP_Sorted.esp
+    tag:
+      - Graphics
+      - Names
+  - name: xCALIBR_20CW_v5.12.esp
+    tag:
+      - Graphics
+      - Names
+  - name: FWE+WMK_weapons_xCALIBRified.esp
+    tag:
+      - Graphics
+      - Names
+      - Stats
+  - name: FWE(v.5.04)+WMK_weapons_xCALIBRified.esp
+    tag:
+      - Graphics
+      - Names
+      - Stats
+  - name: FWE+WMKexcalibrified(Anch).esp
+    tag:
+      - Graphics
+      - Names
+      - Stats
+  - name: FWE+WMKexcalibrified(Pitt).esp
+    tag:
+      - Graphics
+      - Names
+      - Stats
+  - name: FWE+WMKexcalibrified(Lkout).esp
+    tag:
+      - Graphics
+      - Names
+      - Stats
+  - name: frederyck+FWE+xCALIBR.esp
+    tag:
+      - Graphics
+      - Names
+      - Stats
+  - name: Compatibility_Plugin_TalonExtraArmor_FWE_BrokenSteel.esp
+    tag:
+      - Delev
+      - Relev
+  - name: Choose your own hairstyle (load this last on FOMM).esp
+    tag:
+      - Eyes
+      - Hair
+      - NPC.Race
+      - NpcFaces
+  - name: Merged.esp
+    tag:
+      - NoMerge
+  - name: Merged Patch.esp
+    tag:
+      - NoMerge
+  - name: xCALIBRammo_override.esp
+    tag:
+      - Graphics
+      - Names
