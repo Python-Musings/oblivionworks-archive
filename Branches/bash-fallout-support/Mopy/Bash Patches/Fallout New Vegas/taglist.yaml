@@ -1,0 +1,1523 @@
+plugins:
+  - name: DeadMoney.esm
+    tag:
+      - Deflst
+    dirty:
+      - crc: 0xd70f165b
+        util: "[FNVEdit](http://newvegas.nexusmods.com/mods/34703)"
+        itm: 403
+        udr: 51
+  - name: HonestHearts.esm
+    dirty:
+      - crc: 0x2352b189
+        util: "[FNVEdit](http://newvegas.nexusmods.com/mods/34703)"
+        itm: 121
+        udr: 10
+  - name: OldWorldBlues.esm
+    dirty:
+      - crc: 0x7f8f8225
+        util: "[FNVEdit](http://newvegas.nexusmods.com/mods/34703)"
+        itm: 124
+  - name: LonesomeRoad.esm
+    dirty:
+      - crc: 0x30073d50
+        util: "[FNVEdit](http://newvegas.nexusmods.com/mods/34703)"
+        itm: 240
+        udr: 6
+  - name: GunRunnersArsenal.esm
+    dirty:
+      - crc: 0xaac938d
+        util: "[FNVEdit](http://newvegas.nexusmods.com/mods/34703)"
+  - name: Afterschool Special.esm
+    tag:
+      - Invent
+  - name: Community Bugfix Compilation Patch.esm
+    tag:
+      - Actors.AIPackages
+      - Delev
+      - Invent
+      - Relev
+      - Scripts
+      - Sound
+      - Stats
+  - name: YUP - Base Game + All DLC.esm
+    tag:
+      - Actors.ACBS
+      - Actors.AIData
+      - Delev
+      - Eyes
+      - Factions
+      - Graphics
+      - Hair
+      - Invent
+      - Names
+      - NpcFaces
+      - Relev
+      - Sounds
+      - Stats
+      - Voice-F
+  - name: Machienzo - NPC Cosmetic Fixes - Ver 1.55.esm
+    tag:
+      - Body-F
+      - Body-M
+      - Eyes
+      - Hair
+      - NpcFaces
+      - R.Mouth
+      - R.Teeth
+      - Voice-F
+      - Voice-M
+  - name: Machienzo - NPC Cosmetic Fixes - Ver 1.57.esm
+    tag:
+      - Body-F
+      - Body-M
+      - Eyes
+      - Hair
+      - NpcFaces
+      - R.Mouth
+      - R.Teeth
+      - Voice-F
+      - Voice-M
+  - name: Machienzo - NPC Cosmetic Fixes.esm
+    tag:
+      - Body-F
+      - Body-M
+      - Eyes
+      - Hair
+      - NpcFaces
+      - R.Mouth
+      - R.Teeth
+      - Voice-F
+      - Voice-M
+  - name: NVCE Main.esm
+    tag:
+      - Actors.ACBS
+      - Actors.AIPackages
+      - Invent
+      - NPC.Race
+      - NpcFaces
+  - name: NVCE Main (Faces Only).esm
+    tag:
+      - Actors.ACBS
+      - Deactivate
+      - Filter
+      - NPC.Race
+      - NpcFaces
+  - name: IWS-Core.esm
+    tag:
+      - Delev
+  - name: Caliber.esm
+    tag:
+      - Invent
+      - Names
+  - name: CaliberXgunrunners.esm
+    tag:
+      - Names
+  - name: ELECTRO-CITY - CompletedWorkorders.esm
+    tag:
+      - Actors.AIData
+      - Actors.AIPackages
+      - Invent
+      - Names
+      - NpcFaces
+  - name: Fiends, With Style.esm
+    tag:
+      - Delev
+  - name: FOOK - New Vegas.esm
+    tag:
+      - Deflst
+      - Delev
+      - Graphics
+      - Names
+      - Relev
+      - Scripts
+      - Sound
+      - Stats
+  - name: Moddable Unique Weps.esm
+    tag:
+      - WeaponMods
+  - name: AWorldOfPain(Preview).esm
+    tag:
+      - Deflst
+      - Invent
+  - name: MoMod.esm
+    tag:
+      - Relev
+  - name: NSkies - Vanilla Edition.esm
+    tag:
+      - C.Climate
+      - C.Light
+  - name: NSkies URWLified.esm
+    tag:
+      - C.Climate
+      - C.Light
+  - name: Interior Lighting Overhaul - Core.esm
+    tag:
+      - C.Light
+  - name: Project Nevada - Core.esm
+    tag:
+      - Invent
+  - name: Project Nevada - Equipment.esm
+    tag:
+      - Delev
+      - Invent
+      - Names
+  - name: Project Nevada - Rebalance.esp
+    tag:
+      - Invent
+      - Names
+  - name: Psiclones.esm
+    tag:
+      - Names
+  - name: T6M Equipment Replacer NV.esm
+    tag:
+      - Graphics
+      - Invent
+      - Names
+  - name: WARZONES Respawner.esp
+    tag:
+      - Actors.ACBS
+      - Actors.AIPackages
+  - name: WARZONES RespawnerLITE.esp
+    tag:
+      - Actors.ACBS
+      - Actors.AIPackages
+  - name: Weapon Mod Expansion.esm
+    tag:
+      - Names
+  - name: HonestHearts-CaliberX.esm
+    tag:
+      - Names
+  - name: New Vegas Redesigned.esm
+    tag:
+      - Body-F
+      - Body-M
+      - Eyes
+      - Hair
+      - NpcFaces
+  - name: New Vegas Redesigned II.esm
+    tag:
+      - Body-F
+      - Body-M
+      - Eyes
+      - Hair
+      - NpcFaces
+  - name: Lings.esm
+    tag:
+      - Eyes
+      - Graphics
+      - Hair
+      - NpcFaces
+  - name: MikotoBeauty.esm
+    tag:
+      - Eyes
+      - Graphics
+      - Hair
+      - Names
+  - name: NV GameStabilizerA8.esm
+    tag:
+      - NoMerge
+  - name: Mission Mojave - Ultimate Edition.esp
+    tag:
+      - Actors.AIPackages
+      - NoMerge
+      - Scripts
+      - Sound
+      - Stats
+  - name: MMUE - Deutsch.esp
+    tag:
+      - Actors.AIPackages
+      - NoMerge
+      - Scripts
+      - Sound
+      - Stats
+  - name: Community Bugfix Compilation Patch.esp
+    tag:
+      - Actors.AIPackages
+      - Delev
+      - Invent
+      - Relev
+      - Scripts
+      - Sound
+      - Stats
+  - name: Compiled Patch.esp
+    tag:
+      - Actors.AIPackages
+      - Delev
+      - Relev
+      - Scripts
+      - Sound
+      - Stats
+  - name: JacknDianeFix.esp
+    tag:
+      - Invent
+  - name: MarcusInvFix.esp
+    tag:
+      - Invent
+  - name: BIS - Brumbek's Inventory Sorting.esp
+    tag:
+      - Names
+  - name: BIS - Dead Money.esp
+    tag:
+      - Names
+  - name: BIS - Honest Hearts.esp
+    tag:
+      - Names
+  - name: BIS - Old World Blues.esp
+    tag:
+      - Names
+  - name: BIS - Lonesome Road.esp
+    tag:
+      - Names
+  - name: BIS - Gun Runners Arsenal.esp
+    tag:
+      - Names
+  - name: BIS - Community Bugfix Comp ESM.esp
+    tag:
+      - Names
+  - name: BIS - CBC Dead Money Patch ESM.esp
+    tag:
+      - Names
+  - name: BIS - Community Bugfix Comp ESP.esp
+    tag:
+      - Names
+  - name: BIS - CBC Dead Money Patch ESP.esp
+    tag:
+      - Names
+  - name: BIS - Promo DLC Caravan Pack.esp
+    tag:
+      - Names
+  - name: BIS - Promo DLC Classic Pack.esp
+    tag:
+      - Names
+  - name: BIS - Promo DLC Mercenary Pack.esp
+    tag:
+      - Names
+  - name: BIS - Promo DLC Tribal Pack.esp
+    tag:
+      - Names
+  - name: BIS - CFWNV.esp
+    tag:
+      - Names
+  - name: BIS - CFWNV-DLC.esp
+    tag:
+      - Names
+  - name: BIS - Primary Needs HUD.esp
+    tag:
+      - Names
+  - name: BIS - More Cactus Water Recipes.esp
+    tag:
+      - Names
+  - name: BIS - Compiled Patch.esp
+    tag:
+      - Names
+  - name: BIS - Compiled Patch - DeadMoney.esp
+    tag:
+      - Names
+  - name: BIS - Compiled Patch - HonestHearts.esp
+    tag:
+      - Names
+  - name: BIS - Bobblehunt Patch.esp
+    tag:
+      - Names
+  - name: NVORganizedItems.esp
+    tag:
+      - Names
+  - name: 188 Trading Post Revisited.esp
+    tag:
+      - NpcFaces
+  - name: A Better Arcade.esp
+    tag:
+      - Invent
+      - NpcFaces
+  - name: A Better Boone.esp
+    tag:
+      - Invent
+      - NpcFaces
+  - name: A Better Cass.esp
+    tag:
+      - Invent
+      - NpcFaces
+  - name: A Better Cass - Rearmed SG.esp
+    tag:
+      - Graphics
+      - Sound
+      - Stats
+  - name: A Better Cass - Rearmed M1911.esp
+    tag:
+      - Graphics
+      - Sound
+      - Stats
+  - name: A Better Veronica.esp
+    tag:
+      - Invent
+      - NpcFaces
+  - name: Bitter Springs Revisited.esp
+    tag:
+      - NpcFaces
+  - name: Cass and Veronica.esp
+    tag:
+      - Invent
+      - NpcFaces
+  - name: Cuter Boone.esp
+    tag:
+      - NoMerge
+      - NpcFaces
+  - name: Cuter Boone NEW.esp
+    tag:
+      - NoMerge
+      - NpcFaces
+  - name: Cuter Veronica Felicia Day.esp
+    tag:
+      - NoMerge
+      - NpcFaces
+  - name: Cuter Veronica Felicia Day-Essential.esp
+    tag:
+      - NpcFaces
+  - name: Hanlon the badass 4.esp
+    tag:
+      - NpcFaces
+  - name: Lore version.esp
+    tag:
+      - NpcFaces
+  - name: MikotoBPCCArcade.esp
+    tag:
+      - NoMerge
+      - NpcFaces
+  - name: MikotoBPCCBoone.esp
+    tag:
+      - NoMerge
+      - NpcFaces
+  - name: MikotoBPCCCass.esp
+    tag:
+      - NoMerge
+      - NpcFaces
+  - name: MikotoBPWastersOverhaul.esp
+    tag:
+      - NoMerge
+      - NpcFaces
+  - name: MikotoBPCCFull.esp
+    tag:
+      - NoMerge
+      - NpcFaces
+  - name: Mutant Eyes.esp
+    tag:
+      - Eyes
+  - name: NiceCass.esp
+    tag:
+      - NpcFaces
+  - name: NiceCass - C.esp
+    tag:
+      - NpcFaces
+  - name: NPC Project - Aero Office Park.esp
+    tag:
+      - NpcFaces
+  - name: Raul - Danny Trejo.esp
+    tag:
+      - NoMerge
+      - NpcFaces
+  - name: ReElijahfied.esp
+    tag:
+      - NpcFaces
+  - name: RivensEyescapesNV.esp
+    tag:
+      - Eyes
+  - name: Mikotos_REyescapesNV.esp
+    tag:
+      - Eyes
+  - name: Veronica1.0.esp
+    tag:
+      - NpcFaces
+  - name: Veronica_nerdy.esp
+    tag:
+      - NpcFaces
+  - name: VeronicaOlder.esp
+    tag:
+      - NpcFaces
+  - name: Vulpes Inculta.esp
+    tag:
+      - NpcFaces
+  - name: VyntageCass02.esp
+    tag:
+      - NpcFaces
+  - name: VyntageVeronica02.esp
+    tag:
+      - NpcFaces
+  - name: 1st Recon Revised.esp
+    tag:
+      - Invent
+  - name: Doc Mitchell's House Owner.esp
+    tag:
+      - C.Owner
+  - name: monsterranch.esp
+    tag:
+      - Relev
+  - name: Monster Mod Wasteland Edition.esp
+    tag:
+      - Relev
+  - name: MMWE-No Oblivion.esp
+    tag:
+      - Delev
+  - name: MMWE-Claw Beast B Gone.esp
+    tag:
+      - Delev
+  - name: MMWE-LoreOut.esp
+    tag:
+      - Delev
+  - name: MMWE-No Werewolves.esp
+    tag:
+      - Delev
+  - name: MMWE - Rebalanced Leveled Lists.esp
+    tag:
+      - Delev
+      - Relev
+  - name: MMWE - Vanilla Spawn Chance.esp
+    tag:
+      - Delev
+      - Relev
+  - name: MMWE-LoreOut-Rebalanced.esp
+    tag:
+      - Delev
+      - Relev
+  - name: MMWE-LoreOut-VanillaSpawnChance.esp
+    tag:
+      - Delev
+      - Relev
+  - name: Project13 - Populated Wasteland.esp
+    tag:
+      - Actors.AIPackages
+      - Delev
+      - Relev
+  - name: RustTownAdditions3.esp
+    tag:
+      - Factions
+      - Invent
+      - Names
+  - name: UWHNV-Addon-DLC.esp
+    tag:
+      - C.Light
+  - name: UWHNV-Addon-GRA.esp
+    tag:
+      - C.Light
+  - name: UWHNV-Addon-FollowerHome.esp
+    tag:
+      - Actors.AIPackages
+      - Actors.CombatStyle
+      - NpcFaces
+  - name: NVHarderCore.esp
+    tag:
+      - Names
+      - Stats
+  - name: NVWastelandUnlocked.esp
+    tag:
+      - Delev
+      - Names
+      - Relations
+      - Relev
+      - Stats
+      - WeaponMods
+  - name: NVWeaponAmmoTweaks.esp
+    tag:
+      - Stats
+      - WeaponMods
+  - name: FOOK - New Vegas.esp
+    tag:
+      - Deflst
+      - Delev
+      - Graphics
+      - Names
+      - Relev
+      - Scripts
+      - Sound
+      - Stats
+  - name: BIS - FOOK - New Vegas.esp
+    tag:
+      - Names
+  - name: BIS - FOOK - New Vegas DLCs.esp
+    tag:
+      - Names
+  - name: LinkesAuge - Bug fixing compilation.esp
+    tag:
+      - Deflst
+      - Names
+      - Scripts
+      - Stats
+  - name: LinkesAuge - Retexture edits.esp
+    tag:
+      - Graphics
+  - name: NoWeaponZoom.esp
+    tag:
+      - Stats
+  - name: ImprovedBinocs.esp
+    tag:
+      - Invent
+  - name: HeadWearShaderFX.esp
+    tag:
+      - Scripts
+      - Stats
+  - name: LootOverhaul.esp
+    tag:
+      - Invent
+  - name: Food&DrinkDontHeal.esp
+    tag:
+      - Stats
+  - name: CompanionsImproved.esp
+    tag:
+      - Actors.AIPackages
+  - name: Npc&CreatureRespawn.esp
+    tag:
+      - Relev
+  - name: M.M.A.T - Companion Module.esp
+    tag:
+      - Actors.AIPackages
+  - name: M.M.A.T - Ingestible Module.esp
+    tag:
+      - Stats
+  - name: M.M.A.T - Shader Module.esp
+    tag:
+      - Stats
+  - name: M.M.A.T Loot Module.esp
+    tag:
+      - Invent
+  - name: M.M.A.T - Loot Module.esp
+    tag:
+      - Invent
+  - name: M.M.A.T - Weapon Module.esp
+    tag:
+      - Stats
+  - name: M.M.A.T - Spawn Module.esp
+    tag:
+      - Relev
+  - name: NEVAX - BEAUTYPACK.esp
+    tag:
+      - Body-F
+      - Body-M
+      - NPCFaces
+  - name: NEVAX - FUNDE.esp
+    tag:
+      - Deflst
+      - Relev
+  - name: NEVAX - ITEMBALANCINGS.esp
+    tag:
+      - Stats
+  - name: NEVAX - KAUFINHALTE.esp
+    tag:
+      - Deflst
+      - Invent
+      - Relev
+  - name: NEVAX - MEHR MONSTER.esp
+    tag:
+      - Relev
+      - Scripts
+  - name: NEVAX - MONSTER.esp
+    tag:
+      - Deflst
+      - Relev
+  - name: NEVAX - NPC BALANCING.esp
+    tag:
+      - Deflst
+      - Relev
+      - Scripts
+  - name: NEVAX - RAIDER u NPC.esp
+    tag:
+      - Deflst
+      - Relev
+      - Scripts
+  - name: NEVAX - RUESTUNGEN.esp
+    tag:
+      - Deflst
+      - Relev
+  - name: NEVAX - WAFFEN.esp
+    tag:
+      - Deflst
+      - Relev
+  - name: PMT - XPadjust.esp
+    tag:
+      - Invent
+  - name: PMT - Tougher XPadjust.esp
+    tag:
+      - Invent
+  - name: PMT - Slower Reloading.esp
+    tag:
+      - Stats
+  - name: PMT - Slower Reloading No Visible Perk.esp
+    tag:
+      - Stats
+  - name: PMT - Reduced Ammo and Chems.esp
+    tag:
+      - Delev
+      - Relev
+  - name: PMT - Reduced Caps and Item Value.esp
+    tag:
+      - Delev
+      - Relev
+  - name: PMT - More Demanding Hardcore.esp
+    tag:
+      - Stats
+  - name: PMT - Destructible Ordnance.esp
+    tag:
+      - Destructible
+  - name: PMT - Deadlier Combat.esp
+    tag:
+      - Stats
+  - name: PMT - Deadlier Combat Mk II.esp
+    tag:
+      - Stats
+  - name: Reload.esp
+    tag:
+      - Delev
+      - Names
+      - Relev
+  - name: Rebalance.esp
+    tag:
+      - Names
+      - Stats
+  - name: Rearm.esp
+    tag:
+      - Delev
+      - Relev
+  - name: RebalanceRearm.esp
+    tag:
+      - Stats
+  - name: RearmRebalance.esp
+    tag:
+      - Stats
+  - name: ReSort.esp
+    tag:
+      - Names
+  - name: Superior Firepower - Unique Weaponry.esp
+    tag:
+      - Stats
+  - name: Superior Firepower - Factional Changes.esp
+    tag:
+      - Delev
+      - Relev
+  - name: BIS - XFO - 2aa - Armor - DR+DT - revamp low.esp
+    tag:
+      - Names
+  - name: BIS - XFO - 2aa - Armor - DR+DT - revamp med.esp
+    tag:
+      - Names
+  - name: BIS - XFO - 2aa - Armor - DR+DT - revamp high.esp
+    tag:
+      - Names
+  - name: BIS - XFO - 2ba - Armor - DR+DT - simple low.esp
+    tag:
+      - Names
+  - name: BIS - XFO - 2ba - Armor - DR+DT - simple med.esp
+    tag:
+      - Names
+  - name: BIS - XFO - 2ba - Armor - DR+DT - simple high.esp
+    tag:
+      - Names
+  - name: BIS - XFO - 6aa - Epic Skills.esp
+    tag:
+      - Names
+  - name: Arwen_NV_Realism_Core.esp
+    tag:
+      - Stats
+  - name: hardercore_combat.esp
+    tag:
+      - Stats
+  - name: hardercore_wealth.esp
+    tag:
+      - Delev
+      - Relev
+  - name: BIS - Project Nevada - Core.esp
+    tag:
+      - Names
+  - name: BIS - Project Nevada - Equipment.esp
+    tag:
+      - Invent
+      - Names
+  - name: BIS - Project Nevada - Cyberware.esp
+    tag:
+      - Invent
+      - Names
+  - name: Project Nevada - Old World Blues.esp
+    tag:
+      - Invent
+  - name: Project Brazil Project Nevada Patch.esp
+    tag:
+      - Invent
+  - name: OWB Big Empty Overhaul.esp
+    tag:
+      - Invent
+      - Names
+      - Stats
+  - name: Flight of the ValkED-E.esp
+    tag:
+      - Sound
+  - name: Improved Sound FX - Weapon Sharing Fix.esp
+    tag:
+      - Sound
+  - name: Improved Sound FX - HH Sharing Fix.esp
+    tag:
+      - Sound
+  - name: Improved Sound FX - OWB Sharing Fix.esp
+    tag:
+      - Sound
+  - name: Improved Sound FX - LR Sharing Fix.esp
+    tag:
+      - Sound
+  - name: Improved Sound FX - GRA.esp
+    tag:
+      - Sound
+  - name: Improved Sound FX - Merged Major DLCs.esp
+    tag:
+      - Sound
+  - name: Improved Sound FX - Project Nevada.esp
+    tag:
+      - Sound
+  - name: LouderGuns.esp
+    tag:
+      - Sound
+  - name: More Perks Update.esp
+    tag:
+      - Actors.ACBS
+      - Invent
+  - name: More Traits Update.esp
+    tag:
+      - Actors.ACBS
+  - name: BIS - Sprint Mod.esp
+    tag:
+      - Names
+  - name: ACS-DeadMoney.esp
+    tag:
+      - Invent
+  - name: ACS-HonestHearts.esp
+    tag:
+      - Invent
+  - name: ACS-LonesomeRoad.esp
+    tag:
+      - Names
+  - name: ACS-GunRunnersArsenal.esp
+    tag:
+      - Invent
+      - Names
+  - name: ACS-DLCMerged.esp
+    tag:
+      - Invent
+      - Names
+  - name: Better Ammo Crafting.esp
+    tag:
+      - Names
+  - name: BetterCraftingSorting.esp
+    tag:
+      - Names
+  - name: AG Shell Casing Fixes-All Five.esp
+    tag:
+      - Graphics
+  - name: AG Shell Casing Fixes Repeater-Service-ThatGun.esp
+    tag:
+      - Graphics
+  - name: AG Shell Casing Fixes - OWB.esp
+    tag:
+      - Graphics
+  - name: Ahzteks Weapon Overhaul.esp
+    tag:
+      - Deflst
+      - Delev
+      - Invent
+  - name: Ahzteks Pistol and SMG Replacements.esp
+    tag:
+      - Graphics
+      - Names
+      - Sound
+      - Stats
+      - WeaponMods
+  - name: Assault Carbine mods.esp
+    tag:
+      - WeaponMods
+  - name: BIS - Kobu Better Binoculars Low.esp
+    tag:
+      - Names
+  - name: BIS - Kobu Better Binoculars Medium.esp
+    tag:
+      - Names
+  - name: BIS - Kobu Better Binoculars High.esp
+    tag:
+      - Names
+  - name: BIS - Kobu Better Binoculars Max.esp
+    tag:
+      - Names
+  - name: better that gun 223.esp
+    tag:
+      - Names
+      - Stats
+  - name: better that gun 44mag.esp
+    tag:
+      - Names
+      - Stats
+  - name: christinecos.esp
+    tag:
+      - Graphics
+  - name: GRA WRP Compatibility Patch.esp
+    tag:
+      - Graphics
+  - name: Classic Plasma Grenade.esp
+    tag:
+      - Graphics
+  - name: Classic Pulse Grenade (classic sound).esp
+    tag:
+      - Graphics
+      - Sounds
+  - name: Classic Pulse Grenade (vanilla sound).esp
+    tag:
+      - Graphics
+  - name: EnergyBoost.esp
+    tag:
+      - Stats
+  - name: ImmaSightinMahLazor.esp
+    tag:
+      - Stats
+  - name: Moddable Anti-Materiel Rifle.esp
+    tag:
+      - WeaponMods
+  - name: Moddable Anti-Materiel Rifle 2.esp
+    tag:
+      - WeaponMods
+  - name: Moddable Unique Weps.esp
+    tag:
+      - WeaponMods
+  - name: OWB HQ Textures Fix.esp
+    tag:
+      - Graphics
+  - name: PlasmaRifleAwesomefied.esp
+    tag:
+      - Sound
+      - Stats
+  - name: Shotgun Commando.esp
+    tag:
+      - Stats
+  - name: Shotgun Commando 1.2 Caravan.esp
+    tag:
+      - Stats
+  - name: 1nivVSLArmors.esp
+    tag:
+      - Deflst
+      - Delev
+      - Graphics
+      - Invent
+      - Names
+      - Relev
+  - name: Armored PA Gloves.esp
+    tag:
+      - Deflst
+  - name: AsharasLightningItems_ForNV.esp
+    tag:
+      - Actors.AIData
+      - Invent
+      - NpcFaces
+  - name: DragonskinNCRPersonnelWearingOutfits.esp
+    tag:
+      - Relev
+  - name: Hereticus Faction Armors Fading.esp
+    tag:
+      - Names
+  - name: HHType3tribalhands.esp
+    tag:
+      - Body-F
+  - name: JillBSAA Multicolor.esp
+    tag:
+      - Invent
+  - name: KDS Wearable Backpacks.esp
+    tag:
+      - Invent
+  - name: Powered Power Armor.esp
+    tag:
+      - Deflst
+  - name: QS_Blackwolf_NV_Backpackmod.esp
+    tag:
+      - Invent
+  - name: Seeker Veronica.esp
+    tag:
+      - Invent
+  - name: T6M Equipment Replacer NV.esp
+    tag:
+      - Graphics
+      - Stats
+  - name: Type 6.esp
+    tag:
+      - Graphics
+      - Invent
+      - Stats
+  - name: XVEnclaveBunker.esp
+    tag:
+      - Invent
+  - name: LingsPrettyThings.esp
+    tag:
+      - Eyes
+      - Hair
+      - Invent
+      - Names
+      - NPC.Class
+      - NPC.Race
+      - NpcFaces
+      - R.Attributes-F
+      - R.Attributes-M
+      - R.Description
+      - R.Head
+      - R.Mouth
+      - R.Teeth
+      - Voice-F
+  - name: NVCE DLC01.esp
+    tag:
+      - Actors.ACBS
+      - NPC.Race
+      - NpcFaces
+  - name: NVCE DLC02.esp
+    tag:
+      - Actors.ACBS
+      - Invent
+      - NPC.Race
+      - NpcFaces
+  - name: NVCE DLC03.esp
+    tag:
+      - Actors.ACBS
+      - Body-M
+      - NpcFaces
+  - name: NVCE DLC04.esp
+    tag:
+      - Actors.ACBS
+      - NpcFaces
+  - name: NVR- Lore version.esp
+    tag:
+      - Actors.ACBS
+      - NpcFaces
+  - name: NVR- Recommended.esp
+    tag:
+      - Actors.ACBS
+      - NpcFaces
+  - name: New Vegas redesigned- Honest Hearts.esp
+    tag:
+      - Actors.ACBS
+      - NpcFaces
+  - name: Voice dissonance fix.esp
+    tag:
+      - NpcFaces
+  - name: AWOP-AhztekWeaponPatch.esp
+    tag:
+      - Invent
+  - name: AWOPCaliberXAmmoPatch.esp
+    tag:
+      - Invent
+  - name: AWOPCaliberXAmmoPatchLOW.esp
+    tag:
+      - Invent
+  - name: CompanionLevel30Cap.esp
+    tag:
+      - Actors.ACBS
+  - name: EZ_VanillaFollowers.esp
+    tag:
+      - Actors.AIPackages
+      - Actors.CombatStyle
+  - name: My essential friends (animals).esp
+    tag:
+      - Actors.ACBS
+      - Actors.AIPackages
+  - name: NVPhalanx.esp
+    tag:
+      - Actors.AIPackages
+      - Actors.CombatStyle
+      - C.Owner
+      - Scripts
+  - name: RexReplacerEss.esp
+    tag:
+      - Graphics
+  - name: RHKGilbertCompanion-Mikoto.esp
+    tag:
+      - Graphics
+      - Hair
+      - NpcFaces
+      - R.Mouth
+      - R.Teeth
+  - name: Real Weapon Names.esp
+    tag:
+      - Names
+  - name: Real Weapon Names - NPC Compnaion Weapons.esp
+    tag:
+      - Names
+  - name: Real Weapon Names - Dead Money.esp
+    tag:
+      - Names
+  - name: Real Weapon Names - Honest Hearts.esp
+    tag:
+      - Names
+  - name: Real Weapon Names - Project Nevada.esp
+    tag:
+      - Names
+  - name: MiscItemIconsNV.esp
+    tag:
+      - Graphics
+      - NoMerge
+  - name: T3T_MiscItemIconsNV.esp
+    tag:
+      - Graphics
+  - name: BIS - T3T_MiscItemIconsNV 0.7.esp
+    tag:
+      - Names
+  - name: BIS - MiscItemIconsNV 0.9.esp
+    tag:
+      - Names
+  - name: repairkitsexpanded.esp
+    tag:
+      - Names
+  - name: Sorter - Combined.esp
+    tag:
+      - Names
+  - name: Sorter - Dead Money.esp
+    tag:
+      - Names
+  - name: Sorter - Combined - T3T Icon Compatch.esp
+    tag:
+      - Names
+  - name: Sorter - Combined - Aid Crafting.esp
+    tag:
+      - Names
+  - name: Sorter - Books.esp
+    tag:
+      - Names
+  - name: Sorter - Magazines.esp
+    tag:
+      - Names
+  - name: Sorter - Combined - Weighted.esp
+    tag:
+      - Names
+  - name: Sorter - Empty Consumables.esp
+    tag:
+      - Names
+  - name: Sorter - Empty Consumables - Dead Money.esp
+    tag:
+      - Names
+  - name: Inventory Sorter - Moddable Unique Weps.esp
+    tag:
+      - Names
+  - name: DrugsAreBadMKay-IS.esp
+    tag:
+      - Names
+  - name: FeelingIrradiated-IS.esp
+    tag:
+      - Names
+  - name: BIS - Grenade Hotkey.esp
+    tag:
+      - Names
+  - name: Imp's More Complex Needs - JA - SORTED.esp
+    tag:
+      - Names
+  - name: IMCNNV - Sorted.esp
+    tag:
+      - Names
+  - name: LFox Bottle That Water.esp
+    tag:
+      - Names
+      - Scripts
+  - name: BIS - Project Nevada - Rebalance.esp
+    tag:
+      - Invent
+      - Names
+  - name: Realistic Weight.esp
+    tag:
+      - NoMerge
+      - Stats
+  - name: Realistic Weight Overhaul.esp
+    tag:
+      - NoMerge
+      - Stats
+  - name: Weight_Balance.esp
+    tag:
+      - Stats
+  - name: Weight_Balance_v07.esp
+    tag:
+      - Stats
+  - name: Weight_Balance_v10.esp
+    tag:
+      - Stats
+  - name: Weight_Rebalance_v10.esp.
+    tag:
+      - Stats
+  - name: BIS - Weight_Balance_v10.esp
+    tag:
+      - Names
+  - name: WeaponModsExpanded.esp
+    tag:
+      - Delev
+      - Invent
+      - Names
+      - WeaponMods
+  - name: WMXUE.esp
+    tag:
+      - Delev
+      - Invent
+      - WeaponMods
+  - name: Improved Sound FX - WMX - Weapon Sharing Fix.esp
+    tag:
+      - Sound
+  - name: WMX-AWOP Patch.esp
+    tag:
+      - WeaponMods
+  - name: WMX-AWOP-Overhaul.esp
+    tag:
+      - WeaponMods
+  - name: Frequency - WMX Patch.esp
+    tag:
+      - Graphics
+  - name: Project Nevada - WMX.esp
+    tag:
+      - Graphics
+      - Invent
+      - Names
+      - WeaponMods
+  - name: WMXUE-PN.esp
+    tag:
+      - Graphics
+      - Invent
+      - Names
+      - WeaponMods
+  - name: Frequency - PN+WMX Patch.esp
+    tag:
+      - Graphics
+  - name: Real Weapon Names - WMX.esp
+    tag:
+      - Names
+  - name: WMX-ModernWeapons.esp
+    tag:
+      - Invent
+  - name: ACS-WMXModernWeapons.esp
+    tag:
+      - Invent
+  - name: WMX-DeadMoney.esp
+    tag:
+      - Invent
+      - WeaponMods
+  - name: Real Weapon Names - WMX - Dead Money.esp
+    tag:
+      - Names
+  - name: WMX-HonestHearts.esp
+    tag:
+      - Invent
+      - WeaponMods
+  - name: WMX-OldWorldBlues.esp
+    tag:
+      - Invent
+      - WeaponMods
+  - name: WMX-LonesomeRoad.esp
+    tag:
+      - Invent
+      - WeaponMods
+  - name: WMX-GunRunnersArsenal.esp
+    tag:
+      - Invent
+      - WeaponMods
+  - name: WMX-EVE-AllDLC.esp
+    tag:
+      - Invent
+      - WeaponMods
+  - name: Improved Sound FX - WMX - Merged Major DLCs.esp
+    tag:
+      - Sound
+  - name: Improved Sound FX - WMX - GRA Sharing Fix.esp
+    tag:
+      - Sound
+  - name: WMX-ArenovalisTextures.esp
+    tag:
+      - Graphics
+      - NoMerge
+  - name: RH_IronSights_NV_Vanilla.esp
+    tag:
+      - Graphics
+  - name: Weapon Mod Expansion.esp
+    tag:
+      - Graphics
+      - Names
+      - Stats
+      - WeaponMods
+  - name: WME - 00 Commando.esp
+    tag:
+      - Graphics
+      - Names
+      - Stats
+      - WeaponMods
+  - name: WME - Arwen Core.esp
+    tag:
+      - Graphics
+      - Names
+      - Stats
+      - WeaponMods
+  - name: WME - RH Ironsights.esp
+    tag:
+      - Graphics
+      - WeaponMods
+  - name: WME - FOOK.esp
+    tag:
+      - Delev
+      - Graphics
+      - Names
+      - Sound
+      - Stats
+  - name: WME Replacer - FOOK.esp
+    tag:
+      - Graphics
+      - Names
+      - Stats
+      - WeaponMods
+  - name: WME - that gun 223.esp
+    tag:
+      - Names
+      - Stats
+      - WeaponMods
+  - name: WME - that gun 44 mag.esp
+    tag:
+      - Names
+      - Stats
+      - WeaponMods
+  - name: WME - that gun 556.esp
+    tag:
+      - Names
+      - Stats
+      - WeaponMods
+  - name: BIS - Weapon Mod Expansion.esp
+    tag:
+      - Names
+  - name: Project Nevada - WME.esp
+    tag:
+      - Graphics
+      - Invent
+      - Names
+      - WeaponMods
+  - name: BIS - WME - Dead Money.esp
+    tag:
+      - Names
+  - name: BIS - WME - Honest Hearts.esp
+    tag:
+      - Names
+  - name: BIS - WME - Dead Money Arenovalis Retex.esp
+    tag:
+      - Names
+  - name: BIS - WME - Honest Hearts Arenovalis Retex.esp
+    tag:
+      - Names
+  - name: EVE FNV.esp
+    tag:
+      - Graphics
+      - Sound
+  - name: EVE FNV - ALL DLC.esp
+    tag:
+      - Graphics
+      - Sound
+  - name: Improved Sound FX - EVE.esp
+    tag:
+      - Sound
+  - name: WMX-EVE.esp
+    tag:
+      - Graphics
+      - WeaponMods
+  - name: GRA Overhaul.esp
+    tag:
+      - Names
+      - Stats
+  - name: GRA Overhaul - EVE.esp
+    tag:
+      - Names
+      - Stats
+  - name: GRA Overhaul - WMX or WME.esp
+    tag:
+      - Names
+      - Stats
+  - name: NV Game Stabilizer.esp
+    tag:
+      - NoMerge
+  - name: NV GameStabilizerA.esp
+    tag:
+      - NoMerge
+  - name: NV GameStabilizerA1.esp
+    tag:
+      - NoMerge
+  - name: NV GameStabilizerA2.esp
+    tag:
+      - NoMerge
+  - name: NV GameStabilizerA4.esp
+    tag:
+      - NoMerge
+  - name: NV GameStabilizerA5.esp
+    tag:
+      - NoMerge
+  - name: NV GameStabilizerA5F.esp
+    tag:
+      - NoMerge
+  - name: NV GameStabilizerA6.esp
+    tag:
+      - NoMerge
+  - name: NV GameStabilizerA7.esp
+    tag:
+      - NoMerge
+  - name: NV GameStabilizerA7b.esp
+    tag:
+      - NoMerge
+  - name: NV GameStabilizerA8.esp
+    tag:
+      - NoMerge
+  - name: NV GameStabilizerA9.esp
+    tag:
+      - NoMerge
+  - name: LUMENARIUM - Working Sunglasses ONLY.esp
+    tag:
+      - Names
+  - name: ELECTRO-CITY - CompletedWorkorders.esp
+    tag:
+      - Names
+  - name: Nevada Skies.esp
+    tag:
+      - C.Climate
+      - C.Light
+  - name: Nevada Skies - URWLified.esp
+    tag:
+      - C.Climate
+      - C.Light
+  - name: Nevada Skies - URWLHH.esp
+    tag:
+      - C.Climate
+      - C.Light
+  - name: NSkies URWLifiedOWB.esp
+    tag:
+      - C.Climate
+      - C.Light
+  - name: NSkies URWLifiedHH.esp
+    tag:
+      - C.Climate
+      - C.Light
+  - name: NSkies URWLifiedDM.esp
+    tag:
+      - C.Climate
+      - C.Light
+  - name: Project Westland vision.esp
+    tag:
+      - C.Climate
+      - C.Light
+  - name: Project Westland vision-ZionHH.esp
+    tag:
+      - C.Climate
+      - C.Light
+  - name: F3NVProjectRealityMkIv3.esp
+    tag:
+      - C.Climate
+      - C.Light
+  - name: F3NVProjectRealityMkIv4.2.esp
+    tag:
+      - C.Climate
+      - C.Light
+  - name: ProjectRealityMkIv5HDR.esp
+    tag:
+      - C.Climate
+      - C.Light
+  - name: Interior Lighting Overhaul-Realistic.esp
+    tag:
+      - C.Light
+  - name: Interior Lighting Overhaul-Realistic Interiors-Full.esp
+    tag:
+      - C.Light
+  - name: Interior Lighting Overhaul-Realistic Interiors-Combined.esp
+    tag:
+      - C.Light
+  - name: Interior Lighting Overhaul - Ultimate Edition.esp
+    tag:
+      - C.Light
+  - name: Interior Lighting Overhaul - Ultimate Edition - No Lucky38.esp
+    tag:
+      - C.Light
+  - name: Interior Lighting Overhaul.esp
+    tag:
+      - C.Light
+  - name: ILO - Fallout New Vegas.esp
+    tag:
+      - C.Light
+  - name: ILO - Fallout New Vegas - No Lucky38.esp
+    tag:
+      - C.Light
+  - name: ILO - GS Shack.esp
+    tag:
+      - C.Light
+  - name: ILO-RI-Original Lucky38 Suite.esp
+    tag:
+      - C.Light
+  - name: ILO - Dead Money.esp
+    tag:
+      - C.Light
+  - name: ILO-RI-Dead Money.esp
+    tag:
+      - C.Light
+  - name: ILO - Honest Hearts.esp
+    tag:
+      - C.Light
+  - name: ILO-RI-Honest Hearts.esp
+    tag:
+      - C.Light
+  - name: ILO - Old World Blues.esp
+    tag:
+      - C.Light
+  - name: ILO-RI-Old World Blues.esp
+    tag:
+      - C.Light
+  - name: ILO - Lonesome Road.esp
+    tag:
+      - C.Light
+  - name: ILO-RI-Lonesome Road.esp
+    tag:
+      - C.Light
+  - name: ILO-RI-Rust Town.esp
+    tag:
+      - C.Light
+  - name: ILO - NVInteriors Project.esp
+    tag:
+      - C.Light
+  - name: ILO - NVInteriors Project - AWOP.esp
+    tag:
+      - C.Light
+  - name: ILO - Project Reality Patch.esp
+    tag:
+      - C.Climate
+  - name: ILO - A World of Pain.esp
+    tag:
+      - C.Light
+  - name: BIS - Project Nevada - Rebalance.esp
+    tag:
+      - Names
+  - name: EwwGhoulyBody.esp
+    tag:
+      - Body-F
+  - name: MikotoBeauty.esp
+    tag:
+      - Eyes
+      - Hair
+      - Names
+  - name: CFW-DLC.esp
+    tag:
+      - Graphics
+      - Invent
+  - name: ammoingredientsloot.esp
+    tag:
+      - Invent
+  - name: Alternative Repairing - Breakdown Item Icons.esp
+    tag:
+      - Graphics
+  - name: More Perks for Old World Blues Update.esp
+    tag:
+      - Names
+  - name: More Perks for Honest Hearts Update.esp
+    tag:
+      - Graphics
+  - name: More Perks for Dead Money Update.esp
+    tag:
+      - Actors.ACBS
+      - Invent
+  - name: Lucky 38 Lights.esp
+    tag:
+      - C.Light
+  - name: MadScience02.esp
+    tag:
+      - Actors.DeathItem
+  - name: 1nivPNSLPatch.esp
+    tag:
+      - Deflst
+      - Names
+      - Stats
