@@ -452,21 +452,44 @@ class esp:
     recordTypes = set(topTypes + 'GRUP,TES4,ROAD,REFR,ACHR,ACRE,PGRD,LAND,INFO,PGRE,NAVM'.split(','))
      
 class RecordHeader(brec.BaseRecordHeader):
-    size = 20 # Size in bytes of a record header
+    size = 24 # Size in bytes of a record header
 
     def __init__(self,recType='TES4',size=0,arg1=0,arg2=0,arg3=0,*extra):
         self.recType = recType
         self.size = size
-        # Do some conditional stuff, commonly different variable names
-		# if this is a GRUP header or an actual record
+        if recType == 'GRUP':
+            self.label = arg1
+            self.groupType = arg2
+            self.stamp = arg3
+        else:
+            self.flags1 = arg1
+            self.fid = arg2
+            self.flags2 = arg2
+        self.extra = extra
 
     @staticmethod
     def unpack(ins):
         """Returns a RecordHeader object by reading the input stream."""
-        pass
+        type,size,uint0,uint1,uint2,uint3 = ins.unpack('4s5I',24,'REC_HEAD')
+        #--Bad?
+        if type not in esp.recordTypes:
+            raise brec.ModError(ins.inName,u'Bad header type: '+repr(type))
+        #--Record
+        if type != 'GRUP':
+            pass
+        #--Top Group
+        elif uint1 == 0: # groupType == 0 (Top Group)
+            str0 = struct.pack('I',uint0)
+            if str0 in esp.topTypes:
+                uint0 = str0
+            elif str0 in esp.topIgTypes:
+                uint0 = esp.topIgTypes[str0]
+            else:
+                raise brec.ModError(ins.inName,u'Bad Top GRUP type: '+repr(str0))
+        return RecordHeader(type,size,uint0,uint1,uint2)
 
     def pack(self):
-        """Returns the record header packed into a string for writing to file."""
+        """Returns the record header packed into a string for writing to file"""
         pass
 	
 #--The pickle file for this game.  Holds encoded GMST IDs from the big list below
@@ -1166,6 +1189,25 @@ class MelConditions(MelStructs):
                 result = function(target.param4)
                 if save: target.param4 = result
     
+class MreHeader(MreHeaderBase):
+    """TES4 Record.  File header."""
+    classType = 'TES4'
+
+    #--Data elements
+    melSet = MelSet(
+        MelStruct('HEDR','f2I',('version',0.85),'numRecords',('nextObject',0xCE6)),
+        MelBase('OFST','ofst_p',),  #--Obsolete?
+        MelBase('DELE','dele_p',),  #--Obsolete?
+        MelUnicode('CNAM','author',u'',512),
+        MelUnicode('SNAM','description',u'',512),
+        MreHeaderBase.MelMasterName('MAST','masters'),
+        MelNull('DATA'), # 8 Bytes in Length
+        MelFidList('ONAM','overrides'),
+        #MelBase('INTV','ingv_p'),
+        #MelBase('INCC', 'ingv_p'),
+        )
+    __slots__ = MreHeaderBase.__slots__ + melSet.getSlotsUsed()
+
 #------------------------------------------------------------------------------
 class MreActor(MelRecord):
     """Creatures and NPCs."""
