@@ -1424,8 +1424,11 @@ class MreHeader(MreHeaderBase):
         MreHeaderBase.MelMasterName('MAST','masters'),
         MelNull('DATA'), # 8 Bytes in Length
         MelFidList('ONAM','overrides'),
+		# INTV and INCC are not used in Fallout NV
         #MelBase('INTV','ingv_p'),
         #MelBase('INCC', 'ingv_p'),
+		# wbByteArray for Edit = MelBase for Wrye Bash
+		MelBase('SCRN', 'ingv_p'),
         )
     __slots__ = MreHeaderBase.__slots__ + melSet.getSlotsUsed()
 
