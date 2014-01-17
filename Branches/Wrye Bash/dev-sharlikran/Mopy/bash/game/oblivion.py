@@ -40,6 +40,10 @@ null4 = null1*4
 
 #--Name of the game
 name = u'Oblivion'
+
+#--Name of the game as used in related filenames and paths.
+safeName = name
+
 #--Alternate display name to use instead of "Wrye Bash for ***"
 altName = u'Wrye Bash'
 
@@ -202,12 +206,6 @@ class ess:
             out.write(buffer)
         return oldMasters
 
-#--The main plugin Wrye Bash should look for
-masterFiles = [
-    u'Oblivion.esm',
-    u'Nehrim.esm',
-    ]
-
 #--INI files that should show up in the INI Edits tab
 iniFiles = [
     u'Oblivion.ini',
@@ -216,7 +214,17 @@ iniFiles = [
 #--INI setting to setup Save Profiles
 saveProfilesKey = (u'General',u'SLocalSavePath')
 
+#--The main plugin Wrye Bash should look for
+masterFiles = [
+    u'Oblivion.esm',
+    u'Nehrim.esm',
+    ]
+
+#--Plugin files that can't be deactivated
+nonDeactivatableFiles = []
+
 #--Game ESM/ESP/BSA files
+#  These filenames need to be in lowercase,
 bethDataFiles = set((
     #--Vanilla
     u'oblivion.esm',
@@ -332,9 +340,6 @@ allBethFiles = set((
     u'Knights.esp',
     u'DLCList.txt',
     ))
-
-#--Plugin files that can't be deactivated
-nonDeactivatableFiles = []
 
 #--BAIN: Directories that are OK to install to
 dataDirs = set((
