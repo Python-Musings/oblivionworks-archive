@@ -145,7 +145,7 @@ def Init(path):
         boss_game_tes5:boss_game_tes5,
         'Fallout 3':boss_game_fo3,
         boss_game_fo3:boss_game_fo3,
-        'Fallout: New Vegas':boss_game_fonv,
+        'Fallout New Vegas':boss_game_fonv,
         boss_game_fonv:boss_game_fonv,
         }
         
