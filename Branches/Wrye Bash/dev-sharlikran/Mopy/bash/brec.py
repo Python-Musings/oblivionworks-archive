@@ -590,16 +590,6 @@ class MelFidList(MelFids):
 class MelGroup(MelBase):
     """Represents a group record."""
 
-#------------------------------------------------------------------------------
-# Can this record be used within MelGroups
-# MelGroups
-#   MelGroup
-#   ),
-#   MelGroup
-#   ),
-# ),
-#------------------------------------------------------------------------------
-
     def __init__(self,attr,*elements):
         """Initialize."""
         self.attr,self.elements,self.formElements,self.loaders = attr,elements,set(),{}
@@ -670,16 +660,6 @@ class MelGroup(MelBase):
 #------------------------------------------------------------------------------
 class MelGroups(MelGroup):
     """Represents an array of group record."""
-
-#------------------------------------------------------------------------------
-# Will this record allow nested MelGroup declarations
-# MelGroups
-#   MelGroup
-#   ),
-#   MelGroup
-#   ),
-# ),
-#------------------------------------------------------------------------------
 
     def __init__(self,attr,*elements):
         """Initialize. Must have at least one element."""
