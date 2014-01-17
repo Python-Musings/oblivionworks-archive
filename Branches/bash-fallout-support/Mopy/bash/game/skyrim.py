@@ -42,6 +42,11 @@ null4 = null1*4
 
 #--Name of the game
 name = u'Skyrim'
+
+#--Name of the game as used in related filenames and paths.
+safeName = name
+
+#--Alternate display name to use instead of "Wrye Bash for ***"
 altName = u'Wrye Smash'
 
 #--exe to look for to see if this is the right game
