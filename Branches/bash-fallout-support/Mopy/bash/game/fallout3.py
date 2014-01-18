@@ -102,6 +102,7 @@ class sd:
     installDir = u''
 	
 #--SkyProc Patchers
+class sp:
     shortName = u''
     longName = u''
     installDir = u''
@@ -186,6 +187,9 @@ iniFiles = [
     u'FalloutPrefs.ini',
     ]
 
+#--Name of the default ini file.
+defaultIniFile = u'Fallout_default.ini'
+    
 #-- INI setting used to setup Save Profiles
 ## (section,key)
 saveProfilesKey = (u'General',u'SLocalSavePath')
@@ -419,6 +423,8 @@ class esp:
     #--Valid ESM/ESP header versions
     ## These are the valid 'version' numbers for the game file headers
     validHeaderVersions = (0.85,0.94)
+
+    stringsFiles = []
 
     #--Class to use to read the TES4 record
     ## This is the class name in bosh.py to use for the TES4 record when reading

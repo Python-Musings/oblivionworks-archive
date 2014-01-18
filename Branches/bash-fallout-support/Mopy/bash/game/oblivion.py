@@ -217,6 +217,9 @@ iniFiles = [
     u'Oblivion.ini',
     ]
 
+#--Name of the default ini file.
+defaultIniFile = u'Oblivion_default.ini'
+
 #--INI setting to setup Save Profiles
 saveProfilesKey = (u'General',u'SLocalSavePath')
 
