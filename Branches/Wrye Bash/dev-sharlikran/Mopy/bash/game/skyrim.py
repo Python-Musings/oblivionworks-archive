@@ -15679,7 +15679,6 @@ dataDirs = set((
     u'sound',
     u'seq',
     ))
-
 dataDirsPlus = set((
     u'ini tweaks',
     u'skse',
