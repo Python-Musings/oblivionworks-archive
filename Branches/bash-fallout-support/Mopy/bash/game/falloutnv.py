@@ -74,16 +74,16 @@ patchURL = u''
 patchTip = u''
 
 #--URL to the Nexus site for this game
-nexusUrl = u'http://www.newvegasnexus.com'
+nexusUrl = u'http://www.newvegasnexus.com/'
 nexusName = u'New Vegas Nexus'
 nexusKey = u'bash.installers.openNewVegasNexus'
    
 #--Construction Set information
 class cs:
     shortName = u'GECK'                  # Abbreviated name
-    longName = u'GECK'                   # Full name
-    exe = u'*DNE*'                   # Executable to run
-    seArgs = u''                     # Argument to pass to the SE to load the CS
+    longName = u'Garden of Eden Creation Kit'                   # Full name
+    exe = u'GECK.exe'                   # Executable to run
+    seArgs = u'-editor'                     # Argument to pass to the SE to load the CS
     imageName = u'geck%s.png'                  # Image name template for the status bar
 
 #--Script Extender information
@@ -135,6 +135,11 @@ dontSkip = (
 # Nothing so far
 )
 
+# Directories where specific file extensions should not be skipped by BAIN
+dontSkipDirs = {
+# Nothing so far
+}
+
 #--Folders BAIN should never CRC check in the Data directory
 SkipBAINRefresh = set((
     # Use lowercase names
@@ -150,11 +155,15 @@ class ini:
     bsaRedirection = (u'Archive',u'sArchiveList')
 
 #--Save Game format stuff
+# Requires header.pcNick and header.playTime to be added to SaveHeader in bosh.py.
 class ess:
     # Save file capabilities
     canReadBasic = False        # Can read the info needed for the Save Tab display
     canEditMasters = False      # Can adjust save file masters
     canEditMore = False         # Advanced editing
+    
+    # Save file extension.
+    ext = u'.fos';
 
     @staticmethod
     def load(ins,header):
@@ -170,12 +179,102 @@ class ess:
             image (ssWidth,ssHeight,ssData)
             masters
         """
-        raise Exception(u'Not implemented')
+        if ins.read(11) != 'FO3SAVEGAME':
+            raise Exception(u'Save file is not a Fallout New Vegas save game.')
+        headerSize, = struct.unpack('I',ins.read(4))
+        unknown,delim = struct.unpack('Ic',ins.read(5))
+        self.language = ins.read(64)
+        delim, = struct.unpack('c',ins.read(1))
+        ssWidth,delim1,ssHeight,delim2,ssDepth,delim3 = struct.unpack('=IcIcIc',ins.read(15))
+        #--Name, nickname, level, location, playtime
+        size,delim = struct.unpack('Hc',ins.read(3))
+        header.pcName = ins.read(size)
+        delim, = struct.unpack('c',ins.read(1))
+        size,delim = struct.unpack('Hc',ins.read(3))
+        header.pcNick = ins.read(size)
+        delim, = struct.unpack('c',ins.read(1))
+        header.pcLevel,delim = struct.unpack('Ic',ins.read(5))
+        size,delim = struct.unpack('Hc',ins.read(3))
+        header.pcLocation = ins.read(size)
+        delim, = struct.unpack('c',ins.read(1))
+        size,delim = struct.unpack('Hc',ins.read(3))
+        header.playTime = ins.read(size)
+        delim, = struct.unpack('c',ins.read(1))
+        #--Image Data
+        ssData = ins.read(3*ssWidth*ssHeight)
+        header.image = (ssWidth,ssHeight,ssData)
+        #--Masters
+        unknown,masterListSize = struct.unpack('=BI',ins.read(5))
+        if unknown != 0x1B:
+            raise Exception(u'%s: Unknown byte is not 0x1B.' % path)
+        del header.masters[:]
+        numMasters,delim = struct.unpack('Bc',ins.read(2))
+        for count in range(numMasters):
+            size,delim = struct.unpack('Hc',ins.read(3))
+            header.masters.append(GPath(ins.read(size)))
+            delim, = struct.unpack('c',ins.read(1))
+        
 
     @staticmethod
     def writeMasters(ins,out,header):
         """Rewrites masters of existing save file."""
-        raise Exception(u'Not implemented')
+        def unpack(format,size):
+            return struct.unpack(format,ins.read(size))
+        def pack(format,*args):
+            out.write(struct.pack(format,*args))
+        #--Header
+        out.write(ins.read(11))
+        #--SaveGameHeader
+        size, = unpack('I',4)
+        pack('I',size)
+        out.write(ins.read(65))
+        ssWidth,delim1,ssHeight,delim2 = unpack('=IcIc',10)
+        pack('=IcIc',ssWidth,delim1,ssHeight,delim2)
+        out.write(ins.read(size-80))
+        #--Image Data
+        out.write(ins.read(3*ssWidth*ssHeight))
+        #--Skip old masters
+        unknown,oldMasterListSize = unpack('=BI',5)
+        if unknown != 0x1B:
+            raise Exception(u'%s: Unknown byte is not 0x1B.' % path)
+        numMasters,delim = unpack('Bc',2)
+        oldMasters = []
+        for count in range(numMasters):
+            size,delim = unpack('Hc',3)
+            oldMasters.append(GPath(ins.read(size)))
+            delim, = unpack('c',1)
+        #--Write new masters
+        newMasterListSize = 2 + (4 * len(self.masters))
+        for master in self.masters:
+            newMasterListSize += len(master)
+        pack('=BI',unknown,newMasterListSize)
+        pack('Bc',len(self.masters),'|')
+        for master in self.masters:
+            pack('Hc',len(master),'|')
+            out.write(master.s)
+            pack('c','|')
+        #--Fids Address
+        offset = out.tell() - ins.tell()
+        fidsAddress, = unpack('I',4)
+        pack('I',fidsAddress+offset)
+        #--???? Address
+        unknownAddress, = unpack('I',4)
+        pack('I',unknownAddress+offset)
+        #--???? Address
+        unknownAddress, = unpack('I',4)
+        pack('I',unknownAddress+offset)
+        #--???? Address
+        unknownAddress, = unpack('I',4)
+        pack('I',unknownAddress+offset)
+        #--???? Address
+        unknownAddress, = unpack('I',4)
+        pack('I',unknownAddress+offset)
+        #--Copy remainder
+        while True:
+            buffer= ins.read(0x5000000)
+            if not buffer: break
+            out.write(buffer)
+        return oldMasters
 
 #--The main plugin Wrye Bash should look for
 masterFiles = [
@@ -1197,6 +1296,59 @@ raceHairFemale = {
     0x0987dd : 0x044529, #--AOA
     0x0987de : 0x044529, #--FOA
     0x0987df : 0x044529, #--COA
+    }
+    
+# These eye variables have been refactored from the Wrye Flash version of bosh.py. 
+# Their Oblivion equivalents remain in Bash's bosh.py.
+def getIdFunc(modName):
+    return lambda x: (GPath(modName),x)
+ob = getIdFunc(masterFiles[0])
+standardEyes = [ob(x) for x in (0x4252,0x4253,0x4254,0x4255,0x4256)]
+ 
+defaultEyes = {
+    #--fallout3.esm
+    ob(0x000019): #--Caucasian
+        standardEyes,
+    ob(0x0038e5): #--Hispanic
+        standardEyes,
+    ob(0x0038e6): #--Asian
+        standardEyes,
+    ob(0x003b3e): #--Ghoul
+        [ob(0x35e4f)],
+    ob(0x00424a): #--AfricanAmerican
+        standardEyes,
+    ob(0x0042be): #--AfricanAmerican Child
+        standardEyes,
+    ob(0x0042bf): #--AfricanAmerican Old
+        standardEyes,
+    ob(0x0042c0): #--Asian Child
+        standardEyes,
+    ob(0x0042c1): #--Asian Old
+        standardEyes,
+    ob(0x0042c2): #--Caucasian Child
+        standardEyes,
+    ob(0x0042c3): #--Caucasian Old
+        standardEyes,
+    ob(0x0042c4): #--Hispanic Child
+        standardEyes,
+    ob(0x0042c5): #--Hispanic Old
+        standardEyes,
+    ob(0x04bb8d): #--Caucasian Raider
+        [ob(0x4cb10)],
+    ob(0x04bf70): #--Hispanic Raider
+        [ob(0x4cb10)],
+    ob(0x04bf71): #--Asian Raider
+        [ob(0x4cb10)],
+    ob(0x04bf72): #--AfricanAmerican Raider
+        [ob(0x4cb10)],
+    ob(0x0987dc): #--Hispanic Old Aged
+        standardEyes,
+    ob(0x0987dd): #--Asian Old Aged
+        standardEyes,
+    ob(0x0987de): #--AfricanAmerican Old Aged
+        standardEyes,
+    ob(0x0987df): #--Caucasian Old Aged
+        standardEyes,
     }
 
 # Flags

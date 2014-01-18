@@ -145,6 +145,9 @@ class ess:
     canReadBasic = True         # All the basic stuff needed for the Saves Tab
     canEditMasters = True       # Adjusting save file masters
     canEditMore = True          # advanced editing
+    
+    # Save file extension.
+    ext = u'.ess';
 
     @staticmethod
     def load(ins,header):
