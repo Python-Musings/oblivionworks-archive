@@ -18723,7 +18723,7 @@ def InitStatusBar():
     BashStatusBar.buttons.append( # Game
         Oblivion_Button(
             bosh.dirs['app'].join(bush.game.exe),
-            imageList(u'%s%%s.png' % bush.game.name.lower()),
+            imageList(u'%s%%s.png' % bush.game.safeName.lower()),
             u' '.join((_(u"Launch"),bush.game.name)),
             u' '.join((_(u"Launch"),bush.game.name,u'%(version)s')),
             u'',
