@@ -6610,9 +6610,13 @@ class ConfigHelpers:
                 (userpath.exists() and userpath.mtime != utime)):
                 self.tagCache = {}
                 try:
-                    boss.Load(path.s,userpath.s)
-                    self.bossMasterTime = path.mtime
-                    self.bossUserTime = userpath.mtime
+                    if userpath.exists():
+                        boss.Load(path.s,userpath.s)
+                        self.bossMasterTime = path.mtime
+                        self.bossUserTime = userpath.mtime
+                    else:
+                        boss.Load(path.s)
+                        self.bossMasterTime = path.mtime
                     return
                 except bapi.BossError:
                     deprint(u'An error occured while using the BOSS API:',traceback=True)
