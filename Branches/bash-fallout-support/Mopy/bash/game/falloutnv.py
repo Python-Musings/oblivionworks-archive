@@ -643,9 +643,30 @@ nonDeactivatableFiles = []
 
 #--BAIN:
 ## These are the allowed default data directories that BAIN can install to
-dataDirs = set()
+dataDirs = set((
+    'bash patches',
+    'distantlod',
+    'docs',
+    'facegen',
+    'fonts',
+    'menus',
+    'meshes',
+    'music',
+    'shaders',
+    'sound', 
+    'textures', 
+    'trees',
+    'video'
+    ))
 ## These are additional special directories that BAIN can install to
-dataDirsPlus = set()
+dataDirsPlus = set((
+    u'streamline',
+    u'_tejon',
+    u'ini tweaks',
+    u'scripts',
+    u'pluggy',
+    u'ini',
+    u'fose')) 
                  
 # Installer -------------------------------------------------------------------
 # ensure all path strings are prefixed with 'r' to avoid interpretation of
