@@ -23,9 +23,8 @@
 
 """This modules defines static data for use by bush, when
    Fallout 3 is set at the active game."""
-#-------------------------------------------------------------------------------
+
 # Imports ----------------------------------------------------------------------
-#-------------------------------------------------------------------------------
 import struct
 from .. import brec
 from .. import bolt
@@ -33,14 +32,17 @@ from .. import bush
 from ..brec import *
 from ..bolt import Flags, DataDict, StateError
 
-#-------------------------------------------------------------------------------
 # Util Constants ---------------------------------------------------------------
-#-------------------------------------------------------------------------------
 #--Null strings (for default empty byte arrays)
 null1 = '\x00'
 null2 = null1*2
 null3 = null1*3
 null4 = null1*4
+
+# Mod Record Elements ----------------------------------------------------------
+#-------------------------------------------------------------------------------
+# Constants
+FID = 'FID' #--Used by MelStruct classes to indicate fid elements.
 
 #--Name of the game
 name = u'Fallout 3'
@@ -48,7 +50,7 @@ name = u'Fallout 3'
 #--Name of the game as used in related filenames and paths.
 safeName = u'Fallout3'
 
-#--Alternate display name to use instead of "Wrye Bash for ***"
+#--Alternat display name of Wrye Bash when managing this game
 altName = u'Wrye Flash'
 
 #--Exe to look for to see if this is the right game
@@ -74,7 +76,7 @@ patchTip = u''
 #--URL to the Nexus site for this game
 nexusUrl = u'http://www.fallout3nexus.com/'
 nexusName = u'Fallout 3 Nexus'
-nexusKey = 'bash.installers.openFallout3Nexus'
+nexusKey = u'bash.installers.openFallout3Nexus'
    
 #--Construction Set information
 class cs:
@@ -100,6 +102,7 @@ class sd:
     installDir = u''
 	
 #--SkyProc Patchers
+class sp:
     shortName = u''
     longName = u''
     installDir = u''
@@ -167,253 +170,404 @@ class ess:
             image (ssWidth,ssHeight,ssData)
             masters
         """
-        raise Exception('Not implemented')
+        raise Exception(u'Not implemented')
 
     @staticmethod
     def writeMasters(ins,out,header):
         """Rewrites masters of existing save file."""
-        raise Exception('Not implemented')
-
-#--INI files that should show up in the INI Edits tab
-iniFiles = [
-    u'FalloutPrefs.ini',
-    ]
-
-#-- INI setting used to setup Save Profiles
-## (section,key)
-saveProfilesKey = (u'General',u'SLocalSavePath')
+        raise Exception(u'Not implemented')
 
 #--The main plugin Wrye Bash should look for
 masterFiles = [
     u'Fallout3.esm',
     ]
 
-#--Plugin files that can't be deactivated
-nonDeactivatableFiles = [
-    u'Fallout3.esm',
-]
+#--INI files that should show up in the INI Edits tab
+iniFiles = [
+    u'FalloutPrefs.ini',
+    ]
+
+#--Name of the default ini file.
+defaultIniFile = u'Fallout_default.ini'
+    
+#-- INI setting used to setup Save Profiles
+## (section,key)
+saveProfilesKey = (u'General',u'SLocalSavePath')
 
 #--Game ESM/ESP/BSA files
-#  These filenames need to be in lowercase,
 bethDataFiles = set((
     #--Vanilla
-    r'fallout3.esm',
-    r'fallout - menuvoices.bsa',
-    r'fallout - meshes.bsa',
-    r'fallout - misc.bsa',
-    r'fallout - sound.bsa',
-    r'fallout - textures.bsa',
-    r'fallout - voices.bsa',
+    ur'fallout3.esm',
+    ur'fallout - menuvoices.bsa',
+    ur'fallout - meshes.bsa',
+    ur'fallout - misc.bsa',
+    ur'fallout - sound.bsa',
+    ur'fallout - textures.bsa',
+    ur'fallout - voices.bsa',
     #-- DLC
-    r'anchorage.esm',
-    r'anchorage - main.bsa',
-    r'anchorage - sounds.bsa',
-    r'thepitt.esm',
-    r'thepitt - main.bsa',
-    r'thepitt - sounds.bsa',
-    r'brokensteel.esm',
-    r'brokensteel - main.bsa',
-    r'brokensteel - sounds.bsa',
-    r'pointlookout.esm',
-    r'pointlookout - main.bsa',
-    r'pointlookout - sounds.bsa',
-    r'zeta.esm',
-    r'zeta - main.bsa',
-    r'zeta - sounds.bsa',
+    ur'anchorage.esm',
+    ur'anchorage - main.bsa',
+    ur'anchorage - sounds.bsa',
+    ur'thepitt.esm',
+    ur'thepitt - main.bsa',
+    ur'thepitt - sounds.bsa',
+    ur'brokensteel.esm',
+    ur'brokensteel - main.bsa',
+    ur'brokensteel - sounds.bsa',
+    ur'pointlookout.esm',
+    ur'pointlookout - main.bsa',
+    ur'pointlookout - sounds.bsa',
+    ur'zeta.esm',
+    ur'zeta - main.bsa',
+    ur'zeta - sounds.bsa',
     ))
 
 #--Every file in the Data directory from Bethsoft
 allBethFiles = set((
     #vanilla
-    r'Credits.txt',
-    r'CreditsWacky.txt',
-    r'Fallout3.esm',
-    r'Fallout - MenuVoices.bsa',
-    r'Fallout - Meshes.bsa',
-    r'Fallout - Misc.bsa',
-    r'Fallout - Sound.bsa',
-    r'Fallout - Textures.bsa',
-    r'Fallout - Voices.bsa',
-    r'LODSettings\aaaForgotten1.DLODSettings',
-    r'LODSettings\aaaForgotten4.DLODSettings',
-    r'LODSettings\aaaForgotten5.DLODSettings',
-    r'Music\Base\Base_01.mp3',
-    r'Music\Base\Base_02.mp3',
-    r'Music\Base\Base_03.mp3',
-    r'Music\Base\Base_04.mp3',
-    r'Music\Battle\Battle_01.mp3',
-    r'Music\Battle\Battle_02.mp3',
-    r'Music\Battle\Battle_03.mp3',
-    r'Music\Battle\Battle_04.mp3',
-    r'Music\Battle\Battle_05.mp3',
-    r'Music\Battle\Battle_06.mp3',
-    r'Music\Battle\Battle_07.mp3',
-    r'Music\Battle\Finale\Battle_01.mp3',
-    r'Music\Battle\Finale\Battle_02.mp3',
-    r'Music\Battle\Finale\Battle_03.mp3',
-    r'Music\Battle\Finale\Battle_04.mp3',
-    r'Music\Battle\Finale\Battle_05.mp3',
-    r'Music\Battle\Finale\Battle_06.mp3',
-    r'Music\Battle\Finale\Battle_07.mp3',
-    r'Music\Dungeon\Dungeon_01.mp3',
-    r'Music\Dungeon\Dungeon_02.mp3',
-    r'Music\Dungeon\Dungeon_03.mp3',
-    r'Music\Dungeon\Dungeon_04.mp3',
-    r'Music\Dungeon\Dungeon_05.mp3',
-    r'Music\Endgame\Endgame_01.mp3',
-    r'Music\Endgame\Endgame_02.mp3',
-    r'Music\Endgame\Endgame_03.mp3',
-    r'Music\Endgame\Endgame_04.mp3',
-    r'Music\Endgame\Endgame_05.mp3',
-    r'Music\Endgame\Endgame_06.mp3',
-    r'Music\Endgame\Endgame_07.mp3',
-    r'Music\Endgame\Endgame_08.mp3',
-    r'Music\Endgame\Endgame_09.mp3',
-    r'Music\Endgame\Endgame_11.mp3',
-    r'Music\Endgame\Endgame_12.mp3',
-    r'Music\Endgame\Endgame_14.mp3',
-    r'Music\Endgame\Endgame_15.mp3',
-    r'Music\Endgame\Endgame_17.mp3',
-    r'Music\Endgame\Endgame_18.mp3',
-    r'Music\Endgame\Endgame_19.mp3',
-    r'Music\Explore\Explore_01.mp3',
-    r'Music\Explore\Explore_02.mp3',
-    r'Music\Explore\Explore_03.mp3',
-    r'Music\Explore\Explore_04.mp3',
-    r'Music\Explore\Explore_05.mp3',
-    r'Music\Explore\Explore_06.mp3',
-    r'Music\Explore\Explore_07.mp3',
-    r'Music\Public\Public_01.mp3',
-    r'Music\Public\Public_02.mp3',
-    r'Music\Public\Public_03.mp3',
-    r'Music\Public\Public_04.mp3',
-    r'Music\Public\Public_05.mp3',
-    r'Music\Special\Death.mp3',
-    r'Music\Special\ExitTheVault.mp3',
-    r'Music\Special\MainTitle.mp3',
-    r'Music\Special\Success.mp3',
-    r'Music\Tension\Tension_01.mp3',
-    r'Music\TranquilityLane\MUS_TranquilityLane_01_LP.mp3',
-    r'Music\TranquilityLane\MUS_TranquilityLane_02_LP.mp3',
-    r'Shaders\shaderpackage002.sdp',
-    r'Shaders\shaderpackage003.sdp',
-    r'Shaders\shaderpackage004.sdp',
-    r'Shaders\shaderpackage006.sdp',
-    r'Shaders\shaderpackage007.sdp',
-    r'Shaders\shaderpackage009.sdp',
-    r'Shaders\shaderpackage010.sdp',
-    r'Shaders\shaderpackage011.sdp',
-    r'Shaders\shaderpackage012.sdp',
-    r'Shaders\shaderpackage013.sdp',
-    r'Shaders\shaderpackage014.sdp',
-    r'Shaders\shaderpackage015.sdp',
-    r'Shaders\shaderpackage016.sdp',
-    r'Shaders\shaderpackage017.sdp',
-    r'Shaders\shaderpackage018.sdp',
-    r'Shaders\shaderpackage019.sdp',
-    r'Video\1 year later.bik',
-    r'Video\2 weeks later.bik',
-    r'Video\3 years later.bik',
-    r'Video\6 years later.bik',
-    r'Video\9 years later.bik',
-    r'Video\B01.bik',
-    r'Video\B02.bik',
-    r'Video\B03.bik',
-    r'Video\B04.bik',
-    r'Video\B05.bik',
-    r'Video\B06.bik',
-    r'Video\B07.bik',
-    r'Video\B08.bik',
-    r'Video\B09.bik',
-    r'Video\B10.bik',
-    r'Video\B11.bik',
-    r'Video\B12.bik',
-    r'Video\B13.bik',
-    r'Video\B14.bik',
-    r'Video\B15.bik',
-    r'Video\B16.bik',
-    r'Video\B17.bik',
-    r'Video\B18.bik',
-    r'Video\B19.bik',
-    r'Video\B20.bik',
-    r'Video\B21.bik',
-    r'Video\B22.bik',
-    r'Video\B23.bik',
-    r'Video\B24.bik',
-    r'Video\B25.bik',
-    r'Video\B26.bik',
-    r'Video\B27.bik',
-    r'Video\B28.bik',
-    r'Video\B29.bik',
-    r'Video\Fallout INTRO Vsk.bik',
+    ur'Credits.txt',
+    ur'CreditsWacky.txt',
+    ur'Fallout3.esm',
+    ur'Fallout - MenuVoices.bsa',
+    ur'Fallout - Meshes.bsa',
+    ur'Fallout - Misc.bsa',
+    ur'Fallout - Sound.bsa',
+    ur'Fallout - Textures.bsa',
+    ur'Fallout - Voices.bsa',
+    ur'LODSettings\aaaForgotten1.DLODSettings',
+    ur'LODSettings\aaaForgotten4.DLODSettings',
+    ur'LODSettings\aaaForgotten5.DLODSettings',
+    ur'Music\Base\Base_01.mp3',
+    ur'Music\Base\Base_02.mp3',
+    ur'Music\Base\Base_03.mp3',
+    ur'Music\Base\Base_04.mp3',
+    ur'Music\Battle\Battle_01.mp3',
+    ur'Music\Battle\Battle_02.mp3',
+    ur'Music\Battle\Battle_03.mp3',
+    ur'Music\Battle\Battle_04.mp3',
+    ur'Music\Battle\Battle_05.mp3',
+    ur'Music\Battle\Battle_06.mp3',
+    ur'Music\Battle\Battle_07.mp3',
+    ur'Music\Battle\Finale\Battle_01.mp3',
+    ur'Music\Battle\Finale\Battle_02.mp3',
+    ur'Music\Battle\Finale\Battle_03.mp3',
+    ur'Music\Battle\Finale\Battle_04.mp3',
+    ur'Music\Battle\Finale\Battle_05.mp3',
+    ur'Music\Battle\Finale\Battle_06.mp3',
+    ur'Music\Battle\Finale\Battle_07.mp3',
+    ur'Music\Dungeon\Dungeon_01.mp3',
+    ur'Music\Dungeon\Dungeon_02.mp3',
+    ur'Music\Dungeon\Dungeon_03.mp3',
+    ur'Music\Dungeon\Dungeon_04.mp3',
+    ur'Music\Dungeon\Dungeon_05.mp3',
+    ur'Music\Endgame\Endgame_01.mp3',
+    ur'Music\Endgame\Endgame_02.mp3',
+    ur'Music\Endgame\Endgame_03.mp3',
+    ur'Music\Endgame\Endgame_04.mp3',
+    ur'Music\Endgame\Endgame_05.mp3',
+    ur'Music\Endgame\Endgame_06.mp3',
+    ur'Music\Endgame\Endgame_07.mp3',
+    ur'Music\Endgame\Endgame_08.mp3',
+    ur'Music\Endgame\Endgame_09.mp3',
+    ur'Music\Endgame\Endgame_11.mp3',
+    ur'Music\Endgame\Endgame_12.mp3',
+    ur'Music\Endgame\Endgame_14.mp3',
+    ur'Music\Endgame\Endgame_15.mp3',
+    ur'Music\Endgame\Endgame_17.mp3',
+    ur'Music\Endgame\Endgame_18.mp3',
+    ur'Music\Endgame\Endgame_19.mp3',
+    ur'Music\Explore\Explore_01.mp3',
+    ur'Music\Explore\Explore_02.mp3',
+    ur'Music\Explore\Explore_03.mp3',
+    ur'Music\Explore\Explore_04.mp3',
+    ur'Music\Explore\Explore_05.mp3',
+    ur'Music\Explore\Explore_06.mp3',
+    ur'Music\Explore\Explore_07.mp3',
+    ur'Music\Public\Public_01.mp3',
+    ur'Music\Public\Public_02.mp3',
+    ur'Music\Public\Public_03.mp3',
+    ur'Music\Public\Public_04.mp3',
+    ur'Music\Public\Public_05.mp3',
+    ur'Music\Special\Death.mp3',
+    ur'Music\Special\ExitTheVault.mp3',
+    ur'Music\Special\MainTitle.mp3',
+    ur'Music\Special\Success.mp3',
+    ur'Music\Tension\Tension_01.mp3',
+    ur'Music\TranquilityLane\MUS_TranquilityLane_01_LP.mp3',
+    ur'Music\TranquilityLane\MUS_TranquilityLane_02_LP.mp3',
+    ur'Shaders\shaderpackage002.sdp',
+    ur'Shaders\shaderpackage003.sdp',
+    ur'Shaders\shaderpackage004.sdp',
+    ur'Shaders\shaderpackage006.sdp',
+    ur'Shaders\shaderpackage007.sdp',
+    ur'Shaders\shaderpackage009.sdp',
+    ur'Shaders\shaderpackage010.sdp',
+    ur'Shaders\shaderpackage011.sdp',
+    ur'Shaders\shaderpackage012.sdp',
+    ur'Shaders\shaderpackage013.sdp',
+    ur'Shaders\shaderpackage014.sdp',
+    ur'Shaders\shaderpackage015.sdp',
+    ur'Shaders\shaderpackage016.sdp',
+    ur'Shaders\shaderpackage017.sdp',
+    ur'Shaders\shaderpackage018.sdp',
+    ur'Shaders\shaderpackage019.sdp',
+    ur'Video\1 year later.bik',
+    ur'Video\2 weeks later.bik',
+    ur'Video\3 years later.bik',
+    ur'Video\6 years later.bik',
+    ur'Video\9 years later.bik',
+    ur'Video\B01.bik',
+    ur'Video\B02.bik',
+    ur'Video\B03.bik',
+    ur'Video\B04.bik',
+    ur'Video\B05.bik',
+    ur'Video\B06.bik',
+    ur'Video\B07.bik',
+    ur'Video\B08.bik',
+    ur'Video\B09.bik',
+    ur'Video\B10.bik',
+    ur'Video\B11.bik',
+    ur'Video\B12.bik',
+    ur'Video\B13.bik',
+    ur'Video\B14.bik',
+    ur'Video\B15.bik',
+    ur'Video\B16.bik',
+    ur'Video\B17.bik',
+    ur'Video\B18.bik',
+    ur'Video\B19.bik',
+    ur'Video\B20.bik',
+    ur'Video\B21.bik',
+    ur'Video\B22.bik',
+    ur'Video\B23.bik',
+    ur'Video\B24.bik',
+    ur'Video\B25.bik',
+    ur'Video\B26.bik',
+    ur'Video\B27.bik',
+    ur'Video\B28.bik',
+    ur'Video\B29.bik',
+    ur'Video\Fallout INTRO Vsk.bik',
     #DLCs
-    r'anchorage.esm',
-    r'anchorage - main.bsa',
-    r'anchorage - sounds.bsa',
-    r'thepitt.esm',
-    r'thepitt - main.bsa',
-    r'thepitt - sounds.bsa',
-    r'brokensteel.esm',
-    r'brokensteel - main.bsa',
-    r'brokensteel - sounds.bsa',
-    r'pointlookout.esm',
-    r'pointlookout - main.bsa',
-    r'pointlookout - sounds.bsa',
-    r'zeta.esm',
-    r'zeta - main.bsa',
-    r'zeta - sounds.bsa',
-    r'DLCList.txt',
+    ur'anchorage.esm',
+    ur'anchorage - main.bsa',
+    ur'anchorage - sounds.bsa',
+    ur'thepitt.esm',
+    ur'thepitt - main.bsa',
+    ur'thepitt - sounds.bsa',
+    ur'brokensteel.esm',
+    ur'brokensteel - main.bsa',
+    ur'brokensteel - sounds.bsa',
+    ur'pointlookout.esm',
+    ur'pointlookout - main.bsa',
+    ur'pointlookout - sounds.bsa',
+    ur'zeta.esm',
+    ur'zeta - main.bsa',
+    ur'zeta - sounds.bsa',
+    ur'DLCList.txt',
     ))
+
+#--Plugin files that can't be deactivated
+nonDeactivatableFiles = []
 
 #--BAIN:
 ## These are the allowed default data directories that BAIN can install to
 dataDirs = set()
 ## These are additional special directories that BAIN can install to
 dataDirsPlus = set()  
-
+    
 # Installer -------------------------------------------------------------------
 # ensure all path strings are prefixed with 'r' to avoid interpretation of
 #   accidental escape sequences
 wryeBashDataFiles = set((
-    r'Bashed Patch.esp',
-    r'Bashed Patch, 0.esp',
-    r'Bashed Patch, 1.esp',
-    r'Bashed Patch, 2.esp',
-    r'Bashed Patch, 3.esp',
-    r'Bashed Patch, 4.esp',
-    r'Bashed Patch, 5.esp',
-    r'Bashed Patch, 6.esp',
-    r'Bashed Patch, 7.esp',
-    r'Bashed Patch, 8.esp',
-    r'Bashed Patch, 9.esp',
-    r'Bashed Patch, CBash.esp',
-    r'Bashed Patch, Python.esp',
-    r'Bashed Patch, FCOM.esp',
-    r'Bashed Patch, Warrior.esp',
-    r'Bashed Patch, Thief.esp',
-    r'Bashed Patch, Mage.esp',
-    r'Bashed Patch, Test.esp',
-    r'ArchiveInvalidationInvalidated!.bsa'
-    r'Fallout - AI!.bsa'
+    ur'Bashed Patch.esp',
+    ur'Bashed Patch, 0.esp',
+    ur'Bashed Patch, 1.esp',
+    ur'Bashed Patch, 2.esp',
+    ur'Bashed Patch, 3.esp',
+    ur'Bashed Patch, 4.esp',
+    ur'Bashed Patch, 5.esp',
+    ur'Bashed Patch, 6.esp',
+    ur'Bashed Patch, 7.esp',
+    ur'Bashed Patch, 8.esp',
+    ur'Bashed Patch, 9.esp',
+    ur'Bashed Patch, CBash.esp',
+    ur'Bashed Patch, Python.esp',
+    ur'Bashed Patch, FCOM.esp',
+    ur'Bashed Patch, Warrior.esp',
+    ur'Bashed Patch, Thief.esp',
+    ur'Bashed Patch, Mage.esp',
+    ur'Bashed Patch, Test.esp',
+    ur'ArchiveInvalidationInvalidated!.bsa'
+    ur'Fallout - AI!.bsa'
     ))
-
 wryeBashDataDirs = set((
-    r'Bash Patches',
-    r'INI Tweaks'
+    ur'Bash Patches',
+    ur'INI Tweaks'
     ))
-
 ignoreDataFiles = set((
-#    r'FOSE\Plugins\Construction Set Extender.dll',
-#    r'FOSE\Plugins\Construction Set Extender.ini'
+#    ur'FOSE\Plugins\Construction Set Extender.dll',
+#    ur'FOSE\Plugins\Construction Set Extender.ini'
     ))
-
 ignoreDataFilePrefixes = set(())
-
 ignoreDataDirs = set((
 #    r'FOSE\Plugins\ComponentDLLs\CSE',
-    r'LSData'
+    ur'LSData'
     ))    
+  
+#--Plugin format stuff
+class esp:
+    #--Wrye Bash capabilities
+    canBash = False         # Can create Bashed Patches
+    canCBash = False         # CBash can handle this game's records
+    canEditHeader = False   # Can edit basic info in the TES4 record
+    
+    #--Valid ESM/ESP header versions
+    ## These are the valid 'version' numbers for the game file headers
+    validHeaderVersions = (0.85,0.94)
 
+    stringsFiles = []
+
+    #--Class to use to read the TES4 record
+    ## This is the class name in bosh.py to use for the TES4 record when reading
+    ## Example: 'MreTes4'
+    tes4ClassName = ''
+
+    #--Information about the basic record header
+    class header:
+        format = ''         # Format passed to struct.unpack to unpack the header
+        size = 0            # Size of the record header
+        attrs = tuple()     # List of attributes to set = the return of struct.unpack
+        defaults = tuple()  # Default values for each of the above attributes
+    
+    #--Top types in Fallout3 order.
+    topTypes = ['GMST', 'TXST', 'MICN', 'GLOB', 'CLAS', 'FACT', 'HDPT', 'HAIR', 'EYES',
+        'RACE', 'SOUN', 'ASPC', 'MGEF', 'SCPT', 'LTEX', 'ENCH', 'SPEL', 'ACTI', 'TACT',
+        'TERM', 'ARMO', 'BOOK', 'CONT', 'DOOR', 'INGR', 'LIGH', 'MISC', 'STAT', 'SCOL',
+        'MSTT', 'PWAT', 'GRAS', 'TREE', 'FURN', 'WEAP', 'AMMO', 'NPC_', 'CREA', 'LVLC',
+        'LVLN', 'KEYM', 'ALCH', 'IDLM', 'NOTE', 'COBJ', 'PROJ', 'LVLI', 'WTHR', 'CLMT',
+        'REGN', 'NAVI', 'CELL', 'WRLD', 'DIAL', 'QUST', 'IDLE', 'PACK', 'CSTY', 'LSCR',
+        'ANIO', 'WATR', 'EFSH', 'EXPL', 'DEBR', 'IMGS', 'IMAD', 'FLST', 'PERK', 'BPTD',
+        'ADDN', 'AVIF', 'RADS', 'CAMS', 'CPTH', 'VTYP', 'IPCT', 'IPDS', 'ARMA', 'ECZN',
+        'MESG', 'RGDL', 'DOBJ', 'LGTM', 'MUSC',
+        # Unused types in fallout3. (dummy)
+        'SLGM', 'BSGN', 'FLOR', 'SGST', 'CLOT', 'SBSP', 'SKIL', 'LVSP', 'APPA',
+        ]
+        
+    #--Dict mapping 'ignored' top types to un-ignored top types
+    topIgTopTYpes = dict()
+        
+    recordTypes = set(topTypes + 'GRUP,TES4,ROAD,REFR,ACHR,ACRE,PGRD,LAND,INFO,PGRE,NAVM'.split(','))
+     
+class RecordHeader(brec.BaseRecordHeader):
+    size = 24 # Size in bytes of a record header
+
+    def __init__(self,recType='TES4',size=0,arg1=0,arg2=0,arg3=0,*extra):
+        self.recType = recType
+        self.size = size
+        if recType == 'GRUP':
+            self.label = arg1
+            self.groupType = arg2
+            self.stamp = arg3
+        else:
+            self.flags1 = arg1
+            self.fid = arg2
+            self.flags2 = arg2
+        self.extra = extra
+
+    @staticmethod
+    def unpack(ins):
+        """Returns a RecordHeader object by reading the input stream."""
+        type,size,uint0,uint1,uint2,uint3 = ins.unpack('4s5I',24,'REC_HEAD')
+        #--Bad?
+        if type not in esp.recordTypes:
+            raise brec.ModError(ins.inName,u'Bad header type: '+repr(type))
+        #--Record
+        if type != 'GRUP':
+            pass
+        #--Top Group
+        elif uint1 == 0: # groupType == 0 (Top Group)
+            str0 = struct.pack('I',uint0)
+            if str0 in esp.topTypes:
+                uint0 = str0
+            elif str0 in esp.topIgTypes:
+                uint0 = esp.topIgTypes[str0]
+            else:
+                raise brec.ModError(ins.inName,u'Bad Top GRUP type: '+repr(str0))
+        return RecordHeader(type,size,uint0,uint1,uint2)
+
+    def pack(self):
+        """Returns the record header packed into a string for writing to file"""
+        pass
+	
+#--The pickle file for this game.  Holds encoded GMST IDs from the big list below
+pklfile = ur'bash\db\Fallout3_ids.pkl'
+
+#--List of GMST's in the main plugin (Oblivion.esm) that have 0x00000000
+#  as the form id.  Any GMST as such needs it Editor Id listed here.
+gmstEids = ['fPlayerDeathReloadTime','iMapMarkerVisibleDistance','fVanityModeWheelMax','fChase3rdPersonZUnitsPerSecond',
+    'fAutoAimMaxDegreesMiss','iHoursToRespawnCell','fEssentialDeathTime','fJumpHeightMin','fPlayerPipBoyLightTimer',
+    'iAINumberActorsComplexScene','iHackingMaxWords','fGunShellLifetime','fGunShellCameraDistance','fGunDecalCameraDistance',
+    'iDebrisMaxCount','iHackingDumpRate','iHackingInputRate','iHackingOutputRate','iHackingFlashOffDuration',
+    'iHackingFlashOnDuration','iComputersDisplayRateMenus','iComputersDisplayRateNotes','iInventoryAskQuantityAt',
+    'iNumberActorsInCombatPlayer','iNumberActorsAllowedToFollowPlayer','iRemoveExcessDeadCount','iRemoveExcessDeadTotalActorCount',
+    'iRemoveExcessDeadComplexTotalActorCount','iRemoveExcessDeadComplexCount', 'fRemoveExcessDeadTime','fRemoveExcessComplexDeadTime',
+    'iLevItemLevelDifferenceMax','fMoveWeightMax',
+    ]
+
+#--Bash Tags supported by this game
+allTags = sorted(('Body-F', 'Body-M', 'Body-Size-M', 'Body-Size-F', 'C.Climate', 'C.Light', 'C.Music', 'C.Name', 'C.RecordFlags',
+                  'C.Owner', 'C.Water','Deactivate', 'Delev', 'Eyes', 'Factions', 'Relations', 'Filter', 'Graphics', 'Hair',
+                  'IIM', 'Invent', 'Names', 'NoMerge', 'NpcFaces', 'R.Relations', 'Relev', 'Scripts', 'ScriptContents', 'Sound',
+                  'Stats', 'Voice-F', 'Voice-M', 'R.Teeth', 'R.Mouth', 'R.Ears', 'R.Head', 'R.Attributes-F',
+                  'R.Attributes-M', 'R.Skills', 'R.Description', 'Roads', 'Actors.Anims',
+                  'Actors.AIData', 'Actors.DeathItem', 'Actors.AIPackages', 'Actors.AIPackagesForceAdd', 'Actors.Stats',
+                  'Actors.ACBS', 'NPC.Class', 'Actors.CombatStyle', 'Creatures.Blood',
+                  'NPC.Race','Actors.Skeleton', 'NpcFacesForceFullImport', 'MustBeActiveIfImported',
+                  'Deflst', 'Destructible'))
+
+#--GLOB record tweaks used by bosh's GmstTweaker
+#  Each entry is a tuple in the following format:
+#    (DisplayText, MouseoverText, GLOB EditorID, Option1, Option2, Option3, ..., OptionN)
+#    -EditorID can be a plain string, or a tuple of multiple Editor IDs.  If it's a tuple,
+#     then Value (below) must be a tuple of equal length, providing values for each GLOB
+#  Each Option is a tuple:
+#    (DisplayText, Value)
+#    - If you enclose DisplayText in brackets like this: _(u'[Default]'), then the patcher
+#      will treat this option as the default value.
+#    - If you use _(u'Custom') as the entry, the patcher will bring up a number input dialog
+#  To make a tweak Enabled by Default, enclose the tuple entry for the tweak in a list, and make
+#  a dictionary as the second list item with {'defaultEnabled':True}.  See the UOP Vampire face
+#  fix for an example of this (in the GMST Tweaks)
+## NOTE: only required if the GmstTweaker has been enabled for this game
+GlobalsTweaks = [
+]
+
+#--GMST record tweaks used by bosh's GmstTweaker
+#  Each entry is a tuple in the following format:
+#    (DisplayText, MouseoverText, GMST EditorID, Option1, Option2, Option3, ..., OptionN)
+#    -EditorID can be a plain string, or a tuple of multiple Editor IDs.  If it's a tuple,
+#     then Value (below) must be a tuple of equal length, providing values for each GMST
+#  Each Option is a tuple:
+#    (DisplayText, Value)
+#    - If you enclose DisplayText in brackets like this: _(u'[Default]'), then the patcher
+#      will treat this option as the default value.
+#    - If you use _(u'Custom') as the entry, the patcher will bring up a number input dialog
+#  To make a tweak Enabled by Default, enclose the tuple entry for the tweak in a list, and make
+#  a dictionary as the second list item with {'defaultEnabled':True}.  See the UOP Vampire face
+#  fix for an example of this (in the GMST Tweaks)
+## NOTE: only required if the GmstTweaker has been enabled for this game
+GmstTweaks = [
+]
+
+#--Patcher available when building a Bashed Patch (refrerenced by class name)
+patchers = (
+)
+
+#--For ListMerger patcher (leveled list patcher)
+listTypes = ()
+
+#--CBash patchers available when building a Bashed Patch
+CBash_patchers = (
+)
 # Function Info ---------------------------------------------------------------
 conditionFunctionData = ( #--0: no param; 1: int param; 2: formid param
     (153, 'CanHaveFlames', 0, 0, 0, 0),
@@ -644,7 +798,7 @@ fid1Conditions = set(entry[0] for entry in conditionFunctionData if entry[2] == 
 fid2Conditions = set(entry[0] for entry in conditionFunctionData if entry[3] == 2)
 fid3Conditions = set(entry[0] for entry in conditionFunctionData if entry[4] == 2)
 fid4Conditions = set(entry[0] for entry in conditionFunctionData if entry[5] == 2)
-  
+    
 # Magic Info ------------------------------------------------------------------
 weaponTypes = (
     _('Big gun'),
@@ -655,82 +809,12 @@ weaponTypes = (
     _('Thrown'),
     _('Mine'),
     )
-#--The pickle file for this game.  Holds encoded GMST IDs from the big list below
-pklfile = ur'bash\db\Fallout3_ids.pkl'
-
-#--List of GMST's in the main plugin (Oblivion.esm) that have 0x00000000
-#  as the form id.  Any GMST as such needs it Editor Id listed here.
-gmstEids = ['fPlayerDeathReloadTime','iMapMarkerVisibleDistance','fVanityModeWheelMax','fChase3rdPersonZUnitsPerSecond',
-    'fAutoAimMaxDegreesMiss','iHoursToRespawnCell','fEssentialDeathTime','fJumpHeightMin','fPlayerPipBoyLightTimer',
-    'iAINumberActorsComplexScene','iHackingMaxWords','fGunShellLifetime','fGunShellCameraDistance','fGunDecalCameraDistance',
-    'iDebrisMaxCount','iHackingDumpRate','iHackingInputRate','iHackingOutputRate','iHackingFlashOffDuration',
-    'iHackingFlashOnDuration','iComputersDisplayRateMenus','iComputersDisplayRateNotes','iInventoryAskQuantityAt',
-    'iNumberActorsInCombatPlayer','iNumberActorsAllowedToFollowPlayer','iRemoveExcessDeadCount','iRemoveExcessDeadTotalActorCount',
-    'iRemoveExcessDeadComplexTotalActorCount','iRemoveExcessDeadComplexCount', 'fRemoveExcessDeadTime','fRemoveExcessComplexDeadTime',
-    'iLevItemLevelDifferenceMax','fMoveWeightMax',
-    ]
-
-#--Bash Tags supported by this game
-allTags = sorted(('Body-F', 'Body-M', 'Body-Size-M', 'Body-Size-F', 'C.Climate', 'C.Light', 'C.Music', 'C.Name', 'C.RecordFlags',
-                  'C.Owner', 'C.Water','Deactivate', 'Delev', 'Eyes', 'Factions', 'Relations', 'Filter', 'Graphics', 'Hair',
-                  'IIM', 'Invent', 'Names', 'NoMerge', 'NpcFaces', 'R.Relations', 'Relev', 'Scripts', 'ScriptContents', 'Sound',
-                  'Stats', 'Voice-F', 'Voice-M', 'R.Teeth', 'R.Mouth', 'R.Ears', 'R.Head', 'R.Attributes-F',
-                  'R.Attributes-M', 'R.Skills', 'R.Description', 'Roads', 'Actors.Anims',
-                  'Actors.AIData', 'Actors.DeathItem', 'Actors.AIPackages', 'Actors.AIPackagesForceAdd', 'Actors.Stats',
-                  'Actors.ACBS', 'NPC.Class', 'Actors.CombatStyle', 'Creatures.Blood',
-                  'NPC.Race','Actors.Skeleton', 'NpcFacesForceFullImport', 'MustBeActiveIfImported',
-                  'Deflst', 'Destructible',
-    ))
-
-#--GLOB record tweaks used by bosh's GmstTweaker
-#  Each entry is a tuple in the following format:
-#    (DisplayText, MouseoverText, GLOB EditorID, Option1, Option2, Option3, ..., OptionN)
-#    -EditorID can be a plain string, or a tuple of multiple Editor IDs.  If it's a tuple,
-#     then Value (below) must be a tuple of equal length, providing values for each GLOB
-#  Each Option is a tuple:
-#    (DisplayText, Value)
-#    - If you enclose DisplayText in brackets like this: _(u'[Default]'), then the patcher
-#      will treat this option as the default value.
-#    - If you use _(u'Custom') as the entry, the patcher will bring up a number input dialog
-#  To make a tweak Enabled by Default, enclose the tuple entry for the tweak in a list, and make
-#  a dictionary as the second list item with {'defaultEnabled':True}.  See the UOP Vampire face
-#  fix for an example of this (in the GMST Tweaks)
-## NOTE: only required if the GmstTweaker has been enabled for this game
-GlobalsTweaks = [
-]
-
-#--GMST record tweaks used by bosh's GmstTweaker
-#  Each entry is a tuple in the following format:
-#    (DisplayText, MouseoverText, GMST EditorID, Option1, Option2, Option3, ..., OptionN)
-#    -EditorID can be a plain string, or a tuple of multiple Editor IDs.  If it's a tuple,
-#     then Value (below) must be a tuple of equal length, providing values for each GMST
-#  Each Option is a tuple:
-#    (DisplayText, Value)
-#    - If you enclose DisplayText in brackets like this: _(u'[Default]'), then the patcher
-#      will treat this option as the default value.
-#    - If you use _(u'Custom') as the entry, the patcher will bring up a number input dialog
-#  To make a tweak Enabled by Default, enclose the tuple entry for the tweak in a list, and make
-#  a dictionary as the second list item with {'defaultEnabled':True}.  See the UOP Vampire face
-#  fix for an example of this (in the GMST Tweaks)
-## NOTE: only required if the GmstTweaker has been enabled for this game
-GmstTweaks = [
-]
-
-#--Patcher available when building a Bashed Patch (refrerenced by class name)
-patchers = (
-)
-
-#--For ListMerger patcher (leveled list patcher)
-listTypes = ()
-
+ 
 namesTypes = set((
         'ALCH', 'AMMO', 'APPA', 'ARMO', 'BOOK', 'CLAS', 'CLOT', 'CONT', 'CREA', 'DOOR',
         'EYES', 'FACT', 'FLOR', 'HAIR', 'INGR', 'KEYM', 'LIGH', 'MISC', 'NOTE', 'NPC_',
-        'RACE', 'SPEL', 'TERM', 'WEAP', 'ACTI', 'TACT'
-		))
-
+        'RACE', 'SPEL', 'TERM', 'WEAP', 'ACTI', 'TACT'))
 pricesTypes = {}      
-
 statsTypes = {
         'ALCH':('eid', 'weight', 'value'),
         'AMMO':('eid', 'speed',  'value', 'clipRounds'),
@@ -748,7 +832,6 @@ statsTypes = {
                 'reloadTime','jamTime','aimArc','rambleWavelangth','limbDmgMult','sightUsage',
                 'semiAutomaticFireDelayMin','semiAutomaticFireDelayMax','criticalDamage','criticalMultiplier'),
         }
-
 statsHeaders = (
         #--Alch
         ('ALCH',
@@ -797,16 +880,6 @@ statsHeaders = (
             _('Semi-Automatic Fire Delay Min'), _('Semi-Automatic Fire Delay Max'),
             _('Critical Damage'), _('Crit % Mult'))) + '"\n')),
         )
-
-#--CBash patchers available when building a Bashed Patch
-CBash_patchers = (
-)
-
-#-------------------------------------------------------------------------------
-# Mod Record Elements ----------------------------------------------------------
-#-------------------------------------------------------------------------------
-# Constants
-FID = 'FID' #--Used by MelStruct classes to indicate fid elements.
 
 # Race Info -------------------------------------------------------------------
 raceNames = {
@@ -904,94 +977,7 @@ raceHairFemale = {
     0x0987de : 0x044529, #--FOA
     0x0987df : 0x044529, #--COA
     }
-
-#--Plugin format stuff
-class esp:
-    #--Wrye Bash capabilities
-    canBash = False         # Can create Bashed Patches
-    canCBash = False         # CBash can handle this game's records
-    canEditHeader = False   # Can edit basic info in the TES4 record
-    
-    #--Valid ESM/ESP header versions
-    ## These are the valid 'version' numbers for the game file headers
-    validHeaderVersions = (0.85,0.94)
-
-    #--Class to use to read the TES4 record
-    ## This is the class name in bosh.py to use for the TES4 record when reading
-    ## Example: 'MreTes4'
-    tes4ClassName = ''
-
-    #--Information about the basic record header
-    class header:
-        format = ''         # Format passed to struct.unpack to unpack the header
-        size = 0            # Size of the record header
-        attrs = tuple()     # List of attributes to set = the return of struct.unpack
-        defaults = tuple()  # Default values for each of the above attributes
-    
-    #--Top types in Fallout3 order.
-    topTypes = ['GMST', 'TXST', 'MICN', 'GLOB', 'CLAS', 'FACT', 'HDPT', 'HAIR', 'EYES',
-        'RACE', 'SOUN', 'ASPC', 'MGEF', 'SCPT', 'LTEX', 'ENCH', 'SPEL', 'ACTI', 'TACT',
-        'TERM', 'ARMO', 'BOOK', 'CONT', 'DOOR', 'INGR', 'LIGH', 'MISC', 'STAT', 'SCOL',
-        'MSTT', 'PWAT', 'GRAS', 'TREE', 'FURN', 'WEAP', 'AMMO', 'NPC_', 'CREA', 'LVLC',
-        'LVLN', 'KEYM', 'ALCH', 'IDLM', 'NOTE', 'COBJ', 'PROJ', 'LVLI', 'WTHR', 'CLMT',
-        'REGN', 'NAVI', 'CELL', 'WRLD', 'DIAL', 'QUST', 'IDLE', 'PACK', 'CSTY', 'LSCR',
-        'ANIO', 'WATR', 'EFSH', 'EXPL', 'DEBR', 'IMGS', 'IMAD', 'FLST', 'PERK', 'BPTD',
-        'ADDN', 'AVIF', 'RADS', 'CAMS', 'CPTH', 'VTYP', 'IPCT', 'IPDS', 'ARMA', 'ECZN',
-        'MESG', 'RGDL', 'DOBJ', 'LGTM', 'MUSC',
-        # Unused types in fallout3. (dummy)
-        'SLGM', 'BSGN', 'FLOR', 'SGST', 'CLOT', 'SBSP', 'SKIL', 'LVSP', 'APPA',
-        ]
-        
-    #--Dict mapping 'ignored' top types to un-ignored top types
-    topIgTopTYpes = dict()
-        
-    recordTypes = set(topTypes + 'GRUP,TES4,ROAD,REFR,ACHR,ACRE,PGRD,LAND,INFO,PGRE,NAVM'.split(','))
-     
-#--Mod I/O
-class RecordHeader(brec.BaseRecordHeader):
-    size = 24 # Size in bytes of a record header
-
-    def __init__(self,recType='TES4',size=0,arg1=0,arg2=0,arg3=0,*extra):
-        self.recType = recType
-        self.size = size
-        if recType == 'GRUP':
-            self.label = arg1
-            self.groupType = arg2
-            self.stamp = arg3
-        else:
-            self.flags1 = arg1
-            self.fid = arg2
-            self.flags2 = arg2
-        self.extra = extra
-
-    @staticmethod
-    def unpack(ins):
-        """Returns a RecordHeader object by reading the input stream."""
-        type,size,uint0,uint1,uint2,uint3 = ins.unpack('4s5I',24,'REC_HEAD')
-        #--Bad?
-        if type not in esp.recordTypes:
-            raise brec.ModError(ins.inName,u'Bad header type: '+repr(type))
-        #--Record
-        if type != 'GRUP':
-            pass
-        #--Top Group
-        elif uint1 == 0: # groupType == 0 (Top Group)
-            str0 = struct.pack('I',uint0)
-            if str0 in esp.topTypes:
-                uint0 = str0
-            elif str0 in esp.topIgTypes:
-                uint0 = esp.topIgTypes[str0]
-            else:
-                raise brec.ModError(ins.inName,u'Bad Top GRUP type: '+repr(str0))
-        return RecordHeader(type,size,uint0,uint1,uint2)
-
-    def pack(self):
-        """Returns the record header packed into a string for writing to file"""
-        pass
  
-#------------------------------------------------------------------------------
-# Common/Special Elements
-#------------------------------------------------------------------------------
 # Flags
 #------------------------------------------------------------------------------
 class MelBipedFlags(bolt.Flags):
@@ -1208,10 +1194,7 @@ class MelConditions(MelStructs):
             if len(form1234) > 3 and form1234[3] == 'I':
                 result = function(target.param4)
                 if save: target.param4 = result
-
-#-------------------------------------------------------------------------------
-# Fallout 3 Records ------------------------------------------------------------
-#-------------------------------------------------------------------------------
+    
 class MreHeader(MreHeaderBase):
     """TES4 Record.  File header."""
     classType = 'TES4'
