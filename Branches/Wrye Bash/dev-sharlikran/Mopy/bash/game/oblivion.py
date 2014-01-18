@@ -23,9 +23,7 @@
 
 """This modules defines static data for use by bush, when
    TES IV: Oblivion is set at the active game."""
-#-------------------------------------------------------------------------------
-# Imports ----------------------------------------------------------------------
-#-------------------------------------------------------------------------------
+
 import struct
 from .. import brec
 from .. import bolt
@@ -33,19 +31,13 @@ from .. import bush
 from ..brec import *
 from ..bolt import Flags, DataDict, StateError
 
-#-------------------------------------------------------------------------------
 # Util Constants ---------------------------------------------------------------
-#-------------------------------------------------------------------------------
 #--Null strings (for default empty byte arrays)
 null1 = '\x00'
 null2 = null1*2
 null3 = null1*3
 null4 = null1*4
 
-# Mod Record Elements ----------------------------------------------------------
-#-------------------------------------------------------------------------------
-# Constants
-FID = 'FID' #--Used by MelStruct classes to indicate fid elements.
 #--Name of the game
 name = u'Oblivion'
 
@@ -59,12 +51,6 @@ altName = u'Wrye Bash'
 exe = u'Oblivion.exe'
 
 #--Registry keys to read to find the install location
-## These are relative to:
-##  HKLM\Software
-##  HKLM\Software\Wow6432Node
-##  HKCU\Software
-##  HKCU\Software\Wow6432Node
-## Example: (u'Bethesda Softworks\\Oblivion',u'Installed Path')
 regInstallKeys = [
     (u'Bethesda Softworks\\Oblivion',u'Installed Path'),
     ]
@@ -138,10 +124,10 @@ dontSkipDirs = {
 
 #Folders BAIN should never check
 SkipBAINRefresh = set ((
-    #Use lowercase names
     u'tes4edit backups',
     u'bgsee',
     u'conscribe logs',
+    #Use lowercase names
 ))
 
 #--Some stuff dealing with INI files
@@ -220,25 +206,24 @@ class ess:
             out.write(buffer)
         return oldMasters
 
-#--INI files that should show up in the INI Edits tab
-iniFiles = [
-    u'Oblivion.ini',
-    ]
-
-#--INI setting to setup Save Profiles
-saveProfilesKey = (u'General',u'SLocalSavePath')
-
 #--The main plugin Wrye Bash should look for
 masterFiles = [
     u'Oblivion.esm',
     u'Nehrim.esm',
     ]
 
-#--Plugin files that can't be deactivated
-nonDeactivatableFiles = []
+#--INI files that should show up in the INI Edits tab
+iniFiles = [
+    u'Oblivion.ini',
+    ]
+
+#--Name of the default ini file.
+defaultIniFile = u'Oblivion_default.ini'
+
+#--INI setting to setup Save Profiles
+saveProfilesKey = (u'General',u'SLocalSavePath')
 
 #--Game ESM/ESP/BSA files
-#  These filenames need to be in lowercase,
 bethDataFiles = set((
     #--Vanilla
     u'oblivion.esm',
@@ -263,7 +248,100 @@ bethDataFiles = set((
 
 #--Every file in the Data directory from Bethsoft
 allBethFiles = set((
+    #vanilla
+    u'Credits.txt',
+    u'Oblivion - Meshes.bsa',
+    u'Oblivion - Misc.bsa',
+    u'Oblivion - Sounds.bsa',
+    u'Oblivion - Textures - Compressed.bsa',
+    u'Oblivion - Voices1.bsa',
+    u'Oblivion - Voices2.bsa',
+    u'Oblivion.esm',
+    u'Music\\Battle\\battle_01.mp3',
+    u'Music\\Battle\\battle_02.mp3',
+    u'Music\\Battle\\battle_03.mp3',
+    u'Music\\Battle\\battle_04.mp3',
+    u'Music\\Battle\\battle_05.mp3',
+    u'Music\\Battle\\battle_06.mp3',
+    u'Music\\Battle\\battle_07.mp3',
+    u'Music\\Battle\\battle_08.mp3',
+    u'Music\\Dungeon\\Dungeon_01_v2.mp3',
+    u'Music\\Dungeon\\dungeon_02.mp3',
+    u'Music\\Dungeon\\dungeon_03.mp3',
+    u'Music\\Dungeon\\dungeon_04.mp3',
+    u'Music\\Dungeon\\dungeon_05.mp3',
+    u'Music\\Explore\\atmosphere_01.mp3',
+    u'Music\\Explore\\atmosphere_03.mp3',
+    u'Music\\Explore\\atmosphere_04.mp3',
+    u'Music\\Explore\\atmosphere_06.mp3',
+    u'Music\\Explore\\atmosphere_07.mp3',
+    u'Music\\Explore\\atmosphere_08.mp3',
+    u'Music\\Explore\\atmosphere_09.mp3',
+    u'Music\\Public\\town_01.mp3',
+    u'Music\\Public\\town_02.mp3',
+    u'Music\\Public\\town_03.mp3',
+    u'Music\\Public\\town_04.mp3',
+    u'Music\\Public\\town_05.mp3',
+    u'Music\\Special\\death.mp3',
+    u'Music\\Special\\success.mp3',
+    u'Music\\Special\\tes4title.mp3',
+    u'Shaders\\shaderpackage001.sdp',
+    u'Shaders\\shaderpackage002.sdp',
+    u'Shaders\\shaderpackage003.sdp',
+    u'Shaders\\shaderpackage004.sdp',
+    u'Shaders\\shaderpackage005.sdp',
+    u'Shaders\\shaderpackage006.sdp',
+    u'Shaders\\shaderpackage007.sdp',
+    u'Shaders\\shaderpackage008.sdp',
+    u'Shaders\\shaderpackage009.sdp',
+    u'Shaders\\shaderpackage010.sdp',
+    u'Shaders\\shaderpackage011.sdp',
+    u'Shaders\\shaderpackage012.sdp',
+    u'Shaders\\shaderpackage013.sdp',
+    u'Shaders\\shaderpackage014.sdp',
+    u'Shaders\\shaderpackage015.sdp',
+    u'Shaders\\shaderpackage016.sdp',
+    u'Shaders\\shaderpackage017.sdp',
+    u'Shaders\\shaderpackage018.sdp',
+    u'Shaders\\shaderpackage019.sdp',
+    u'Video\\2k games.bik',
+    u'Video\\bethesda softworks HD720p.bik',
+    u'Video\\CreditsMenu.bik',
+    u'Video\\game studios.bik',
+    u'Video\\Map loop.bik',
+    u'Video\\Oblivion iv logo.bik',
+    u'Video\\Oblivion Legal.bik',
+    u'Video\\OblivionIntro.bik',
+    u'Video\\OblivionOutro.bik',
+    #SI
+    u'DLCShiveringIsles - Meshes.bsa',
+    u'DLCShiveringIsles - Textures.bsa',
+    u'DLCShiveringIsles - Sounds.bsa',
+    u'DLCShiveringIsles - Voices.bsa',
+    u'DLCShiveringIsles.esp',
+    u'Textures\\Effects\\TerrainNoise.dds',
+    #DLCs
+    u'DLCBattlehornCastle.bsa',
+    u'DLCBattlehornCastle.esp',
+    u'DLCFrostcrag.bsa',
+    u'DLCFrostcrag.esp',
+    u'DLCHorseArmor.bsa',
+    u'DLCHorseArmor.esp',
+    u'DLCMehrunesRazor.esp',
+    u'DLCOrrery.bsa',
+    u'DLCOrrery.esp',
+    u'DLCSpellTomes.esp',
+    u'DLCThievesDen.bsa',
+    u'DLCThievesDen.esp',
+    u'DLCVileLair.bsa',
+    u'DLCVileLair.esp',
+    u'Knights.bsa',
+    u'Knights.esp',
+    u'DLCList.txt',
     ))
+
+#--Plugin files that can't be deactivated
+nonDeactivatableFiles = []
 
 #--BAIN: Directories that are OK to install to
 dataDirs = set((
@@ -871,7 +949,7 @@ gmstEids = ['fAbsorbBoltGrowWidth','fAbsorbBoltSmallWidth','fAbsorbBoltsRadius',
     'sLoadingArea','sQuickLoading','sNoCharge',
     ]
 
-#--Bash Tags supported by this game
+#--Tags supported by this game
 allTags = sorted((u'Body-F', u'Body-M', u'Body-Size-M', u'Body-Size-F', u'C.Climate', u'C.Light', u'C.Music', u'C.Name', u'C.RecordFlags',
                   u'C.Owner', u'C.Water', u'Deactivate', u'Delev', u'Eyes', u'Factions', u'Relations', u'Filter', u'Graphics', u'Hair',
                   u'IIM', u'Invent', u'Names', u'NoMerge', u'NpcFaces', u'R.Relations', u'Relev', u'Scripts', u'ScriptContents', u'Sound',
@@ -1535,11 +1613,8 @@ listTypes = ('LVLC','LVLI','LVSP',)
 namesTypes = set((
         'ALCH', 'AMMO', 'APPA', 'ARMO', 'BOOK', 'BSGN', 'CLAS', 'CLOT', 'CONT', 'CREA', 'DOOR',
         'EYES', 'FACT', 'FLOR', 'HAIR','INGR', 'KEYM', 'LIGH', 'MISC', 'NPC_', 'RACE', 'SGST',
-        'SLGM', 'SPEL','WEAP',
-		))
-
+        'SLGM', 'SPEL','WEAP',))
 pricesTypes = {'ALCH':{},'AMMO':{},'APPA':{},'ARMO':{},'BOOK':{},'CLOT':{},'INGR':{},'KEYM':{},'LIGH':{},'MISC':{},'SGST':{},'SLGM':{},'WEAP':{}}
-
 statsTypes = {
             'ALCH':('eid', 'weight', 'value'),
             'AMMO':('eid', 'weight', 'value', 'damage', 'speed', 'enchantPoints'),
@@ -1757,22 +1832,86 @@ class RecordHeader(brec.BaseRecordHeader):
         else:
             return struct.pack('=4s4I',self.recType,self.size,self.flags1,self.fid,self.flags2)
 
-#------------------------------------------------------------------------------
-# Common/Special Elements
-#------------------------------------------------------------------------------
-# Flags
-#------------------------------------------------------------------------------
-class MelBipedFlags(bolt.Flags):
-    """Biped flags element. Includes biped flag set by default."""
-    mask = 0xFFFF
-    def __init__(self,default=0L,newNames=None):
-        names = bolt.Flags.getNames('head', 'hair', 'upperBody', 'lowerBody', 'hand', 'foot', 'rightRing', 'leftRing', 'amulet', 'weapon', 'backWeapon', 'sideWeapon', 'quiver', 'shield', 'torch', 'tail')
-        if newNames: names.update(newNames)
-        Flags.__init__(self,default,names)
-
+# Mod Record Elements ----------------------------------------------------------
+#-------------------------------------------------------------------------------
+# Constants
+FID = 'FID' #--Used by MelStruct classes to indicate fid elements.
 
 # Oblivion Record elements -----------------------------------------------------
 #------------------------------------------------------------------------------
+class MelConditions(MelStructs):
+    """Represents a set of quest/dialog conditions. Difficulty is that FID state
+    of parameters depends on function index."""
+    def __init__(self):
+        """Initialize."""
+        MelStructs.__init__(self,'CTDA','B3sfIii4s','conditions',
+            'operFlag',('unused1',null3),'compValue','ifunc','param1','param2',('unused2',null4))
+
+    def getLoaders(self,loaders):
+        """Adds self as loader for type."""
+        loaders[self.subType] = self
+        loaders['CTDT'] = self #--Older CTDT type for ai package records.
+
+    def getDefault(self):
+        """Returns a default copy of object."""
+        target = MelStructs.getDefault(self)
+        target.form12 = 'ii'
+        return target
+
+    def hasFids(self,formElements):
+        """Include self if has fids."""
+        formElements.add(self)
+
+    def loadData(self,record,ins,type,size,readId):
+        """Reads data from ins into record attribute."""
+        if type == 'CTDA' and size != 24:
+            raise ModSizeError(ins.inName,readId,24,size,True)
+        if type == 'CTDT' and size != 20:
+            raise ModSizeError(ins.inName,readId,20,size,True)
+        target = MelObject()
+        record.conditions.append(target)
+        target.__slots__ = self.attrs
+        unpacked1 = ins.unpack('B3sfI',12,readId)
+        (target.operFlag,target.unused1,target.compValue,ifunc) = unpacked1
+        #--Get parameters
+        if ifunc not in allConditions:
+            raise bolt.BoltError(u'Unknown condition function: %d' % ifunc)
+        form1 = 'iI'[ifunc in fid1Conditions]
+        form2 = 'iI'[ifunc in fid2Conditions]
+        form12 = form1+form2
+        unpacked2 = ins.unpack(form12,8,readId)
+        (target.param1,target.param2) = unpacked2
+        if size == 24:
+            target.unused2 = ins.read(4)
+        else:
+            target.unused2 = null4
+        (target.ifunc,target.form12) = (ifunc,form12)
+        if self._debug:
+            unpacked = unpacked1+unpacked2
+            print u' ',zip(self.attrs,unpacked)
+            if len(unpacked) != len(self.attrs):
+                print u' ',unpacked
+
+    def dumpData(self,record,out):
+        """Dumps data from record to outstream."""
+        for target in record.conditions:
+            ##format = 'B3sfI'+target.form12+'4s'
+            out.packSub('CTDA','B3sfI'+target.form12+'4s',
+                target.operFlag, target.unused1, target.compValue,
+                target.ifunc, target.param1, target.param2, target.unused2)
+
+    def mapFids(self,record,function,save=False):
+        """Applies function to fids. If save is true, then fid is set
+        to result of function."""
+        for target in record.conditions:
+            form12 = target.form12
+            if form12[0] == 'I':
+                result = function(target.param1)
+                if save: target.param1 = result
+            if form12[1] == 'I':
+                result = function(target.param2)
+                if save: target.param2 = result
+
 #------------------------------------------------------------------------------
 class MelEffects(MelGroups):
     """Represents ingredient/potion/enchantment/spell effects."""
@@ -1865,9 +2004,16 @@ class MelScrxen(MelFids):
                 if save: scrxen[index] = (isFid,result)
 
 #------------------------------------------------------------------------------
+class MelBipedFlags(bolt.Flags):
+    """Biped flags element. Includes biped flag set by default."""
+    mask = 0xFFFF
+    def __init__(self,default=0L,newNames=None):
+        names = bolt.Flags.getNames('head', 'hair', 'upperBody', 'lowerBody', 'hand', 'foot', 'rightRing', 'leftRing', 'amulet', 'weapon', 'backWeapon', 'sideWeapon', 'quiver', 'shield', 'torch', 'tail')
+        if newNames: names.update(newNames)
+        Flags.__init__(self,default,names)
+
 #-------------------------------------------------------------------------------
-# Oblivion Records ---------------------------------------------------------------
-#-------------------------------------------------------------------------------
+# Oblivion Records 0 -----------------------------------------------------------
 
 class MreHeader(MreHeaderBase):
     """TES4 Record.  File header."""
@@ -1884,80 +2030,6 @@ class MreHeader(MreHeaderBase):
         MelNull('DATA'),
         )
     __slots__ = MreHeaderBase.__slots__ + melSet.getSlotsUsed()
-
-#------------------------------------------------------------------------------
-class MelConditions(MelStructs):
-    """Represents a set of quest/dialog conditions. Difficulty is that FID state
-    of parameters depends on function index."""
-    def __init__(self):
-        """Initialize."""
-        MelStructs.__init__(self,'CTDA','B3sfIii4s','conditions',
-            'operFlag',('unused1',null3),'compValue','ifunc','param1','param2',('unused2',null4))
-
-    def getLoaders(self,loaders):
-        """Adds self as loader for type."""
-        loaders[self.subType] = self
-        loaders['CTDT'] = self #--Older CTDT type for ai package records.
-
-    def getDefault(self):
-        """Returns a default copy of object."""
-        target = MelStructs.getDefault(self)
-        target.form12 = 'ii'
-        return target
-
-    def hasFids(self,formElements):
-        """Include self if has fids."""
-        formElements.add(self)
-
-    def loadData(self,record,ins,type,size,readId):
-        """Reads data from ins into record attribute."""
-        if type == 'CTDA' and size != 24:
-            raise ModSizeError(ins.inName,readId,24,size,True)
-        if type == 'CTDT' and size != 20:
-            raise ModSizeError(ins.inName,readId,20,size,True)
-        target = MelObject()
-        record.conditions.append(target)
-        target.__slots__ = self.attrs
-        unpacked1 = ins.unpack('B3sfI',12,readId)
-        (target.operFlag,target.unused1,target.compValue,ifunc) = unpacked1
-        #--Get parameters
-        if ifunc not in allConditions:
-            raise bolt.BoltError(u'Unknown condition function: %d' % ifunc)
-        form1 = 'iI'[ifunc in fid1Conditions]
-        form2 = 'iI'[ifunc in fid2Conditions]
-        form12 = form1+form2
-        unpacked2 = ins.unpack(form12,8,readId)
-        (target.param1,target.param2) = unpacked2
-        if size == 24:
-            target.unused2 = ins.read(4)
-        else:
-            target.unused2 = null4
-        (target.ifunc,target.form12) = (ifunc,form12)
-        if self._debug:
-            unpacked = unpacked1+unpacked2
-            print u' ',zip(self.attrs,unpacked)
-            if len(unpacked) != len(self.attrs):
-                print u' ',unpacked
-
-    def dumpData(self,record,out):
-        """Dumps data from record to outstream."""
-        for target in record.conditions:
-            ##format = 'B3sfI'+target.form12+'4s'
-            out.packSub('CTDA','B3sfI'+target.form12+'4s',
-                target.operFlag, target.unused1, target.compValue,
-                target.ifunc, target.param1, target.param2, target.unused2)
-
-    def mapFids(self,record,function,save=False):
-        """Applies function to fids. If save is true, then fid is set
-        to result of function."""
-        for target in record.conditions:
-            form12 = target.form12
-            if form12[0] == 'I':
-                result = function(target.param1)
-                if save: target.param1 = result
-            if form12[1] == 'I':
-                result = function(target.param2)
-                if save: target.param2 = result
 
 #------------------------------------------------------------------------------
 class MreActor(MelRecord):

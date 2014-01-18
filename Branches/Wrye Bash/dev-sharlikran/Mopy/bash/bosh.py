@@ -3653,7 +3653,7 @@ class OblivionIni(IniFile):
     def ensureExists(self):
         """Ensures that Oblivion.ini file exists. Copies from default oblvion.ini if necessary."""
         if self.path.exists(): return
-        srcPath = dirs['app'].join(u'%s_default.ini' % bush.game.name)
+        srcPath = dirs['app'].join(bush.game.defaultIniFile)
         if srcPath.exists():
             srcPath.copyTo(self.path)
 
@@ -6574,8 +6574,8 @@ class ConfigHelpers:
         self.bossVersion = dirs['boss'].join(u'BOSS.exe').version
         if self.bossVersion >= (3,0,0,0):
             # BOSS 3+ stores the masterlist/userlist in a %LOCALAPPDATA% subdirectory.
-            self.bossMasterPath = dirs['userApp'].join(os.pardir,u'BOSS',bush.game.name,u'masterlist.yaml')
-            self.bossUserPath = dirs['userApp'].join(os.pardir,u'BOSS',bush.game.name,u'userlist.yaml')
+            self.bossMasterPath = dirs['userApp'].join(os.pardir,u'BOSS',bush.game.safeName,u'masterlist.yaml')
+            self.bossUserPath = dirs['userApp'].join(os.pardir,u'BOSS',bush.game.safeName,u'userlist.yaml')
         elif self.bossVersion >= (2,0,0,0):
             # BOSS 2.0+ stores the masterlist/userlist in a subdirectory
             self.bossMasterPath = dirs['boss'].join(bush.game.name,u'masterlist.txt')
@@ -30161,11 +30161,11 @@ def initDirs(bashIni, personal, localAppData, oblivionPath):
 
     #  Personal
     personal = getPersonalPath(bashIni,personal)
-    dirs['saveBase'] = personal.join(u'My Games',bush.game.name)
+    dirs['saveBase'] = personal.join(u'My Games',bush.game.safeName)
 
     #  Local Application Data
     localAppData = getLocalAppDataPath(bashIni,localAppData)
-    dirs['userApp'] = localAppData.join(bush.game.name)
+    dirs['userApp'] = localAppData.join(bush.game.safeName)
 
     # Use local paths if bUseMyGamesDirectory=0 in Oblivion.ini
     global gameInis

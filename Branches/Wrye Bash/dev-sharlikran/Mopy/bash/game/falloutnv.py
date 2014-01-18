@@ -23,9 +23,8 @@
 
 """This modules defines static data for use by bush, when
    Fallout: New Vegas is set at the active game."""
-#-------------------------------------------------------------------------------
+
 # Imports ----------------------------------------------------------------------
-#-------------------------------------------------------------------------------
 import struct
 from .. import brec
 from .. import bolt
@@ -33,9 +32,7 @@ from .. import bush
 from ..brec import *
 from ..bolt import Flags, DataDict, StateError
 
-#-------------------------------------------------------------------------------
 # Util Constants ---------------------------------------------------------------
-#-------------------------------------------------------------------------------
 #--Null strings (for default empty byte arrays)
 null1 = '\x00'
 null2 = null1*2
@@ -53,7 +50,7 @@ name = u'Fallout New Vegas'
 #--Name of the game as used in related filenames and paths.
 safeName = u'FalloutNV'
 
-#--Alternate display name to use instead of "Wrye Bash for ***"
+#--Alternat display name of Wrye Bash when managing this game
 altName = u'Wrye Flash NV'
 
 #--Exe to look for to see if this is the right game
@@ -79,7 +76,7 @@ patchTip = u''
 #--URL to the Nexus site for this game
 nexusUrl = u'http://www.newvegasnexus.com'
 nexusName = u'New Vegas Nexus'
-nexusKey = 'bash.installers.openNewVegasNexus'
+nexusKey = u'bash.installers.openNewVegasNexus'
    
 #--Construction Set information
 class cs:
@@ -105,6 +102,7 @@ class sd:
     installDir = u''
 	
 #--SkyProc Patchers
+class sp:
     shortName = u''
     longName = u''
     installDir = u''
@@ -140,7 +138,6 @@ dontSkip = (
 #--Folders BAIN should never CRC check in the Data directory
 SkipBAINRefresh = set((
     # Use lowercase names
-    u'tes5edit backups',
 ))
 
 #--Some stuff dealing with INI files
@@ -173,375 +170,377 @@ class ess:
             image (ssWidth,ssHeight,ssData)
             masters
         """
-        raise Exception('Not implemented')
+        raise Exception(u'Not implemented')
 
     @staticmethod
     def writeMasters(ins,out,header):
         """Rewrites masters of existing save file."""
-        raise Exception('Not implemented')
-
-#--INI files that should show up in the INI Edits tab
-iniFiles = [
-    u'FalloutPrefs.ini',
-    u'Fallout_default.ini',
-    ]
- 
-#-- INI setting used to setup Save Profiles
-## (section,key)
-saveProfilesKey = (u'General',u'SLocalSavePath')
+        raise Exception(u'Not implemented')
 
 #--The main plugin Wrye Bash should look for
 masterFiles = [
     u'FalloutNV.esm',
     ]
 
-#--Plugin files that can't be deactivated
-nonDeactivatableFiles = []
+#--INI files that should show up in the INI Edits tab
+iniFiles = [
+    u'FalloutPrefs.ini',
+    u'Fallout_default.ini',
+    ]
+
+#--Name of the default ini file.
+defaultIniFile = u'Fallout_default.ini'
+ 
+#-- INI setting used to setup Save Profiles
+## (section,key)
+saveProfilesKey = (u'General',u'SLocalSavePath')
 
 #--Game ESM/ESP/BSA files
-#  These filenames need to be in lowercase,
 bethDataFiles = set((
     #--Vanilla
-    'falloutnv.esm',
-    r'fallout - meshes.bsa',
-    r'fallout - misc.bsa',
-    r'fallout - sound.bsa',
-    r'fallout - textures.bsa',
-    r'fallout - textures2.bsa',
-    r'fallout - voices1.bsa',
+    ur'falloutnv.esm',
+    ur'fallout - meshes.bsa',
+    ur'fallout - misc.bsa',
+    ur'fallout - sound.bsa',
+    ur'fallout - textures.bsa',
+    ur'fallout - textures2.bsa',
+    ur'fallout - voices1.bsa',
     #--Preorder Packs
-    r'caravanpack.esm',
-    r'caravanpack - main.bsa',
-    r'classicpack.esm',
-    r'classicpack - main.bsa',
-    r'mercenarypack.esm',
-    r'mercenarypack - main.bsa',
-    r'tribalpack.esm',
-    r'tribalpack - main.bsa',
+    ur'caravanpack.esm',
+    ur'caravanpack - main.bsa',
+    ur'classicpack.esm',
+    ur'classicpack - main.bsa',
+    ur'mercenarypack.esm',
+    ur'mercenarypack - main.bsa',
+    ur'tribalpack.esm',
+    ur'tribalpack - main.bsa',
     #--DLCs
-    r'deadmoney.esm',
-    r'deadmoney - main.bsa',
-    r'deadmoney - sounds.bsa',
-    r'honesthearts.esm',
-    r'honesthearts - main.bsa',
-    r'honesthearts - sounds.bsa',
-    r'oldworldblues.esm',
-    r'oldworldblues - main.bsa',
-    r'oldworldblues - sounds.bsa',
-    r'lonesomeroad.esm',
-    r'lonesomeroad - main.bsa',
-    r'lonesomeroad - sounds.bsa',
+    ur'deadmoney.esm',
+    ur'deadmoney - main.bsa',
+    ur'deadmoney - sounds.bsa',
+    ur'honesthearts.esm',
+    ur'honesthearts - main.bsa',
+    ur'honesthearts - sounds.bsa',
+    ur'oldworldblues.esm',
+    ur'oldworldblues - main.bsa',
+    ur'oldworldblues - sounds.bsa',
+    ur'lonesomeroad.esm',
+    ur'lonesomeroad - main.bsa',
+    ur'lonesomeroad - sounds.bsa',
     ))
 
 #--Every file in the Data directory from Bethsoft
 allBethFiles = set((
     #vanilla
-    r'Credits.txt',
-    r'CreditsWacky.txt',
-    r'Fallout - Meshes.bsa',
-    r'Fallout - Misc.bsa',
-    r'Fallout - Sounds.bsa',
-    r'Fallout - Textures.bsa',
-    r'Fallout - Textures2.bsa',
-    r'Fallout - Voices1.bsa',
-    r'FalloutNV.esm',
-    r'Update.bsa',
-    r'Music\BTTL\Evil1\mus_BTTL_Lp_Evil1_City_Full.mp3',
-    r'Music\BTTL\Evil1\mus_BTTL_Lp_Evil1_City_Perc.mp3',
-    r'Music\BTTL\Evil1\mus_BTTL_Lp_Evil1_Rural_Full(alt1).mp3',
-    r'Music\BTTL\Evil1\mus_BTTL_Lp_Evil1_Rural_Full.mp3',
-    r'Music\BTTL\Evil1\mus_BTTL_Lp_Evil1_Rural_Perc(alt1).mp3',
-    r'Music\BTTL\Evil1\mus_BTTL_Lp_Evil1_Rural_Perc(alt2).mp3',
-    r'Music\BTTL\Evil1\mus_BTTL_Lp_Evil1_Rural_Perc.mp3',
-    r'Music\BTTL\Evil2\mus_BTTL_Lp_Evil2_City_Full.mp3',
-    r'Music\BTTL\Evil2\mus_BTTL_Lp_Evil2_City_Perc.mp3',
-    r'Music\BTTL\Evil2\mus_BTTL_Lp_Evil2_Rural_Full(alt1).mp3',
-    r'Music\BTTL\Evil2\mus_BTTL_Lp_Evil2_Rural_Full.mp3',
-    r'Music\BTTL\Evil2\mus_BTTL_Lp_Evil2_Rural_Perc(alt1).mp3',
-    r'Music\BTTL\Evil2\mus_BTTL_Lp_Evil2_Rural_Perc.mp3',
-    r'Music\BTTL\Evil3\mus_BTTL_Lp_Evil3_City_Full.mp3',
-    r'Music\BTTL\Evil3\mus_BTTL_Lp_Evil3_City_Perc.mp3',
-    r'Music\BTTL\Evil3\mus_BTTL_Lp_Evil3_Rural_Full.mp3',
-    r'Music\BTTL\Evil3\mus_BTTL_Lp_Evil3_Rural_Perc.mp3',
-    r'Music\BTTL\Evil4\mus_BTTL_Lp_Evil4_City_Full.mp3',
-    r'Music\BTTL\Evil4\mus_BTTL_Lp_Evil4_City_Perc.mp3',
-    r'Music\BTTL\Evil4\mus_BTTL_Lp_Evil4_Rural_Full.mp3',
-    r'Music\BTTL\Evil4\mus_BTTL_Lp_Evil4_Rural_Perc.mp3',
-    r'Music\BTTL\Good1\mus_BTTL_Lp_Good1_City_Full.mp3',
-    r'Music\BTTL\Good1\mus_BTTL_Lp_Good1_City_Perc.mp3',
-    r'Music\BTTL\Good1\mus_BTTL_Lp_Good1_Rural_Full.mp3',
-    r'Music\BTTL\Good1\mus_BTTL_Lp_Good1_Rural_Perc.mp3',
-    r'Music\BTTL\Good2\mus_BTTL_Lp_Good2_City_Full.mp3',
-    r'Music\BTTL\Good2\mus_BTTL_Lp_Good2_City_Perc.mp3',
-    r'Music\BTTL\Good2\mus_BTTL_Lp_Good2_Rural_Full(alt1).mp3',
-    r'Music\BTTL\Good2\mus_BTTL_Lp_Good2_Rural_Full.mp3',
-    r'Music\BTTL\Good2\mus_BTTL_Lp_Good2_Rural_Perc(alt1).mp3',
-    r'Music\BTTL\Good2\mus_BTTL_Lp_Good2_Rural_Perc.mp3',
-    r'Music\BTTL\Good3\mus_BTTL_Lp_Good3_City_Full.mp3',
-    r'Music\BTTL\Good3\mus_BTTL_Lp_Good3_City_Perc.mp3',
-    r'Music\BTTL\Good3\mus_BTTL_Lp_Good3_Rural_Full.mp3',
-    r'Music\BTTL\Good3\mus_BTTL_Lp_Good3_Rural_Perc.mp3',
-    r'Music\BTTL\Good4\mus_BTTL_Lp_Good4_City_Full.mp3',
-    r'Music\BTTL\Good4\mus_BTTL_Lp_Good4_City_Perc.mp3',
-    r'Music\BTTL\Good4\mus_BTTL_Lp_Good4_Rural_Full.mp3',
-    r'Music\BTTL\Good4\mus_BTTL_Lp_Good4_Rural_Perc.mp3',
-    r'Music\DNGN\Dungeon1\mus_DNGN_One_1Low(alt).mp3',
-    r'Music\DNGN\Dungeon1\mus_DNGN_One_1Low.mp3',
-    r'Music\DNGN\Dungeon1\mus_DNGN_One_2Mid.mp3',
-    r'Music\DNGN\Dungeon1\mus_DNGN_One_3High.mp3',
-    r'Music\DNGN\Dungeon2\mus_DNGN_Two_1Low(alt1).mp3',
-    r'Music\DNGN\Dungeon2\mus_DNGN_Two_1Low.mp3',
-    r'Music\DNGN\Dungeon2\mus_DNGN_Two_2Mid.mp3',
-    r'Music\DNGN\Dungeon2\mus_DNGN_Two_3High.mp3',
-    r'Music\DNGN\Dungeon3\mus_DNGN_Three_1Low.mp3',
-    r'Music\DNGN\Dungeon3\mus_DNGN_Three_2Mid(alt1).mp3',
-    r'Music\DNGN\Dungeon3\mus_DNGN_Three_2Mid.mp3',
-    r'Music\DNGN\Dungeon3\mus_DNGN_Three_3High.mp3',
-    r'Music\DNGN\Dungeon4\mus_DNGN_Four_1Low.mp3',
-    r'Music\DNGN\Dungeon4\mus_DNGN_Four_2Mid.mp3',
-    r'Music\DNGN\Dungeon4\mus_DNGN_Four_3High.mp3',
-    r'Music\DNGN\Dungeon5\mus_DNGN_Five_1Low.mp3',
-    r'Music\DNGN\Dungeon5\mus_DNGN_Five_2Mid(alt1).mp3',
-    r'Music\DNGN\Dungeon5\mus_DNGN_Five_2Mid.mp3',
-    r'Music\DNGN\Dungeon5\mus_DNGN_Five_3High.mp3',
-    r'Music\DNGN\Dungeon6\mus_DNGN_Six_1Low.mp3',
-    r'Music\DNGN\Dungeon6\mus_DNGN_Six_2Mid.mp3',
-    r'Music\DNGN\Dungeon6\mus_DNGN_Six_3High.mp3',
-    r'Music\DNGN\Dungeon7\mus_DNGN_Seven_1Low.mp3',
-    r'Music\DNGN\Dungeon7\mus_DNGN_Seven_2Mid.mp3',
-    r'Music\DNGN\Dungeon7\mus_DNGN_Seven_3High.mp3',
-    r'Music\DNGN\Dungeon8\mus_DNGN_Eight_1Low.mp3',
-    r'Music\DNGN\Dungeon8\mus_DNGN_Eight_2Mid.mp3',
-    r'Music\DNGN\Dungeon8\mus_DNGN_Eight_3High.mp3',
-    r'Music\Fallout1and2\Fallout\01MetallicMonks.mp3',
-    r'Music\Fallout1and2\Fallout\02DesertWind.mp3',
-    r'Music\Fallout1and2\Fallout\03ATradersLife.mp3',
-    r'Music\Fallout1and2\Fallout\04TheVaultoftheFuture.mp3',
-    r'Music\Fallout1and2\Fallout\05IndustrialJunk.mp3',
-    r'Music\Fallout1and2\Fallout\06MoribundWorld.mp3',
-    r'Music\Fallout1and2\Fallout\07VatsofGoo.mp3',
-    r'Music\Fallout1and2\Fallout\08CityoftheDead.mp3',
-    r'Music\Fallout1and2\Fallout\09SecondChance.mp3',
-    r'Music\Fallout1and2\Fallout\10UndergroundTroubles.mp3',
-    r'Music\Fallout1and2\Fallout\11CityofLostAngels.mp3',
-    r'Music\Fallout1and2\Fallout\12FollowersCredo.mp3',
-    r'Music\Fallout1and2\Fallout\13RadiationStorm.mp3',
-    r'Music\Fallout1and2\Fallout\14AcolytesoftheNewgod.mp3',
-    r'Music\Fallout1and2\Fallout\15FlameoftheAncientWorld.mp3',
-    r'Music\Fallout1and2\Fallout\16KhansofNewCalifornia.mp3',
-    r'Music\Fallout1and2\Fallout2\Arroyo.mp3',
-    r'Music\Fallout1and2\Fallout2\Modoc.mp3',
-    r'Music\Fallout1and2\Fallout2\NewReno.mp3',
-    r'Music\Fallout1and2\Fallout2\Redding.mp3',
-    r'Music\Fallout1and2\Fallout2\SanFrancisco.mp3',
-    r'Music\Fallout1and2\Fallout2\VaultCity.mp3',
-    r'Music\Fallout1and2\Fallout2\Worldmap1.mp3',
-    r'Music\Fallout1and2\Fallout2\Worldmap2.mp3',
-    r'Music\LOC\CaesarsLegion\mus_LOC_Caesar_Day_1Low.mp3',
-    r'Music\LOC\CaesarsLegion\mus_LOC_Caesar_Day_2Mid.mp3',
-    r'Music\LOC\CaesarsLegion\mus_LOC_Caesar_Day_3High.mp3',
-    r'Music\LOC\CaesarsLegion\mus_LOC_Caesar_Night_1Low.mp3',
-    r'Music\LOC\CaesarsLegion\mus_LOC_Caesar_Night_2Mid.mp3',
-    r'Music\LOC\CaesarsLegion\mus_LOC_Caesar_Night_3High.mp3',
-    r'Music\LOC\CorporateRuins\mus_LOC_CorpRuins_Day_1Low.mp3',
-    r'Music\LOC\CorporateRuins\mus_LOC_CorpRuins_Day_2Mid.mp3',
-    r'Music\LOC\CorporateRuins\mus_LOC_CorpRuins_Day_3High.mp3',
-    r'Music\LOC\CorporateRuins\mus_LOC_CorpRuins_Night_1Low.mp3',
-    r'Music\LOC\CorporateRuins\mus_LOC_CorpRuins_Night_2Mid.mp3',
-    r'Music\LOC\CorporateRuins\mus_LOC_CorpRuins_Night_3High.mp3',
-    r'Music\LOC\DesertExploration\mus_LOC_DesExpl_Day_1Low.mp3',
-    r'Music\LOC\DesertExploration\mus_LOC_DesExpl_Day_2Mid.mp3',
-    r'Music\LOC\DesertExploration\mus_LOC_DesExpl_Day_3High.mp3',
-    r'Music\LOC\DesertExploration\mus_LOC_DesExpl_Night_1Low.mp3',
-    r'Music\LOC\DesertExploration\mus_LOC_DesExpl_Night_2Mid.mp3',
-    r'Music\LOC\DesertExploration\mus_LOC_DesExpl_Night_3High.mp3',
-    r'Music\LOC\DesertSettlement\mus_LOC_DesSttl_Day_1Low.mp3',
-    r'Music\LOC\DesertSettlement\mus_LOC_DesSttl_Day_2Mid.mp3',
-    r'Music\LOC\DesertSettlement\mus_LOC_DesSttl_Day_3High.mp3',
-    r'Music\LOC\DesertSettlement\mus_LOC_DesSttl_Night_1Low.mp3',
-    r'Music\LOC\DesertSettlement\mus_LOC_DesSttl_Night_2Mid.mp3',
-    r'Music\LOC\DesertSettlement\mus_LOC_DesSttl_Night_3High.mp3',
-    r'Music\LOC\Freeside\mus_LOC_Freeside_Day_1Low.mp3',
-    r'Music\LOC\Freeside\mus_LOC_Freeside_Day_2Mid.mp3',
-    r'Music\LOC\Freeside\mus_LOC_Freeside_Day_3High.mp3',
-    r'Music\LOC\Freeside\mus_LOC_Freeside_Night_1Low.mp3',
-    r'Music\LOC\Freeside\mus_LOC_Freeside_Night_2Mid.mp3',
-    r'Music\LOC\Freeside\mus_LOC_Freeside_Night_3High.mp3',
-    r'Music\LOC\HooverDam\mus_LOC_Hoover_Caesar_1Low.mp3',
-    r'Music\LOC\HooverDam\mus_LOC_Hoover_Caesar_2Mid.mp3',
-    r'Music\LOC\HooverDam\mus_LOC_Hoover_Caesar_3High.mp3',
-    r'Music\LOC\HooverDam\mus_LOC_Hoover_NCR_1Low.mp3',
-    r'Music\LOC\HooverDam\mus_LOC_Hoover_NCR_2Mid.mp3',
-    r'Music\LOC\HooverDam\mus_LOC_Hoover_NCR_3High.mp3',
-    r'Music\LOC\IndustrialCity\mus_LOC_Industrial_Day_1Low.mp3',
-    r'Music\LOC\IndustrialCity\mus_LOC_Industrial_Day_2Mid.mp3',
-    r'Music\LOC\IndustrialCity\mus_LOC_Industrial_Day_3High(alt1).mp3',
-    r'Music\LOC\IndustrialCity\mus_LOC_Industrial_Day_3High.mp3',
-    r'Music\LOC\IndustrialCity\mus_LOC_Industrial_Night_1Low.mp3',
-    r'Music\LOC\IndustrialCity\mus_LOC_Industrial_Night_2Mid.mp3',
-    r'Music\LOC\IndustrialCity\mus_LOC_Industrial_Night_3High(alt1).mp3',
-    r'Music\LOC\IndustrialCity\mus_LOC_Industrial_Night_3High.mp3',
-    r'Music\LOC\Jacobstown\mus_LOC_Jacobstown_Day_1Low.mp3',
-    r'Music\LOC\Jacobstown\mus_LOC_Jacobstown_Day_2Mid.mp3',
-    r'Music\LOC\Jacobstown\mus_LOC_Jacobstown_Day_3High.mp3',
-    r'Music\LOC\Jacobstown\mus_LOC_Jacobstown_Night_1Low.mp3',
-    r'Music\LOC\Jacobstown\mus_LOC_Jacobstown_Night_2Mid.mp3',
-    r'Music\LOC\Jacobstown\mus_LOC_Jacobstown_Night_3High.mp3',
-    r'Music\LOC\LargerTown\mus_LOC_LrgTown_Day_1Low.mp3',
-    r'Music\LOC\LargerTown\mus_LOC_LrgTown_Day_2Mid.mp3',
-    r'Music\LOC\LargerTown\mus_LOC_LrgTown_Day_3High(alt1).mp3',
-    r'Music\LOC\LargerTown\mus_LOC_LrgTown_Day_3High.mp3',
-    r'Music\LOC\LargerTown\mus_LOC_LrgTown_Night_1Low.mp3',
-    r'Music\LOC\LargerTown\mus_LOC_LrgTown_Night_2Mid.mp3',
-    r'Music\LOC\LargerTown\mus_LOC_LrgTown_Night_3High.mp3',
-    r'Music\LOC\Mountain\mus_LOC_Mountain_Day_1Low.mp3',
-    r'Music\LOC\Mountain\mus_LOC_Mountain_Day_2Mid.mp3',
-    r'Music\LOC\Mountain\mus_LOC_Mountain_Day_3High.mp3',
-    r'Music\LOC\Mountain\mus_LOC_Mountain_Night_1Low.mp3',
-    r'Music\LOC\Mountain\mus_LOC_Mountain_Night_2Mid.mp3',
-    r'Music\LOC\Mountain\mus_LOC_Mountain_Night_3High.mp3',
-    r'Music\LOC\NewCaliforniaRepublic\mus_LOC_CalRepublic_Day_1Low.mp3',
-    r'Music\LOC\NewCaliforniaRepublic\mus_LOC_CalRepublic_Day_2Mid.mp3',
-    r'Music\LOC\NewCaliforniaRepublic\mus_LOC_CalRepublic_Day_3High.mp3',
-    r'Music\LOC\NewCaliforniaRepublic\mus_LOC_CalRepublic_Night_1Low.mp3',
-    r'Music\LOC\NewCaliforniaRepublic\mus_LOC_CalRepublic_Night_2Mid.mp3',
-    r'Music\LOC\NewCaliforniaRepublic\mus_LOC_CalRepublic_Night_3High.mp3',
-    r'Music\OLD\FO1\mus_FO1_AcolytesOfTheNewGod.mp3',
-    r'Music\OLD\FO1\mus_FO1_CityOfLostAngels.mp3',
-    r'Music\OLD\FO1\mus_FO1_CityOfTheDead.mp3',
-    r'Music\OLD\FO1\mus_FO1_DesertWind.mp3',
-    r'Music\OLD\FO1\mus_FO1_FlameOfTheAncientWorld.mp3',
-    r'Music\OLD\FO1\mus_FO1_IndustrialJunk.mp3',
-    r'Music\OLD\FO1\mus_FO1_MetallicMonks.mp3',
-    r'Music\OLD\FO1\mus_FO1_RadiationStorm.mp3',
-    r'Music\OLD\FO1\mus_FO1_SecondChance.mp3',
-    r'Music\OLD\FO1\mus_FO1_TheVaultOfTheFuture.mp3',
-    r'Music\OLD\FO1\mus_FO1_UndergroundTrouble.mp3',
-    r'Music\OLD\FO2\mus_FO2_Modoc.mp3',
-    r'Music\OLD\FO2\mus_FO2_Redding.mp3',
-    r'Music\OLD\FO3\mus_FO3_Base2.mp3',
-    r'Music\OLD\FO3\mus_FO3_Base3.mp3',
-    r'Music\OLD\FO3\mus_FO3_Base5.mp3',
-    r'Music\OLD\FO3\mus_FO3_Death.mp3',
-    r'Music\OLD\FO3\mus_FO3_Dungeon1.mp3',
-    r'Music\OLD\FO3\mus_FO3_Dungeon2.mp3',
-    r'Music\OLD\FO3\mus_FO3_Dungeon3.mp3',
-    r'Music\OLD\FO3\mus_FO3_Explore1.mp3',
-    r'Music\OLD\FO3\mus_FO3_Explore3.mp3',
-    r'Music\OLD\FO3\mus_FO3_Explore4.mp3',
-    r'Music\OLD\FO3\mus_FO3_Explore5.mp3',
-    r'Music\OLD\FO3\mus_FO3_Explore6.mp3',
-    r'Music\SCR\mus_SCR_DeathStinger.mp3',
-    r'Music\SCR\mus_SCR_DocMitchell.mp3',
-    r'Music\SCR\mus_SCR_GoodspringsStinger.mp3',
-    r'Music\SCR\mus_SCR_Muzak.mp3',
-    r'Music\SCR\mus_SCR_MuzakRadio.mp3',
-    r'Music\SCR\mus_SCR_VegasStinger.mp3',
-    r'Music\SCR\mus_SCR_VictorySinger(alt1).mp3',
-    r'Music\SCR\mus_SCR_VictorySinger(alt2).mp3',
-    r'Music\SCR\mus_SCR_VictorySinger.mp3',
-    r'Music\Special\EndCredits.mp3',
-    r'Music\Special\MainTitle.mp3',
-    r'Music\Special\mus_endgameslideshow.mp3',
-    r'Music\Special\mus_endgametransitionstinger.mp3',
-    r'Music\Special\mus_hailchief.mp3',
-    r'Shaders\shaderpackage002.sdp',
-    r'Shaders\shaderpackage003.sdp',
-    r'Shaders\shaderpackage004.sdp',
-    r'Shaders\shaderpackage006.sdp',
-    r'Shaders\shaderpackage007.sdp',
-    r'Shaders\shaderpackage009.sdp',
-    r'Shaders\shaderpackage010.sdp',
-    r'Shaders\shaderpackage011.sdp',
-    r'Shaders\shaderpackage012.sdp',
-    r'Shaders\shaderpackage013.sdp',
-    r'Shaders\shaderpackage014.sdp',
-    r'Shaders\shaderpackage015.sdp',
-    r'Shaders\shaderpackage016.sdp',
-    r'Shaders\shaderpackage017.sdp',
-    r'Shaders\shaderpackage018.sdp',
-    r'Shaders\shaderpackage019.sdp',
-    r'Sound\songs\radionv\MUS_Aint_That_A_Kick_In_the_Head.mp3',
-    r'Sound\songs\radionv\MUS_American_Swing.mp3',
-    r'Sound\songs\radionv\MUS_Big_Iron.mp3',
-    r'Sound\songs\radionv\MUS_Blues_For_You.mp3',
-    r'Sound\songs\radionv\MUS_Blue_Moon.mp3',
-    r'Sound\songs\radionv\MUS_Cobwebs_and_Rainbows.mp3',
-    r'Sound\songs\radionv\MUS_Concerto_For_2_Vl_Str_In_D_Minor.mp3',
-    r'Sound\songs\radionv\MUS_Concerto_Grosso_In_B_Minor_Allegro_01.mp3',
-    r'Sound\songs\radionv\MUS_Concerto_Grosso_In_B_Minor_Allegro_02.mp3',
-    r'Sound\songs\radionv\MUS_EddyArnold_Rca_ItsASin.mp3',
-    r'Sound\songs\radionv\MUS_Flower_Duet_Lakm_KPM.mp3',
-    r'Sound\songs\radionv\MUS_Four_Seasons_No_4_The_Winter.mp3',
-    r'Sound\songs\radionv\MUS_Goin_Under.mp3',
-    r'Sound\songs\radionv\MUS_Hallo_Mister_X.mp3',
-    r'Sound\songs\radionv\MUS_Happy_Times.mp3',
-    r'Sound\songs\radionv\MUS_Heartaches_by_the_Number.mp3',
-    r'Sound\songs\radionv\MUS_HomeOnTheWastes.mp3',
-    r'Sound\songs\radionv\MUS_In_The_Shadow_Of_The_Valley.mp3',
-    r'Sound\songs\radionv\MUS_Its_A_Sin_To_Tell_A_Lie.mp3',
-    r'Sound\songs\radionv\MUS_I_m_Movin_Out.mp3',
-    r'Sound\songs\radionv\MUS_I_m_So_Blue.mp3',
-    r'Sound\songs\radionv\MUS_Jazz_Blues_GT.mp3',
-    r'Sound\songs\radionv\MUS_Jazz_Club_Blues_CAS.mp3',
-    r'Sound\songs\radionv\MUS_Jingle_Jangle_Jingle.mp3',
-    r'Sound\songs\radionv\MUS_Joe_Cool_CAS.mp3',
-    r'Sound\songs\radionv\MUS_Johnny_Guitar.mp3',
-    r'Sound\songs\radionv\MUS_Lazy_Day_Blues.mp3',
-    r'Sound\songs\radionv\MUS_Let_s_Ride_Into_The_Sunset_Together.mp3',
-    r'Sound\songs\radionv\MUS_Lone_Star.mp3',
-    r'Sound\songs\radionv\MUS_Love_Me_As_Though_No_Tomorrow.mp3',
-    r'Sound\songs\radionv\MUS_Mad_About_The_Boy.mp3',
-    r'Sound\songs\radionv\MUS_Manhattan.mp3',
-    r'Sound\songs\radionv\MUS_NewVegasValley.mp3',
-    r'Sound\songs\radionv\MUS_Piano_Concerto_No_21__Elvira_Madigan.mp3',
-    r'Sound\songs\radionv\MUS_Ride_Of_The_Valkyries_01.mp3',
-    r'Sound\songs\radionv\MUS_Roundhouse_Rock.mp3',
-    r'Sound\songs\radionv\MUS_Sit_And_Dream.mp3',
-    r'Sound\songs\radionv\MUS_Sleepy_Town_Blues_CAS.mp3',
-    r'Sound\songs\radionv\MUS_Slow_Bounce.mp3',
-    r'Sound\songs\radionv\MUS_Slow_Sax_KOS.mp3',
-    r'Sound\songs\radionv\MUS_Somethings_Gotta_Give.mp3',
-    r'Sound\songs\radionv\MUS_Spring_Song_KPMC.mp3',
-    r'Sound\songs\radionv\MUS_Stars_Of_The_Midnight_Range.mp3',
-    r'Sound\songs\radionv\MUS_Strahlende_Trompete.mp3',
-    r'Sound\songs\radionv\MUS_StreetsOfNewReno.mp3',
-    r'Sound\songs\radionv\MUS_Von_Spanien_Nach_S_damerika.mp3',
-    r'Sound\songs\radionv\MUS_Where_Have_You_Been_All_My_Life.mp3',
-    r'Sound\songs\radionv\MUS_Why_Dont_You_Do_Right.mp3',
-    r'Video\FNVIntro.bik',
+    ur'Credits.txt',
+    ur'CreditsWacky.txt',
+    ur'Fallout - Meshes.bsa',
+    ur'Fallout - Misc.bsa',
+    ur'Fallout - Sounds.bsa',
+    ur'Fallout - Textures.bsa',
+    ur'Fallout - Textures2.bsa',
+    ur'Fallout - Voices1.bsa',
+    ur'FalloutNV.esm',
+    ur'Update.bsa',
+    ur'Music\BTTL\Evil1\mus_BTTL_Lp_Evil1_City_Full.mp3',
+    ur'Music\BTTL\Evil1\mus_BTTL_Lp_Evil1_City_Perc.mp3',
+    ur'Music\BTTL\Evil1\mus_BTTL_Lp_Evil1_Rural_Full(alt1).mp3',
+    ur'Music\BTTL\Evil1\mus_BTTL_Lp_Evil1_Rural_Full.mp3',
+    ur'Music\BTTL\Evil1\mus_BTTL_Lp_Evil1_Rural_Perc(alt1).mp3',
+    ur'Music\BTTL\Evil1\mus_BTTL_Lp_Evil1_Rural_Perc(alt2).mp3',
+    ur'Music\BTTL\Evil1\mus_BTTL_Lp_Evil1_Rural_Perc.mp3',
+    ur'Music\BTTL\Evil2\mus_BTTL_Lp_Evil2_City_Full.mp3',
+    ur'Music\BTTL\Evil2\mus_BTTL_Lp_Evil2_City_Perc.mp3',
+    ur'Music\BTTL\Evil2\mus_BTTL_Lp_Evil2_Rural_Full(alt1).mp3',
+    ur'Music\BTTL\Evil2\mus_BTTL_Lp_Evil2_Rural_Full.mp3',
+    ur'Music\BTTL\Evil2\mus_BTTL_Lp_Evil2_Rural_Perc(alt1).mp3',
+    ur'Music\BTTL\Evil2\mus_BTTL_Lp_Evil2_Rural_Perc.mp3',
+    ur'Music\BTTL\Evil3\mus_BTTL_Lp_Evil3_City_Full.mp3',
+    ur'Music\BTTL\Evil3\mus_BTTL_Lp_Evil3_City_Perc.mp3',
+    ur'Music\BTTL\Evil3\mus_BTTL_Lp_Evil3_Rural_Full.mp3',
+    ur'Music\BTTL\Evil3\mus_BTTL_Lp_Evil3_Rural_Perc.mp3',
+    ur'Music\BTTL\Evil4\mus_BTTL_Lp_Evil4_City_Full.mp3',
+    ur'Music\BTTL\Evil4\mus_BTTL_Lp_Evil4_City_Perc.mp3',
+    ur'Music\BTTL\Evil4\mus_BTTL_Lp_Evil4_Rural_Full.mp3',
+    ur'Music\BTTL\Evil4\mus_BTTL_Lp_Evil4_Rural_Perc.mp3',
+    ur'Music\BTTL\Good1\mus_BTTL_Lp_Good1_City_Full.mp3',
+    ur'Music\BTTL\Good1\mus_BTTL_Lp_Good1_City_Perc.mp3',
+    ur'Music\BTTL\Good1\mus_BTTL_Lp_Good1_Rural_Full.mp3',
+    ur'Music\BTTL\Good1\mus_BTTL_Lp_Good1_Rural_Perc.mp3',
+    ur'Music\BTTL\Good2\mus_BTTL_Lp_Good2_City_Full.mp3',
+    ur'Music\BTTL\Good2\mus_BTTL_Lp_Good2_City_Perc.mp3',
+    ur'Music\BTTL\Good2\mus_BTTL_Lp_Good2_Rural_Full(alt1).mp3',
+    ur'Music\BTTL\Good2\mus_BTTL_Lp_Good2_Rural_Full.mp3',
+    ur'Music\BTTL\Good2\mus_BTTL_Lp_Good2_Rural_Perc(alt1).mp3',
+    ur'Music\BTTL\Good2\mus_BTTL_Lp_Good2_Rural_Perc.mp3',
+    ur'Music\BTTL\Good3\mus_BTTL_Lp_Good3_City_Full.mp3',
+    ur'Music\BTTL\Good3\mus_BTTL_Lp_Good3_City_Perc.mp3',
+    ur'Music\BTTL\Good3\mus_BTTL_Lp_Good3_Rural_Full.mp3',
+    ur'Music\BTTL\Good3\mus_BTTL_Lp_Good3_Rural_Perc.mp3',
+    ur'Music\BTTL\Good4\mus_BTTL_Lp_Good4_City_Full.mp3',
+    ur'Music\BTTL\Good4\mus_BTTL_Lp_Good4_City_Perc.mp3',
+    ur'Music\BTTL\Good4\mus_BTTL_Lp_Good4_Rural_Full.mp3',
+    ur'Music\BTTL\Good4\mus_BTTL_Lp_Good4_Rural_Perc.mp3',
+    ur'Music\DNGN\Dungeon1\mus_DNGN_One_1Low(alt).mp3',
+    ur'Music\DNGN\Dungeon1\mus_DNGN_One_1Low.mp3',
+    ur'Music\DNGN\Dungeon1\mus_DNGN_One_2Mid.mp3',
+    ur'Music\DNGN\Dungeon1\mus_DNGN_One_3High.mp3',
+    ur'Music\DNGN\Dungeon2\mus_DNGN_Two_1Low(alt1).mp3',
+    ur'Music\DNGN\Dungeon2\mus_DNGN_Two_1Low.mp3',
+    ur'Music\DNGN\Dungeon2\mus_DNGN_Two_2Mid.mp3',
+    ur'Music\DNGN\Dungeon2\mus_DNGN_Two_3High.mp3',
+    ur'Music\DNGN\Dungeon3\mus_DNGN_Three_1Low.mp3',
+    ur'Music\DNGN\Dungeon3\mus_DNGN_Three_2Mid(alt1).mp3',
+    ur'Music\DNGN\Dungeon3\mus_DNGN_Three_2Mid.mp3',
+    ur'Music\DNGN\Dungeon3\mus_DNGN_Three_3High.mp3',
+    ur'Music\DNGN\Dungeon4\mus_DNGN_Four_1Low.mp3',
+    ur'Music\DNGN\Dungeon4\mus_DNGN_Four_2Mid.mp3',
+    ur'Music\DNGN\Dungeon4\mus_DNGN_Four_3High.mp3',
+    ur'Music\DNGN\Dungeon5\mus_DNGN_Five_1Low.mp3',
+    ur'Music\DNGN\Dungeon5\mus_DNGN_Five_2Mid(alt1).mp3',
+    ur'Music\DNGN\Dungeon5\mus_DNGN_Five_2Mid.mp3',
+    ur'Music\DNGN\Dungeon5\mus_DNGN_Five_3High.mp3',
+    ur'Music\DNGN\Dungeon6\mus_DNGN_Six_1Low.mp3',
+    ur'Music\DNGN\Dungeon6\mus_DNGN_Six_2Mid.mp3',
+    ur'Music\DNGN\Dungeon6\mus_DNGN_Six_3High.mp3',
+    ur'Music\DNGN\Dungeon7\mus_DNGN_Seven_1Low.mp3',
+    ur'Music\DNGN\Dungeon7\mus_DNGN_Seven_2Mid.mp3',
+    ur'Music\DNGN\Dungeon7\mus_DNGN_Seven_3High.mp3',
+    ur'Music\DNGN\Dungeon8\mus_DNGN_Eight_1Low.mp3',
+    ur'Music\DNGN\Dungeon8\mus_DNGN_Eight_2Mid.mp3',
+    ur'Music\DNGN\Dungeon8\mus_DNGN_Eight_3High.mp3',
+    ur'Music\Fallout1and2\Fallout\01MetallicMonks.mp3',
+    ur'Music\Fallout1and2\Fallout\02DesertWind.mp3',
+    ur'Music\Fallout1and2\Fallout\03ATradersLife.mp3',
+    ur'Music\Fallout1and2\Fallout\04TheVaultoftheFuture.mp3',
+    ur'Music\Fallout1and2\Fallout\05IndustrialJunk.mp3',
+    ur'Music\Fallout1and2\Fallout\06MoribundWorld.mp3',
+    ur'Music\Fallout1and2\Fallout\07VatsofGoo.mp3',
+    ur'Music\Fallout1and2\Fallout\08CityoftheDead.mp3',
+    ur'Music\Fallout1and2\Fallout\09SecondChance.mp3',
+    ur'Music\Fallout1and2\Fallout\10UndergroundTroubles.mp3',
+    ur'Music\Fallout1and2\Fallout\11CityofLostAngels.mp3',
+    ur'Music\Fallout1and2\Fallout\12FollowersCredo.mp3',
+    ur'Music\Fallout1and2\Fallout\13RadiationStorm.mp3',
+    ur'Music\Fallout1and2\Fallout\14AcolytesoftheNewgod.mp3',
+    ur'Music\Fallout1and2\Fallout\15FlameoftheAncientWorld.mp3',
+    ur'Music\Fallout1and2\Fallout\16KhansofNewCalifornia.mp3',
+    ur'Music\Fallout1and2\Fallout2\Arroyo.mp3',
+    ur'Music\Fallout1and2\Fallout2\Modoc.mp3',
+    ur'Music\Fallout1and2\Fallout2\NewReno.mp3',
+    ur'Music\Fallout1and2\Fallout2\Redding.mp3',
+    ur'Music\Fallout1and2\Fallout2\SanFrancisco.mp3',
+    ur'Music\Fallout1and2\Fallout2\VaultCity.mp3',
+    ur'Music\Fallout1and2\Fallout2\Worldmap1.mp3',
+    ur'Music\Fallout1and2\Fallout2\Worldmap2.mp3',
+    ur'Music\LOC\CaesarsLegion\mus_LOC_Caesar_Day_1Low.mp3',
+    ur'Music\LOC\CaesarsLegion\mus_LOC_Caesar_Day_2Mid.mp3',
+    ur'Music\LOC\CaesarsLegion\mus_LOC_Caesar_Day_3High.mp3',
+    ur'Music\LOC\CaesarsLegion\mus_LOC_Caesar_Night_1Low.mp3',
+    ur'Music\LOC\CaesarsLegion\mus_LOC_Caesar_Night_2Mid.mp3',
+    ur'Music\LOC\CaesarsLegion\mus_LOC_Caesar_Night_3High.mp3',
+    ur'Music\LOC\CorporateRuins\mus_LOC_CorpRuins_Day_1Low.mp3',
+    ur'Music\LOC\CorporateRuins\mus_LOC_CorpRuins_Day_2Mid.mp3',
+    ur'Music\LOC\CorporateRuins\mus_LOC_CorpRuins_Day_3High.mp3',
+    ur'Music\LOC\CorporateRuins\mus_LOC_CorpRuins_Night_1Low.mp3',
+    ur'Music\LOC\CorporateRuins\mus_LOC_CorpRuins_Night_2Mid.mp3',
+    ur'Music\LOC\CorporateRuins\mus_LOC_CorpRuins_Night_3High.mp3',
+    ur'Music\LOC\DesertExploration\mus_LOC_DesExpl_Day_1Low.mp3',
+    ur'Music\LOC\DesertExploration\mus_LOC_DesExpl_Day_2Mid.mp3',
+    ur'Music\LOC\DesertExploration\mus_LOC_DesExpl_Day_3High.mp3',
+    ur'Music\LOC\DesertExploration\mus_LOC_DesExpl_Night_1Low.mp3',
+    ur'Music\LOC\DesertExploration\mus_LOC_DesExpl_Night_2Mid.mp3',
+    ur'Music\LOC\DesertExploration\mus_LOC_DesExpl_Night_3High.mp3',
+    ur'Music\LOC\DesertSettlement\mus_LOC_DesSttl_Day_1Low.mp3',
+    ur'Music\LOC\DesertSettlement\mus_LOC_DesSttl_Day_2Mid.mp3',
+    ur'Music\LOC\DesertSettlement\mus_LOC_DesSttl_Day_3High.mp3',
+    ur'Music\LOC\DesertSettlement\mus_LOC_DesSttl_Night_1Low.mp3',
+    ur'Music\LOC\DesertSettlement\mus_LOC_DesSttl_Night_2Mid.mp3',
+    ur'Music\LOC\DesertSettlement\mus_LOC_DesSttl_Night_3High.mp3',
+    ur'Music\LOC\Freeside\mus_LOC_Freeside_Day_1Low.mp3',
+    ur'Music\LOC\Freeside\mus_LOC_Freeside_Day_2Mid.mp3',
+    ur'Music\LOC\Freeside\mus_LOC_Freeside_Day_3High.mp3',
+    ur'Music\LOC\Freeside\mus_LOC_Freeside_Night_1Low.mp3',
+    ur'Music\LOC\Freeside\mus_LOC_Freeside_Night_2Mid.mp3',
+    ur'Music\LOC\Freeside\mus_LOC_Freeside_Night_3High.mp3',
+    ur'Music\LOC\HooverDam\mus_LOC_Hoover_Caesar_1Low.mp3',
+    ur'Music\LOC\HooverDam\mus_LOC_Hoover_Caesar_2Mid.mp3',
+    ur'Music\LOC\HooverDam\mus_LOC_Hoover_Caesar_3High.mp3',
+    ur'Music\LOC\HooverDam\mus_LOC_Hoover_NCR_1Low.mp3',
+    ur'Music\LOC\HooverDam\mus_LOC_Hoover_NCR_2Mid.mp3',
+    ur'Music\LOC\HooverDam\mus_LOC_Hoover_NCR_3High.mp3',
+    ur'Music\LOC\IndustrialCity\mus_LOC_Industrial_Day_1Low.mp3',
+    ur'Music\LOC\IndustrialCity\mus_LOC_Industrial_Day_2Mid.mp3',
+    ur'Music\LOC\IndustrialCity\mus_LOC_Industrial_Day_3High(alt1).mp3',
+    ur'Music\LOC\IndustrialCity\mus_LOC_Industrial_Day_3High.mp3',
+    ur'Music\LOC\IndustrialCity\mus_LOC_Industrial_Night_1Low.mp3',
+    ur'Music\LOC\IndustrialCity\mus_LOC_Industrial_Night_2Mid.mp3',
+    ur'Music\LOC\IndustrialCity\mus_LOC_Industrial_Night_3High(alt1).mp3',
+    ur'Music\LOC\IndustrialCity\mus_LOC_Industrial_Night_3High.mp3',
+    ur'Music\LOC\Jacobstown\mus_LOC_Jacobstown_Day_1Low.mp3',
+    ur'Music\LOC\Jacobstown\mus_LOC_Jacobstown_Day_2Mid.mp3',
+    ur'Music\LOC\Jacobstown\mus_LOC_Jacobstown_Day_3High.mp3',
+    ur'Music\LOC\Jacobstown\mus_LOC_Jacobstown_Night_1Low.mp3',
+    ur'Music\LOC\Jacobstown\mus_LOC_Jacobstown_Night_2Mid.mp3',
+    ur'Music\LOC\Jacobstown\mus_LOC_Jacobstown_Night_3High.mp3',
+    ur'Music\LOC\LargerTown\mus_LOC_LrgTown_Day_1Low.mp3',
+    ur'Music\LOC\LargerTown\mus_LOC_LrgTown_Day_2Mid.mp3',
+    ur'Music\LOC\LargerTown\mus_LOC_LrgTown_Day_3High(alt1).mp3',
+    ur'Music\LOC\LargerTown\mus_LOC_LrgTown_Day_3High.mp3',
+    ur'Music\LOC\LargerTown\mus_LOC_LrgTown_Night_1Low.mp3',
+    ur'Music\LOC\LargerTown\mus_LOC_LrgTown_Night_2Mid.mp3',
+    ur'Music\LOC\LargerTown\mus_LOC_LrgTown_Night_3High.mp3',
+    ur'Music\LOC\Mountain\mus_LOC_Mountain_Day_1Low.mp3',
+    ur'Music\LOC\Mountain\mus_LOC_Mountain_Day_2Mid.mp3',
+    ur'Music\LOC\Mountain\mus_LOC_Mountain_Day_3High.mp3',
+    ur'Music\LOC\Mountain\mus_LOC_Mountain_Night_1Low.mp3',
+    ur'Music\LOC\Mountain\mus_LOC_Mountain_Night_2Mid.mp3',
+    ur'Music\LOC\Mountain\mus_LOC_Mountain_Night_3High.mp3',
+    ur'Music\LOC\NewCaliforniaRepublic\mus_LOC_CalRepublic_Day_1Low.mp3',
+    ur'Music\LOC\NewCaliforniaRepublic\mus_LOC_CalRepublic_Day_2Mid.mp3',
+    ur'Music\LOC\NewCaliforniaRepublic\mus_LOC_CalRepublic_Day_3High.mp3',
+    ur'Music\LOC\NewCaliforniaRepublic\mus_LOC_CalRepublic_Night_1Low.mp3',
+    ur'Music\LOC\NewCaliforniaRepublic\mus_LOC_CalRepublic_Night_2Mid.mp3',
+    ur'Music\LOC\NewCaliforniaRepublic\mus_LOC_CalRepublic_Night_3High.mp3',
+    ur'Music\OLD\FO1\mus_FO1_AcolytesOfTheNewGod.mp3',
+    ur'Music\OLD\FO1\mus_FO1_CityOfLostAngels.mp3',
+    ur'Music\OLD\FO1\mus_FO1_CityOfTheDead.mp3',
+    ur'Music\OLD\FO1\mus_FO1_DesertWind.mp3',
+    ur'Music\OLD\FO1\mus_FO1_FlameOfTheAncientWorld.mp3',
+    ur'Music\OLD\FO1\mus_FO1_IndustrialJunk.mp3',
+    ur'Music\OLD\FO1\mus_FO1_MetallicMonks.mp3',
+    ur'Music\OLD\FO1\mus_FO1_RadiationStorm.mp3',
+    ur'Music\OLD\FO1\mus_FO1_SecondChance.mp3',
+    ur'Music\OLD\FO1\mus_FO1_TheVaultOfTheFuture.mp3',
+    ur'Music\OLD\FO1\mus_FO1_UndergroundTrouble.mp3',
+    ur'Music\OLD\FO2\mus_FO2_Modoc.mp3',
+    ur'Music\OLD\FO2\mus_FO2_Redding.mp3',
+    ur'Music\OLD\FO3\mus_FO3_Base2.mp3',
+    ur'Music\OLD\FO3\mus_FO3_Base3.mp3',
+    ur'Music\OLD\FO3\mus_FO3_Base5.mp3',
+    ur'Music\OLD\FO3\mus_FO3_Death.mp3',
+    ur'Music\OLD\FO3\mus_FO3_Dungeon1.mp3',
+    ur'Music\OLD\FO3\mus_FO3_Dungeon2.mp3',
+    ur'Music\OLD\FO3\mus_FO3_Dungeon3.mp3',
+    ur'Music\OLD\FO3\mus_FO3_Explore1.mp3',
+    ur'Music\OLD\FO3\mus_FO3_Explore3.mp3',
+    ur'Music\OLD\FO3\mus_FO3_Explore4.mp3',
+    ur'Music\OLD\FO3\mus_FO3_Explore5.mp3',
+    ur'Music\OLD\FO3\mus_FO3_Explore6.mp3',
+    ur'Music\SCR\mus_SCR_DeathStinger.mp3',
+    ur'Music\SCR\mus_SCR_DocMitchell.mp3',
+    ur'Music\SCR\mus_SCR_GoodspringsStinger.mp3',
+    ur'Music\SCR\mus_SCR_Muzak.mp3',
+    ur'Music\SCR\mus_SCR_MuzakRadio.mp3',
+    ur'Music\SCR\mus_SCR_VegasStinger.mp3',
+    ur'Music\SCR\mus_SCR_VictorySinger(alt1).mp3',
+    ur'Music\SCR\mus_SCR_VictorySinger(alt2).mp3',
+    ur'Music\SCR\mus_SCR_VictorySinger.mp3',
+    ur'Music\Special\EndCredits.mp3',
+    ur'Music\Special\MainTitle.mp3',
+    ur'Music\Special\mus_endgameslideshow.mp3',
+    ur'Music\Special\mus_endgametransitionstinger.mp3',
+    ur'Music\Special\mus_hailchief.mp3',
+    ur'Shaders\shaderpackage002.sdp',
+    ur'Shaders\shaderpackage003.sdp',
+    ur'Shaders\shaderpackage004.sdp',
+    ur'Shaders\shaderpackage006.sdp',
+    ur'Shaders\shaderpackage007.sdp',
+    ur'Shaders\shaderpackage009.sdp',
+    ur'Shaders\shaderpackage010.sdp',
+    ur'Shaders\shaderpackage011.sdp',
+    ur'Shaders\shaderpackage012.sdp',
+    ur'Shaders\shaderpackage013.sdp',
+    ur'Shaders\shaderpackage014.sdp',
+    ur'Shaders\shaderpackage015.sdp',
+    ur'Shaders\shaderpackage016.sdp',
+    ur'Shaders\shaderpackage017.sdp',
+    ur'Shaders\shaderpackage018.sdp',
+    ur'Shaders\shaderpackage019.sdp',
+    ur'Sound\songs\radionv\MUS_Aint_That_A_Kick_In_the_Head.mp3',
+    ur'Sound\songs\radionv\MUS_American_Swing.mp3',
+    ur'Sound\songs\radionv\MUS_Big_Iron.mp3',
+    ur'Sound\songs\radionv\MUS_Blues_For_You.mp3',
+    ur'Sound\songs\radionv\MUS_Blue_Moon.mp3',
+    ur'Sound\songs\radionv\MUS_Cobwebs_and_Rainbows.mp3',
+    ur'Sound\songs\radionv\MUS_Concerto_For_2_Vl_Str_In_D_Minor.mp3',
+    ur'Sound\songs\radionv\MUS_Concerto_Grosso_In_B_Minor_Allegro_01.mp3',
+    ur'Sound\songs\radionv\MUS_Concerto_Grosso_In_B_Minor_Allegro_02.mp3',
+    ur'Sound\songs\radionv\MUS_EddyArnold_Rca_ItsASin.mp3',
+    ur'Sound\songs\radionv\MUS_Flower_Duet_Lakm_KPM.mp3',
+    ur'Sound\songs\radionv\MUS_Four_Seasons_No_4_The_Winter.mp3',
+    ur'Sound\songs\radionv\MUS_Goin_Under.mp3',
+    ur'Sound\songs\radionv\MUS_Hallo_Mister_X.mp3',
+    ur'Sound\songs\radionv\MUS_Happy_Times.mp3',
+    ur'Sound\songs\radionv\MUS_Heartaches_by_the_Number.mp3',
+    ur'Sound\songs\radionv\MUS_HomeOnTheWastes.mp3',
+    ur'Sound\songs\radionv\MUS_In_The_Shadow_Of_The_Valley.mp3',
+    ur'Sound\songs\radionv\MUS_Its_A_Sin_To_Tell_A_Lie.mp3',
+    ur'Sound\songs\radionv\MUS_I_m_Movin_Out.mp3',
+    ur'Sound\songs\radionv\MUS_I_m_So_Blue.mp3',
+    ur'Sound\songs\radionv\MUS_Jazz_Blues_GT.mp3',
+    ur'Sound\songs\radionv\MUS_Jazz_Club_Blues_CAS.mp3',
+    ur'Sound\songs\radionv\MUS_Jingle_Jangle_Jingle.mp3',
+    ur'Sound\songs\radionv\MUS_Joe_Cool_CAS.mp3',
+    ur'Sound\songs\radionv\MUS_Johnny_Guitar.mp3',
+    ur'Sound\songs\radionv\MUS_Lazy_Day_Blues.mp3',
+    ur'Sound\songs\radionv\MUS_Let_s_Ride_Into_The_Sunset_Together.mp3',
+    ur'Sound\songs\radionv\MUS_Lone_Star.mp3',
+    ur'Sound\songs\radionv\MUS_Love_Me_As_Though_No_Tomorrow.mp3',
+    ur'Sound\songs\radionv\MUS_Mad_About_The_Boy.mp3',
+    ur'Sound\songs\radionv\MUS_Manhattan.mp3',
+    ur'Sound\songs\radionv\MUS_NewVegasValley.mp3',
+    ur'Sound\songs\radionv\MUS_Piano_Concerto_No_21__Elvira_Madigan.mp3',
+    ur'Sound\songs\radionv\MUS_Ride_Of_The_Valkyries_01.mp3',
+    ur'Sound\songs\radionv\MUS_Roundhouse_Rock.mp3',
+    ur'Sound\songs\radionv\MUS_Sit_And_Dream.mp3',
+    ur'Sound\songs\radionv\MUS_Sleepy_Town_Blues_CAS.mp3',
+    ur'Sound\songs\radionv\MUS_Slow_Bounce.mp3',
+    ur'Sound\songs\radionv\MUS_Slow_Sax_KOS.mp3',
+    ur'Sound\songs\radionv\MUS_Somethings_Gotta_Give.mp3',
+    ur'Sound\songs\radionv\MUS_Spring_Song_KPMC.mp3',
+    ur'Sound\songs\radionv\MUS_Stars_Of_The_Midnight_Range.mp3',
+    ur'Sound\songs\radionv\MUS_Strahlende_Trompete.mp3',
+    ur'Sound\songs\radionv\MUS_StreetsOfNewReno.mp3',
+    ur'Sound\songs\radionv\MUS_Von_Spanien_Nach_S_damerika.mp3',
+    ur'Sound\songs\radionv\MUS_Where_Have_You_Been_All_My_Life.mp3',
+    ur'Sound\songs\radionv\MUS_Why_Dont_You_Do_Right.mp3',
+    ur'Video\FNVIntro.bik',
     #Preorder Packs
-    r'CaravanPack - Main.bsa',
-    r'CaravanPack.esm',
-    r'CaravanPack.nam',
-    r'ClassicPack - Main.bsa',
-    r'ClassicPack.esm',
-    r'ClassicPack.nam',
-    r'MercenaryPack - Main.bsa',
-    r'MercenaryPack.esm',
-    r'MercenaryPack.nam',
-    r'TribalPack - Main.bsa',
-    r'TribalPack.esm',
-    r'TribalPack.nam',
+    ur'CaravanPack - Main.bsa',
+    ur'CaravanPack.esm',
+    ur'CaravanPack.nam',
+    ur'ClassicPack - Main.bsa',
+    ur'ClassicPack.esm',
+    ur'ClassicPack.nam',
+    ur'MercenaryPack - Main.bsa',
+    ur'MercenaryPack.esm',
+    ur'MercenaryPack.nam',
+    ur'TribalPack - Main.bsa',
+    ur'TribalPack.esm',
+    ur'TribalPack.nam',
     #DLCs
-    r'DEADMONEY.NAM',
-    r'DeadMoney - Main.bsa',
-    r'DeadMoney - Sounds.bsa',
-    r'DeadMoney.esm',
-    r'HONESTHEARTS.NAM',
-    r'HonestHearts - Main.bsa',
-    r'HonestHearts - Sounds.bsa',
-    r'HonestHearts.esm',
-    r'LONESOMEROAD.NAM',
-    r'LonesomeRoad - Main.bsa',
-    r'LonesomeRoad - Sounds.bsa',
-    r'LonesomeRoad.esm',
-    r'OLDWORLDBLUES.NAM',
-    r'OldWorldBlues - Main.bsa',
-    r'OldWorldBlues - Sounds.bsa',
-    r'OldWorldBlues.esm',
-    r'DLCList.txt',
+    ur'DEADMONEY.NAM',
+    ur'DeadMoney - Main.bsa',
+    ur'DeadMoney - Sounds.bsa',
+    ur'DeadMoney.esm',
+    ur'HONESTHEARTS.NAM',
+    ur'HonestHearts - Main.bsa',
+    ur'HonestHearts - Sounds.bsa',
+    ur'HonestHearts.esm',
+    ur'LONESOMEROAD.NAM',
+    ur'LonesomeRoad - Main.bsa',
+    ur'LonesomeRoad - Sounds.bsa',
+    ur'LonesomeRoad.esm',
+    ur'OLDWORLDBLUES.NAM',
+    ur'OldWorldBlues - Main.bsa',
+    ur'OldWorldBlues - Sounds.bsa',
+    ur'OldWorldBlues.esm',
+    ur'DLCList.txt',
     ))
+
+#--Plugin files that can't be deactivated
+nonDeactivatableFiles = []
 
 #--BAIN:
 ## These are the allowed default data directories that BAIN can install to
@@ -553,44 +552,199 @@ dataDirsPlus = set()
 # ensure all path strings are prefixed with 'r' to avoid interpretation of
 # accidental escape sequences
 wryeBashDataFiles = set((
-    r'Bashed Patch.esp',
-    r'Bashed Patch, 0.esp',
-    r'Bashed Patch, 1.esp',
-    r'Bashed Patch, 2.esp',
-    r'Bashed Patch, 3.esp',
-    r'Bashed Patch, 4.esp',
-    r'Bashed Patch, 5.esp',
-    r'Bashed Patch, 6.esp',
-    r'Bashed Patch, 7.esp',
-    r'Bashed Patch, 8.esp',
-    r'Bashed Patch, 9.esp',
-    r'Bashed Patch, CBash.esp',
-    r'Bashed Patch, Python.esp',
-    r'Bashed Patch, FCOM.esp',
-    r'Bashed Patch, Warrior.esp',
-    r'Bashed Patch, Thief.esp',
-    r'Bashed Patch, Mage.esp',
-    r'Bashed Patch, Test.esp',
-    r'ArchiveInvalidationInvalidated!.bsa'
-    r'Fallout - AI!.bsa'
+    ur'Bashed Patch.esp',
+    ur'Bashed Patch, 0.esp',
+    ur'Bashed Patch, 1.esp',
+    ur'Bashed Patch, 2.esp',
+    ur'Bashed Patch, 3.esp',
+    ur'Bashed Patch, 4.esp',
+    ur'Bashed Patch, 5.esp',
+    ur'Bashed Patch, 6.esp',
+    ur'Bashed Patch, 7.esp',
+    ur'Bashed Patch, 8.esp',
+    ur'Bashed Patch, 9.esp',
+    ur'Bashed Patch, CBash.esp',
+    ur'Bashed Patch, Python.esp',
+    ur'Bashed Patch, FCOM.esp',
+    ur'Bashed Patch, Warrior.esp',
+    ur'Bashed Patch, Thief.esp',
+    ur'Bashed Patch, Mage.esp',
+    ur'Bashed Patch, Test.esp',
+    ur'ArchiveInvalidationInvalidated!.bsa'
+    ur'Fallout - AI!.bsa'
     ))
-
 wryeBashDataDirs = set((
-    r'Bash Patches',
-    r'INI Tweaks'
+    ur'Bash Patches',
+    ur'INI Tweaks'
     ))
-
 ignoreDataFiles = set((
-#    r'NVSE\Plugins\Construction Set Extender.dll',
-#    r'NVSE\Plugins\Construction Set Extender.ini'
+#    ur'NVSE\Plugins\Construction Set Extender.dll',
+#    ur'NVSE\Plugins\Construction Set Extender.ini'
     ))
-
 ignoreDataFilePrefixes = set(())
-
 ignoreDataDirs = set((
-#    r'NVSE\Plugins\ComponentDLLs\CSE',
-    r'LSData'
+#    ur'NVSE\Plugins\ComponentDLLs\CSE',
+    ur'LSData'
     ))
+
+#--Plugin format stuff
+class esp:
+    #--Wrye Bash capabilities
+    canBash = False         # Can create Bashed Patches
+    canCBash = False         # CBash can handle this game's records
+    canEditHeader = False   # Can edit basic info in the TES4 record
+    
+    #--Valid ESM/ESP header versions
+    ## These are the valid 'version' numbers for the game file headers
+    validHeaderVersions = (1.32,1.33,1.34)
+
+    stringsFiles = []
+
+    #--Class to use to read the TES4 record
+    ## This is the class name in bosh.py to use for the TES4 record when reading
+    ## Example: 'MreTes4'
+    tes4ClassName = ''
+
+    #--Information about the basic record header
+    class header:
+        format = ''         # Format passed to struct.unpack to unpack the header
+        size = 0            # Size of the record header
+        attrs = tuple()     # List of attributes to set = the return of struct.unpack
+        defaults = tuple()  # Default values for each of the above attributes
+     
+    #--Top types in FalloutNV order.
+    topTypes = ['GMST', 'TXST', 'MICN', 'GLOB', 'CLAS', 'FACT', 'HDPT', 'HAIR', 'EYES',
+        'RACE', 'SOUN', 'ASPC', 'MGEF', 'SCPT', 'LTEX', 'ENCH', 'SPEL', 'ACTI', 'TACT',
+        'TERM', 'ARMO', 'BOOK', 'CONT', 'DOOR', 'INGR', 'LIGH', 'MISC', 'STAT', 'SCOL',
+        'MSTT', 'PWAT', 'GRAS', 'TREE', 'FURN', 'WEAP', 'AMMO', 'NPC_', 'CREA', 'LVLC',
+        'LVLN', 'KEYM', 'ALCH', 'IDLM', 'NOTE', 'PROJ', 'LVLI', 'WTHR', 'CLMT', 'REGN',
+        'NAVI', 'CELL', 'WRLD', 'DIAL', 'QUST', 'IDLE', 'PACK', 'CSTY', 'LSCR', 'ANIO',
+        'WATR', 'EFSH', 'EXPL', 'DEBR', 'IMGS', 'IMAD', 'FLST', 'PERK', 'BPTD', 'ADDN',
+        'COBJ', 'AVIF', 'RADS', 'CAMS', 'CPTH', 'VTYP', 'IPCT', 'IPDS', 'ARMA', 'ECZN',
+        'MESG', 'RGDL', 'DOBJ', 'LGTM', 'MUSC', 'IMOD', 'REPU', 'RCPE', 'RCCT', 'CHIP',
+        'CSNO', 'LSCT', 'MSET', 'ALOC', 'CHAL', 'AMEF', 'CCRD', 'CMNY', 'CDCK', 'DEHY',
+        'HUNG', 'SLPD',
+        # Unused types in falloutNV. (dummy)
+        'SLGM', 'BSGN', 'FLOR', 'SGST', 'CLOT', 'SBSP', 'SKIL', 'LVSP', 'APPA',
+        ]
+    
+    #--Dict mapping 'ignored' top types to un-ignored top types
+    topIgTopTYpes = dict()
+    
+    #--Record Types: all recognized record types (not just the top types)
+    recordTypes = set(topTypes + 'GRUP,TES4,ROAD,REFR,ACHR,ACRE,PGRD,LAND,INFO,PGRE,NAVM'.split(','))
+    
+class RecordHeader(brec.BaseRecordHeader):
+    size = 24 # Size in bytes of a record header
+
+    def __init__(self,recType='TES4',size=0,arg1=0,arg2=0,arg3=0,*extra):
+        self.recType = recType
+        self.size = size
+        if recType == 'GRUP':
+            self.label = arg1
+            self.groupType = arg2
+            self.stamp = arg3
+        else:
+            self.flags1 = arg1
+            self.fid = arg2
+            self.flags2 = arg2
+        self.extra = extra
+
+    @staticmethod
+    def unpack(ins):
+        """Returns a RecordHeader object by reading the input stream."""
+        type,size,uint0,uint1,uint2,uint3 = ins.unpack('4s5I',24,'REC_HEAD')
+        #--Bad?
+        if type not in esp.recordTypes:
+            raise brec.ModError(ins.inName,u'Bad header type: '+repr(type))
+        #--Record
+        if type != 'GRUP':
+            pass
+        #--Top Group
+        elif uint1 == 0: # groupType == 0 (Top Group)
+            str0 = struct.pack('I',uint0)
+            if str0 in esp.topTypes:
+                uint0 = str0
+            elif str0 in esp.topIgTypes:
+                uint0 = esp.topIgTypes[str0]
+            else:
+                raise brec.ModError(ins.inName,u'Bad Top GRUP type: '+repr(str0))
+        return RecordHeader(type,size,uint0,uint1,uint2,uint3)
+
+    def pack(self):
+        """Returns the record header packed into a string for writing to file."""
+        pass
+	
+#--The pickle file for this game.  Holds encoded GMST IDs from the big list below
+pklfile = ur'bash\db\FalloutNV_ids.pkl'
+
+#--List of GMST's in the main plugin (Oblivion.esm) that have 0x00000000
+#  as the form id.  Any GMST as such needs it Editor Id listed here.
+gmstEids = ['fPlayerDeathReloadTime','iMapMarkerVisibleDistance','fVanityModeWheelMax','fChase3rdPersonZUnitsPerSecond',
+    'fAutoAimMaxDegreesMiss','iHoursToRespawnCell','fEssentialDeathTime','fJumpHeightMin','fPlayerPipBoyLightTimer',
+    'iAINumberActorsComplexScene','iHackingMaxWords','fGunShellLifetime','fGunShellCameraDistance','fGunDecalCameraDistance',
+    'iDebrisMaxCount','iHackingDumpRate','iHackingInputRate','iHackingOutputRate','iHackingFlashOffDuration',
+    'iHackingFlashOnDuration','iComputersDisplayRateMenus','iComputersDisplayRateNotes','iInventoryAskQuantityAt',
+    'iNumberActorsInCombatPlayer','iNumberActorsAllowedToFollowPlayer','iRemoveExcessDeadCount','iRemoveExcessDeadTotalActorCount',
+    'iRemoveExcessDeadComplexTotalActorCount','iRemoveExcessDeadComplexCount', 'fRemoveExcessDeadTime','fRemoveExcessComplexDeadTime',
+    'iLevItemLevelDifferenceMax','fMoveWeightMax',
+    ]
+ 
+#--Bash Tags supported by this game
+allTags = sorted(('Body-F', 'Body-M', 'Body-Size-M', 'Body-Size-F', 'C.Climate', 'C.Light', 'C.Music', 'C.Name', 'C.RecordFlags',
+                  'C.Owner', 'C.Water','Deactivate', 'Delev', 'Eyes', 'Factions', 'Relations', 'Filter', 'Graphics', 'Hair',
+                  'IIM', 'Invent', 'Names', 'NoMerge', 'NpcFaces', 'R.Relations', 'Relev', 'Scripts', 'ScriptContents', 'Sound',
+                  'Stats', 'Voice-F', 'Voice-M', 'R.Teeth', 'R.Mouth', 'R.Ears', 'R.Head', 'R.Attributes-F',
+                  'R.Attributes-M', 'R.Skills', 'R.Description', 'Roads', 'Actors.Anims',
+                  'Actors.AIData', 'Actors.DeathItem', 'Actors.AIPackages', 'Actors.AIPackagesForceAdd', 'Actors.Stats',
+                  'Actors.ACBS', 'NPC.Class', 'Actors.CombatStyle', 'Creatures.Blood',
+                  'NPC.Race','Actors.Skeleton', 'NpcFacesForceFullImport', 'MustBeActiveIfImported',
+                  'Deflst', 'Destructible', 'WeaponMods'))
+
+#--GLOB record tweaks used by bosh's GmstTweaker
+#  Each entry is a tuple in the following format:
+#    (DisplayText, MouseoverText, GLOB EditorID, Option1, Option2, Option3, ..., OptionN)
+#    -EditorID can be a plain string, or a tuple of multiple Editor IDs.  If it's a tuple,
+#     then Value (below) must be a tuple of equal length, providing values for each GLOB
+#  Each Option is a tuple:
+#    (DisplayText, Value)
+#    - If you enclose DisplayText in brackets like this: _(u'[Default]'), then the patcher
+#      will treat this option as the default value.
+#    - If you use _(u'Custom') as the entry, the patcher will bring up a number input dialog
+#  To make a tweak Enabled by Default, enclose the tuple entry for the tweak in a list, and make
+#  a dictionary as the second list item with {'defaultEnabled':True}.  See the UOP Vampire face
+#  fix for an example of this (in the GMST Tweaks)
+## NOTE: only required if the GmstTweaker has been enabled for this game
+GlobalsTweaks = [
+]
+
+#--GMST record tweaks used by bosh's GmstTweaker
+#  Each entry is a tuple in the following format:
+#    (DisplayText, MouseoverText, GMST EditorID, Option1, Option2, Option3, ..., OptionN)
+#    -EditorID can be a plain string, or a tuple of multiple Editor IDs.  If it's a tuple,
+#     then Value (below) must be a tuple of equal length, providing values for each GMST
+#  Each Option is a tuple:
+#    (DisplayText, Value)
+#    - If you enclose DisplayText in brackets like this: _(u'[Default]'), then the patcher
+#      will treat this option as the default value.
+#    - If you use _(u'Custom') as the entry, the patcher will bring up a number input dialog
+#  To make a tweak Enabled by Default, enclose the tuple entry for the tweak in a list, and make
+#  a dictionary as the second list item with {'defaultEnabled':True}.  See the UOP Vampire face
+#  fix for an example of this (in the GMST Tweaks)
+## NOTE: only required if the GmstTweaker has been enabled for this game
+GmstTweaks = [
+]
+
+#--Patcher available when building a Bashed Patch (refrerenced by class name)
+patchers = (
+)
+
+#--For ListMerger patcher (leveled list patcher)
+listTypes = ()
+
+#--CBash patchers available when building a Bashed Patch
+CBash_patchers = (
+)
 
 # Function Info ---------------------------------------------------------------
 conditionFunctionData = ( #--0: no param; 1: int param; 2: formid param
@@ -870,83 +1024,13 @@ weaponTypes = (
     _('Thrown'),
     _('Mine'),
     )
-#--The pickle file for this game.  Holds encoded GMST IDs from the big list below
-pklfile = ur'bash\db\FalloutNV_ids.pkl'
-
-#--List of GMST's in the main plugin (Oblivion.esm) that have 0x00000000
-#  as the form id.  Any GMST as such needs it Editor Id listed here.
-gmstEids = ['fPlayerDeathReloadTime','iMapMarkerVisibleDistance','fVanityModeWheelMax','fChase3rdPersonZUnitsPerSecond',
-    'fAutoAimMaxDegreesMiss','iHoursToRespawnCell','fEssentialDeathTime','fJumpHeightMin','fPlayerPipBoyLightTimer',
-    'iAINumberActorsComplexScene','iHackingMaxWords','fGunShellLifetime','fGunShellCameraDistance','fGunDecalCameraDistance',
-    'iDebrisMaxCount','iHackingDumpRate','iHackingInputRate','iHackingOutputRate','iHackingFlashOffDuration',
-    'iHackingFlashOnDuration','iComputersDisplayRateMenus','iComputersDisplayRateNotes','iInventoryAskQuantityAt',
-    'iNumberActorsInCombatPlayer','iNumberActorsAllowedToFollowPlayer','iRemoveExcessDeadCount','iRemoveExcessDeadTotalActorCount',
-    'iRemoveExcessDeadComplexTotalActorCount','iRemoveExcessDeadComplexCount', 'fRemoveExcessDeadTime','fRemoveExcessComplexDeadTime',
-    'iLevItemLevelDifferenceMax','fMoveWeightMax',
-    ]
- 
-#--Bash Tags supported by this game
-allTags = sorted(('Body-F', 'Body-M', 'Body-Size-M', 'Body-Size-F', 'C.Climate', 'C.Light', 'C.Music', 'C.Name', 'C.RecordFlags',
-                  'C.Owner', 'C.Water','Deactivate', 'Delev', 'Eyes', 'Factions', 'Relations', 'Filter', 'Graphics', 'Hair',
-                  'IIM', 'Invent', 'Names', 'NoMerge', 'NpcFaces', 'R.Relations', 'Relev', 'Scripts', 'ScriptContents', 'Sound',
-                  'Stats', 'Voice-F', 'Voice-M', 'R.Teeth', 'R.Mouth', 'R.Ears', 'R.Head', 'R.Attributes-F',
-                  'R.Attributes-M', 'R.Skills', 'R.Description', 'Roads', 'Actors.Anims',
-                  'Actors.AIData', 'Actors.DeathItem', 'Actors.AIPackages', 'Actors.AIPackagesForceAdd', 'Actors.Stats',
-                  'Actors.ACBS', 'NPC.Class', 'Actors.CombatStyle', 'Creatures.Blood',
-                  'NPC.Race','Actors.Skeleton', 'NpcFacesForceFullImport', 'MustBeActiveIfImported',
-                  'Deflst', 'Destructible', 'WeaponMods'
-				  ))
-
-#--GLOB record tweaks used by bosh's GmstTweaker
-#  Each entry is a tuple in the following format:
-#    (DisplayText, MouseoverText, GLOB EditorID, Option1, Option2, Option3, ..., OptionN)
-#    -EditorID can be a plain string, or a tuple of multiple Editor IDs.  If it's a tuple,
-#     then Value (below) must be a tuple of equal length, providing values for each GLOB
-#  Each Option is a tuple:
-#    (DisplayText, Value)
-#    - If you enclose DisplayText in brackets like this: _(u'[Default]'), then the patcher
-#      will treat this option as the default value.
-#    - If you use _(u'Custom') as the entry, the patcher will bring up a number input dialog
-#  To make a tweak Enabled by Default, enclose the tuple entry for the tweak in a list, and make
-#  a dictionary as the second list item with {'defaultEnabled':True}.  See the UOP Vampire face
-#  fix for an example of this (in the GMST Tweaks)
-## NOTE: only required if the GmstTweaker has been enabled for this game
-GlobalsTweaks = [
-]
-
-#--GMST record tweaks used by bosh's GmstTweaker
-#  Each entry is a tuple in the following format:
-#    (DisplayText, MouseoverText, GMST EditorID, Option1, Option2, Option3, ..., OptionN)
-#    -EditorID can be a plain string, or a tuple of multiple Editor IDs.  If it's a tuple,
-#     then Value (below) must be a tuple of equal length, providing values for each GMST
-#  Each Option is a tuple:
-#    (DisplayText, Value)
-#    - If you enclose DisplayText in brackets like this: _(u'[Default]'), then the patcher
-#      will treat this option as the default value.
-#    - If you use _(u'Custom') as the entry, the patcher will bring up a number input dialog
-#  To make a tweak Enabled by Default, enclose the tuple entry for the tweak in a list, and make
-#  a dictionary as the second list item with {'defaultEnabled':True}.  See the UOP Vampire face
-#  fix for an example of this (in the GMST Tweaks)
-## NOTE: only required if the GmstTweaker has been enabled for this game
-GmstTweaks = [
-]
-
-#--Patcher available when building a Bashed Patch (refrerenced by class name)
-patchers = (
-)
-
-#--For ListMerger patcher (leveled list patcher)
-listTypes = ()
-
+   
 namesTypes = set((
         'ALCH', 'AMMO', 'APPA', 'ARMO', 'BOOK', 'CLAS', 'CLOT', 'CONT', 'CREA', 'DOOR',
         'EYES', 'FACT', 'FLOR', 'HAIR', 'INGR', 'KEYM', 'LIGH', 'MISC', 'NOTE', 'NPC_',
         'RACE', 'SPEL', 'TERM', 'WEAP', 'ACTI', 'TACT',
-        'CMNY', 'CCRD', 'IMOD', 'REPU', 'RCPE', 'RCCT', 'CHIP', 'CSNO'
-	))
-
+        'CMNY', 'CCRD', 'IMOD', 'REPU', 'RCPE', 'RCCT', 'CHIP', 'CSNO'))
 pricesTypes = {}      
-
 statsTypes = {
         'ALCH':('eid', 'weight', 'value'),
         'AMMO':('eid', 'weight', 'value', 'speed', 'clipRounds','projPerShot'),
@@ -967,7 +1051,6 @@ statsTypes = {
                 'criticalDamage','criticalMultiplier',
                 'vatsSkill','vatsDamMult','vatsAp'),
         }
-
 statsHeaders = (
         #--Alch
         ('ALCH',
@@ -1018,10 +1101,6 @@ statsHeaders = (
                 _('Critical Damage'), _('Crit % Mult'),
                 _('VATS Skill'), _('VATS Dam. Mult'), _('VATS AP'))) + '"\n')),
         )
-
-#--CBash patchers available when building a Bashed Patch
-CBash_patchers = (
-)
 
 # Race Info -------------------------------------------------------------------
 raceNames = {
@@ -1120,96 +1199,6 @@ raceHairFemale = {
     0x0987df : 0x044529, #--COA
     }
 
-#--Plugin format stuff
-class esp:
-    #--Wrye Bash capabilities
-    canBash = False         # Can create Bashed Patches
-    canCBash = False         # CBash can handle this game's records
-    canEditHeader = False   # Can edit basic info in the TES4 record
-    
-    #--Valid ESM/ESP header versions
-    ## These are the valid 'version' numbers for the game file headers
-    validHeaderVersions = (1.32)
-
-    #--Class to use to read the TES4 record
-    ## This is the class name in bosh.py to use for the TES4 record when reading
-    ## Example: 'MreTes4'
-    tes4ClassName = ''
-
-    #--Information about the basic record header
-    class header:
-        format = ''         # Format passed to struct.unpack to unpack the header
-        size = 0            # Size of the record header
-        attrs = tuple()     # List of attributes to set = the return of struct.unpack
-        defaults = tuple()  # Default values for each of the above attributes
-     
-    #--Top types in FalloutNV order.
-    topTypes = ['GMST', 'TXST', 'MICN', 'GLOB', 'CLAS', 'FACT', 'HDPT', 'HAIR', 'EYES',
-        'RACE', 'SOUN', 'ASPC', 'MGEF', 'SCPT', 'LTEX', 'ENCH', 'SPEL', 'ACTI', 'TACT',
-        'TERM', 'ARMO', 'BOOK', 'CONT', 'DOOR', 'INGR', 'LIGH', 'MISC', 'STAT', 'SCOL',
-        'MSTT', 'PWAT', 'GRAS', 'TREE', 'FURN', 'WEAP', 'AMMO', 'NPC_', 'CREA', 'LVLC',
-        'LVLN', 'KEYM', 'ALCH', 'IDLM', 'NOTE', 'PROJ', 'LVLI', 'WTHR', 'CLMT', 'REGN',
-        'NAVI', 'CELL', 'WRLD', 'DIAL', 'QUST', 'IDLE', 'PACK', 'CSTY', 'LSCR', 'ANIO',
-        'WATR', 'EFSH', 'EXPL', 'DEBR', 'IMGS', 'IMAD', 'FLST', 'PERK', 'BPTD', 'ADDN',
-        'COBJ', 'AVIF', 'RADS', 'CAMS', 'CPTH', 'VTYP', 'IPCT', 'IPDS', 'ARMA', 'ECZN',
-        'MESG', 'RGDL', 'DOBJ', 'LGTM', 'MUSC', 'IMOD', 'REPU', 'RCPE', 'RCCT', 'CHIP',
-        'CSNO', 'LSCT', 'MSET', 'ALOC', 'CHAL', 'AMEF', 'CCRD', 'CMNY', 'CDCK', 'DEHY',
-        'HUNG', 'SLPD',
-        # Unused types in falloutNV. (dummy)
-        'SLGM', 'BSGN', 'FLOR', 'SGST', 'CLOT', 'SBSP', 'SKIL', 'LVSP', 'APPA',
-        ]
-    
-    #--Dict mapping 'ignored' top types to un-ignored top types
-    topIgTopTYpes = dict()
-    
-    #--Record Types: all recognized record types (not just the top types)
-    recordTypes = set(topTypes + 'GRUP,TES4,ROAD,REFR,ACHR,ACRE,PGRD,LAND,INFO,PGRE,NAVM'.split(','))
-    
-#--Mod I/O
-class RecordHeader(brec.BaseRecordHeader):
-    size = 24 # Size in bytes of a record header
-
-    def __init__(self,recType='TES4',size=0,arg1=0,arg2=0,arg3=0,*extra):
-        self.recType = recType
-        self.size = size
-        if recType == 'GRUP':
-            self.label = arg1
-            self.groupType = arg2
-            self.stamp = arg3
-        else:
-            self.flags1 = arg1
-            self.fid = arg2
-            self.flags2 = arg2
-        self.extra = extra
-
-    @staticmethod
-    def unpack(ins):
-        """Returns a RecordHeader object by reading the input stream."""
-        type,size,uint0,uint1,uint2,uint3 = ins.unpack('4s5I',24,'REC_HEAD')
-        #--Bad?
-        if type not in esp.recordTypes:
-            raise brec.ModError(ins.inName,u'Bad header type: '+repr(type))
-        #--Record
-        if type != 'GRUP':
-            pass
-        #--Top Group
-        elif uint1 == 0: # groupType == 0 (Top Group)
-            str0 = struct.pack('I',uint0)
-            if str0 in esp.topTypes:
-                uint0 = str0
-            elif str0 in esp.topIgTypes:
-                uint0 = esp.topIgTypes[str0]
-            else:
-                raise brec.ModError(ins.inName,u'Bad Top GRUP type: '+repr(str0))
-        return RecordHeader(type,size,uint0,uint1,uint2,uint3)
-
-    def pack(self):
-        """Returns the record header packed into a string for writing to file."""
-        pass
-	
-#------------------------------------------------------------------------------
-# Common/Special Elements
-#------------------------------------------------------------------------------
 # Flags
 #------------------------------------------------------------------------------
 class MelBipedFlags(bolt.Flags):
@@ -1427,9 +1416,6 @@ class MelConditions(MelStructs):
                 result = function(target.param4)
                 if save: target.param4 = result
     
-#-------------------------------------------------------------------------------
-# Fallout New Vegas Records ----------------------------------------------------
-#-------------------------------------------------------------------------------
 class MreHeader(MreHeaderBase):
     """TES4 Record.  File header."""
     classType = 'TES4'

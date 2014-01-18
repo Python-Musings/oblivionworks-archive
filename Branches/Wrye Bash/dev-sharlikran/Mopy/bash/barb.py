@@ -118,13 +118,13 @@ class BackupSettings(BaseBackupSettings):
               (dirs['modsBash'].join(u'INI Data'),u'Table',                game+u' Mods\\Bash Mod Data\\INI Data'),
               (dirs['installers'].join(u'Bash'),  u'Converters',           game+u' Mods\\Bash Installers\\Bash'),
               (dirs['installers'].join(u'Bash'),  u'Installers',           game+u' Mods\\Bash Installers\\Bash'),
-              (dirs['userApp'],                   u'Profiles',             u'LocalAppData\\'+game),
-              (dirs['userApp'],                   u'bash config',          u'LocalAppData\\'+game),
-              (dirs['saveBase'],                  u'BashProfiles',         u'My Games\\'+game),
-              (dirs['saveBase'],                  u'BashSettings',         u'My Games\\'+game),
-              (dirs['saveBase'],                  u'Messages',             u'My Games\\'+game),
-              (dirs['saveBase'],                  u'ModeBase',             u'My Games\\'+game),
-              (dirs['saveBase'],                  u'People',               u'My Games\\'+game),
+              (dirs['userApp'],                   u'Profiles',             u'LocalAppData\\'+bush.game.safeName),
+              (dirs['userApp'],                   u'bash config',          u'LocalAppData\\'+bush.game.safeName),
+              (dirs['saveBase'],                  u'BashProfiles',         u'My Games\\'+bush.game.safeName),
+              (dirs['saveBase'],                  u'BashSettings',         u'My Games\\'+bush.game.safeName),
+              (dirs['saveBase'],                  u'Messages',             u'My Games\\'+bush.game.safeName),
+              (dirs['saveBase'],                  u'ModeBase',             u'My Games\\'+bush.game.safeName),
+              (dirs['saveBase'],                  u'People',               u'My Games\\'+bush.game.safeName),
                 ):
             tmpdir = GPath(tmpdir)
             for ext in (u'',u'.dat',u'.pkl',u'.html',u'.txt'): # hack so the above file list can be shorter, could include rogue files but not very likely
@@ -167,7 +167,7 @@ class BackupSettings(BaseBackupSettings):
                     self.files[tmpdir.join(name)] = path.join(name)
 
         #backup save profile settings
-        savedir = GPath(u'My Games\\'+game)
+        savedir = GPath(u'My Games\\'+bush.game.safeName)
         profiles = [u''] + [x for x in dirs['saveBase'].join(u'Saves').list() if dirs['saveBase'].join(u'Saves',x).isdir() and x != u'bash']
         for profile in profiles:
             tpath = savedir.join(u'Saves',profile,u'plugins.txt')
@@ -319,8 +319,8 @@ class RestoreSettings(BaseBackupSettings):
                 (dirs['modsBash'],                  game+u' Mods\\Bash Mod Data'),
                 (dirs['modsBash'].join(u'INI Data'),game+u' Mods\\Bash Mod Data\\INI Data'),
                 (dirs['installers'].join(u'Bash'),  game+u' Mods\\Bash Installers\\Bash'),
-                (dirs['userApp'],                   u'LocalAppData\\'+game),
-                (dirs['saveBase'],                  u'My Games\\'+game),
+                (dirs['userApp'],                   u'LocalAppData\\'+bush.game.safeName),
+                (dirs['saveBase'],                  u'My Games\\'+bush.game.safeName),
                 )
         if 293 >= self.verApp:
             # restore from old data paths
@@ -344,7 +344,7 @@ class RestoreSettings(BaseBackupSettings):
                         path.join(name).copyTo(fpath.join(name))
 
         #restore savegame profile settings
-        tpath = GPath(u'My Games\\'+game+u'\\Saves')
+        tpath = GPath(u'My Games\\'+bush.game.safeName+u'\\Saves')
         fpath = dirs['saveBase'].join(u'Saves')
         path = self.tmp.join(tpath)
         if path.exists():
