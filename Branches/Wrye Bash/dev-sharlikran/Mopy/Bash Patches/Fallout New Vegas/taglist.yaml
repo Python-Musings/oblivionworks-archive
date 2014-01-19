@@ -5,25 +5,42 @@ plugins:
     dirty:
       - crc: 0xd70f165b
         util: "[FNVEdit](http://newvegas.nexusmods.com/mods/34703)"
+        itm: 403
         udr: 51
   - name: HonestHearts.esm
     dirty:
       - crc: 0x2352b189
         util: "[FNVEdit](http://newvegas.nexusmods.com/mods/34703)"
+        itm: 121
         udr: 10
   - name: OldWorldBlues.esm
     dirty:
       - crc: 0x7f8f8225
         util: "[FNVEdit](http://newvegas.nexusmods.com/mods/34703)"
+        itm: 124
   - name: LonesomeRoad.esm
     dirty:
       - crc: 0x30073d50
         util: "[FNVEdit](http://newvegas.nexusmods.com/mods/34703)"
+        itm: 240
         udr: 6
   - name: GunRunnersArsenal.esm
     dirty:
       - crc: 0xaac938d
         util: "[FNVEdit](http://newvegas.nexusmods.com/mods/34703)"
+        itm: 97
+  - name: Afterschool Special.esm
+    tag:
+      - Invent
+  - name: Community Bugfix Compilation Patch.esm
+    tag:
+      - Actors.AIPackages
+      - Delev
+      - Invent
+      - Relev
+      - Scripts
+      - Sound
+      - Stats
   - name: YUP - Base Game + All DLC.esm
     tag:
       - Actors.ACBS
@@ -40,18 +57,6 @@ plugins:
       - Sounds
       - Stats
       - Voice-F
-  - name: Afterschool Special.esm
-    tag:
-      - Invent
-  - name: Community Bugfix Compilation Patch.esm
-    tag:
-      - Actors.AIPackages
-      - Delev
-      - Invent
-      - Relev
-      - Scripts
-      - Sound
-      - Stats
   - name: Machienzo - NPC Cosmetic Fixes - Ver 1.55.esm
     tag:
       - Body-F
@@ -109,13 +114,6 @@ plugins:
   - name: CaliberXgunrunners.esm
     tag:
       - Names
-  - name: ELECTRO-CITY - CompletedWorkorders.esm
-    tag:
-      - Actors.AIData
-      - Actors.AIPackages
-      - Invent
-      - Names
-      - NpcFaces
   - name: Fiends, With Style.esm
     tag:
       - Delev
@@ -158,10 +156,6 @@ plugins:
       - Delev
       - Invent
       - Names
-  - name: Project Nevada - Rebalance.esp
-    tag:
-      - Invent
-      - Names
   - name: Psiclones.esm
     tag:
       - Names
@@ -181,8 +175,97 @@ plugins:
   - name: Weapon Mod Expansion.esm
     tag:
       - Names
+  - name: Machienzo - NPC Cosmetic Fixes - Ver 1.55.esm
+    tag:
+      - Body-F
+      - Body-M
+      - Eyes
+      - Hair
+      - NpcFaces
+      - R.Mouth
+      - R.Teeth
+      - Voice-F
+      - Voice-M
+  - name: Machienzo - NPC Cosmetic Fixes - Ver 1.57.esm
+    tag:
+      - Body-F
+      - Body-M
+      - Eyes
+      - Hair
+      - NpcFaces
+      - R.Mouth
+      - R.Teeth
+      - Voice-F
+      - Voice-M
+  - name: Machienzo - NPC Cosmetic Fixes.esm
+    tag:
+      - Body-F
+      - Body-M
+      - Eyes
+      - Hair
+      - NpcFaces
+      - R.Mouth
+      - R.Teeth
+      - Voice-F
+      - Voice-M
+  - name: NVCE Main.esm
+    tag:
+      - Actors.ACBS
+      - Actors.AIPackages
+      - Invent
+      - NPC.Race
+      - NpcFaces
+  - name: NVCE Main (Faces Only).esm
+    tag:
+      - Actors.ACBS
+      - Deactivate
+      - Filter
+      - NPC.Race
+      - NpcFaces
+  - name: IWS-Core.esm
+    tag:
+      - Delev
+  - name: Project Nevada - Core.esm
+    tag:
+      - Invent
+  - name: ELECTRO-CITY - CompletedWorkorders.esm
+    tag:
+      - Actors.AIData
+      - Actors.AIPackages
+      - Invent
+      - Names
+      - NpcFaces
+  - name: Caliber.esm
+    tag:
+      - Invent
+      - Names
+  - name: Weapon Mod Expansion.esm
+    tag:
+      - Names
+  - name: FOOK - New Vegas.esm
+    tag:
+      - Deflst
+      - Delev
+      - Graphics
+      - Names
+      - Relev
+      - Scripts
+      - Sound
+      - Stats
   - name: HonestHearts-CaliberX.esm
     tag:
+      - Names
+  - name: AWorldOfPain(Preview).esm
+    tag:
+      - Deflst
+      - Invent
+  - name: MoMod.esm
+    tag:
+      - Relev
+  - name: Project Nevada - Equipment.esm
+    tag:
+      - Delev
+      - Invent
       - Names
   - name: New Vegas Redesigned.esm
     tag:
@@ -726,6 +809,10 @@ plugins:
     tag:
       - Invent
       - Names
+  - name: Project Nevada - Rebalance.esp
+    tag:
+      - Invent
+      - Names
   - name: BIS - Project Nevada - Cyberware.esp
     tag:
       - Invent
@@ -1023,8 +1110,6 @@ plugins:
       - Graphics
   - name: RHKGilbertCompanion-Mikoto.esp
     tag:
-      - Graphics
-      - Hair
       - NpcFaces
       - R.Mouth
       - R.Teeth
