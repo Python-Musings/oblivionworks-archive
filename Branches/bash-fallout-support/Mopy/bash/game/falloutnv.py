@@ -716,7 +716,7 @@ class esp:
     
     #--Valid ESM/ESP header versions
     ## These are the valid 'version' numbers for the game file headers
-    validHeaderVersions = (1.32,1.33,1.34)
+    validHeaderVersions = (0.94,1.32,1.33,1.34)
 
     stringsFiles = []
 
