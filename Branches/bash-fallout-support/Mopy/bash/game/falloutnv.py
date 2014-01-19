@@ -158,8 +158,8 @@ class ini:
 # Requires header.pcNick and header.playTime to be added to SaveHeader in bosh.py.
 class ess:
     # Save file capabilities
-    canReadBasic = False        # Can read the info needed for the Save Tab display
-    canEditMasters = False      # Can adjust save file masters
+    canReadBasic = True        # Can read the info needed for the Save Tab display
+    canEditMasters = True      # Can adjust save file masters
     canEditMore = False         # Advanced editing
     
     # Save file extension.
@@ -712,7 +712,7 @@ class esp:
     #--Wrye Bash capabilities
     canBash = False         # Can create Bashed Patches
     canCBash = False         # CBash can handle this game's records
-    canEditHeader = False   # Can edit basic info in the TES4 record
+    canEditHeader = True   # Can edit basic info in the TES4 record
     
     #--Valid ESM/ESP header versions
     ## These are the valid 'version' numbers for the game file headers
@@ -793,7 +793,15 @@ class RecordHeader(brec.BaseRecordHeader):
 
     def pack(self):
         """Returns the record header packed into a string for writing to file."""
-        pass
+        if self.recType == 'GRUP':
+            if isinstance(self.label,str):
+                return struct.pack('=4sI4sIII',self.recType,self.size,self.label,self.groupType,self.stamp,self.stamp2)
+            elif isinstance(self.label,tuple):
+                return struct.pack('=4sIhhIII',self.recType,self.size,self.label[0],self.label[1],self.groupType,self.stamp,self.stamp2)
+            else:
+                return struct.pack('=4s5I',self.recType,self.size,self.label,self.groupType,self.stamp,self.stamp2)
+        else:
+            return struct.pack('=4s5I',self.recType,self.size,self.flags1,self.fid,self.flags2,self.flags3)
 	
 #--The pickle file for this game.  Holds encoded GMST IDs from the big list below
 pklfile = ur'bash\db\FalloutNV_ids.pkl'
