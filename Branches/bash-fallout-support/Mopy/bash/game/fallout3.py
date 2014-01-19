@@ -209,7 +209,7 @@ class ess:
         numMasters,delim = struct.unpack('Bc',ins.read(2))
         for count in range(numMasters):
             size,delim = struct.unpack('Hc',ins.read(3))
-            header.masters.append(GPath(ins.read(size)))
+            header.masters.append(ins.read(size))
             delim, = struct.unpack('c',ins.read(1))
         
 
@@ -239,15 +239,15 @@ class ess:
         oldMasters = []
         for count in range(numMasters):
             size,delim = unpack('Hc',3)
-            oldMasters.append(GPath(ins.read(size)))
+            oldMasters.append(ins.read(size))
             delim, = unpack('c',1)
         #--Write new masters
-        newMasterListSize = 2 + (4 * len(self.masters))
-        for master in self.masters:
+        newMasterListSize = 2 + (4 * len(header.masters))
+        for master in header.masters:
             newMasterListSize += len(master)
         pack('=BI',unknown,newMasterListSize)
-        pack('Bc',len(self.masters),'|')
-        for master in self.masters:
+        pack('Bc',len(header.masters),'|')
+        for master in header.masters:
             pack('Hc',len(master),'|')
             out.write(master.s)
             pack('c','|')
