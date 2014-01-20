@@ -1911,8 +1911,6 @@ plugins:
     dirty:
       - crc: 0xbad48e5d
         util: "[TES4Edit](http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide)"
-      - crc: 0xbd0084c5
-        util: "[TES4Edit](http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide)"
         itm: 3
   - name: DLCHorseArmor - Unofficial Patch.esp
     tag:
@@ -1939,12 +1937,9 @@ plugins:
       - NoMerge
   - name: DLCVileLair.esp
     dirty:
-      - crc: 0x1d2570a8
-        util: "[TES4Edit](http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide)"
-        itm: 16
-        udr: 1
       - crc: 0x74d2ca6f
         util: "[TES4Edit](http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide)"
+        itm: 16
         udr: 1
   - name: DLCVileLair - Unofficial Patch.esp
     tag:
