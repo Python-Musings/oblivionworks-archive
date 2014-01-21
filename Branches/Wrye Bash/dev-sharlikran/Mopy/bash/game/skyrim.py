@@ -19898,6 +19898,43 @@ class MreDebr(MelRecord):
 #------------------------------------------------------------------------------
 # Marker for organization please don't remove ---------------------------------
 # IMGS ------------------------------------------------------------------------
+class MreFlst(MelRecord):
+    """Imgs Item"""
+    classType = 'IMGS'
+
+    FlstDofFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (16384, 'radius0'),
+            (16672, 'radius1'),
+            (16784, 'radius2'),
+            (16848, 'radius3'),
+            (16904, 'radius4'),
+            (16936, 'radius5'),
+            (16968, 'radius6'),
+            (17000, 'radius7'),
+            (16576, 'noSkyRadius0'),
+            (16736, 'noSkyRadius1'),
+            (16816, 'noSkyRadius2'),
+            (16880, 'noSkyRadius3'),
+            (16920, 'noSkyRadius4'),
+            (16952, 'noSkyRadius5'),
+            (16984, 'noSkyRadius6'),
+            (17016, 'noSkyRadius7'),
+        ))
+
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelBase('ENAM','eman_p'),
+        MelStruct('HNAM','9f','eyeAdaptSpeed','bloomBlurRadius','bloomThreshold','bloomScale',
+                  'receiveBloomThreshold','white','sunlightScale','skyScale',
+                  'eyeAdaptStrength',),
+        MelStruct('CNAM','3f','Saturation','Brightness','Contrast',),
+        MelStruct('TNAM','4f','tintAmount','tintRed','tintGreen','tintBlue',),
+        MelStruct('DNAM','3f2sH','dofStrength','dofDistance','dofRange',
+                  (FlstDofFlags,'flags',0L),),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+    
+# Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 # Marker for organization please don't remove ---------------------------------
 # IMAD ------------------------------------------------------------------------
