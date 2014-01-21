@@ -18278,14 +18278,18 @@ class MreHeader(MreHeaderBase):
     #--Data elements
     melSet = MelSet(
         MelStruct('HEDR','f2I',('version',0.94),'numRecords',('nextObject',0xCE6)),
+        MelBase('OFST','ofst_p',),  #--Obsolete?
+        MelBase('DELE','dele_p',),  #--Obsolete?
         MelUnicode('CNAM','author',u'',512),
         MelUnicode('SNAM','description',u'',512),
         # How do I know this is an array MAST DATA MAST DATA MAST DATA MAST DATA
         # For each Master File in the esm/esp
         # Why is MelGroups Not needed?
+        # MreHeaderBase.MelMasterName should be updated to handle the DATA record
         MreHeaderBase.MelMasterName('MAST','masters'),
         MelNull('DATA'), # 8 Bytes in Length
         MelFidList('ONAM','overrides'),
+        MelBase('SCRN', 'ingv_p'),
         MelBase('INTV','ingv_p'),
         MelBase('INCC', 'ingv_p'),
         )
