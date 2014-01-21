@@ -27,7 +27,7 @@
 import struct
 from .. import brec
 from .. import bolt
-from ..bolt import _encode, Flags
+from ..bolt import _encode
 from ..brec import *
 
 import itertools
@@ -20042,8 +20042,6 @@ class MreAvif(MelRecord):
 
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# CAMS ------------------------------------------------------------------------
 class MreCams(MelRecord):
     """Cams Type"""
     classType = 'CAMS'
