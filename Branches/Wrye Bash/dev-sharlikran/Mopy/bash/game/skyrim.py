@@ -160,7 +160,7 @@ class ess:
     canReadBasic = True         # All the basic stuff needed for the Saves Tab
     canEditMasters = True       # Adjusting save file masters
     canEditMore = False         # No advanced editing
-    
+
     # Save file extension.
     ext = u'.ess';
 
@@ -274,7 +274,7 @@ masterFiles = [
 #--Plugin files that can't be deactivated
 nonDeactivatableFiles = [
     u'Skyrim.esm',
-    u'Update.esm',                     
+    u'Update.esm',
     ]
 
 #--Game ESM/ESP/BSA files
@@ -17093,7 +17093,7 @@ namesTypes = set(('ACTI', 'AMMO', 'ARMO', 'APPA', 'MISC',))
 pricesTypes = {'AMMO':{},'ARMO':{},'APPA':{},'MISC':{}}
 statsTypes = {
             'AMMO':('eid', 'value', 'damage'),
-            'ARMO':('eid', 'weight', 'value', 'armorRating'), 
+            'ARMO':('eid', 'weight', 'value', 'armorRating'),
             'APPA':('eid', 'weight', 'value'),
             'MISC':('eid', 'weight', 'value'),
             }
@@ -17193,18 +17193,18 @@ class esp:
         ]
 
     #--Top types in Skyrim order.
-    topTypes = ['GMST', 'KYWD', 'LCRT', 'AACT', 'TXST', 'GLOB', 'CLAS', 'FACT', 'HDPT', 
-                'HAIR', 'EYES', 'RACE', 'SOUN', 'ASPC', 'MGEF', 'SCPT', 'LTEX', 'ENCH', 
-                'SPEL', 'SCRL', 'ACTI', 'TACT', 'ARMO', 'BOOK', 'CONT', 'DOOR', 'INGR', 
-                'LIGH', 'MISC', 'APPA', 'STAT', 'SCOL', 'MSTT', 'PWAT', 'GRAS', 'TREE', 
-                'CLDC', 'FLOR', 'FURN', 'WEAP', 'AMMO', 'NPC_', 'LVLN', 'KEYM', 'ALCH', 
-                'IDLM', 'COBJ', 'PROJ', 'HAZD', 'SLGM', 'LVLI', 'WTHR', 'CLMT', 'SPGD', 
-                'RFCT', 'REGN', 'NAVI', 'CELL', 'WRLD', 'DIAL', 'QUST', 'IDLE', 'PACK', 
-                'CSTY', 'LSCR', 'LVSP', 'ANIO', 'WATR', 'EFSH', 'EXPL', 'DEBR', 'IMGS', 
-                'IMAD', 'FLST', 'PERK', 'BPTD', 'ADDN', 'AVIF', 'CAMS', 'CPTH', 'VTYP', 
+    topTypes = ['GMST', 'KYWD', 'LCRT', 'AACT', 'TXST', 'GLOB', 'CLAS', 'FACT', 'HDPT',
+                'HAIR', 'EYES', 'RACE', 'SOUN', 'ASPC', 'MGEF', 'SCPT', 'LTEX', 'ENCH',
+                'SPEL', 'SCRL', 'ACTI', 'TACT', 'ARMO', 'BOOK', 'CONT', 'DOOR', 'INGR',
+                'LIGH', 'MISC', 'APPA', 'STAT', 'SCOL', 'MSTT', 'PWAT', 'GRAS', 'TREE',
+                'CLDC', 'FLOR', 'FURN', 'WEAP', 'AMMO', 'NPC_', 'LVLN', 'KEYM', 'ALCH',
+                'IDLM', 'COBJ', 'PROJ', 'HAZD', 'SLGM', 'LVLI', 'WTHR', 'CLMT', 'SPGD',
+                'RFCT', 'REGN', 'NAVI', 'CELL', 'WRLD', 'DIAL', 'QUST', 'IDLE', 'PACK',
+                'CSTY', 'LSCR', 'LVSP', 'ANIO', 'WATR', 'EFSH', 'EXPL', 'DEBR', 'IMGS',
+                'IMAD', 'FLST', 'PERK', 'BPTD', 'ADDN', 'AVIF', 'CAMS', 'CPTH', 'VTYP',
                 'MATT', 'IPCT', 'IPDS', 'ARMA', 'ECZN', 'LCTN', 'MESG', 'RGDL', 'DOBJ',
-                'LGTM', 'MUSC', 'FSTP', 'FSTS', 'SMBN', 'SMQN', 'SMEN', 'DLBR', 'MUST', 
-                'DLVW', 'WOOP', 'SHOU', 'EQUP', 'RELA', 'SCEN', 'ASTP', 'OTFT', 'ARTO', 
+                'LGTM', 'MUSC', 'FSTP', 'FSTS', 'SMBN', 'SMQN', 'SMEN', 'DLBR', 'MUST',
+                'DLVW', 'WOOP', 'SHOU', 'EQUP', 'RELA', 'SCEN', 'ASTP', 'OTFT', 'ARTO',
                 'MATO', 'MOVT', 'SNDR', 'DUAL', 'SNCT', 'SOPM', 'COLL', 'CLFM', 'REVB',]
 
     #--Dict mapping 'ignored' top types to un-ignored top types.
@@ -17529,7 +17529,7 @@ class MelIcons(MelGroup):
 #      Result := 2;
 #end;
 #Basically the Idea is this;
-#When it's an NPC_ then it's a FormID of a [GLOB]												
+#When it's an NPC_ then it's a FormID of a [GLOB]
 #When it's an FACT (Faction) then it's a 4Byte integer Rank of the faction.
 #When it's not an NPC_ or FACT then it's unknown and just a 4Byte integer
 
@@ -18258,16 +18258,16 @@ class MelVmad(MelBase):
 #-------------------------------------------------------------------------------
 #class MelActorValue(MelStructs):
 #    """Represents Actor Values."""
-#    
+#
 # As more complex and large records are added this will be used more than once.
-# Needs syntax Check, should me a enum type struct that can be used by any 
+# Needs syntax Check, should me a enum type struct that can be used by any
 # routine after a subrecord, example:
-# 
+#
 # wbInteger('Magic Skill', itS32, wbActorValueEnum),
 # wbInteger('Resist Value', itS32, wbActorValueEnum),
 #
 # MelStruct('DATA','2I',MelActorValue,MelActorValue,),
-# 
+#
 #-------------------------------------------------------------------------------
 # Skyrim Records ---------------------------------------------------------------
 #-------------------------------------------------------------------------------
@@ -18323,11 +18323,11 @@ class MreAchr(MelRecord):
     # wbPDTOs := wbRArray('Topic', wbPDTO, cpNormal, False, nil);
     # wbPDTOs,
     # -------------------------
-    # wbUnion means that a condition has to be met. When the condition is 0  
+    # wbUnion means that a condition has to be met. When the condition is 0
     # it uses the first line, 1 is the next line.
     # -------------------------
     # wbEnum is an Enumeration and I don't know how to handle them.  For now
-    # make them flags so that if the patcher needs to mitigate the change 
+    # make them flags so that if the patcher needs to mitigate the change
     # it will be there already.
     # -------------------------
     # wbPDTOs,
@@ -18340,13 +18340,13 @@ class MreAchr(MelRecord):
     # -------------------------
     # Handle the flags first
     # (ACHRTopicDataFlags,'topicDataFlags',0L),
-    # Then decide if it is a string or FormID.			
-    # If it's a valid string then it's a string, 
+    # Then decide if it is a string or FormID.
+    # If it's a valid string then it's a string,
     # if it's a valid FormID then it's a FormID
     # Output the record with the flags first then the Data
     # Also this need to be repeating for as many as are present.
     # like with MelGroups, or MelFids it's repeating
-    # PDTO, PDTO, PDTO, PDTO...	
+    # PDTO, PDTO, PDTO, PDTO...
     # -------------------------
 
     melSet = MelSet(
@@ -18364,8 +18364,8 @@ class MreAchr(MelRecord):
 
         # wbXRGD := wbByteArray(XRGD, 'Ragdoll Data');
         # wbXRGB := wbByteArray(XRGB, 'Ragdoll Biped Data');
-        # wbByteArray without a parameter or "0" means that the data is 
-        # read from the file just as it is found, and written without being altered. 
+        # wbByteArray without a parameter or "0" means that the data is
+        # read from the file just as it is found, and written without being altered.
         MelBase('XRGD','xrgd_p'),
         MelBase('XRGB','xrgb_p'),
         # A Struct in TES5Edit either contains fields or records.
@@ -18375,7 +18375,7 @@ class MreAchr(MelRecord):
 
         MelGroup('patrolData',
             MelStruct('XPRD','f','idleTime',),
-            # In TES5Edit wbEmpty is normally a Marker with no value like an 
+            # In TES5Edit wbEmpty is normally a Marker with no value like an
             # empty xml tag <record></record> or <record />
             MelBase('XPPA','patrolScriptMarker',),
             MelFid('INAM','idle'),
@@ -18671,7 +18671,7 @@ class MreBook(MelRecord):
         MelString('CNAM','cnam_n'),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # DATA needs to have 'skillOrSpell' save an integer or FormID to be mergable.
 # BookTypeFlags needs syntax check.
 # bookTypes needs syntax check.
@@ -18827,7 +18827,7 @@ class MreSpgd(MelRecord):
         MelString('ICON','icon'),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreRfct(MelRecord):
@@ -18845,7 +18845,7 @@ class MreRfct(MelRecord):
         MelStruct('DATA','3I',(FID,'impactSet'),(FID,'impactSet'),(RfctTypeFlags,'flags',0L),),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreCont(MelRecord):
@@ -18888,7 +18888,7 @@ class MreCont(MelRecord):
         MelBounds(),
         MelLString('FULL','full'),
         MelModel(),
-        # One Count: COCT 
+        # One Count: COCT
         # Handled by MreContCnto
         MelNull('COCT'),
         # Repeating CNTO records: CNTO, CNTO, CNTO, CNTO : Of the Count COCT
@@ -18899,13 +18899,13 @@ class MreCont(MelRecord):
         MelFid('QNAM','closeSound'),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # MelContCnto, COCT, and CNTO needs to be finished.
 #------------------------------------------------------------------------------
 class MreCsty(MelRecord):
     """Csty Item"""
     classType = 'CSTY'
-    
+
     CstyTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
         (0, 'dueling'),
         (1, 'flanking'),
@@ -18928,13 +18928,13 @@ class MreCsty(MelRecord):
         MelStruct('DATA','I',(CstyTypeFlags,'flags',0L),),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreDial(MelRecord):
     """Dialogue Records"""
     classType = 'DIAL'
-    
+
     DialTopicFlags = bolt.Flags(0L,bolt.Flags.getNames(
         (0, 'doAllBeforeRepeating'),
     ))
@@ -19066,7 +19066,7 @@ class MreDial(MelRecord):
 #         self.infoStamp = 0 #--Stamp for info GRUP
 #         self.infoStamp2 = 0 #--Stamp for info GRUP
 #         self.infos = []
-# 
+#
 #     def loadInfos(self,ins,endPos,infoClass):
 #         """Load infos from ins. Called from MobDials."""
 #         infos = self.infos
@@ -19082,7 +19082,7 @@ class MreDial(MelRecord):
 #             else:
 #                 raise ModError(ins.inName, _('Unexpected %s record in %s group.')
 #                     % (recType,"INFO"))
-# 
+#
 #     def dump(self,out):
 #         """Dumps self., then group header and then records."""
 #         MreRecord.dump(self,out)
@@ -19090,13 +19090,13 @@ class MreDial(MelRecord):
 #         size = 20 + sum([20 + info.getSize() for info in self.infos])
 #         out.pack('4sIIIII','GRUP',size,self.fid,7,self.infoStamp,self.infoStamp2)
 #         for info in self.infos: info.dump(out)
-# 
+#
 #     def updateMasters(self,masters):
 #         """Updates set of master names according to masters actually used."""
 #         MelRecord.updateMasters(self,masters)
 #         for info in self.infos:
 #             info.updateMasters(masters)
-# 
+#
 #     def convertFids(self,mapper,toLong):
 #         """Converts fids between formats according to mapper.
 #         toLong should be True if converting to long format or False if converting to short format."""
@@ -19109,7 +19109,7 @@ class MreDial(MelRecord):
 #------------------------------------------------------------------------------
 # Causes unknown errors that don't make sense
 # Error in Dawnguard.esm
-# bosh.py 1526 load:  
+# bosh.py 1526 load:
 # Traceback (most recent call last):
 #   File "bash\bosh.py", line 1520, in load
 #     selfTops[label].load(ins,unpack and (topClass != MobBase))
@@ -19147,7 +19147,7 @@ class MreDoor(MelRecord):
         MelStruct('FNAM','Bf',(DoorTypeFlags,'flags',0L),'weight'),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreEfsh(MelRecord):
@@ -19303,7 +19303,7 @@ class MreEyes(MelRecord):
         MelStruct('DATA','B',(EyesTypeFlags,'flags',0L)),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreFact(MelRecord):
@@ -19403,7 +19403,7 @@ class MreFact(MelRecord):
 #------------------------------------------------------------------------------
 # Needs updated and to process old CRVA size
 #------------------------------------------------------------------------------
-    
+
     melSet = MelSet(
         MelString('EDID','eid'),
         MelLString('FULL','full'),
@@ -19430,7 +19430,7 @@ class MreFact(MelRecord):
         MelConditions(),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # XNAM and PLVD Need to be reviewed
 #------------------------------------------------------------------------------
 class MreFurn(MelRecord):
@@ -19518,7 +19518,7 @@ class MreFurn(MelRecord):
         MelString('XMRK','mico_n'),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # Needs syntax check, but should be Correct for Skyrim 1.8
 # XNAM and PLVD Need to be reviewed
 #------------------------------------------------------------------------------
@@ -19898,7 +19898,7 @@ class MreDebr(MelRecord):
 #------------------------------------------------------------------------------
 # Marker for organization please don't remove ---------------------------------
 # IMGS ------------------------------------------------------------------------
-class MreFlst(MelRecord):
+class MreImgs(MelRecord):
     """Imgs Item"""
     classType = 'IMGS'
 
@@ -19933,7 +19933,7 @@ class MreFlst(MelRecord):
                   (FlstDofFlags,'flags',0L),),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 # Marker for organization please don't remove ---------------------------------
@@ -19947,7 +19947,7 @@ class MreFlst(MelRecord):
         MelFids('LNAM','formIDInList'),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 # Marker for organization please don't remove ---------------------------------
@@ -19956,7 +19956,7 @@ class MreFlst(MelRecord):
 class MreBptd(MelRecord):
     """Bptd Item"""
     classType = 'BPTD'
-    
+
     BptdDamageFlags = bolt.Flags(0L,bolt.Flags.getNames(
             (0, 'severable'),
             (1, 'ikData'),
@@ -19998,7 +19998,7 @@ class MreBptd(MelRecord):
         MelBase('NAM5','textFileHashes'),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreAddn(MelRecord):
@@ -20044,6 +20044,50 @@ class MreAvif(MelRecord):
 #------------------------------------------------------------------------------
 # Marker for organization please don't remove ---------------------------------
 # CAMS ------------------------------------------------------------------------
+class MreCams(MelRecord):
+    """Cams Type"""
+    classType = 'CAMS'
+
+    CamsActionFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'actionShoot'),
+            (1, 'actionFly'),
+            (2, 'actionHit'),
+            (3, 'actionZoom'),
+        ))
+
+    CamsLocationFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'locationAttacker'),
+            (1, 'locationProjectile'),
+            (2, 'locationTarget'),
+            (3, 'locationLeadActor'),
+        ))
+
+    CamsTargetFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'targetAttacker'),
+            (1, 'targetProjectile'),
+            (2, 'targetTarget'),
+            (3, 'targetLeadActor'),
+        ))
+
+    CamsFlagsFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'positionFollowsLocation'),
+            (1, 'rotationFollowsTarget'),
+            (2, 'dontFollowBone'),
+            (3, 'firstPersonCamera'),
+            (4, 'noTracer'),
+            (5, 'startAtTimeZero'),
+        ))
+
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelModel(),
+        MelStruct('SNAM','4I7f',(CamsActionFlags,'flags',0L),(CamsLocationFlags,'flags',0L),
+                  (CamsTargetFlags,'flags',0L),(CamsFlagsFlags,'flags',0L),'timeMultPlayer',
+                  'timeMultTarget','timeMultGlobal','maxTime','minTime','targetPctBetweenActors',
+                  'nearTargetDistance',),
+        MelFid('MNAM','imageSpaceModifier',),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 #------------------------------------------------------------------------------
 # Marker for organization please don't remove ---------------------------------
 # CPTH ------------------------------------------------------------------------
@@ -20067,7 +20111,7 @@ class MreVtyp(MelRecord):
         MelStruct('DNAM','B',(VtypTypeFlags,'flags',0L),),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreMatt(MelRecord):
@@ -20159,7 +20203,7 @@ class MreIpds(MelRecord):
             ),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreEczn(MelRecord):
@@ -20251,7 +20295,7 @@ class MreLgtm(MelRecord):
         MelLgtmData(),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # If Syntax Correct, Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreMusc(MelRecord):
@@ -20289,7 +20333,7 @@ class MreFstp(MelRecord):
         MelString('ANAM','tag'),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreFsts(MelRecord):
@@ -20303,7 +20347,7 @@ class MreFsts(MelRecord):
         MelFids('DATA','footstepSets'),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # Verified Correct for Skyrim 1.8
 # Need to check if DATA can have more then one FormID if so MelFidList
 #------------------------------------------------------------------------------
@@ -20335,7 +20379,7 @@ class MreWoop(MelRecord):
         MelString('TNAM','translation'),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreShou(MelRecord):
@@ -20352,7 +20396,7 @@ class MreShou(MelRecord):
         	),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreEqup(MelRecord):
@@ -20365,7 +20409,7 @@ class MreEqup(MelRecord):
         MelStruct('DATA','I','useAllParents'),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 # Marker for organization please don't remove ---------------------------------
@@ -20402,7 +20446,7 @@ class MreOtft(MelRecord):
         MelFidList('INAM','items'),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreArto(MelRecord):
@@ -20449,7 +20493,7 @@ class MreMato(MelRecord):
                   'singlePassColor',(MatoTypeFlags,'flags',0L),),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreMovt(MelRecord):
@@ -20465,7 +20509,7 @@ class MreMovt(MelRecord):
         MelStruct('INAM','3f','directional','movementSpeed','rotationSpeed'),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreSndr(MelRecord):
@@ -20500,7 +20544,7 @@ class MreSndr(MelRecord):
                   'dbVariance','staticAttenuation',),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 # Marker for organization please don't remove ---------------------------------
@@ -20525,7 +20569,7 @@ class MreClfm(MelRecord):
         MelStruct('FNAM','I','playable'),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 # Marker for organization please don't remove ---------------------------------
@@ -20778,7 +20822,7 @@ class MreLvsp(MreLeveledList):
 class MreMgef(MelRecord):
     """Mgef Item"""
     classType = 'MGEF'
-    
+
     MgefActorValueEnum = bolt.Flags(0L,bolt.Flags.getNames(
         (-1, 'None'),
         (0, 'Aggresion'),
@@ -20946,7 +20990,7 @@ class MreMgef(MelRecord):
         (162, 'unknown162'),
         (163, 'ReflectDamage'),
     ))
-    
+
     MgefGeneralFlags = bolt.Flags(0L,bolt.Flags.getNames(
         (1, 'Hostile'),
         (2, 'Recover'),
@@ -20981,14 +21025,14 @@ class MreMgef(MelRecord):
         (31, 'unknown31'),
         (32, 'unknown32'),
     ))
-    
+
     MgefCastTypeEnum = bolt.Flags(0L,bolt.Flags.getNames(
         (0, 'constantEffect'),
         (1, 'fireandForget'),
         (2, 'concentrate'),
         (3, 'scroll'),
     ))
-   
+
     MgefDeliveryTypeEnum = bolt.Flags(0L,bolt.Flags.getNames(
         (0, 'self'),
         (1, 'contact'),
@@ -20996,14 +21040,14 @@ class MreMgef(MelRecord):
         (3, 'targetActor'),
         (3, 'targetLocation'),
     ))
-    
+
     MgefSoundLevelEnum = bolt.Flags(0L,bolt.Flags.getNames(
         (0, 'loud'),
         (1, 'normal'),
         (2, 'silent'),
         (3, 'veryLoud'),
     ))
-    
+
     MgefEffectArchetype = bolt.Flags(0L,bolt.Flags.getNames(
         (0, 'ValueModifier'),
         (1, 'Script'),
@@ -21053,7 +21097,7 @@ class MreMgef(MelRecord):
         (45, 'GrabActor'),
         (46, 'VampireLord'),
     ))
-    
+
     MgefSoundsTypeEnum = bolt.Flags(0L,bolt.Flags.getNames(
       (0, 'sheatheDraw'),
       (1, 'charge'),
@@ -21185,7 +21229,7 @@ class MreNpc_(MelRecord):
             # Only write the COCT/CNTO/COED subrecords if count > 0
             out.packSub('COCT','I',len(record.container))
             MelGroups.dumpData(self,record,out)
-            
+
     melSet = MelSet(MelString('EDID', 'eid'),
                     MelVmad(),
                     MelBounds(),
@@ -21292,7 +21336,7 @@ class MreSoun(MelRecord):
         MelFid('SDSC','soundDescriptor'),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 # class MreSpel(MelRecord,MreHasEffects):
@@ -21453,7 +21497,7 @@ class MreFlor(MelRecord):
         MelStruct('PFPC','4B','spring','summer','fall','winter',),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
-    
+
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 # Marker for organization please don't remove ---------------------------------
@@ -21488,20 +21532,20 @@ class MreFlor(MelRecord):
 #------------------------------------------------------------------------------
 # Causes errors don't merge until syntax is verified
 #
-#       MreDial, 
+#       MreDial,
 #------------------------------------------------------------------------------
 # Mergeable record types
 mergeClasses = (
         MreAact, MreActi, MreAddn, MreAlch, MreAmmo, MreAnio, MreAppa, MreArma,
-        MreArmo, MreArto, MreAspc, MreAstp, MreAvif, MreBook, MreBptd, MreClas, 
-        MreClfm, MreClmt, MreCobj, MreCont, MreCsty, MreDebr, MreDoor, MreEczn, 
-        MreEfsh, MreEnch, MreEqup, MreExpl, MreEyes, MreFact, MreFlor, MreFlst, 
-        MreFstp, MreFsts, MreFurn, MreGmst, MreGras, MreHazd, MreHdpt, MreIdle, 
-        MreIdlm, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt, MreLgtm, 
-        MreLscr, MreLvli, MreLvln, MreLvsp, MreMato, MreMatt, MreMesg, MreMgef,
-        MreMisc, MreMovt, MreMstt, MreMusc, MreOtft, MreProj, MreRfct, MreSlgm,
-        MreSndr, MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst,
-        MreVtyp, MreWoop,
+        MreArmo, MreArto, MreAspc, MreAstp, MreAvif, MreBook, MreBptd, MreCams,
+        MreClas, MreClfm, MreClmt, MreCobj, MreCont, MreCsty, MreDebr, MreDoor,
+        MreEczn, MreEfsh, MreEnch, MreEqup, MreExpl, MreEyes, MreFact, MreFlor,
+        MreFlst, MreFstp, MreFsts, MreFurn, MreGmst, MreGras, MreHazd, MreHdpt,
+        MreIdle, MreIdlm, MreImgs, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd,
+        MreLcrt, MreLgtm, MreLscr, MreLvli, MreLvln, MreLvsp, MreMato, MreMatt,
+        MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc, MreNpc_, MreOtft,
+        MreProj, MreRfct, MreSlgm, MreSndr, MreSoun, MreSpel, MreSpgd, MreStat,
+        MreTact, MreTree, MreTxst, MreVtyp, MreWoop,
   )
 
 #--Extra read/write classes
@@ -21519,15 +21563,15 @@ def init():
     #--Record Types
     brec.MreRecord.type_class = dict((x.classType,x) for x in (
         MreAact, MreActi, MreAddn, MreAlch, MreAmmo, MreAnio, MreAppa, MreArma,
-        MreArmo, MreArto, MreAspc, MreAstp, MreAvif, MreBook, MreBptd, MreClas, 
-        MreClfm, MreClmt, MreCobj, MreCont, MreCsty, MreDebr, MreDoor, MreEczn, 
-        MreEfsh, MreEnch, MreEqup, MreExpl, MreEyes, MreFact, MreFlor, MreFlst, 
-        MreFstp, MreFsts, MreFurn, MreGmst, MreGras, MreHazd, MreHdpt, MreIdle, 
-        MreIdlm, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt, MreLgtm, 
-        MreLscr, MreLvli, MreLvln, MreLvsp, MreMato, MreMatt, MreMesg, MreMgef,
-        MreMisc, MreMovt, MreMstt, MreMusc, MreNpc_, MreOtft, MreProj, MreRfct,
-        MreSlgm, MreSndr, MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree,
-        MreTxst, MreVtyp, MreWoop,
+        MreArmo, MreArto, MreAspc, MreAstp, MreAvif, MreBook, MreBptd, MreCams,
+        MreClas, MreClfm, MreClmt, MreCobj, MreCont, MreCsty, MreDebr, MreDoor,
+        MreEczn, MreEfsh, MreEnch, MreEqup, MreExpl, MreEyes, MreFact, MreFlor,
+        MreFlst, MreFstp, MreFsts, MreFurn, MreGmst, MreGras, MreHazd, MreHdpt,
+        MreIdle, MreIdlm, MreImgs, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd,
+        MreLcrt, MreLgtm, MreLscr, MreLvli, MreLvln, MreLvsp, MreMato, MreMatt,
+        MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc, MreNpc_, MreOtft,
+        MreProj, MreRfct, MreSlgm, MreSndr, MreSoun, MreSpel, MreSpgd, MreStat,
+        MreTact, MreTree, MreTxst, MreVtyp, MreWoop,
         MreHeader,
         ))
 
