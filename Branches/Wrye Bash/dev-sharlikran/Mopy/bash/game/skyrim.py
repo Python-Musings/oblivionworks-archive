@@ -27,7 +27,7 @@
 import struct
 from .. import brec
 from .. import bolt
-from ..bolt import _encode
+from ..bolt import _encode, Flags
 from ..brec import *
 
 import itertools
