@@ -3016,6 +3016,7 @@ class MreAchr(MelRecord):
         # {--- Leveled Actor ----}
 
         # {--- Merchant Container ----}
+        MelFid('XMRC','merchantContainer',),
 
         # {--- Extra ---}
 
@@ -4516,8 +4517,6 @@ class MreDebr(MelRecord):
 
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# IMGS ------------------------------------------------------------------------
 class MreImgs(MelRecord):
     """Imgs Item"""
     classType = 'IMGS'
@@ -4707,8 +4706,30 @@ class MreCams(MelRecord):
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# CPTH ------------------------------------------------------------------------
+class MreCpth(MelRecord):
+    """Camera Path"""
+    classType = 'CPTH'
+
+    # mustHaveCS = Must Have Camera Shots
+    CameraZoomFlags = bolt.Flags(0L,bolt.Flags.getNames(
+        (0, 'mustHaveCSDefault'),
+        (1, 'mustHaveCSDisable'),
+        (2, 'mustHaveCSShotList'),
+        (128, 'default'),
+        (129, 'disable'),
+        (130, 'shotList'),
+    ))
+
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelConditions(),
+        MelFids('ANAM','relatedCameraPaths',),
+        MelStruct('DATA','B',(CameraZoomFlags,'cameraZoom',0L),),
+        MelFids('SNAM','cameraShots',),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreVtyp(MelRecord):
     """Vtyp Item"""
@@ -4969,20 +4990,135 @@ class MreFsts(MelRecord):
 # Verified Correct for Skyrim 1.8
 # Need to check if DATA can have more then one FormID if so MelFidList
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# SMBN ------------------------------------------------------------------------
+class MreSmbn(MelRecord):
+    """Story Manager Branch Node"""
+    classType = 'SMBN'
+
+    SmbnNodeFlags = bolt.Flags(0L,bolt.Flags.getNames(
+        (0,'Random'),
+        (1,'noChildWarn'),
+    ))
+
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelFid('PNAM','parent',),
+        MelFid('SNAM','child',),
+        MelStruct('CITC','I','conditionCount'),
+        MelConditions(),
+        MelStruct('DNAM','I',(SmbnNodeFlags,'nodeFlags',0L),),
+        MelBase('XNAM','xnam_p'),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# SMQN ------------------------------------------------------------------------
+class MreSmqn(MelRecord):
+    """Story Manager Quest Node"""
+    classType = 'SMQN'
+
+    # "Do all" = "Do all before repeating"
+    SmqnQuestFlags = bolt.Flags(0L,bolt.Flags.getNames(
+        (0,'doAll'),
+        (1,'sharesEvent'),
+        (2,'numQuestsToRun'),
+    ))
+
+    SmqnNodeFlags = bolt.Flags(0L,bolt.Flags.getNames(
+        (0,'Random'),
+        (1,'noChildWarn'),
+    ))
+
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelFid('PNAM','parent',),
+        MelFid('SNAM','child',),
+        MelStruct('CITC','I','conditionCount'),
+        MelConditions(),
+        MelStruct('DNAM','2H',(SmqnNodeFlags,'nodeFlags',0L),(SmqnQuestFlags,'questFlags',0L),),
+        MelStruct('XNAM','I','maxConcurrentQuests'),
+        MelStruct('MNAM','I','numQuestsToRun'),
+        MelStruct('QNAM','I','questCount'),
+        MelGroups('quests',
+            MelFid('NNAM','quest',),
+            MelBase('FNAM','fnam_p'),
+            MelStruct('RNAM','f','hoursUntilReset'),
+            )
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# SMEN ------------------------------------------------------------------------
+class MreSmen(MelRecord):
+    """Story Manager Event Node"""
+    classType = 'SMEN'
+
+    SmenNodeFlags = bolt.Flags(0L,bolt.Flags.getNames(
+        (0,'Random'),
+        (1,'noChildWarn'),
+    ))
+
+    # ENAM is four chars with no length byte, like AIPL, or CHRR
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelFid('PNAM','parent',),
+        MelFid('SNAM','child',),
+        MelStruct('CITC','I','conditionCount'),
+        MelConditions(),
+        MelStruct('DNAM','I',(SmenNodeFlags,'nodeFlags',0L),),
+        MelBase('XNAM','xnam_p'),
+        MelString('ENAM','type'),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# DLBR ------------------------------------------------------------------------
+class MreDlbr(MelRecord):
+    """Dialog Branch"""
+    classType = 'DLBR'
+
+    DialogBranchFlags = bolt.Flags(0L,bolt.Flags.getNames(
+        (0,'topLevel'),
+        (1,'blocking'),
+        (2,'exclusive'),
+    ))
+
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelFid('QNAM','quest',),
+        MelStruct('TNAM','I','unknown'),
+        MelStruct('DNAM','I',(DialogBranchFlags,'flags',0L),),
+        MelFid('SNAM','startingTopic',),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# MUST ------------------------------------------------------------------------
+class MreMust(MelRecord):
+    """Music Track"""
+    classType = 'MUST'
+
+    TrackTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
+        (0,'topLevel'),
+        (1,'blocking'),
+        (2,'exclusive'),
+    ))
+
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelStruct('CNAM','I',(TrackTypeFlags,'trackType',0L),),
+        MelStruct('FLTV','f','duration'),
+        MelStruct('DNAM','I','fadeout'),
+        MelString('ANAM','trackFilename'),
+        MelString('BNAM','finaleFilename'),
+        MelStructA('FNAM','f','cuePoints'),
+        MelStruct('LNAM','2fI','loopBegins','loopEnds','loopCount',),
+        MelStruct('CITC','I','conditionCount'),
+        MelConditions(),
+        MelFids('SNAM','tracks',),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 # Marker for organization please don't remove ---------------------------------
 # DLVW ------------------------------------------------------------------------
@@ -6156,15 +6292,16 @@ class MreFlor(MelRecord):
 mergeClasses = (
         MreAact, MreActi, MreAddn, MreAlch, MreAmmo, MreAnio, MreAppa, MreArma,
         MreArmo, MreArto, MreAspc, MreAstp, MreAvif, MreBook, MreBptd, MreCams,
-        MreClas, MreClfm, MreClmt, MreCobj, MreCont, MreCsty, MreDebr, MreDoor,
-        MreEczn, MreEfsh, MreEnch, MreEqup, MreExpl, MreEyes, MreFact, MreFlor,
-        MreFlst, MreFstp, MreFsts, MreFurn, MreGmst, MreGras, MreHazd, MreHdpt,
-        MreIdle, MreIdlm, MreImgs, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd,
-        MreLcrt, MreLgtm, MreLscr, MreLvli, MreLvln, MreLvsp, MreMato, MreMatt,
-        MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc, MreNpc_, MreOtft,
-        MreProj, MreRfct, MreSlgm, MreSndr, MreSoun, MreSpel, MreSpgd, MreStat,
-        MreTact, MreTree, MreTxst, MreVtyp, MreWoop,
-  )
+        MreClas, MreClfm, MreClmt, MreCobj, MreCont, MreCpth, MreCsty, MreDebr,
+        MreDlbr, MreDoor, MreEczn, MreEfsh, MreEnch, MreEqup, MreExpl, MreEyes,
+        MreFact, MreFlor, MreFlst, MreFstp, MreFsts, MreFurn, MreGmst, MreGras,
+        MreHazd, MreHdpt, MreIdle, MreIdlm, MreImgs, MreIngr, MreIpct, MreIpds,
+        MreKeym, MreKywd, MreLcrt, MreLgtm, MreLscr, MreLvli, MreLvln, MreLvsp,
+        MreMato, MreMatt, MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc,
+        MreMust, MreNpc_, MreOtft, MreProj, MreRfct, MreSlgm, MreSmbn, MreSmen,
+        MreSmqn, MreSndr, MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree,
+        MreTxst, MreVtyp, MreWoop,
+    )
 
 #--Extra read/write classes
 readClasses = ()
@@ -6182,16 +6319,17 @@ def init():
     brec.MreRecord.type_class = dict((x.classType,x) for x in (
         MreAact, MreActi, MreAddn, MreAlch, MreAmmo, MreAnio, MreAppa, MreArma,
         MreArmo, MreArto, MreAspc, MreAstp, MreAvif, MreBook, MreBptd, MreCams,
-        MreClas, MreClfm, MreClmt, MreCobj, MreCont, MreCsty, MreDebr, MreDoor,
-        MreEczn, MreEfsh, MreEnch, MreEqup, MreExpl, MreEyes, MreFact, MreFlor,
-        MreFlst, MreFstp, MreFsts, MreFurn, MreGmst, MreGras, MreHazd, MreHdpt,
-        MreIdle, MreIdlm, MreImgs, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd,
-        MreLcrt, MreLgtm, MreLscr, MreLvli, MreLvln, MreLvsp, MreMato, MreMatt,
-        MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc, MreNpc_, MreOtft,
-        MreProj, MreRfct, MreSlgm, MreSndr, MreSoun, MreSpel, MreSpgd, MreStat,
-        MreTact, MreTree, MreTxst, MreVtyp, MreWoop,
+        MreClas, MreClfm, MreClmt, MreCobj, MreCont, MreCpth, MreCsty, MreDebr,
+        MreDlbr, MreDoor, MreEczn, MreEfsh, MreEnch, MreEqup, MreExpl, MreEyes,
+        MreFact, MreFlor, MreFlst, MreFstp, MreFsts, MreFurn, MreGmst, MreGras,
+        MreHazd, MreHdpt, MreIdle, MreIdlm, MreImgs, MreIngr, MreIpct, MreIpds,
+        MreKeym, MreKywd, MreLcrt, MreLgtm, MreLscr, MreLvli, MreLvln, MreLvsp,
+        MreMato, MreMatt, MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc,
+        MreMust, MreNpc_, MreOtft, MreProj, MreRfct, MreSlgm, MreSmbn, MreSmen,
+        MreSmqn, MreSndr, MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree,
+        MreTxst, MreVtyp, MreWoop,
         MreHeader,
-        ))
+    ))
 
     #--Simple records
     brec.MreRecord.simpleTypes = (set(brec.MreRecord.type_class) -
