@@ -74,7 +74,7 @@ patchURL = u''
 patchTip = u''
 
 #--URL to the Nexus site for this game
-nexusUrl = u'http://www.newvegasnexus.com/'
+nexusUrl = u'http://www.nexusmods.com/newvegas/'
 nexusName = u'New Vegas Nexus'
 nexusKey = u'bash.installers.openNewVegasNexus'
    
