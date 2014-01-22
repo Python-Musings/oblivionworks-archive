@@ -74,7 +74,7 @@ patchURL = u''
 patchTip = u''
 
 #--URL to the Nexus site for this game
-nexusUrl = u'http://www.fallout3nexus.com/'
+nexusUrl = u'http://www.nexusmods.com/fallout3/'
 nexusName = u'Fallout 3 Nexus'
 nexusKey = u'bash.installers.openFallout3Nexus'
    

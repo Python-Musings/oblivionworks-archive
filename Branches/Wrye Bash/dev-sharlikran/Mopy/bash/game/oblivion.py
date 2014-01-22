@@ -60,7 +60,7 @@ patchURL = u'http://www.elderscrolls.com/downloads/updates_patches.htm'
 patchTip = u'http://www.elderscrolls.com/'
 
 #--URL to the Nexus site for this game
-nexusUrl = u'http://oblivion.nexusmods.com/'
+nexusUrl = u'http://www.nexusmods.com/oblivion/'
 nexusName = u'TES Nexus'
 nexusKey = 'bash.installers.openTesNexus'
 
