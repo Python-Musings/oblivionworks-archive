@@ -3043,8 +3043,14 @@ class MreAchr(MelRecord):
 #------------------------------------------------------------------------------
 class MreActi(MelRecord):
     """Activator."""
-
     classType = 'ACTI'
+
+    ActivatorFlags = bolt.Flags(0L,bolt.Flags.getNames(
+        (0, 'noDisplacement'),
+        (0, 'ignoredBySandbox'),
+    ))
+
+
     melSet = MelSet(
         MelString('EDID','eid'),
         MelVmad(),
@@ -3054,12 +3060,12 @@ class MreActi(MelRecord):
         MelDestructible(),
         MelNull('KSIZ'),
         MelKeywords('KWDA','keywords'),
-        MelBase('PNAM','pnam_p'),
+        MelStruct('PNAM','=4B','red','green','blue','unused'),
         MelOptStruct('SNAM','I',(FID,'dropSound')),
         MelOptStruct('VNAM','I',(FID,'pickupSound')),
         MelOptStruct('WNAM','I',(FID,'water')),
-        MelLString('RNAM','rnam'),
-        MelBase('FNAM','fnam_p'),
+        MelLString('RNAM','rnam_p'),
+        MelStruct('FNAM','I',(ActivatorFlags,'flags',0L),),
         MelOptStruct('KNAM','I',(FID,'keyword')),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
