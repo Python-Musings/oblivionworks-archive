@@ -12599,6 +12599,8 @@ class ObLVLCRecord(ObBaseRecord):
     IsCalcFromAllLevels = CBashBasicFlag('flags', 0x00000001)
     IsCalcForEachItem = CBashBasicFlag('flags', 0x00000002)
     IsUseAllSpells = CBashBasicFlag('flags', 0x00000004)
+	# New for Skyrim LVLI
+    # IsSpecialLoot = CBashBasicFlag('flags', 0x00000008)
     exportattrs = copyattrs = ObBaseRecord.baseattrs + ['chanceNone', 'flags', 'script',
                                                         'template', 'entries_list']
 
@@ -12633,6 +12635,8 @@ class ObLVLIRecord(ObBaseRecord):
     IsCalcFromAllLevels = CBashBasicFlag('flags', 0x00000001)
     IsCalcForEachItem = CBashBasicFlag('flags', 0x00000002)
     IsUseAllSpells = CBashBasicFlag('flags', 0x00000004)
+	# New for Skyrim LVLI
+    # IsSpecialLoot = CBashBasicFlag('flags', 0x00000008)
     exportattrs = copyattrs = ObBaseRecord.baseattrs + ['chanceNone', 'flags', 'entries_list']
 
 class ObLVSPRecord(ObBaseRecord):
@@ -12666,6 +12670,8 @@ class ObLVSPRecord(ObBaseRecord):
     IsCalcFromAllLevels = CBashBasicFlag('flags', 0x00000001)
     IsCalcForEachItem = CBashBasicFlag('flags', 0x00000002)
     IsUseAllSpells = CBashBasicFlag('flags', 0x00000004)
+	# New for Skyrim LVLI
+    # IsSpecialLoot = CBashBasicFlag('flags', 0x00000008)
     exportattrs = copyattrs = ObBaseRecord.baseattrs + ['chanceNone', 'flags', 'entries_list']
 
 class ObMGEFRecord(ObBaseRecord):
