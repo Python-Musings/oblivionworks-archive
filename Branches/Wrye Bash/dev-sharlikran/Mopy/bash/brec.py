@@ -590,7 +590,7 @@ class MelFidList(MelFids):
 class MelSortedFidList(MelFidList):
     """MelFidList that sorts the order of the Fids before writing them.  They are not sorted after modification, only just prior to writing."""
 
-    def __init__(self, self, type, attr, sortKeyFn = lambda x: x, default=None):
+    def __init__(self, type, attr, sortKeyFn = lambda x: x, default=None):
         """sortKeyFn - function to pass to list.sort(key = ____) to sort the FidList
            just prior to writing.  Since the FidList will already be converted to short Fids
            at this point we're sorting 4-byte values,  not (FileName, 3-Byte) tuples."""
