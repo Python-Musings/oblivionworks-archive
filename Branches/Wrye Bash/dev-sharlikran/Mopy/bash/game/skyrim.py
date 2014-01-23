@@ -4653,7 +4653,7 @@ class MreAvif(MelRecord):
             MelStruct('HNAM','f','horizontalPosition'),
             MelStruct('VNAM','f','verticalPosition'),
             MelFid('SNAM','associatedSkill',),
-            MelStructs('CNAM','I','connectionLinetoIndex',),
+            MelStructs('CNAM','I','connections','lineToIndex',),
             MelStruct('INAM','I','index',),
         ),
     )
