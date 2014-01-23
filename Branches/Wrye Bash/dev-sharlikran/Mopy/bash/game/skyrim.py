@@ -5530,10 +5530,10 @@ class MreLvln(MreLeveledList):
         MelBounds(),
         MelStruct('LVLD','B','chanceNone'),
         MelStruct('LVLF','B',(MreLeveledListBase._flags,'flags',0L)),
+        MelOptStruct('LVLG','I',(FID,'glob')),
         MelNull('LLCT'),
         MreLeveledList.MelLevListLvlo(),
-        MelString('MODL','model'),
-        MelBase('MODT','modt_p'),
+        MelModel(),
         )
     __slots__ = MreLeveledList.__slots__ + melSet.getSlotsUsed()
 
@@ -6023,7 +6023,7 @@ class MreNpc_(MelRecord):
                     MelLString('FULL', 'full'),
                     MelLString('SHRT', 'short_alias'),
                     MelBase('DATA', 'marker'),
-                    MelStruct('DNAM', '<18s18sHHHHfB3s', 'base_skills', 'mod_skills',
+                    MelStruct('DNAM', '<2B3H2sfB3s', 'base_skills', 'mod_skills',
                               'calc_health', 'calc_magicka', 'calc_stamina', 'dnam_unused1',
                               'far_away_distance', 'geared_up_weapons', 'dnam_unused2'),
                     MelStructs('PNAM', '<I', 'head_part_addons', (FID, 'addon')),
@@ -6038,7 +6038,9 @@ class MreNpc_(MelRecord):
                               MelStruct('CSDT', '<I', 'sound_type'),
                               MelGroups('sound',
                                         MelStruct('CSDI', '<I', (FID, 'sound')),
-                                        MelStruct('CSDC', '<B', 'chance'))),
+                                        MelStruct('CSDC', '<B', 'chance')
+                                       )
+                             ),
                     MelOptStruct('CSCR', '<I', (FID, 'audio_template')),
                     MelOptStruct('DOFT', '<I', (FID, 'default_outfit')),
                     MelOptStruct('SOFT', '<I', (FID, 'sleep_outfit')),
@@ -6059,7 +6061,7 @@ class MreNpc_(MelRecord):
                               MelStruct('TINV', '<i', 'tint_value'),
                               MelStruct('TIAS', '<h', 'unknown'),
                               ),)
-# Not fully tested
+# Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 # Marker for organization please don't remove ---------------------------------
 # PACK ------------------------------------------------------------------------
