@@ -5172,8 +5172,41 @@ class MreEqup(MelRecord):
 
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# RELA ------------------------------------------------------------------------
+class MreRela(MelRecord):
+    """Relationship"""
+    classType = 'RELA'
+
+    RelationshipFlags = bolt.Flags(0L,bolt.Flags.getNames(
+        (0,'Unknown 1'),
+        (1,'Unknown 2'),
+        (2,'Unknown 3'),
+        (3,'Unknown 4'),
+        (4,'Unknown 5'),
+        (5,'Unknown 6'),
+        (6,'Unknown 7'),
+        (7,'Secret'),
+    ))
+    
+    RelationshipRank = bolt.Flags(0L,bolt.Flags.getNames(
+        (0,'Lover'),
+        (1,'Ally'),
+        (2,'Confidant'),
+        (3,'Friend'),
+        (4,'Acquaitance'),
+        (5,'Rival'),
+        (6,'Foe'),
+        (7,'Enemy'),
+        (8,'Archnemesis'),
+    ))
+    
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelStruct('DATA','IIHBBI',(FID,'parent'),(FID,'child'),(RelationshipRank,'rankFlags',0L),
+                  'unknown',(RelationshipFlags,'relaFlags',0L),(FID,'associationType'),),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 # Marker for organization please don't remove ---------------------------------
 # SCEN ------------------------------------------------------------------------
@@ -5307,11 +5340,46 @@ class MreSndr(MelRecord):
 
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# DUAL ------------------------------------------------------------------------
+class MreDual(MelRecord):
+    """Dual Cast Data"""
+    classType = 'DUAL'
+
+    DualCastDataFlags = bolt.Flags(0L,bolt.Flags.getNames(
+        (0,'hitEffectArt'),
+        (1,'projectile'),
+        (2,'explosion'),
+    ))
+
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelBounds(),
+        MelStruct('DATA','6I',(FID,'projectile'),(FID,'explosion'),(FID,'effectShader'),
+                  (FID,'hitEffectArt'),(FID,'impactDataSet'),(DualCastDataFlags,'flags',0L),),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# SNCT ------------------------------------------------------------------------
+class MreSnct(MelRecord):
+    """Sound Category"""
+    classType = 'SNCT'
+
+    SoundCategoryFlags = bolt.Flags(0L,bolt.Flags.getNames(
+        (0,'muteWhenSubmerged'),
+        (1,'shouldAppearOnMenu'),
+    ))
+
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelLString('FULL','full'),
+        MelStruct('FNAM','I',(SoundCategoryFlags,'flags',0L),),
+        MelFid('PNAM','parent',),
+        MelStruct('VNAM','H','staticVolumeMultiplier'),
+        MelStruct('UNAM','H','defaultMenuValue'),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 # Marker for organization please don't remove ---------------------------------
 # SOPM ------------------------------------------------------------------------
@@ -6424,14 +6492,15 @@ mergeClasses = (
         MreAact, MreActi, MreAddn, MreAlch, MreAmmo, MreAnio, MreAppa, MreArma,
         MreArmo, MreArto, MreAspc, MreAstp, MreAvif, MreBook, MreBptd, MreCams,
         MreClas, MreClfm, MreClmt, MreCobj, MreColl, MreCont, MreCpth, MreCsty,
-        MreDebr, MreDlbr, MreDoor, MreEczn, MreEfsh, MreEnch, MreEqup, MreExpl,
-        MreEyes, MreFact, MreFlor, MreFlst, MreFstp, MreFsts, MreFurn, MreGmst,
-        MreGras, MreHazd, MreHdpt, MreIdle, MreIdlm, MreImgs, MreIngr, MreIpct,
-        MreIpds, MreKeym, MreKywd, MreLcrt, MreLgtm, MreLscr, MreLtex, MreLvli,
-        MreLvln, MreLvsp, MreMato, MreMatt, MreMesg, MreMgef, MreMisc, MreMovt,
-        MreMstt, MreMusc, MreMust, MreNpc_, MreOtft, MreProj, MreRevb, MreRfct,
-        MreScrl, MreSlgm, MreSmbn, MreSmen, MreSmqn, MreSndr, MreSoun, MreSpel,
-        MreSpgd, MreStat, MreTact, MreTree, MreTxst, MreVtyp, MreWoop,
+        MreDebr, MreDlbr, MreDoor, MreDual, MreEczn, MreEfsh, MreEnch, MreEqup,
+        MreExpl, MreEyes, MreFact, MreFlor, MreFlst, MreFstp, MreFsts, MreFurn,
+        MreGmst, MreGras, MreHazd, MreHdpt, MreIdle, MreIdlm, MreImgs, MreIngr,
+        MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt, MreLgtm, MreLscr, MreLtex,
+        MreLvli, MreLvln, MreLvsp, MreMato, MreMatt, MreMesg, MreMgef, MreMisc,
+        MreMovt, MreMstt, MreMusc, MreMust, MreNpc_, MreOtft, MreProj, MreRela,
+        MreRevb, MreRfct, MreScrl, MreSlgm, MreSnct, MreSmbn, MreSmen, MreSmqn,
+        MreSndr, MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst,
+        MreVtyp, MreWoop,
     )
 
 #--Extra read/write classes
@@ -6451,14 +6520,15 @@ def init():
         MreAact, MreActi, MreAddn, MreAlch, MreAmmo, MreAnio, MreAppa, MreArma,
         MreArmo, MreArto, MreAspc, MreAstp, MreAvif, MreBook, MreBptd, MreCams,
         MreClas, MreClfm, MreClmt, MreCobj, MreColl, MreCont, MreCpth, MreCsty,
-        MreDebr, MreDlbr, MreDoor, MreEczn, MreEfsh, MreEnch, MreEqup, MreExpl,
-        MreEyes, MreFact, MreFlor, MreFlst, MreFstp, MreFsts, MreFurn, MreGmst,
-        MreGras, MreHazd, MreHdpt, MreIdle, MreIdlm, MreImgs, MreIngr, MreIpct,
-        MreIpds, MreKeym, MreKywd, MreLcrt, MreLgtm, MreLscr, MreLtex, MreLvli,
-        MreLvln, MreLvsp, MreMato, MreMatt, MreMesg, MreMgef, MreMisc, MreMovt,
-        MreMstt, MreMusc, MreMust, MreNpc_, MreOtft, MreProj, MreRevb, MreRfct,
-        MreScrl, MreSlgm, MreSmbn, MreSmen, MreSmqn, MreSndr, MreSoun, MreSpel,
-        MreSpgd, MreStat, MreTact, MreTree, MreTxst, MreVtyp, MreWoop,
+        MreDebr, MreDlbr, MreDoor, MreDual, MreEczn, MreEfsh, MreEnch, MreEqup,
+        MreExpl, MreEyes, MreFact, MreFlor, MreFlst, MreFstp, MreFsts, MreFurn,
+        MreGmst, MreGras, MreHazd, MreHdpt, MreIdle, MreIdlm, MreImgs, MreIngr,
+        MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt, MreLgtm, MreLscr, MreLtex,
+        MreLvli, MreLvln, MreLvsp, MreMato, MreMatt, MreMesg, MreMgef, MreMisc,
+        MreMovt, MreMstt, MreMusc, MreMust, MreNpc_, MreOtft, MreProj, MreRela,
+        MreRevb, MreRfct, MreScrl, MreSlgm, MreSnct, MreSmbn, MreSmen, MreSmqn,
+        MreSndr, MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst,
+        MreVtyp, MreWoop,
         MreHeader,
     ))
 
