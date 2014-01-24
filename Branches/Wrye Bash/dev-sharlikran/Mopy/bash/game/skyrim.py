@@ -5332,8 +5332,20 @@ class MreClfm(MelRecord):
 
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# REVB ------------------------------------------------------------------------
+class MreRevb(MelRecord):
+    """Reverb Parameters"""
+    classType = 'REVB'
+
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelStruct('DATA','HHbbbbBBBBBB','decayTimeMS','hfReferenceHZ','roomFilter',
+                  'hfRoomFilter','reflections','reverbAmp','decayHFRatio',
+                  'reflectDelayMS','reverbDelayMS','diffusion','density',
+                  'unknown',),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreGras(MelRecord):
     """Grass record."""
@@ -5507,8 +5519,21 @@ class MreLscr(MelRecord):
 
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# LTEX ------------------------------------------------------------------------
+class MreLtex(MelRecord):
+    """Landscape Texture."""
+    classType = 'LTEX'
+
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelFid('TNAM','textureSet',),
+        MelFid('MNAM','materialType',),
+        MelStruct('HNAM','BB','friction','restitution',),
+        MelStruct('SNAM','BB','textureSpecularExponent',),
+        MelFids('GNAM','grasses'),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreLeveledList(MreLeveledListBase):
     """Skryim Leveled item/creature/spell list."""
@@ -6380,11 +6405,11 @@ mergeClasses = (
         MreDlbr, MreDoor, MreEczn, MreEfsh, MreEnch, MreEqup, MreExpl, MreEyes,
         MreFact, MreFlor, MreFlst, MreFstp, MreFsts, MreFurn, MreGmst, MreGras,
         MreHazd, MreHdpt, MreIdle, MreIdlm, MreImgs, MreIngr, MreIpct, MreIpds,
-        MreKeym, MreKywd, MreLcrt, MreLgtm, MreLscr, MreLvli, MreLvln, MreLvsp,
-        MreMato, MreMatt, MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc,
-        MreMust, MreNpc_, MreOtft, MreProj, MreRfct, MreScrl, MreSlgm, MreSmbn,
-        MreSmen, MreSmqn, MreSndr, MreSoun, MreSpel, MreSpgd, MreStat, MreTact,
-        MreTree, MreTxst, MreVtyp, MreWoop,
+        MreKeym, MreKywd, MreLcrt, MreLgtm, MreLscr, MreLtex, MreLvli, MreLvln,
+        MreLvsp, MreMato, MreMatt, MreMesg, MreMgef, MreMisc, MreMovt, MreMstt,
+        MreMusc, MreMust, MreNpc_, MreOtft, MreProj, MreRevb, MreRfct, MreScrl,
+        MreSlgm, MreSmbn, MreSmen, MreSmqn, MreSndr, MreSoun, MreSpel, MreSpgd,
+        MreStat, MreTact, MreTree, MreTxst, MreVtyp, MreWoop,
     )
 
 #--Extra read/write classes
@@ -6407,11 +6432,11 @@ def init():
         MreDlbr, MreDoor, MreEczn, MreEfsh, MreEnch, MreEqup, MreExpl, MreEyes,
         MreFact, MreFlor, MreFlst, MreFstp, MreFsts, MreFurn, MreGmst, MreGras,
         MreHazd, MreHdpt, MreIdle, MreIdlm, MreImgs, MreIngr, MreIpct, MreIpds,
-        MreKeym, MreKywd, MreLcrt, MreLgtm, MreLscr, MreLvli, MreLvln, MreLvsp,
-        MreMato, MreMatt, MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc,
-        MreMust, MreNpc_, MreOtft, MreProj, MreRfct, MreScrl, MreSlgm, MreSmbn,
-        MreSmen, MreSmqn, MreSndr, MreSoun, MreSpel, MreSpgd, MreStat, MreTact,
-        MreTree, MreTxst, MreVtyp, MreWoop,
+        MreKeym, MreKywd, MreLcrt, MreLgtm, MreLscr, MreLtex, MreLvli, MreLvln,
+        MreLvsp, MreMato, MreMatt, MreMesg, MreMgef, MreMisc, MreMovt, MreMstt,
+        MreMusc, MreMust, MreNpc_, MreOtft, MreProj, MreRevb, MreRfct, MreScrl,
+        MreSlgm, MreSmbn, MreSmen, MreSmqn, MreSndr, MreSoun, MreSpel, MreSpgd,
+        MreStat, MreTact, MreTree, MreTxst, MreVtyp, MreWoop,
         MreHeader,
     ))
 
