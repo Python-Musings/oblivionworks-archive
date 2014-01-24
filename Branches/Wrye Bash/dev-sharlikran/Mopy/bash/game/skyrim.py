@@ -6199,8 +6199,85 @@ class MreSpel(MelRecord):
 
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# SCRL ------------------------------------------------------------------------
+class MreScrl(MelRecord):
+    """Scroll record."""
+    classType = 'SCRL'
+
+    ScrollTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
+        (0,'spell'),
+        (1,'disease'),
+        (2,'power'),
+        (3,'lesserPower'),
+        (4,'ability'),
+        (5,'poison'),
+        (6,'unknown6'),
+        (7,'unknown7'),
+        (8,'unknown8'),
+        (9,'unknown9'),
+        (10,'addiction'),
+        (11,'voice'),
+    ))
+
+    ScrollDataFlags = bolt.Flags(0L,bolt.Flags.getNames(
+        (0,'manualCostCalc'),
+        (1,'unknown2'),
+        (2,'unknown3'),
+        (3,'unknown4'),
+        (4,'unknown5'),
+        (5,'unknown6'),
+        (6,'unknown7'),
+        (7,'unknown8'),
+        (8,'unknown9'),
+        (9,'unknown10'),
+        (10,'unknown11'),
+        (11,'unknown12'),
+        (12,'unknown13'),
+        (13,'unknown14'),
+        (14,'unknown15'),
+        (15,'unknown16'),
+        (16,'unknown17'),
+        (17,'pcStartSpell'),
+        (18,'unknown19'),
+        (19,'areaEffectIgnoresLOS'),
+        (20,'ignoreResistance'),
+        (21,'noAbsorbReflect'),
+        (22,'unknown23'),
+        (23,'noDualCastModification'),
+        (24,'unknown25'),
+        (25,'unknown26'),
+        (26,'unknown27'),
+        (27,'unknown28'),
+        (28,'unknown29'),
+        (29,'unknown30'),
+        (30,'unknown31'),
+        (31,'unknown32'),
+    ))
+
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelBounds(),
+        MelString('FULL','full'),
+        MelNull('KSIZ'),
+        MelKeywords('KWDA','keywords'),
+        MelFids('MDOB','menuDisplayObject'),
+        MelFid('ETYP','equipmentType',),
+        MelString('DESC','description'),
+        MelModel(),
+        MelDestructible(),
+        MelFid('YNAM','soundPickUp',),
+        MelFid('ZNAM','soundDrop',),
+        MelStruct('DATA','If','itemValue','itemWeight',),
+        MelStruct('SPIT','IIIfIIffI','baseCost',(ScrollDataFlags,'dataFlags',0L),
+                  (ScrollTypeFlags,'typeFlags',0L),'chargeTime','castType','targetType',
+                  'castDuration','range',(FID,'halfCostPerk'),),
+        MelGroups('effects',
+            MelFid('EFID', 'baseEffect',),
+            MelStruct('EFIT','fII','magnitude','area','duration',),
+            )
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreStat(MelRecord):
     """Static model record."""
@@ -6305,9 +6382,9 @@ mergeClasses = (
         MreHazd, MreHdpt, MreIdle, MreIdlm, MreImgs, MreIngr, MreIpct, MreIpds,
         MreKeym, MreKywd, MreLcrt, MreLgtm, MreLscr, MreLvli, MreLvln, MreLvsp,
         MreMato, MreMatt, MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc,
-        MreMust, MreNpc_, MreOtft, MreProj, MreRfct, MreSlgm, MreSmbn, MreSmen,
-        MreSmqn, MreSndr, MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree,
-        MreTxst, MreVtyp, MreWoop,
+        MreMust, MreNpc_, MreOtft, MreProj, MreRfct, MreScrl, MreSlgm, MreSmbn,
+        MreSmen, MreSmqn, MreSndr, MreSoun, MreSpel, MreSpgd, MreStat, MreTact,
+        MreTree, MreTxst, MreVtyp, MreWoop,
     )
 
 #--Extra read/write classes
@@ -6332,9 +6409,9 @@ def init():
         MreHazd, MreHdpt, MreIdle, MreIdlm, MreImgs, MreIngr, MreIpct, MreIpds,
         MreKeym, MreKywd, MreLcrt, MreLgtm, MreLscr, MreLvli, MreLvln, MreLvsp,
         MreMato, MreMatt, MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc,
-        MreMust, MreNpc_, MreOtft, MreProj, MreRfct, MreSlgm, MreSmbn, MreSmen,
-        MreSmqn, MreSndr, MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree,
-        MreTxst, MreVtyp, MreWoop,
+        MreMust, MreNpc_, MreOtft, MreProj, MreRfct, MreScrl, MreSlgm, MreSmbn,
+        MreSmen, MreSmqn, MreSndr, MreSoun, MreSpel, MreSpgd, MreStat, MreTact,
+        MreTree, MreTxst, MreVtyp, MreWoop,
         MreHeader,
     ))
 
