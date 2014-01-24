@@ -5678,7 +5678,8 @@ class MreLvln(MreLeveledList):
         MelOptStruct('LVLG','I',(FID,'glob')),
         MelNull('LLCT'),
         MreLeveledList.MelLevListLvlo(),
-        MelModel(),
+        MelString('MODL','model'),
+        MelBase('MODT','modt_p'),
         )
     __slots__ = MreLeveledList.__slots__ + melSet.getSlotsUsed()
 
