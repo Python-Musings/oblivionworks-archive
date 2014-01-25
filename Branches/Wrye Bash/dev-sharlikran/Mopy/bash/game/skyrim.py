@@ -2926,6 +2926,29 @@ class MreAchr(MelRecord):
         (1, 'topicSubtype'),
     ))
 
+    # 'Set Enable State to Opposite of Parent',
+    # 'Pop In'
+    EnableParentFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'setEnableStatetoOppositeofParent'),
+            (1, 'popIn'),
+        ))
+    
+    # 'Parent Activate Only'
+    ActivateParentsFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'parentActivateOnly'),
+        ))
+    
+    # 'Easy',
+    # 'Medium',
+    # 'Hard',
+    # 'Very Hard'
+    LeveledActorFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'easy'),
+            (1, 'medium'),
+            (2, 'hard'),
+            (3, 'veryHard'),
+        ))
+    
     # -------------------------
     # class MelACHRPDTOHandeler(MelGroup):
     # -------------------------
@@ -2997,7 +3020,7 @@ class MreAchr(MelRecord):
             MelStruct('XPRD','f','idleTime',),
             # In TES5Edit wbEmpty is normally a Marker with no value like an
             # empty xml tag <record></record> or <record />
-            MelBase('XPPA','patrolScriptMarker',),
+            MelNull('XPPA'),
             MelFid('INAM','idle'),
             MelGroup('patrolData',
                 # wbUnknown means it has not or cannot be decoded
@@ -3014,27 +3037,56 @@ class MreAchr(MelRecord):
         # End of MelGroup('patrolData',"
 
         # {--- Leveled Actor ----}
+        MelStruct('XLCM','I',(LeveledActorFlags,'flags',0L),),
 
         # {--- Merchant Container ----}
         MelFid('XMRC','merchantContainer',),
 
         # {--- Extra ---}
+        MelStruct('XCNT','i','count'),
+        MelStruct('XRDS','f','radius',),
+        MelStruct('XHLP','f','health',),
+        MelGroup('linkedReferences',
+            MelSortedFidList('XLCM', 'fids'),
+        ),
 
         # {--- Activate Parents ---}
+        MelGroup('activateParents',
+            MelStruct('XAPD','I',(ActivateParentsFlags,'flags',0L),),
+            MelGroups('activateParentRefs',
+                MelStruct('XAPR','If',(FID,'reference'),'delay',),
+            ),
+        ),
 
         # {--- Linked Ref ---}
-
+        MelStruct('XCLP','3Bs3Bs','startColorRed','startColorGreen','startColorBlue','startColorUnknown',
+                  'endColorRed','endColorGreen','endColorBlue','endColorUnknown',),
+        MelFid('XLCN','persistentLocation',),
+        MelFid('XLRL','locationReference',),
+        MelNull('XIS2'),
+        MelFidList('XLRT','locationRefType',),
+        MelFid('XHOR','horse',),
+        MelStruct('XHTW','f','headTrackingWeight',),
+        MelStruct('XFVC','f','favorCost',),
+        
         # {--- Enable Parent ---}
-
+        MelStruct('XESP','IB',(FID,'Reference'),(EnableParentFlags,'flags',0L),'unused',),
+        
         # {--- Ownership ---}
+        MelOwnership(),
 
         # {--- Emittance ---}
+        MelFid('XEMI','emittance',),
 
         # {--- MultiBound ---}
+        MelFid('XMBR','multiBoundReference',),
 
         # {--- Flags ---}
+        MelNull('XIBS'),
 
         # {--- 3D Data ---}
+        MelStruct('XSCL','f','scale',),
+        MelStruct('DATA','6f','potX','potY','potY','rotX','rotY','rotZ',),
 
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
@@ -6508,9 +6560,10 @@ class MreFlor(MelRecord):
 # Unused records, they have empty GRUP in skyrim.esm---------------------------
 # SCPT ------------------------------------------------------------------------
 #------------------------------------------------------------------------------
-# Causes errors don't merge until syntax is verified
-#
-#       MreDial,
+# These have undefined FormIDs or will cause errors don't merge until syntax
+# is verified
+# 
+#       MreDial, MreAchr
 #------------------------------------------------------------------------------
 # Mergeable record types
 mergeClasses = (
