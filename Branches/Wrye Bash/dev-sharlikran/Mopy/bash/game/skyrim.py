@@ -3357,8 +3357,114 @@ class MreBook(MelRecord):
 # skillTypes needs syntax check.
 # After syntax checks and DATA is formated correctly, this record is correct for Skyrim 1.8
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# CELL ------------------------------------------------------------------------
+class MreCell(MelRecord):
+    """Cell"""
+    classType = 'CELL'
+
+    # {0x00000001}'Ambient Color',
+    # {0x00000002}'Directional Color',
+    # {0x00000004}'Fog Color',
+    # {0x00000008}'Fog Near',
+    # {0x00000010}'Fog Far',
+    # {0x00000020}'Directional Rotation',
+    # {0x00000040}'Directional Fade',
+    # {0x00000080}'Clip Distance',
+    # {0x00000100}'Fog Power',
+    # {0x00000200}'Fog Max',
+    # {0x00000400}'Light Fade Distances'
+    CellInheritedFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'ambientColor'),
+            (1, 'directionalColor'),
+            (2, 'fogColor'),
+            (3, 'fogNear'),
+            (4, 'fogFar'),
+            (5, 'directionalRotation'),
+            (6, 'directionalFade'),
+            (7, 'clipDistance'),
+            (8, 'fogPower'),
+            (9, 'fogMax'),
+            (10, 'lightFadeDistances'),
+        ))
+    
+    # 'Quad 1',
+    # 'Quad 2',
+    # 'Quad 3',
+    # 'Quad 4'
+    CellGridFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'quad1'),
+            (1, 'quad2'),
+            (2, 'quad3'),
+            (3, 'quad4'),
+        ))
+    
+    # {0x0001} 'Is Interior Cell',
+    # {0x0002} 'Has Water',
+    # {0x0004} 'Can''t Travel From Here',
+    # {0x0008} 'No LOD Water',
+    # {0x0010} 'Unknown 5',
+    # {0x0020} 'Public Area',
+    # {0x0040} 'Hand Changed',
+    # {0x0080} 'Show Sky',
+    # {0x0100} 'Use Sky Lighting'
+    CellDataFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'isInteriorCell'),
+            (1, 'hasWater'),
+            (2, 'can'),
+            (3, 'noLODWater'),
+            (4, 'unknown5'),
+            (5, 'publicArea'),
+            (6, 'handChanged'),
+            (7, 'showSky'),
+            (8, 'useSkyLighting'),
+        ))
+
+# Flags can be itU8, but CELL\DATA has a critical role in various wbImplementation.pas routines
+# and replacing it with wbUnion generates error when setting for example persistent flag in REFR.
+# So let it be always itU16
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelLString('FULL','full'),
+        MelStruct('DATA','I',(CellDataFlags,'flags',0L),),
+        MelStruct('XCLC','2iI','pos_x','pos_y',(CellGridFlags,'flags',0L),),
+        MelStruct('XCLL','3Bs3Bs3Bs2f2i3f3Bs3fI',
+                  'red_ac','green_ac','blue_ac','unknown_ac',
+                  'red_dc','green_dc','blue_dc','unknown_dc',
+                  'red_fcn','green_fcn','blue_fcn','unknown_fcn',
+                  'fogNear','fogFar','directionalRotationXY','directionalRotationZ',
+                  'directionalFade','fogClipDistance','fogPower',
+                  'red_fcf','green_fcf','blue_fcf','unknown_fcf',
+                  'fogMax','lightFadeBegin','lightFadeEnd',(CellInheritedFlags,'flags',0L),),
+        MelBase('TVDT','unknown_TVDT'),
+        MelBase('MHDT','unknown_MHDT'),
+        MelFid('LTMP','lightingTemplate',),
+        # leftover flags, they are now in XCLC
+        MelBase('LNAM','unknown_LNAM'),
+        # XCLW sometimes has $FF7FFFFF and causes invalid floation point
+        MelStruct('XCLW','f','waterHeight',),
+        MelString('XNAM','waterNoiseTexture'),
+        MelFidList('XCLR','regions'),
+        MelFid('XLCN','location',),
+        MelBase('XWCN','unknown_XWCN'),
+        MelBase('XWCS','unknown_XWCS'),
+        # unknown_ang = wbByteArray('Unknown', 0) 'XWCU' neds custom unpacker
+        # MelStruct('XWCU','6f','xOffset','yOffset','zOffset','unknown_off',
+        #          'xAngle','yAngle','zAngle','unknown_ang',),
+        MelBase('XWCU','waterVelocity',),
+        MelFid('XCWT','water',),        
+
+        # {--- Ownership ---}
+        MelOwnership(),
+        MelFid('XILL','lockList',),
+        MelString('XWEM','waterEnvironmentMap'),
+        MelFid('XCCM','skyWeatherFromRegion',),
+        MelFid('XCAS','acousticSpace',),
+        MelFid('XEZN','encounterZone',),
+        MelFid('XCMO','musicType',),
+        MelFid('XCIM','imageSpace',),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreClas(MelRecord):
     """Clas record (Alchemical Apparatus)"""
@@ -4223,6 +4329,7 @@ class MreFurn(MelRecord):
 #------------------------------------------------------------------------------
 # Marker for organization please don't remove ---------------------------------
 # GLOB ------------------------------------------------------------------------
+# Defined in brec.py as class MreGlob(MelRecord) ------------------------------
 #------------------------------------------------------------------------------
 class MreGmst(MreGmstBase):
     """Skyrim GMST record"""
@@ -6583,7 +6690,7 @@ class MreFlor(MelRecord):
 # These have undefined FormIDs or will cause errors don't merge until syntax
 # is verified
 # 
-#       MreDial, MreAchr
+#       MreDial, MreAchr, MreCell
 #------------------------------------------------------------------------------
 # Mergeable record types
 mergeClasses = (
@@ -6592,13 +6699,13 @@ mergeClasses = (
         MreClas, MreClfm, MreClmt, MreCobj, MreColl, MreCont, MreCpth, MreCsty,
         MreDebr, MreDlbr, MreDlvw, MreDobj, MreDoor, MreDual, MreEczn, MreEfsh,
         MreEnch, MreEqup, MreExpl, MreEyes, MreFact, MreFlor, MreFlst, MreFstp,
-        MreFsts, MreFurn, MreGmst, MreGras, MreHazd, MreHdpt, MreIdle, MreIdlm,
-        MreImgs, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt, MreLgtm,
-        MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp, MreMato, MreMatt, MreMesg,
-        MreMgef, MreMisc, MreMovt, MreMstt, MreMusc, MreMust, MreNpc_, MreOtft,
-        MreProj, MreRela, MreRevb, MreRfct, MreScrl, MreSlgm, MreSnct, MreSmbn,
-        MreSmen, MreSmqn, MreSndr, MreSoun, MreSpel, MreSpgd, MreStat, MreTact,
-        MreTree, MreTxst, MreVtyp, MreWoop,
+        MreFsts, MreFurn, MreGlob, MreGmst, MreGras, MreHazd, MreHdpt, MreIdle,
+        MreIdlm, MreImgs, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt,
+        MreLgtm, MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp, MreMato, MreMatt,
+        MreMesg, MreMgef, MreMisc, MreMisc, MreMovt, MreMstt, MreMusc, MreMust,
+        MreNpc_, MreOtft, MreProj, MreRela, MreRevb, MreRfct, MreScrl, MreSlgm,
+        MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr, MreSoun, MreSpel, MreSpgd,
+        MreStat, MreTact, MreTree, MreTxst, MreVtyp, MreWoop,
     )
 
 #--Extra read/write classes
@@ -6620,13 +6727,13 @@ def init():
         MreClas, MreClfm, MreClmt, MreCobj, MreColl, MreCont, MreCpth, MreCsty,
         MreDebr, MreDlbr, MreDlvw, MreDobj, MreDoor, MreDual, MreEczn, MreEfsh,
         MreEnch, MreEqup, MreExpl, MreEyes, MreFact, MreFlor, MreFlst, MreFstp,
-        MreFsts, MreFurn, MreGmst, MreGras, MreHazd, MreHdpt, MreIdle, MreIdlm,
-        MreImgs, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt, MreLgtm,
-        MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp, MreMato, MreMatt, MreMesg,
-        MreMgef, MreMisc, MreMovt, MreMstt, MreMusc, MreMust, MreNpc_, MreOtft,
-        MreProj, MreRela, MreRevb, MreRfct, MreScrl, MreSlgm, MreSnct, MreSmbn,
-        MreSmen, MreSmqn, MreSndr, MreSoun, MreSpel, MreSpgd, MreStat, MreTact,
-        MreTree, MreTxst, MreVtyp, MreWoop,
+        MreFsts, MreFurn, MreGlob, MreGmst, MreGras, MreHazd, MreHdpt, MreIdle,
+        MreIdlm, MreImgs, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt,
+        MreLgtm, MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp, MreMato, MreMatt,
+        MreMesg, MreMgef, MreMisc, MreMisc, MreMovt, MreMstt, MreMusc, MreMust,
+        MreNpc_, MreOtft, MreProj, MreRela, MreRevb, MreRfct, MreScrl, MreSlgm,
+        MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr, MreSoun, MreSpel, MreSpgd,
+        MreStat, MreTact, MreTree, MreTxst, MreVtyp, MreWoop,
         MreHeader,
     ))
 
