@@ -3724,13 +3724,33 @@ class MreDial(MelRecord):
         (102, 'leaveWaterBreath'),
     ))
 
+    # {0} 'Topic',
+    # {1} 'Favor', // only in DA14 quest topics
+    # {2} 'Scene',
+    # {3} 'Combat',
+    # {4} 'Favors',
+    # {5} 'Detection',
+    # {6} 'Service',
+    # {7} 'Miscellaneous'
+    DialCategoryFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'topic'),
+            (1, 'favor'),
+            (2, 'scene'),
+            (3, 'combat'),
+            (4, 'favors'),
+            (5, 'detection'),
+            (6, 'service'),
+            (7, 'miscellaneous'),
+        ))
+
     melSet = MelSet(
         MelString('EDID','eid'),
         MelLString('FULL','full'),
         MelStruct('PNAM','f','priority',),
         MelFid('BNAM','branch',),
         MelFid('QNAM','quest',),
-        MelStruct('DATA','2BH',(DialTopicFlags,'flags_dt',0L),'unknown',(DialSubtypeTypeFlags,'flags_st',0L),),
+        MelStruct('DATA','2BH',(DialTopicFlags,'flags_dt',0L),(DialCategoryFlags,'flags_cf',0L),
+                  (DialSubtypeTypeFlags,'flags_st',0L),),
         MelString('SNAM','subtypeName',),
         MelStruct('TIFC','I','infoCount',),
         )
