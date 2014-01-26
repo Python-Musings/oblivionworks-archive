@@ -4644,11 +4644,74 @@ class MreSlgm(MelRecord):
 
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# NAVI ------------------------------------------------------------------------
+class MreNavi(MelRecord):
+    """Navigation Mesh Info Map"""
+    classType = 'NAVI'
+
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelStruct('NVER','I','version'),
+        # NVMI and NVPP would need special routines to handle them
+        # If no mitigation is needed, then leave it as MelBase
+        MelBase('NVMI','navigationMapInfos',),
+        MelBase('NVPP','preferredPathing',),
+        MelFidList('NVSI','navigationMesh'),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# NAVM ------------------------------------------------------------------------
+class MreNavm(MelRecord):
+    """Navigation Mesh"""
+    classType = 'NAVM'
+
+    # 'Unknown 1',
+    # 'Unknown 2',
+    # 'Unknown 3',
+    # 'Unknown 4',
+    # 'Unknown 5',
+    # 'Unknown 6',
+    # 'Preferred pathing',
+    # 'Unknown 8',
+    # 'Unknown 9',
+    # 'Water',
+    # 'Unknown 11',
+    # 'Unknown 12',
+    # 'Unknown 13',
+    # 'Unknown 14',
+    # 'Unknown 15',
+    # 'Unknown 16'
+    NavmTrianglesFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'unknown1'),
+            (1, 'unknown2'),
+            (2, 'unknown3'),
+            (3, 'unknown4'),
+            (4, 'unknown5'),
+            (5, 'unknown6'),
+            (6, 'preferredpathing'),
+            (7, 'unknown8'),
+            (8, 'unknown9'),
+            (9, 'water'),
+            (10, 'unknown11'),
+            (11, 'unknown12'),
+            (12, 'unknown13'),
+            (13, 'unknown14'),
+            (14, 'unknown15'),
+            (15, 'unknown16'),
+        ))
+
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        # NVNM, ONAM, PNAM, NNAM would need special routines to handle them
+        # If no mitigation is needed, then leave it as MelBase
+        MelBase('NVNM','navMeshGeometry'),
+        MelBase('ONAM','onam_p'),
+        MelBase('PNAM','pnam_p'),
+        MelBase('NNAM','nnam_p'),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreExpl(MelRecord):
     """Explosion record."""
@@ -4754,8 +4817,252 @@ class MreFlst(MelRecord):
 
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# PERK ------------------------------------------------------------------------
+class MrePerk(MelRecord):
+    """Perk Item"""
+    classType = 'PERK'
+
+    PerkEntryPointFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'calculateWeaponDamage'),
+            (1, 'calculateMyCriticalHitChance'),
+            (2, 'calculateMyCriticalHitDamage'),
+            (3, 'calculateMineExplodeChance'),
+            (4, 'adjustLimbDamage'),
+            (5, 'adjustBookSkillPoints'),
+            (6, 'modRecoveredHealth'),
+            (7, 'getShouldAttack'),
+            (8, 'modBuyPrices'),
+            (9, 'addLeveledListOnDeath'),
+            (10, 'getMaxCarryWeight'),
+            (11, 'modAddictionChance'),
+            (12, 'modAddictionDuration'),
+            (13, 'modPositiveChemDuration'),
+            (14, 'activate'),
+            (15, 'ignoreRunningDuringDetection'),
+            (16, 'ignoreBrokenLock'),
+            (17, 'modEnemyCriticalHitChance'),
+            (18, 'modSneakAttackMult'),
+            (19, 'modMaxPlaceableMines'),
+            (20, 'modBowZoom'),
+            (21, 'modRecoverArrowChance'),
+            (22, 'modSkillUse'),
+            (23, 'modTelekinesisDistance'),
+            (24, 'modTelekinesisDamageMult'),
+            (25, 'modTelekinesisDamage'),
+            (26, 'modBashingDamage'),
+            (27, 'modPowerAttackStamina'),
+            (28, 'modPowerAttackDamage'),
+            (29, 'modSpellMagnitude'),
+            (30, 'modSpellDuration'),
+            (31, 'modSecondaryValueWeight'),
+            (32, 'modArmorWeight'),
+            (33, 'modIncomingStagger'),
+            (34, 'modTargetStagger'),
+            (35, 'modAttackDamage'),
+            (36, 'modIncomingDamage'),
+            (37, 'modTargetDamageResistance'),
+            (38, 'modSpellCost'),
+            (39, 'modPercentBlocked'),
+            (40, 'modShieldDeflectArrowChance'),
+            (41, 'modIncomingSpellMagnitude'),
+            (42, 'modIncomingSpellDuration'),
+            (43, 'modPlayerIntimidation'),
+            (44, 'modPlayerReputation'),
+            (45, 'modFavorPoints'),
+            (46, 'modBribeAmount'),
+            (47, 'modDetectionLight'),
+            (48, 'modDetectionMovement'),
+            (49, 'modSoulGemRecharge'),
+            (50, 'setSweepAttack'),
+            (51, 'applyCombatHitSpell'),
+            (52, 'applyBashingSpell'),
+            (53, 'applyReanimateSpell'),
+            (54, 'setBooleanGraphVariable'),
+            (55, 'modSpellCastingSoundEvent'),
+            (56, 'modPickpocketChance'),
+            (57, 'modDetectionSneakSkill'),
+            (58, 'modFallingDamage'),
+            (59, 'modLockpickSweetSpot'),
+            (60, 'modSellPrices'),
+            (61, 'canPickpocketEquippedItem'),
+            (62, 'modLockpickLevelAllowed'),
+            (63, 'setLockpickStartingArc'),
+            (64, 'setProgressionPicking'),
+            (65, 'makeLockpicksUnbreakable'),
+            (66, 'modAlchemyEffectiveness'),
+            (67, 'applyWeaponSwingSpell'),
+            (68, 'modCommandedActorLimit'),
+            (69, 'applySneakingSpell'),
+            (70, 'modPlayerMagicSlowdown'),
+            (71, 'modWardMagickaAbsorptionPct'),
+            (72, 'modInitialIngredientEffectsLearned'),
+            (73, 'purifyAlchemyIngredients'),
+            (74, 'filterActivation'),
+            (75, 'canDualCastSpell'),
+            (76, 'modTemperingHealth'),
+            (77, 'modEnchantmentPower'),
+            (78, 'modSoulPctCapturedtoWeapon'),
+            (79, 'modSoulGemEnchanting'),
+            (80, 'mod#AppliedEnchantmentsAllowed'),
+            (81, 'setActivateLabel'),
+            (82, 'modShoutOK'),
+            (83, 'modPoisonDoseCount'),
+            (84, 'shouldApplyPlacedItem'),
+            (85, 'modArmorRating'),
+            (86, 'modLockpickingCrimeChance'),
+            (87, 'modIngredientsHarvested'),
+            (88, 'modSpellRangeTargetLoc.'),
+            (89, 'modPotionsCreated'),
+            (90, 'modLockpickingKeyRewardChance'),
+            (91, 'allowMountActor'),
+        ))
+
+    # 'Run Immediately',
+    # 'Replace Default'
+    PerkScriptFlagsFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'runImmediately'),
+            (1, 'replaceDefault'),
+        ))
+    
+    # {0} 'None',
+    # {1} 'Float',
+    # {2} 'Float/AV,Float',
+    # {3} 'LVLI',
+    # {4} 'SPEL,lstring,flags',
+    # {5} 'SPEL',
+    # {6} 'string',
+    # {7} 'lstring'
+    PerkFunctionParameterFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'none'),
+            (1, 'float'),
+            (2, 'float/AV,Float'),
+            (3, 'lVLI'),
+            (4, 'sPEL,lstring,flags'),
+            (5, 'sPEL'),
+            (6, 'string'),
+            (7, 'lstring'),
+        ))
+    
+    # {0} 'Unknown 0',
+    # {1} 'Set Value',  // EPFT=1
+    # {2} 'Add Value', // EPFT=1
+    # {3} 'Multiply Value', // EPFT=1
+    # {4} 'Add Range To Value', // EPFT=2
+    # {5} 'Add Actor Value Mult', // EPFT=2
+    # {6} 'Absolute Value', // no params
+    # {7} 'Negative Absolute Value', // no params
+    # {8} 'Add Leveled List', // EPFT=3
+    # {9} 'Add Activate Choice', // EPFT=4
+    # {10} 'Select Spell', // EPFT=5
+    # {11} 'Select Text', // EPFT=6
+    # {12} 'Set to Actor Value Mult', // EPFT=2
+    # {13} 'Multiply Actor Value Mult', // EPFT=2
+    # {14} 'Multiply 1 + Actor Value Mult', // EPFT=2
+    # {15} 'Set Text' // EPFT=7
+    PerkFunctionFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'unknown0'),
+            (1, 'setValue'),
+            (2, 'addValue'),
+            (3, 'multiplyValue'),
+            (4, 'addRangeToValue'),
+            (5, 'addActorValueMult'),
+            (6, 'absoluteValue'),
+            (7, 'negativeAbsoluteValue'),
+            (8, 'addLeveledList'),
+            (9, 'addActivateChoice'),
+            (10, 'selectSpell'),
+            (11, 'selectText'),
+            (12, 'settoActorValueMult'),
+            (13, 'multiplyActorValueMult'),
+            (14, 'multiply1+ActorValueMult'),
+            (15, 'setText'),
+        ))
+    
+    # 'Quest + Stage',
+    # 'Ability',
+    # 'Entry Point'
+    PerkEffectTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'quest+Stage'),
+            (1, 'ability'),
+            (2, 'entryPoint'),
+        ))
+    
+    PerkHiddenFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'false'),
+            (1, 'true'),
+        ))
+    
+    PerkPlayableFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'false'),
+            (1, 'true'),
+        ))
+    
+    PerkTraitFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'false'),
+            (1, 'true'),
+        ))
+
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelVmad(),
+        MelLString('FULL','full'),
+        MelLString('DESC','description'),
+        MelIcons(),
+        MelConditions(),
+        MelStruct('DATA','5B',(PerkTraitFlags,'trait',0L),'level','numRanks',
+                  (PerkPlayableFlags,'playable',0L),(PerkHiddenFlags,'hidden',0L),),
+        MelFid('NNAM','nextPerk',),
+
+        # Sorted Struct: wbRStructsSK('Effects', 'Effect', [0, 1], [
+        MelGroup('effects',
+            MelStruct('PRKE','3B',(PerkEffectTypeFlags,'type',0L),'rank','priority',),
+            # Needs Union Decider: wbUnion(DATA, 'Effect Data', wbPerkDATADecider, [
+            # 1- MelStruct('DATA','IB3s',(FID,'quest'),'questStage','unused',),
+            # 2- MelFid('DATA','ability',),
+            # 3- MelStruct('DATA','3B',(PerkEntryPointFlags,'entryPoint',0L),(PerkFunctionFlags,'function',0L),
+            #          'perkConditionTabCount',),
+            MelBase('DATA','effectData',),     
+        ),
+
+        # Sorted Struct: wbRStructsSK('Perk Conditions', 'Perk Condition', [0], [
+        MelGroup('perkConditions',
+            MelStruct('PRKC','I','runOnTabIndex'),
+            MelConditions(),
+        ),
+
+        MelGroup('functionParameters',
+            MelStruct('EPFT','I',(PerkFunctionParameterFlags,'flags',0L),),
+            # EPF2 is a Null terminated string with no length Byte
+            MelLString('EPF2','buttonLabel'),
+            MelStruct('EPF3','B3s',(PerkScriptFlagsFlags,'flags',0L),'unknown',),
+
+            # case(EPFT) of
+            # 1: EPFD=float
+            # 2: EPFD=float,float
+            # 3: EPFD=LVLI
+            # 4: EPFD=SPEL, EPF2=lstring, EPF3=int32 flags
+            # 5: EPFD=SPEL
+            # 6: EPFD=string
+            # 7: EPFD=lstring
+            # Needs Union Decider: wbUnion(EPFD, 'Data', wbEPFDDecider, [
+            # The following variables are not duplicated, they need to be these names
+            # 1- MelBase('EPFD','unknown'),
+            # 2- MelStruct('EPFD','f','oneFloat',),
+            # 3- MelStruct('EPFD','2f','float1','float2',),
+            # 4- MelFid('EPFD','I','leveledItem',),
+            # 5- MelFid('EPFD','I','spell',),
+            # 6- MelFid('EPFD','I','spell',),
+            # 7- MelString('EPFD','text'),
+            # The following 'Text' is a Null terminated string with no length Byte
+            # 8- MelLString('EPFD','text'),
+            # 9- MelStruct('EPFD','If','actorValue','float',),
+            MelBase('EPFD','functionParametersData',),     
+        ),
+        # End Marker
+        MelNull('PRKF'),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreBptd(MelRecord):
     """Bptd Item"""
@@ -5049,8 +5356,74 @@ class MreEczn(MelRecord):
 
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# LCTN ------------------------------------------------------------------------
+class MreLctn(MelRecord):
+    """Location"""
+    classType = 'LCTN'
+
+    melSet = MelSet(
+        MelString('EDID','eid'),
+
+        MelGroups('actorCellPersistentReference',
+            MelStruct('ACPR','2I2h',(FID,'actor'),(FID,'location'),'gridX','gridY',),
+            ),
+        MelGroups('locationCellPersistentReference',
+            MelStruct('LCPR','2I2h',(FID,'actor'),(FID,'location'),'gridX','gridY',),
+            ),
+        # From Danwguard.esm, Does not follow similar previous patterns
+        MelFidList('RCPR','referenceCellPersistentReference',),
+
+        MelGroups('actorCellUnique',
+            MelStruct('ACUN','3I',(FID,'actor'),(FID,'eef'),(FID,'location'),),
+            ),
+        MelGroups('locationCellUnique',
+            MelStruct('LCUN','3I',(FID,'actor'),(FID,'ref'),(FID,'location'),),
+            ),
+        # in Unofficial Skyrim patch
+        MelFidList('RCUN','referenceCellUnique',),
+
+        MelGroups('actorCellStaticReference',
+            MelStruct('ACSR','3I2h',(FID,'locRefType'),(FID,'marker'),(FID,'location'),
+                  'gridX','gridY',),
+            ),
+        MelGroups('locationCellEncounterCell',
+            MelStruct('LCSR','3I2h',(FID,'locRefType'),(FID,'marker'),(FID,'location'),
+                  'gridX','gridY',),
+            ),
+        # Seen in Open Cities
+        MelFidList('RCSR','referenceCellStaticReference',),
+
+        # MelStruct('ACEC','I',(FID,'Actor'), RepeatingArray('2h','gridX','gridY',)),
+        MelBase('ACEC','actorCellEncounterCell',),
+        # MelStruct('LCEC','I',(FID,'Actor'), RepeatingArray('2h','gridX','gridY',)),
+        MelBase('LCEC','locationCellEncounterCell',),
+        # MelStruct('ACEC','I',(FID,'Actor'), RepeatingArray('2h','gridX','gridY',)),
+        # Seen in Open Cities
+        MelBase('RCEC','referenceCellEncounterCell',),
+
+        MelFidList('ACID','actorCellMarkerReference',),
+        MelFidList('LCID','locationCellMarkerReference',),
+
+        MelGroups('actorCellEnablePoint',
+            MelStruct('ACEP','2I2h',(FID,'Actor'),(FID,'Ref'),'gridX','gridY',),
+            ),
+        MelGroups('locationCellEnablePoint',
+            MelStruct('LCEP','2I2h',(FID,'Actor'),(FID,'Ref'),'gridX','gridY',),
+            ),
+
+        MelLString('FULL','full'),
+        MelNull('KSIZ'),
+        MelKeywords('KWDA','keywords'),
+        MelFid('PNAM','parentLocation',),
+        MelFid('NAM1','music',),
+        MelFid('FNAM','unreportedCrimeFaction',),
+        MelFid('MNAM','worldLocationMarkerRef',),
+        MelStruct('RNAM','f','worldLocationRadius',),
+        MelFid('NAM0','horseMarkerRef',),
+        MelColorN(),
+    )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreMesg(MelRecord):
     """Message Record."""
@@ -6687,10 +7060,13 @@ class MreFlor(MelRecord):
 # Unused records, they have empty GRUP in skyrim.esm---------------------------
 # SCPT ------------------------------------------------------------------------
 #------------------------------------------------------------------------------
-# These have undefined FormIDs or will cause errors don't merge until syntax
-# is verified
-# 
-#       MreDial, MreAchr, MreCell
+# These have undefined FormIDs Do not merge them
+#
+#       MreNavi, MreNavm, 
+#------------------------------------------------------------------------------
+# These need syntax revision but can be merged once that is corrected
+#
+#       MreDial, MreAchr, MreCell, MreLctn
 #------------------------------------------------------------------------------
 # Mergeable record types
 mergeClasses = (
@@ -6702,10 +7078,10 @@ mergeClasses = (
         MreFsts, MreFurn, MreGlob, MreGmst, MreGras, MreHazd, MreHdpt, MreIdle,
         MreIdlm, MreImgs, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt,
         MreLgtm, MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp, MreMato, MreMatt,
-        MreMesg, MreMgef, MreMisc, MreMisc, MreMovt, MreMstt, MreMusc, MreMust,
-        MreNpc_, MreOtft, MreProj, MreRela, MreRevb, MreRfct, MreScrl, MreSlgm,
-        MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr, MreSoun, MreSpel, MreSpgd,
-        MreStat, MreTact, MreTree, MreTxst, MreVtyp, MreWoop,
+        MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc, MreMust, MreNpc_,
+        MreOtft, MreProj, MreRela, MreRevb, MreRfct, MreScrl, MreSlgm, MreSmbn,
+        MreSmen, MreSmqn, MreSnct, MreSndr, MreSoun, MreSpel, MreSpgd, MreStat,
+        MreTact, MreTree, MreTxst, MreVtyp, MreWoop,
     )
 
 #--Extra read/write classes
@@ -6730,10 +7106,10 @@ def init():
         MreFsts, MreFurn, MreGlob, MreGmst, MreGras, MreHazd, MreHdpt, MreIdle,
         MreIdlm, MreImgs, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt,
         MreLgtm, MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp, MreMato, MreMatt,
-        MreMesg, MreMgef, MreMisc, MreMisc, MreMovt, MreMstt, MreMusc, MreMust,
-        MreNpc_, MreOtft, MreProj, MreRela, MreRevb, MreRfct, MreScrl, MreSlgm,
-        MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr, MreSoun, MreSpel, MreSpgd,
-        MreStat, MreTact, MreTree, MreTxst, MreVtyp, MreWoop,
+        MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc, MreMust, MreNpc_,
+        MreOtft, MreProj, MreRela, MreRevb, MreRfct, MreScrl, MreSlgm, MreSmbn,
+        MreSmen, MreSmqn, MreSnct, MreSndr, MreSoun, MreSpel, MreSpgd, MreStat,
+        MreTact, MreTree, MreTxst, MreVtyp, MreWoop,
         MreHeader,
     ))
 
