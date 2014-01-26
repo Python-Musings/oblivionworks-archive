@@ -5481,6 +5481,7 @@ class MelLgtmData(MelStruct):
 class MreLgtm(MelRecord):
     """Lgtm Item"""
     classType = 'LGTM'
+
     melSet = MelSet(
         MelString('EDID','eid'),
         # 92 Bytes
@@ -5957,8 +5958,46 @@ class MreSnct(MelRecord):
 
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# SOPM ------------------------------------------------------------------------
+class MelSopmData(MelStruct):
+    def __init__(self,type='ONAM'):
+        MelStruct.__init__(self,type,'=24B',
+                           'ch0_l','ch0_r','ch0_c','ch0_lFE','ch0_rL','ch0_rR','ch0_bL','ch0_bR',
+                           'ch1_l','ch1_r','ch1_c','ch1_lFE','ch1_rL','ch1_rR','ch1_bL','ch1_bR',
+                           'ch2_l','ch2_r','ch2_c','ch2_lFE','ch2_rL','ch2_rR','ch2_bL','ch2_bR',
+                           )
+
+class MreSopm(MelRecord):
+    """Sound Output Model"""
+    classType = 'SOPM'
+    
+    # 'Uses HRTF',
+    # 'Defined Speaker Output'
+    SopmTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'usesHRTF'),
+            (1, 'definedSpeakerOutput'),
+        ))
+    
+    # 'Attenuates With Distance',
+    # 'Allows Rumble'
+    SopmFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'attenuatesWithDistance'),
+            (1, 'allowsRumble'),
+        ))
+    
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelStruct('NAM1','B2sB',(SopmFlags,'flags',0L),'unknown','reverbSendpct',),
+        MelBase('FNAM','fnam_p'),
+        MelStruct('MNAM','I',(SopmTypeFlags,'flags',0L),),
+        MelBase('CNAM','cnam_p'),
+        MelBase('SNAM','snam_p'),
+        MelSopmData(),
+        # MelStruct('ANAM','4s2fB','unknown','minDistance','maxDistance','curve', dumpRemaining='extraData',),
+        MelBase('ANAM','anam_p'),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreColl(MelRecord):
     """Collision Layer"""
@@ -7080,8 +7119,8 @@ mergeClasses = (
         MreLgtm, MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp, MreMato, MreMatt,
         MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc, MreMust, MreNpc_,
         MreOtft, MreProj, MreRela, MreRevb, MreRfct, MreScrl, MreSlgm, MreSmbn,
-        MreSmen, MreSmqn, MreSnct, MreSndr, MreSoun, MreSpel, MreSpgd, MreStat,
-        MreTact, MreTree, MreTxst, MreVtyp, MreWoop,
+        MreSmen, MreSmqn, MreSnct, MreSndr, MreSopm, MreSoun, MreSpel, MreSpgd,
+        MreStat, MreTact, MreTree, MreTxst, MreVtyp, MreWoop,
     )
 
 #--Extra read/write classes
@@ -7108,8 +7147,8 @@ def init():
         MreLgtm, MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp, MreMato, MreMatt,
         MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc, MreMust, MreNpc_,
         MreOtft, MreProj, MreRela, MreRevb, MreRfct, MreScrl, MreSlgm, MreSmbn,
-        MreSmen, MreSmqn, MreSnct, MreSndr, MreSoun, MreSpel, MreSpgd, MreStat,
-        MreTact, MreTree, MreTxst, MreVtyp, MreWoop,
+        MreSmen, MreSmqn, MreSnct, MreSndr, MreSopm, MreSoun, MreSpel, MreSpgd,
+        MreStat, MreTact, MreTree, MreTxst, MreVtyp, MreWoop,
         MreHeader,
     ))
 
