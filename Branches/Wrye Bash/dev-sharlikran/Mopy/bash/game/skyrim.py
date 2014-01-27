@@ -2889,6 +2889,21 @@ class MelVmad(MelBase):
 # MelStruct('DATA','2I',MelActorValue,MelActorValue,),
 #
 #-------------------------------------------------------------------------------
+# Commonly Used Flags ----------------------------------------------------------
+#-------------------------------------------------------------------------------
+class MelBipedFlags(bolt.Flags):
+    """Biped flags element. Includes biped flag set by default."""
+    mask = 0xFFFF
+    def __init__(self,default=0L,newNames=None):
+        names = bolt.Flags.getNames(
+            'head', 'hair', 'upperBody', 'leftHand', 'rightHand', 'weapon',
+            'pipboy', 'backpack', 'necklace', 'headband', 'hat', 'eyeGlasses',
+            'noseRing', 'earrings', 'mask', 'choker', 'mouthObject',
+            'bodyAddOn1', 'bodyAddOn2', 'bodyAddOn3')
+        if newNames: names.update(newNames)
+        bolt.Flags.__init__(self,default,names)
+
+#-------------------------------------------------------------------------------
 # Skyrim Records ---------------------------------------------------------------
 #-------------------------------------------------------------------------------
 class MreHeader(MreHeaderBase):
@@ -7415,8 +7430,6 @@ class MreFlor(MelRecord):
 
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# WATR ------------------------------------------------------------------------
 class MreWatr(MelRecord):
     """Water"""
     classType = 'WATR'
@@ -7536,16 +7549,15 @@ mergeClasses = (
         MreAact, MreActi, MreAddn, MreAlch, MreAmmo, MreAnio, MreAppa, MreArma,
         MreArmo, MreArto, MreAspc, MreAstp, MreAvif, MreBook, MreBptd, MreCams,
         MreClas, MreClfm, MreClmt, MreCobj, MreColl, MreCont, MreCpth, MreCsty,
-        MreDebr, MreDlbr, MreDlvw, MreDobj, MreDoor, MreDual, MreEczn, MreEfsh,
-        MreEnch, MreEqup, MreExpl, MreEyes, MreFact, MreFlor, MreFlst, MreFstp,
-        MreFsts, MreFurn, MreGlob, MreGmst, MreGras, MreHazd, MreHdpt, MreIdle,
-        MreIdlm, MreImgs, MreInfo, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd,
-        MreLcrt, MreLgtm, MreLigh, MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp,
-        MreMato, MreMatt, MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc,
-        MreMust, MreNpc_, MreOtft, MreProj, MreRela, MreRevb, MreRfct, MreScrl,
-        MreScen, MreSlgm, MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr, MreSopm,
-        MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst, MreVtyp,
-        MreWatr, MreWoop,
+        MreDebr, MreDlbr, MreDoor, MreDual, MreEczn, MreEfsh, MreEnch, MreEqup,
+        MreExpl, MreEyes, MreFact, MreFlor, MreFlst, MreFstp, MreFsts, MreFurn,
+        MreGmst, MreGras, MreHazd, MreHdpt, MreIdle, MreIdlm, MreImgs, MreIngr,
+        MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt, MreLgtm, MreLscr, MreLtex,
+        MreLvli, MreLvln, MreLvsp, MreMato, MreMatt, MreMesg, MreMgef, MreMisc,
+        MreMovt, MreMstt, MreMusc, MreMust, MreNpc_, MreOtft, MreProj, MreRela,
+        MreRevb, MreRfct, MreScrl, MreSlgm, MreSnct, MreSmbn, MreSmen, MreSmqn,
+        MreSndr, MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst,
+        MreVtyp, MreWoop,
     )
 
 #--Extra read/write classes
@@ -7565,16 +7577,15 @@ def init():
         MreAact, MreActi, MreAddn, MreAlch, MreAmmo, MreAnio, MreAppa, MreArma,
         MreArmo, MreArto, MreAspc, MreAstp, MreAvif, MreBook, MreBptd, MreCams,
         MreClas, MreClfm, MreClmt, MreCobj, MreColl, MreCont, MreCpth, MreCsty,
-        MreDebr, MreDlbr, MreDlvw, MreDobj, MreDoor, MreDual, MreEczn, MreEfsh,
-        MreEnch, MreEqup, MreExpl, MreEyes, MreFact, MreFlor, MreFlst, MreFstp,
-        MreFsts, MreFurn, MreGlob, MreGmst, MreGras, MreHazd, MreHdpt, MreIdle,
-        MreIdlm, MreImgs, MreInfo, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd,
-        MreLcrt, MreLgtm, MreLigh, MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp,
-        MreMato, MreMatt, MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc,
-        MreMust, MreNpc_, MreOtft, MreProj, MreRela, MreRevb, MreRfct, MreScrl,
-        MreScen, MreSlgm, MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr, MreSopm,
-        MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst, MreVtyp,
-        MreWatr, MreWoop,
+        MreDebr, MreDlbr, MreDoor, MreDual, MreEczn, MreEfsh, MreEnch, MreEqup,
+        MreExpl, MreEyes, MreFact, MreFlor, MreFlst, MreFstp, MreFsts, MreFurn,
+        MreGmst, MreGras, MreHazd, MreHdpt, MreIdle, MreIdlm, MreImgs, MreIngr,
+        MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt, MreLgtm, MreLscr, MreLtex,
+        MreLvli, MreLvln, MreLvsp, MreMato, MreMatt, MreMesg, MreMgef, MreMisc,
+        MreMovt, MreMstt, MreMusc, MreMust, MreNpc_, MreOtft, MreProj, MreRela,
+        MreRevb, MreRfct, MreScrl, MreSlgm, MreSnct, MreSmbn, MreSmen, MreSmqn,
+        MreSndr, MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst,
+        MreVtyp, MreWoop,
         MreHeader,
     ))
 
