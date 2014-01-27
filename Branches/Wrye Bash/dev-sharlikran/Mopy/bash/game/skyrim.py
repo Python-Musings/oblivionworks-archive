@@ -7542,22 +7542,23 @@ class MreWatr(MelRecord):
 #------------------------------------------------------------------------------
 # These need syntax revision but can be merged once that is corrected
 #
-#       MreDial, MreAchr, MreCell, MreLctn
+#       MreDial, MreAchr, MreCell, MreLctn, mreInfo
 #------------------------------------------------------------------------------
 # Mergeable record types
 mergeClasses = (
         MreAact, MreActi, MreAddn, MreAlch, MreAmmo, MreAnio, MreAppa, MreArma,
         MreArmo, MreArto, MreAspc, MreAstp, MreAvif, MreBook, MreBptd, MreCams,
         MreClas, MreClfm, MreClmt, MreCobj, MreColl, MreCont, MreCpth, MreCsty,
-        MreDebr, MreDlbr, MreDoor, MreDual, MreEczn, MreEfsh, MreEnch, MreEqup,
-        MreExpl, MreEyes, MreFact, MreFlor, MreFlst, MreFstp, MreFsts, MreFurn,
-        MreGmst, MreGras, MreHazd, MreHdpt, MreIdle, MreIdlm, MreImgs, MreIngr,
-        MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt, MreLgtm, MreLscr, MreLtex,
-        MreLvli, MreLvln, MreLvsp, MreMato, MreMatt, MreMesg, MreMgef, MreMisc,
-        MreMovt, MreMstt, MreMusc, MreMust, MreNpc_, MreOtft, MreProj, MreRela,
-        MreRevb, MreRfct, MreScrl, MreSlgm, MreSnct, MreSmbn, MreSmen, MreSmqn,
-        MreSndr, MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst,
-        MreVtyp, MreWoop,
+        MreDebr, MreDlbr, MreDlvw, MreDobj, MreDoor, MreDual, MreEczn, MreEfsh,
+        MreEnch, MreEqup, MreExpl, MreEyes, MreFact, MreFlor, MreFlst, MreFstp,
+        MreFsts, MreFurn, MreGlob, MreGmst, MreGras, MreHazd, MreHdpt, MreIdle,
+        MreIdlm, MreImgs, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt, 
+		MreLgtm, MreLigh, MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp, MreMato,
+		MreMatt, MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc, MreMust,
+		MreNpc_, MreOtft, MreProj, MreRela, MreRevb, MreRfct, MreScrl, MreScen,
+		MreSlgm, MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr, MreSopm, MreSoun,
+		MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst, MreVtyp, MreWatr, 
+		MreWoop,
     )
 
 #--Extra read/write classes
@@ -7577,15 +7578,16 @@ def init():
         MreAact, MreActi, MreAddn, MreAlch, MreAmmo, MreAnio, MreAppa, MreArma,
         MreArmo, MreArto, MreAspc, MreAstp, MreAvif, MreBook, MreBptd, MreCams,
         MreClas, MreClfm, MreClmt, MreCobj, MreColl, MreCont, MreCpth, MreCsty,
-        MreDebr, MreDlbr, MreDoor, MreDual, MreEczn, MreEfsh, MreEnch, MreEqup,
-        MreExpl, MreEyes, MreFact, MreFlor, MreFlst, MreFstp, MreFsts, MreFurn,
-        MreGmst, MreGras, MreHazd, MreHdpt, MreIdle, MreIdlm, MreImgs, MreIngr,
-        MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt, MreLgtm, MreLscr, MreLtex,
-        MreLvli, MreLvln, MreLvsp, MreMato, MreMatt, MreMesg, MreMgef, MreMisc,
-        MreMovt, MreMstt, MreMusc, MreMust, MreNpc_, MreOtft, MreProj, MreRela,
-        MreRevb, MreRfct, MreScrl, MreSlgm, MreSnct, MreSmbn, MreSmen, MreSmqn,
-        MreSndr, MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst,
-        MreVtyp, MreWoop,
+        MreDebr, MreDlbr, MreDlvw, MreDobj, MreDoor, MreDual, MreEczn, MreEfsh,
+        MreEnch, MreEqup, MreExpl, MreEyes, MreFact, MreFlor, MreFlst, MreFstp,
+        MreFsts, MreFurn, MreGlob, MreGmst, MreGras, MreHazd, MreHdpt, MreIdle,
+        MreIdlm, MreImgs, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt, 
+		MreLgtm, MreLigh, MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp, MreMato,
+		MreMatt, MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc, MreMust,
+		MreNpc_, MreOtft, MreProj, MreRela, MreRevb, MreRfct, MreScrl, MreScen,
+		MreSlgm, MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr, MreSopm, MreSoun,
+		MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst, MreVtyp, MreWatr, 
+		MreWoop,
         MreHeader,
     ))
 
