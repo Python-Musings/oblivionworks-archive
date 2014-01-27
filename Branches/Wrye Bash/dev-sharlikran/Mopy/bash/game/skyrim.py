@@ -6301,8 +6301,118 @@ class MreIdle(MelRecord):
 
 # Needs Syntax check but otherwise, Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# INFO ------------------------------------------------------------------------
+#------------------------------------------------------------------------------
+class MreInfo(MelRecord):
+    """Dialog response"""
+    classType = 'INFO'
+    
+    # 'Use Emotion Animation'
+    InfoResponsesFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'useEmotionAnimation'),
+        ))
+    
+    # {0} 'Neutral',
+    # {1} 'Anger',
+    # {2} 'Disgust',
+    # {3} 'Fear',
+    # {4} 'Sad',
+    # {5} 'Happy',
+    # {6} 'Surprise',
+    # {7} 'Puzzled'
+    EmotionTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'neutral'),
+            (1, 'anger'),
+            (2, 'disgust'),
+            (3, 'fear'),
+            (4, 'sad'),
+            (5, 'happy'),
+            (6, 'surprise'),
+            (7, 'puzzled'),
+        ))
+    
+    # 'None',
+    # 'Small',
+    # 'Medium',
+    # 'Large'
+    FavorLevelFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'none'),
+            (1, 'small'),
+            (2, 'medium'),
+            (3, 'large'),
+        ))
+    
+    # {0x0001} 'Goodbye',
+    # {0x0002} 'Random',
+    # {0x0004} 'Say once',
+    # {0x0008} 'Unknown 4',
+    # {0x0010} 'Unknown 5',
+    # {0x0020} 'Random end',
+    # {0x0040} 'Invisible continue',
+    # {0x0080} 'Walk Away',
+    # {0x0100} 'Walk Away Invisible in Menu',
+    # {0x0200} 'Force subtitle',
+    # {0x0400} 'Can move while greeting',
+    # {0x0800} 'No LIP File',
+    # {0x1000} 'Requires post-processing',
+    # {0x2000} 'Audio Output Override',
+    # {0x4000} 'Spends favor points',
+    # {0x8000} 'Unknown 16'
+    EnamResponseFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'goodbye'),
+            (1, 'random'),
+            (2, 'sayonce'),
+            (3, 'unknown4'),
+            (4, 'unknown5'),
+            (5, 'randomend'),
+            (6, 'invisiblecontinue'),
+            (7, 'walkAway'),
+            (8, 'walkAwayInvisibleinMenu'),
+            (9, 'forcesubtitle'),
+            (10, 'canmovewhilegreeting'),
+            (11, 'noLIPFile'),
+            (12, 'requirespostprocessing'),
+            (13, 'audioOutputOverride'),
+            (14, 'spendsfavorpoints'),
+            (15, 'unknown16'),
+        ))
+    
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelVmad(),
+        MelBase('DATA','data_p'),
+        MelStruct('ENAM','2H',(EnamResponseFlags,'flags',0L),'resetHours',),
+        MelFid('TPIC','topic',),
+        MelFid('PNAM','previousINFO',),
+        MelStruct('CNAM','I',(FavorLevelFlags,'flags',0L),),
+        MelFids('TCLT','response',),
+        MelFid('DNAM','responseData',),
+        # {>>> Unordered, CTDA can appear before or after LNAM <- REQUIRES CONFIRMATION <<<}
+        MelGroups('responses',
+            MelStruct('TRDT','II4sB3sIB3s',(EmotionTypeFlags,'flags',0L),'emotionValue',
+                      'unused','responsenumber','unused',(FID,'sound'),
+                      (InfoResponsesFlags,'flags',0L),'unused',),   
+            MelString('NAM1','responseText'),
+            MelString('NAM2','scriptNotes'),
+            MelString('NAM3','edits'),
+            MelFid('SNAM','idleAnimations:Speaker',),
+            MelFid('LNAM','idleAnimations:Listener',),
+            ),
+
+        MelConditions(),
+
+        MelGroups('responses',
+            MelBase('SCHR','unknown1'),
+            MelFid('QNAM','unknown2'),
+            MelNull('NEXT'),
+            ),
+        MelLString('RNAM','prompt'),
+        MelFid('ANAM','speaker',),
+        MelFid('TWAT','walkAwayTopic',),
+        MelFid('ONAM','audioOutputOverride',),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreIngr(MelRecord):
     """INGR (ingredient) record."""
@@ -6388,6 +6498,60 @@ class MreKeym(MelRecord):
 #------------------------------------------------------------------------------
 # Marker for organization please don't remove ---------------------------------
 # LIGH ------------------------------------------------------------------------
+class MreLigh(MelRecord):
+    """Light"""
+    classType = 'LIGH'
+    
+    # {0x00000001} 'Dynamic',
+    # {0x00000002} 'Can be Carried',
+    # {0x00000004} 'Negative',
+    # {0x00000008} 'Flicker',
+    # {0x00000010} 'Unknown',
+    # {0x00000020} 'Off By Default',
+    # {0x00000040} 'Flicker Slow',
+    # {0x00000080} 'Pulse',
+    # {0x00000100} 'Pulse Slow',
+    # {0x00000200} 'Spot Light',
+    # {0x00000400} 'Shadow Spotlight',
+    # {0x00000800} 'Shadow Hemisphere',
+    # {0x00001000} 'Shadow Omnidirectional',
+    # {0x00002000} 'Portal-strict'
+    LighTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'dynamic'),
+            (1, 'canbeCarried'),
+            (2, 'negative'),
+            (3, 'flicker'),
+            (4, 'unknown'),
+            (5, 'offByDefault'),
+            (6, 'flickerSlow'),
+            (7, 'pulse'),
+            (8, 'pulseSlow'),
+            (9, 'spotLight'),
+            (10, 'shadowSpotlight'),
+            (11, 'shadowHemisphere'),
+            (12, 'shadowOmnidirectional'),
+            (13, 'portalstrict'),
+        ))
+    
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelVmad(),
+        MelBounds(),
+        MelModel(),
+        MelDestructible(),
+        MelLString('FULL','full'),
+        MelIcons(),
+        MelStruct('DATA','iI4BI6fIf','time','radius',
+                  'red','green','blue','unknown',
+                  (LighTypeFlags,'flags',0L),'falloffExponent','fOV','nearClip',
+                  'fePeriod','feIntensityAmplitude','feMovementAmplitude',
+                  'value','weight',),
+        MelStruct('FNAM','f','fadevalue',),
+        MelFid('SNAM','sound',),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreLscr(MelRecord):
     """Load screen."""
@@ -7299,12 +7463,13 @@ mergeClasses = (
         MreDebr, MreDlbr, MreDlvw, MreDobj, MreDoor, MreDual, MreEczn, MreEfsh,
         MreEnch, MreEqup, MreExpl, MreEyes, MreFact, MreFlor, MreFlst, MreFstp,
         MreFsts, MreFurn, MreGlob, MreGmst, MreGras, MreHazd, MreHdpt, MreIdle,
-        MreIdlm, MreImgs, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt,
-        MreLgtm, MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp, MreMato, MreMatt,
-        MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc, MreMust, MreNpc_,
-        MreOtft, MreProj, MreRela, MreRevb, MreRfct, MreScrl, MreScen, MreSlgm,
-        MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr, MreSopm, MreSoun, MreSpel,
-        MreSpgd, MreStat, MreTact, MreTree, MreTxst, MreVtyp, MreWoop,
+        MreIdlm, MreImgs, MreInfo, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd,
+        MreLcrt, MreLgtm, MreLigh, MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp,
+        MreMato, MreMatt, MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc,
+        MreMust, MreNpc_, MreOtft, MreProj, MreRela, MreRevb, MreRfct, MreScrl,
+        MreScen, MreSlgm, MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr, MreSopm,
+        MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst, MreVtyp,
+        MreWoop,
     )
 
 #--Extra read/write classes
@@ -7327,12 +7492,13 @@ def init():
         MreDebr, MreDlbr, MreDlvw, MreDobj, MreDoor, MreDual, MreEczn, MreEfsh,
         MreEnch, MreEqup, MreExpl, MreEyes, MreFact, MreFlor, MreFlst, MreFstp,
         MreFsts, MreFurn, MreGlob, MreGmst, MreGras, MreHazd, MreHdpt, MreIdle,
-        MreIdlm, MreImgs, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt,
-        MreLgtm, MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp, MreMato, MreMatt,
-        MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc, MreMust, MreNpc_,
-        MreOtft, MreProj, MreRela, MreRevb, MreRfct, MreScrl, MreScen, MreSlgm,
-        MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr, MreSopm, MreSoun, MreSpel,
-        MreSpgd, MreStat, MreTact, MreTree, MreTxst, MreVtyp, MreWoop,
+        MreIdlm, MreImgs, MreInfo, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd,
+        MreLcrt, MreLgtm, MreLigh, MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp,
+        MreMato, MreMatt, MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc,
+        MreMust, MreNpc_, MreOtft, MreProj, MreRela, MreRevb, MreRfct, MreScrl,
+        MreScen, MreSlgm, MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr, MreSopm,
+        MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst, MreVtyp,
+        MreWoop,
         MreHeader,
     ))
 
