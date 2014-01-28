@@ -3592,28 +3592,6 @@ class MelSpgdData(MelStruct):
         else:
             MelStruct.loadData(self,record,ins,type,size,readId)
 
-#------------------------------------------------------------------------------
-#    class MelIdlmIdlc(MelStruct):
-#        """Handle older trucated IDLC for IDLM subrecord."""
-#        def loadData(self,record,ins,type,size,readId):
-#            if size == 4:
-#                MelStruct.loadData(self,record,ins,type,size,readId)
-#                return
-#            elif size == 1:
-#                unpacked = ins.unpack('B',size,readId)
-#            else:
-#                raise "Unexpected size encountered for TERM:DNAM subrecord: %s" % size
-#            unpacked += self.defaults[len(unpacked):]
-#            setter = record.__setattr__
-#            for attr,value,action in zip(self.attrs,unpacked,self.actions):
-#                if callable(action): value = action(value)
-#                setter(attr,value)
-#            if self._debug: print unpacked
-#------------------------------------------------------------------------------
-# Intigrate above syntax into the syntax below for consistancy unless the above
-# syntax is better
-#------------------------------------------------------------------------------
-
 class MreSpgd(MelRecord):
     """Spgd Item"""
     classType = 'SPGD'
@@ -4127,20 +4105,10 @@ class MreEyes(MelRecord):
 class MelFactCrva(MelStruct):
     """Fact Crva Custom Unpacker"""
 
-    FactCrvaBoolFlags = bolt.Flags(0L,bolt.Flags.getNames(
-        (0, 'false'),
-        (1, 'true'),
-    ))
-
     def __init__(self,type='CRVA'):
         MelStruct.__init__(self,type,'2B5Hf2H',
-                  (MelFactCrva.FactCrvaBoolFlags,'arrest',0L),
-                  (MelFactCrva.FactCrvaBoolFlags,'attackOnSight',0L),
-                  'murder',
-                  'assault',
-                  'trespass',
-                  'pickpocket',
-                  'unknown',
+                  'arrest','attackOnSight','murder','assault',
+                  'trespass','pickpocket','unknown',
                   'stealMultiplier',
                   'escape',
                   'werewolf',
@@ -4168,11 +4136,6 @@ class MelFactCrva(MelStruct):
 class MreFact(MelRecord):
     """Fact Faction Records"""
     classType = 'FACT'
-
-    FactVenvBoolFlags = bolt.Flags(0L,bolt.Flags.getNames(
-        (0, 'false'),
-        (1, 'true'),
-    ))
 
     FactCombatReactionFlags = bolt.Flags(0L,bolt.Flags.getNames(
         (0, 'neutral'),
@@ -4273,9 +4236,7 @@ class MreFact(MelRecord):
         MelFid('VEND','vendorBuySellList'),
         MelFid('VENC','merchantContainer'),
         MelStruct('VENV','3H2s2B2s','startHour','endHour','radius','unknownOne',
-                  (FactVenvBoolFlags,'onlyBuysStolenItems',0L),
-                  (FactVenvBoolFlags,'notSellBuy',0L),
-                  'UnknownTwo'),
+                  'onlyBuysStolenItems','notSellBuy','UnknownTwo'),
         MelStruct('PLVD','iIi','type','locationValue','radius',),
         MelConditions(),
         )
@@ -4340,6 +4301,32 @@ class MreFurn(MelRecord):
         (7, 'smithingArmor'),
     ))
 
+    # {0x01} 'Front',
+    # {0x02} 'Behind',
+    # {0x04} 'Right',
+    # {0x08} 'Left',
+    # {0x10} 'Up'
+    MarkerEntryPointFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'front'),
+            (1, 'behind'),
+            (2, 'right'),
+            (3, 'left'),
+            (4, 'up'),
+        ))
+    
+    # {0} '',
+    # {1} 'Sit',
+    # {2} 'Lay',
+    # {3} '',
+    # {4} 'Lean'
+    MarkerTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, ''),
+            (1, 'sit'),
+            (2, 'lay'),
+            (3, ''),
+            (4, 'lean'),
+        ))
+    
     melSet = MelSet(
         MelString('EDID','eid'),
         MelVmad(),
@@ -4350,29 +4337,29 @@ class MreFurn(MelRecord):
         MelNull('KSIZ'),
         MelKeywords('KWDA','keywords'),
         MelBase('PNAM','pnam_p'),
-        MelStruct('FNAM','H',(FurnGeneralFlags,'general_f',0L)),
+        MelStruct('FNAM','H',(FurnGeneralFlags,'general_f',0L),),
         MelFid('KNAM','interactionKeyword'),
         MelStruct('MNAM','I',(FurnActiveMarkerFlags,'activeMarker_f',0L)),
         # UsesSkill needs to be flags or an Enum at some point
-        MelStruct('WBDT','Bb',(FurnActiveMarkerFlags,'activeMarker_f',0L),'usesSkill',),
+        MelStruct('WBDT','Bb',(FurnBenchTypeFlags,'benchType_f',0L),'usesSkill',),
         MelFid('NAM1','associatedSpell'),
         # markerArray needs to be a repeating Array
         # Disabled  needs to be flags or an Enum at some point
         MelGroups('markerArray',
             MelStruct('ENAM','I','markerIndex',),
-            MelStruct('NAM0','I','unknown','disabledPoints',),
+            MelStruct('NAM0','2sH','unknown',(MarkerEntryPointFlags,'disabledPoints_f',0L),),
             MelFid('FNMK','markerKeyword',),
             ),
         # furnitureAnimType and furnitureEntryType need to be flags or an Enum at some point
         MelGroups('markerArray',
-            MelStruct('FNPR','2H','furnitureAnimType','furnitureEntryType',),
+            MelStruct('FNPR','2H',(MarkerTypeFlags,'typeFlags',0L),
+                      (MarkerEntryPointFlags,'entryPointsFlags',0L),),
             ),
         MelString('XMRK','mico_n'),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
-# Needs syntax check, but should be Correct for Skyrim 1.8
-# XNAM and PLVD Need to be reviewed
+# Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 # Marker for organization please don't remove ---------------------------------
 # GLOB ------------------------------------------------------------------------
@@ -7606,6 +7593,7 @@ def init():
     brec.ModReader.recHeader = RecordHeader
 
     #--Record Types
+    #--Non Mergable Records placed last for organization 
     brec.MreRecord.type_class = dict((x.classType,x) for x in (
         MreAact, MreActi, MreAddn, MreAlch, MreAmmo, MreAnio, MreAppa, MreArma,
         MreArmo, MreArto, MreAspc, MreAstp, MreAvif, MreBook, MreBptd, MreCams,
@@ -7620,7 +7608,7 @@ def init():
         MreShou, MreSlgm, MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr, MreSopm,
         MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst, MreVtyp,
         MreWatr, MreWoop,
-        MreHeader,
+        MreHeader, MreCell,
     ))
 
     #--Simple records
