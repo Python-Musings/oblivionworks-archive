@@ -4877,6 +4877,8 @@ class MrePerk(MelRecord):
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
+# PRKE and EPFD need Union Deciders
+# PRKE and EPFD have FormIDs that are unaccounted for Not Mergable
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreBptd(MelRecord):
@@ -4904,23 +4906,30 @@ class MreBptd(MelRecord):
     melSet = MelSet(
         MelString('EDID','eid'),
         MelModel(),
-        MelLString('BPTN','partName'),
-        MelString('PNAM','poseMatching'),
-        MelString('BPNN','partNode'),
-        MelString('BPNT','vatsTarget'),
-        MelString('BPNI','startNode'),
-        MelStruct('BPND','f3Bb2BH2I2f3I7f2I2BHf','damageMult',(BptdDamageFlags,'flags',0L),
-            'bodyPartType','healthPcnt','actorValue','toHitChance',
-            'explodableExplosionChancePcnt','explodableDebrisCount',(FID,'explodableDebris'),
-            (FID,'explodableExplosion'),'trackingMaxAngle','explodableDebrisScale',
-            'severableDebrisCount',(FID,'severableDebris'),(FID,'severableExplosion'),
-            'severableDebrisScale','transx','transy','transz','rotx','roty','rotz',
-            (FID,'severableImpactDataset'),(FID,'explodableImpactDataset'),'severableDecalCount',
-            'explodableDecalCount','unknown','limbReplacementScale',
-        ),
-        MelString('NAM1','limbReplacementModel'),
-        MelString('NAM4','goreEffectsTargetBone'),
-        MelBase('NAM5','textFileHashes'),
+        MelGroups('bodyParts',
+            # BPTN is a Null terminated string with no length Byte
+            MelLString('BPTN','partName'),
+            MelString('PNAM','poseMatching'),
+            MelString('BPNN','partNode'),
+            MelString('BPNT','vATSTarget'),
+            MelString('BPNI','iKDataStartNode'),
+            MelStruct('BPND','f3Bb2BH2I2fi2I7f2I2B2sf','damageMult',
+                      (BptdDamageFlags,'flags',0L),'bodyPartType','healthPercent',
+                      'actorValue','toHitChance','explodableExplosionChancepct',
+                      'explodableDebrisCount',(FID,'Explodable - Debris'),
+                      (FID,'Explodable - Explosion'),'trackingMaxAngle',
+                      'explodableDebrisScale','severableDebrisCount',
+                      (FID,'Severable - Debris'),(FID,'Severable - Explosion'),
+                      'severableDebrisScale','translate-x','translate-y',
+                      'translate-z','rotation-x','rotation-y','rotation-z',
+                      (FID,'Severable - Impact DataSet'),
+                      (FID,'Explodable - Impact DataSet'),
+                      'severableDecalCount','explodableDecalCount','unknown',
+                      'limbReplacementScale',),
+            MelString('NAM1','limbReplacementModel'),
+            MelString('NAM4','goreEffectsTargetBone'),
+            MelBase('NAM5','Texture files hashes'),
+            ),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
@@ -7319,7 +7328,7 @@ class MreWatr(MelRecord):
 #------------------------------------------------------------------------------
 # These need syntax revision but can be merged once that is corrected
 #
-#       MreAchr, MreDial, MreLctn, MreInfo, MreFact,
+#       MreAchr, MreDial, MreLctn, MreInfo, MreFact, MrePerk,
 #------------------------------------------------------------------------------
 # Mergeable record types
 mergeClasses = (
@@ -7332,10 +7341,10 @@ mergeClasses = (
         MreImgs, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt, MreLgtm,
         MreLigh, MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp, MreMato, MreMatt,
         MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc, MreMust, MreNpc_,
-        MreOtft, MrePerk, MreProj, MreRela, MreRevb, MreRfct, MreScen, MreScrl,
-        MreShou, MreSlgm, MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr, MreSopm,
-        MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst, MreVtyp,
-        MreWatr, MreWoop,
+        MreOtft, MreProj, MreRela, MreRevb, MreRfct, MreScen, MreScrl, MreShou,
+        MreSlgm, MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr, MreSopm, MreSoun,
+        MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst, MreVtyp, MreWatr,
+        MreWoop,
     )
 
 #--Extra read/write classes
@@ -7362,10 +7371,10 @@ def init():
         MreImgs, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt, MreLgtm,
         MreLigh, MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp, MreMato, MreMatt,
         MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc, MreMust, MreNpc_,
-        MreOtft, MrePerk, MreProj, MreRela, MreRevb, MreRfct, MreScen, MreScrl,
-        MreShou, MreSlgm, MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr, MreSopm,
-        MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst, MreVtyp,
-        MreWatr, MreWoop,
+        MreOtft, MreProj, MreRela, MreRevb, MreRfct, MreScen, MreScrl, MreShou,
+        MreSlgm, MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr, MreSopm, MreSoun,
+        MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst, MreVtyp, MreWatr,
+        MreWoop,
         MreHeader, MreCell,
     ))
 
