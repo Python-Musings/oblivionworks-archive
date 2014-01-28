@@ -3354,9 +3354,9 @@ class MreBook(MelRecord):
         MelOptStruct('ZNAM','I',(FID,'dropSound')),
         MelNull('KSIZ'),
         MelKeywords('KWDA','keywords'),
-        MelStruct('DATA','4B2If',(BookTypeFlags,'flags',0L),'bookType','unused','unused','skillOrSpell','value','weight'),
-        MelFids('INAM','races'),
-        MelString('CNAM','cnam_n'),
+        MelStruct('DATA','2B2siIf',(BookTypeFlags,'flags',0L),'bookType','unused','skillOrSpell','value','weight'),
+        MelFid('INAM','inventoryArt'),
+        MelString('CNAM','description'),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
@@ -3459,6 +3459,9 @@ class MreCell(MelRecord):
         # MelStruct('XWCU','6f','xOffset','yOffset','zOffset','unknown_off',
         #          'xAngle','yAngle','zAngle','unknown_ang',),
         MelBase('XWCU','waterVelocity',),
+
+        MelStruct('XWCU','3f4s3f','xOffset','yOffset','zOffset','unknown','xAngle',
+                  'yAngle','zAngle',dumpExtra='unknown',),
         MelFid('XCWT','water',),
 
         # {--- Ownership ---}
