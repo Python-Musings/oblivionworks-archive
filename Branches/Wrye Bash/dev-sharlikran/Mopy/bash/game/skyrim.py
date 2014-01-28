@@ -4037,11 +4037,11 @@ class MreEfsh(MelRecord):
 
     melSet = MelSet(
         MelString('EDID','eid'),
-        MelString('ICON','icon_s'),
-        MelString('ICO2','ico2_s'),
-        MelString('NAM7','nam7_s'),
-        MelString('NAM8','nam8_s'),
-        MelString('NAM9','nam9_s'),
+        MelString('ICON','fillTexture'),
+        MelString('ICO2','particleShaderTexture'),
+        MelString('NAM7','holesTexture'),
+        MelString('NAM8','membranePaletteTexture'),
+        MelString('NAM9','particlePaletteTexture'),
         MelStruct('DATA','4I4B9f4B8f5I19f12B11fI5f4Bf2I6fI8B9f8I2fI','unknownValue','sourceBlendMode','blendOperation'
         'zTestFunction','fteColorKey1Red','fteColorKey1Green','fteColorKey1Blue','fteColorKey1Unk','fteAlphaFadeInTime',
         'fteFullAlphaTime','fteAlphaFadeOutTime','ftePresistentAlphaRatio','fteAlphaPulseAmplitude','fteAlphaPulseFrequency',
@@ -4068,6 +4068,7 @@ class MreEfsh(MelRecord):
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
 # Verified Correct for Skyrim 1.8
+# DATA could be double checked
 #------------------------------------------------------------------------------
 class MreEnch(MelRecord):
     """Enchants"""
@@ -4090,7 +4091,7 @@ class MreEnch(MelRecord):
         MelString('EDID','eid'),
         MelBounds(),
         MelLString('FULL','full'),
-        MelStruct('ENIT','6If2I','enchantmentCost',(EnchGeneralFlags,'generalFlags',0L),'castType',
+        MelStruct('ENIT','i2Ii2If2I','enchantmentCost',(EnchGeneralFlags,'generalFlags',0L),'castType',
                   'enchantmentAmount','targetType',(EnchEnchantTypeFlags,'enchantType',0L),
                   'chargeTime',(FID,'baseEnchantment'),(FID,'wornRestrictions'),
             ),
