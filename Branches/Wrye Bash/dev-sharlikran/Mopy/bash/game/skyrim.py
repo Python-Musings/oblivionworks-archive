@@ -4492,6 +4492,11 @@ class MreHazd(MelRecord):
     """Hazard"""
     classType = 'HAZD'
 
+    # {0x01} 'Affects Player Only',
+    # {0x02} 'Inherit Duration from Spawn Spell',
+    # {0x04} 'Align to Impact Normal',
+    # {0x08} 'Inherit Radius from Spawn Spell',
+    # {0x10} 'Drop to Ground'
     HazdTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
         (0, 'affectsPlayerOnly'),
         (1, 'inheritDurationFromSpawnSpell'),
@@ -4618,6 +4623,15 @@ class MreExpl(MelRecord):
     """Explosion record."""
     classType = 'EXPL'
 
+    # 'Unknown 0',
+    # 'Always Uses World Orientation',
+    # 'Knock Down - Always',
+    # 'Knock Down - By Formula',
+    # 'Ignore LOS Check',
+    # 'Push Explosion Source Ref Only',
+    # 'Ignore Image Space Swap',
+    # 'Chain',
+    # 'No Controller Vibration'
     ExplTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
         (0, 'unknown1'),
         (1, 'alwaysUsesWorldOrientation'),
@@ -4670,24 +4684,23 @@ class MreImgs(MelRecord):
     """Imgs Item"""
     classType = 'IMGS'
 
-    FlstDofFlags = bolt.Flags(0L,bolt.Flags.getNames(
-            (16384, 'radius0'),
-            (16672, 'radius1'),
-            (16784, 'radius2'),
-            (16848, 'radius3'),
-            (16904, 'radius4'),
-            (16936, 'radius5'),
-            (16968, 'radius6'),
-            (17000, 'radius7'),
-            (16576, 'noSkyRadius0'),
-            (16736, 'noSkyRadius1'),
-            (16816, 'noSkyRadius2'),
-            (16880, 'noSkyRadius3'),
-            (16920, 'noSkyRadius4'),
-            (16952, 'noSkyRadius5'),
-            (16984, 'noSkyRadius6'),
-            (17016, 'noSkyRadius7'),
-        ))
+    # DNAM 'skyBlurRadius' is wbEnum in TES5Edit
+    # 16384, 'Radius 0',
+    # 16672, 'Radius 1',
+    # 16784, 'Radius 2',
+    # 16848, 'Radius 3',
+    # 16904, 'Radius 4',
+    # 16936, 'Radius 5',
+    # 16968, 'Radius 6',
+    # 17000, 'Radius 7',
+    # 16576, 'No Sky, Radius 0',
+    # 16736, 'No Sky, Radius 1',
+    # 16816, 'No Sky, Radius 2',
+    # 16880, 'No Sky, Radius 3',
+    # 16920, 'No Sky, Radius 4',
+    # 16952, 'No Sky, Radius 5',
+    # 16984, 'No Sky, Radius 6',
+    # 17016, 'No Sky, Radius 7'
 
     melSet = MelSet(
         MelString('EDID','eid'),
@@ -4697,8 +4710,8 @@ class MreImgs(MelRecord):
                   'eyeAdaptStrength',),
         MelStruct('CNAM','3f','Saturation','Brightness','Contrast',),
         MelStruct('TNAM','4f','tintAmount','tintRed','tintGreen','tintBlue',),
-        MelStruct('DNAM','3f2sH','dofStrength','dofDistance','dofRange',
-                  (FlstDofFlags,'flags',0L),),
+        MelStruct('DNAM','3f2sH','dofStrength','dofDistance','dofRange','unknown',
+                  'skyBlurRadius',),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
