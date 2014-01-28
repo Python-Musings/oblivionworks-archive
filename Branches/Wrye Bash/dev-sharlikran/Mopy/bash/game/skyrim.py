@@ -1890,6 +1890,60 @@ class RecordHeader(brec.BaseRecordHeader):
             return struct.pack('=4s5I',self.recType,self.size,self.flags1,
                                self.fid,self.flags2,self.extra)
 
+#-------------------------------------------------------------------------------
+# Commonly Used Flags ----------------------------------------------------------
+#-------------------------------------------------------------------------------
+class MelBipedFlags(bolt.Flags):
+    """Biped flags element. Includes biped flag set by default."""
+
+    # {0x00000001} '30 - Head',
+    # {0x00000002} '31 - Hair',
+    # {0x00000004} '32 - Body',
+    # {0x00000008} '33 - Hands',
+    # {0x00000010} '34 - Forearms',
+    # {0x00000020} '35 - Amulet',
+    # {0x00000040} '36 - Ring',
+    # {0x00000080} '37 - Feet',
+    # {0x00000100} '38 - Calves',
+    # {0x00000200} '39 - Shield',
+    # {0x00000400} '40 - Tail',
+    # {0x00000800} '41 - LongHair',
+    # {0x00001000} '42 - Circlet',
+    # {0x00002000} '43 - Unnamed',
+    # {0x00004000} '44 - Unnamed',
+    # {0x00008000} '45 - Unnamed',
+    # {0x00010000} '46 - Unnamed',
+    # {0x00020000} '47 - Unnamed',
+    # {0x00040000} '48 - Unnamed',
+    # {0x00080000} '49 - Unnamed',
+    # {0x00100000} '50 - DecapitateHead',
+    # {0x00200000} '51 - Decapitate',
+    # {0x00400000} '52 - Unnamed',
+    # {0x00800000} '53 - Unnamed',
+    # {0x01000000} '54 - Unnamed',
+    # {0x02000000} '55 - Unnamed',
+    # {0x03000000} '56 - Unnamed',
+    # {0x08000000} '57 - Unnamed',
+    # {0x10000000} '58 - Unnamed',
+    # {0x20000000} '59 - Unnamed',
+    # {0x40000000} '60 - Unnamed',
+    # {0x80000000} '61 - FX01'
+
+    mask = 0xFFFF
+    def __init__(self,default=0L,newNames=None):
+        names = bolt.Flags.getNames(
+            '30Head','31Hair','32Body','33Hands','34Forearms','35Amulet',
+            '36Ring','37Feet','38Calves','39Shield','40Tail','41LongHair',
+            '42Circlet','43Unnamed','44Unnamed','45Unnamed','46Unnamed',
+            '47Unnamed','48Unnamed','49Unnamed','50DecapitateHead',
+            '51Decapitate','52Unnamed','53Unnamed','54Unnamed','55Unnamed',
+            '56Unnamed','57Unnamed','58Unnamed',
+            '59Unnamed','60Unnamed','61FX01')
+
+        if newNames: names.update(newNames)
+        bolt.Flags.__init__(self,default,names)
+
+# Updated for Skyrim
 #------------------------------------------------------------------------------
 # Common/Special Elements
 #------------------------------------------------------------------------------
@@ -2871,21 +2925,6 @@ class MelVmad(MelBase):
 #
 # MelStruct('DATA','2I',MelActorValue,MelActorValue,),
 #
-#-------------------------------------------------------------------------------
-# Commonly Used Flags ----------------------------------------------------------
-#-------------------------------------------------------------------------------
-class MelBipedFlags(bolt.Flags):
-    """Biped flags element. Includes biped flag set by default."""
-    mask = 0xFFFF
-    def __init__(self,default=0L,newNames=None):
-        names = bolt.Flags.getNames(
-            'head', 'hair', 'upperBody', 'leftHand', 'rightHand', 'weapon',
-            'pipboy', 'backpack', 'necklace', 'headband', 'hat', 'eyeGlasses',
-            'noseRing', 'earrings', 'mask', 'choker', 'mouthObject',
-            'bodyAddOn1', 'bodyAddOn2', 'bodyAddOn3')
-        if newNames: names.update(newNames)
-        bolt.Flags.__init__(self,default,names)
-
 #-------------------------------------------------------------------------------
 # Skyrim Records ---------------------------------------------------------------
 #-------------------------------------------------------------------------------
@@ -4735,108 +4774,7 @@ class MrePerk(MelRecord):
     """Perk Item"""
     classType = 'PERK'
 
-    PerkEntryPointFlags = bolt.Flags(0L,bolt.Flags.getNames(
-            (0, 'calculateWeaponDamage'),
-            (1, 'calculateMyCriticalHitChance'),
-            (2, 'calculateMyCriticalHitDamage'),
-            (3, 'calculateMineExplodeChance'),
-            (4, 'adjustLimbDamage'),
-            (5, 'adjustBookSkillPoints'),
-            (6, 'modRecoveredHealth'),
-            (7, 'getShouldAttack'),
-            (8, 'modBuyPrices'),
-            (9, 'addLeveledListOnDeath'),
-            (10, 'getMaxCarryWeight'),
-            (11, 'modAddictionChance'),
-            (12, 'modAddictionDuration'),
-            (13, 'modPositiveChemDuration'),
-            (14, 'activate'),
-            (15, 'ignoreRunningDuringDetection'),
-            (16, 'ignoreBrokenLock'),
-            (17, 'modEnemyCriticalHitChance'),
-            (18, 'modSneakAttackMult'),
-            (19, 'modMaxPlaceableMines'),
-            (20, 'modBowZoom'),
-            (21, 'modRecoverArrowChance'),
-            (22, 'modSkillUse'),
-            (23, 'modTelekinesisDistance'),
-            (24, 'modTelekinesisDamageMult'),
-            (25, 'modTelekinesisDamage'),
-            (26, 'modBashingDamage'),
-            (27, 'modPowerAttackStamina'),
-            (28, 'modPowerAttackDamage'),
-            (29, 'modSpellMagnitude'),
-            (30, 'modSpellDuration'),
-            (31, 'modSecondaryValueWeight'),
-            (32, 'modArmorWeight'),
-            (33, 'modIncomingStagger'),
-            (34, 'modTargetStagger'),
-            (35, 'modAttackDamage'),
-            (36, 'modIncomingDamage'),
-            (37, 'modTargetDamageResistance'),
-            (38, 'modSpellCost'),
-            (39, 'modPercentBlocked'),
-            (40, 'modShieldDeflectArrowChance'),
-            (41, 'modIncomingSpellMagnitude'),
-            (42, 'modIncomingSpellDuration'),
-            (43, 'modPlayerIntimidation'),
-            (44, 'modPlayerReputation'),
-            (45, 'modFavorPoints'),
-            (46, 'modBribeAmount'),
-            (47, 'modDetectionLight'),
-            (48, 'modDetectionMovement'),
-            (49, 'modSoulGemRecharge'),
-            (50, 'setSweepAttack'),
-            (51, 'applyCombatHitSpell'),
-            (52, 'applyBashingSpell'),
-            (53, 'applyReanimateSpell'),
-            (54, 'setBooleanGraphVariable'),
-            (55, 'modSpellCastingSoundEvent'),
-            (56, 'modPickpocketChance'),
-            (57, 'modDetectionSneakSkill'),
-            (58, 'modFallingDamage'),
-            (59, 'modLockpickSweetSpot'),
-            (60, 'modSellPrices'),
-            (61, 'canPickpocketEquippedItem'),
-            (62, 'modLockpickLevelAllowed'),
-            (63, 'setLockpickStartingArc'),
-            (64, 'setProgressionPicking'),
-            (65, 'makeLockpicksUnbreakable'),
-            (66, 'modAlchemyEffectiveness'),
-            (67, 'applyWeaponSwingSpell'),
-            (68, 'modCommandedActorLimit'),
-            (69, 'applySneakingSpell'),
-            (70, 'modPlayerMagicSlowdown'),
-            (71, 'modWardMagickaAbsorptionPct'),
-            (72, 'modInitialIngredientEffectsLearned'),
-            (73, 'purifyAlchemyIngredients'),
-            (74, 'filterActivation'),
-            (75, 'canDualCastSpell'),
-            (76, 'modTemperingHealth'),
-            (77, 'modEnchantmentPower'),
-            (78, 'modSoulPctCapturedtoWeapon'),
-            (79, 'modSoulGemEnchanting'),
-            (80, 'mod#AppliedEnchantmentsAllowed'),
-            (81, 'setActivateLabel'),
-            (82, 'modShoutOK'),
-            (83, 'modPoisonDoseCount'),
-            (84, 'shouldApplyPlacedItem'),
-            (85, 'modArmorRating'),
-            (86, 'modLockpickingCrimeChance'),
-            (87, 'modIngredientsHarvested'),
-            (88, 'modSpellRangeTargetLoc.'),
-            (89, 'modPotionsCreated'),
-            (90, 'modLockpickingKeyRewardChance'),
-            (91, 'allowMountActor'),
-        ))
-
-    # 'Run Immediately',
-    # 'Replace Default'
-    PerkScriptFlagsFlags = bolt.Flags(0L,bolt.Flags.getNames(
-            (0, 'runImmediately'),
-            (1, 'replaceDefault'),
-        ))
-
+    # EPFT 'functionParameterType' is wbEnum
     # {0} 'None',
     # {1} 'Float',
     # {2} 'Float/AV,Float',
@@ -4845,17 +4783,8 @@ class MrePerk(MelRecord):
     # {5} 'SPEL',
     # {6} 'string',
     # {7} 'lstring'
-    PerkFunctionParameterFlags = bolt.Flags(0L,bolt.Flags.getNames(
-            (0, 'none'),
-            (1, 'float'),
-            (2, 'float/AV,Float'),
-            (3, 'lVLI'),
-            (4, 'sPEL,lstring,flags'),
-            (5, 'sPEL'),
-            (6, 'string'),
-            (7, 'lstring'),
-        ))
 
+    # DATA 'Effect Data' is wbEnum
     # {0} 'Unknown 0',
     # {1} 'Set Value',  // EPFT=1
     # {2} 'Add Value', // EPFT=1
@@ -4872,47 +4801,17 @@ class MrePerk(MelRecord):
     # {13} 'Multiply Actor Value Mult', // EPFT=2
     # {14} 'Multiply 1 + Actor Value Mult', // EPFT=2
     # {15} 'Set Text' // EPFT=7
-    PerkFunctionFlags = bolt.Flags(0L,bolt.Flags.getNames(
-            (0, 'unknown0'),
-            (1, 'setValue'),
-            (2, 'addValue'),
-            (3, 'multiplyValue'),
-            (4, 'addRangeToValue'),
-            (5, 'addActorValueMult'),
-            (6, 'absoluteValue'),
-            (7, 'negativeAbsoluteValue'),
-            (8, 'addLeveledList'),
-            (9, 'addActivateChoice'),
-            (10, 'selectSpell'),
-            (11, 'selectText'),
-            (12, 'settoActorValueMult'),
-            (13, 'multiplyActorValueMult'),
-            (14, 'multiply1+ActorValueMult'),
-            (15, 'setText'),
-        ))
 
+    # PRKE 'Effect Data' is wbEnum
     # 'Quest + Stage',
     # 'Ability',
     # 'Entry Point'
-    PerkEffectTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
-            (0, 'quest+Stage'),
-            (1, 'ability'),
-            (2, 'entryPoint'),
-        ))
 
-    PerkHiddenFlags = bolt.Flags(0L,bolt.Flags.getNames(
-            (0, 'false'),
-            (1, 'true'),
-        ))
-
-    PerkPlayableFlags = bolt.Flags(0L,bolt.Flags.getNames(
-            (0, 'false'),
-            (1, 'true'),
-        ))
-
-    PerkTraitFlags = bolt.Flags(0L,bolt.Flags.getNames(
-            (0, 'false'),
-            (1, 'true'),
+    # 'Run Immediately',
+    # 'Replace Default'
+    PerkScriptFlagsFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'runImmediately'),
+            (1, 'replaceDefault'),
         ))
 
     melSet = MelSet(
@@ -4922,13 +4821,12 @@ class MrePerk(MelRecord):
         MelLString('DESC','description'),
         MelIcons(),
         MelConditions(),
-        MelStruct('DATA','5B',(PerkTraitFlags,'trait',0L),'level','numRanks',
-                  (PerkPlayableFlags,'playable',0L),(PerkHiddenFlags,'hidden',0L),),
+        MelStruct('DATA','5B','trait','level','numRanks','playable','hidden',),
         MelFid('NNAM','nextPerk',),
 
         # Sorted Struct: wbRStructsSK('Effects', 'Effect', [0, 1], [
         MelGroup('effects',
-            MelStruct('PRKE','3B',(PerkEffectTypeFlags,'type',0L),'rank','priority',),
+            MelStruct('PRKE','3B','effectType','rank','priority',),
             # Needs Union Decider: wbUnion(DATA, 'Effect Data', wbPerkDATADecider, [
             # 1- MelStruct('DATA','IB3s',(FID,'quest'),'questStage','unused',),
             # 2- MelFid('DATA','ability',),
@@ -4939,12 +4837,12 @@ class MrePerk(MelRecord):
 
         # Sorted Struct: wbRStructsSK('Perk Conditions', 'Perk Condition', [0], [
         MelGroup('perkConditions',
-            MelStruct('PRKC','I','runOnTabIndex'),
+            MelStruct('PRKC','b','runOnTabIndex'),
             MelConditions(),
         ),
 
         MelGroup('functionParameters',
-            MelStruct('EPFT','I',(PerkFunctionParameterFlags,'flags',0L),),
+            MelStruct('EPFT','I','functionParameterType',),
             # EPF2 is a Null terminated string with no length Byte
             MelLString('EPF2','buttonLabel'),
             MelStruct('EPF3','B3s',(PerkScriptFlagsFlags,'flags',0L),'unknown',),
@@ -4982,6 +4880,14 @@ class MreBptd(MelRecord):
     """Bptd Item"""
     classType = 'BPTD'
 
+    # BPND 'bodyPartType' is wbEnum
+    # 'Torso',
+    # 'Head',
+    # 'Eye',
+    # 'LookAt',
+    # 'Fly Grab',
+    # 'Saddle'
+
     BptdDamageFlags = bolt.Flags(0L,bolt.Flags.getNames(
             (0, 'severable'),
             (1, 'ikData'),
@@ -4990,15 +4896,6 @@ class MreBptd(MelRecord):
             (4, 'ikDataIsHead'),
             (5, 'ikDataHeadtracking'),
             (6, 'toHitChanceAbsolute'),
-        ))
-
-    BptdPartTypes = bolt.Flags(0L,bolt.Flags.getNames(
-            (0, 'torso'),
-            (1, 'head'),
-            (2, 'eye'),
-            (3, 'lookAt'),
-            (4, 'flyGrab'),
-            (5, 'saddle'),
         ))
 
     melSet = MelSet(
@@ -5010,7 +4907,7 @@ class MreBptd(MelRecord):
         MelString('BPNT','vatsTarget'),
         MelString('BPNI','startNode'),
         MelStruct('BPND','f3Bb2BH2I2f3I7f2I2BHf','damageMult',(BptdDamageFlags,'flags',0L),
-            (BptdPartTypes,'flags',0L),'healthPcnt','actorValue','toHitChance',
+            'bodyPartType','healthPcnt','actorValue','toHitChance',
             'explodableExplosionChancePcnt','explodableDebrisCount',(FID,'explodableDebris'),
             (FID,'explodableExplosion'),'trackingMaxAngle','explodableDebrisScale',
             'severableDebrisCount',(FID,'severableDebris'),(FID,'severableExplosion'),
@@ -5071,26 +4968,21 @@ class MreCams(MelRecord):
     """Cams Type"""
     classType = 'CAMS'
 
-    CamsActionFlags = bolt.Flags(0L,bolt.Flags.getNames(
-            (0, 'actionShoot'),
-            (1, 'actionFly'),
-            (2, 'actionHit'),
-            (3, 'actionZoom'),
-        ))
+    # DATA 'Action','Location','Target' is wbEnum 
+    # 'Action-Shoot',
+    # 'Action-Fly',
+    # 'Action-Hit',
+    # 'Action-Zoom'
 
-    CamsLocationFlags = bolt.Flags(0L,bolt.Flags.getNames(
-            (0, 'locationAttacker'),
-            (1, 'locationProjectile'),
-            (2, 'locationTarget'),
-            (3, 'locationLeadActor'),
-        ))
+    # 'Location-Attacker',
+    # 'Location-Projectile',
+    # 'Location-Target',
+    # 'Location-Lead Actor'
 
-    CamsTargetFlags = bolt.Flags(0L,bolt.Flags.getNames(
-            (0, 'targetAttacker'),
-            (1, 'targetProjectile'),
-            (2, 'targetTarget'),
-            (3, 'targetLeadActor'),
-        ))
+    # 'Target-Attacker',
+    # 'Target-Projectile',
+    # 'Target-Target',
+    # 'Target-Lead Actor'
 
     CamsFlagsFlags = bolt.Flags(0L,bolt.Flags.getNames(
             (0, 'positionFollowsLocation'),
@@ -5104,10 +4996,10 @@ class MreCams(MelRecord):
     melSet = MelSet(
         MelString('EDID','eid'),
         MelModel(),
-        MelStruct('SNAM','4I7f',(CamsActionFlags,'flags',0L),(CamsLocationFlags,'flags',0L),
-                  (CamsTargetFlags,'flags',0L),(CamsFlagsFlags,'flags',0L),'timeMultPlayer',
-                  'timeMultTarget','timeMultGlobal','maxTime','minTime','targetPctBetweenActors',
-                  'nearTargetDistance',),
+        MelStruct('SNAM','4I7f','Action','Location','Target',
+                  (CamsFlagsFlags,'flags',0L),'timeMultPlayer',
+                  'timeMultTarget','timeMultGlobal','maxTime','minTime',
+                  'targetPctBetweenActors','nearTargetDistance',),
         MelFid('MNAM','imageSpaceModifier',),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
@@ -5116,21 +5008,19 @@ class MreCpth(MelRecord):
     """Camera Path"""
     classType = 'CPTH'
 
-    # mustHaveCS = Must Have Camera Shots
-    CameraZoomFlags = bolt.Flags(0L,bolt.Flags.getNames(
-        (0, 'mustHaveCSDefault'),
-        (1, 'mustHaveCSDisable'),
-        (2, 'mustHaveCSShotList'),
-        (128, 'default'),
-        (129, 'disable'),
-        (130, 'shotList'),
-    ))
+    # DATA 'Camera Zoom' isn wbEnum
+    # 0, 'Default, Must Have Camera Shots',
+    # 1, 'Disable, Must Have Camera Shots',
+    # 2, 'Shot List, Must Have Camera Shots',
+    # 128, 'Default',
+    # 129, 'Disable',
+    # 130, 'Shot List'
 
     melSet = MelSet(
         MelString('EDID','eid'),
         MelConditions(),
         MelFids('ANAM','relatedCameraPaths',),
-        MelStruct('DATA','B',(CameraZoomFlags,'cameraZoom',0L),),
+        MelStruct('DATA','B','cameraZoom',),
         MelFids('SNAM','cameraShots',),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
@@ -5185,48 +5075,39 @@ class MreIpct(MelRecord):
     """Impact record."""
     classType = 'IPCT'
 
-    IpctEffectOrientation = bolt.Flags(0L,bolt.Flags.getNames(
-            (0, 'Surface Normal'),
-            (1, 'Projectile Vector'),
-            (2, 'Projectile Reflection'),
-        ))
+    # 'Effect - Orientation'
+    # 'Surface Normal',
+    # 'Projectile Vector',
+    # 'Projectile Reflection'
+
+    # 'Impact Result'
+    # {0} 'Default',
+    # {1} 'Destroy',
+    # {2} 'Bounce',
+    # {3} 'Impale',
+    # {4} 'Stick'
 
     IpctTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
             (0, 'No Decal Data'),
         ))
 
-    IpctResultFlags = bolt.Flags(0L,bolt.Flags.getNames(
-            (0, 'Default'),
-            (1, 'Destroy'),
-            (2, 'Bounce'),
-            (3, 'Impale'),
-            (4, 'Stick'),
-        ))
-
-    IpctSoundLevel = bolt.Flags(0L,bolt.Flags.getNames(
-            (0, 'Loud'),
-            (1, 'Normal'),
-            (2, 'Silent'),
-            (3, 'Very Loud'),
-        ))
-
     IpctParaTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
-        (0, 'parallax'),
-        (1, 'alphaBlending'),
-        (2, 'alphaTesting'),
-        (3, 'noSubtextures'),
-    ))
+            (0, 'parallax'),
+            (1, 'alphaBlending'),
+            (2, 'alphaTesting'),
+            (3, 'noSubtextures'),
+        ))
 
     melSet = MelSet(
         MelString('EDID','eid'),
         MelModel(),
-        MelStruct('DATA','fIffIBBH','effectDuration',(IpctEffectOrientation,'orientationFlags',0L),
-                  'angleThreshold','placementRadius', (IpctSoundLevel,'soundLevel',0L),
-                  (IpctTypeFlags,'flags',0L),(IpctResultFlags,'resultFlags',0L),'unknown1'
-                  ),
-        MelStruct('DODT','7f8B','minWidth','maxWidth','minHeight','maxHeight',
-                  'depth','shininess','parallaxScale','parallaxPasses',(IpctParaTypeFlags,'para_flags',0L),
-                  'unknown_01','unknown_02','red','green','blue','unused',),
+        MelStruct('DATA','fI2fI2B2s','effectDuration','effectOrientation',
+                  'angleThreshold','placementRadius','soundLevel',
+                  (IpctTypeFlags,'flags',0L),'impactResult','unknown1'),
+        MelStruct('DODT','7f2B2s3Bs','minWidth','maxWidth','minHeight',
+                  'maxHeight','depth','shininess','parallaxScale',
+                  'passes',(IpctParaTypeFlags,'flags',0L),'unknown',
+                  'red','green','blue','unknown',),
         MelFid('DNAM','textureSet'),
         MelFid('ENAM','secondarytextureSet'),
         MelFid('SNAM','sound1'),
