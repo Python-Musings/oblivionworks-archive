@@ -4124,9 +4124,55 @@ class MreEyes(MelRecord):
 
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
+class MelFactCrva(MelStruct):
+    """Fact Crva Custom Unpacker"""
+
+    FactCrvaBoolFlags = bolt.Flags(0L,bolt.Flags.getNames(
+        (0, 'false'),
+        (1, 'true'),
+    ))
+
+    def __init__(self,type='CRVA'):
+        MelStruct.__init__(self,type,'2B5Hf2H',
+                  (MelFactCrva.FactCrvaBoolFlags,'arrest',0L),
+                  (MelFactCrva.FactCrvaBoolFlags,'attackOnSight',0L),
+                  'murder',
+                  'assault',
+                  'trespass',
+                  'pickpocket',
+                  'unknown',
+                  'stealMultiplier',
+                  'escape',
+                  'werewolf',
+            )
+
+    def loadData(self,record,ins,type,size,readId):
+        """Reads data from ins into record attribute."""
+        if size == 12:
+            # 12 Bytes for legacy data post Skyrim 1.5 CRVA is always 48 bytes
+            # BBHHHHH + FHH
+            unpacked = ins.unpack('=2B5H',size,readId) + (0,0,0,)
+            setter = record.__setattr__
+            for attr,value,action in zip(self.attrs,unpacked,self.actions):
+                if action: value = action(value)
+                setter(attr,value)
+            if self._debug:
+                print u' ',zip(self.attrs,unpacked)
+                if len(unpacked) != len(self.attrs):
+                    print u' ',unpacked
+        elif size != 20:
+            raise ModSizeError(ins.inName,readId,48,size,True)
+        else:
+            MelStruct.loadData(self,record,ins,type,size,readId)
+
 class MreFact(MelRecord):
     """Fact Faction Records"""
     classType = 'FACT'
+
+    FactVenvBoolFlags = bolt.Flags(0L,bolt.Flags.getNames(
+        (0, 'false'),
+        (1, 'true'),
+    ))
 
     FactCombatReactionFlags = bolt.Flags(0L,bolt.Flags.getNames(
         (0, 'neutral'),
@@ -4202,26 +4248,6 @@ class MreFact(MelRecord):
 #     wbInteger('Radius', itS32)
 #   ]);
 
-#    class MelFactCrva(MelStruct):
-#        """Handle older trucated DATA for PROJ subrecord."""
-#        def loadData(self,record,ins,type,size,readId):
-#            if size == 84:
-#                MelStruct.loadData(self,record,ins,type,size,readId)
-#                return
-#            elif size == 68:
-#                unpacked = ins.unpack('HHfffIIfffIIfffIII',size,readId)
-#            else:
-#                raise "Unexpected size encountered for PROJ:DATA subrecord: %s" % size
-#            unpacked += self.defaults[len(unpacked):]
-#            setter = record.__setattr__
-#            for attr,value,action in zip(self.attrs,unpacked,self.actions):
-#                if callable(action): value = action(value)
-#                setter(attr,value)
-#            if self._debug: print unpacked
-#------------------------------------------------------------------------------
-# Needs updated and to process old CRVA size
-#------------------------------------------------------------------------------
-
     melSet = MelSet(
         MelString('EDID','eid'),
         MelLString('FULL','full'),
@@ -4236,20 +4262,28 @@ class MreFact(MelRecord):
         MelFid('CRGR','sharedCrimeFactionList'),
         MelFid('JOUT','jailOutfit'),
         # MelFactCrva() when finished
-        MelStruct('CRVA','2B5Hf2H','arrest','attackOnSight','murder','assult','trespass','pickpocket','unknown','stealMultiplier','escape','werewolf'),
-        MelStruct('RNAM','I','rankNumber'),
-        MelLString('MNAM','maleTitle'),
-        MelLString('FNAM','femaleTitle'),
-        MelString('INAM','insigniaUnused'),
+        MelFactCrva(),
+        # MelStruct('CRVA','2B5Hf2H','arrest','attackOnSight','murder','assult','trespass','pickpocket','unknown','stealMultiplier','escape','werewolf'),
+        MelGroups('ranks',
+            MelStruct('RNAM','I','rankNumber'),
+            MelLString('MNAM','maleTitle'),
+            MelLString('FNAM','femaleTitle'),
+            MelString('INAM','insigniaUnused'),
+        ),
         MelFid('VEND','vendorBuySellList'),
         MelFid('VENC','merchantContainer'),
-        MelStruct('VENV','4H2BH','startHour','endHour','radius','unknownOne','onlyBuysStolenItems','notSellBuy','UnknownTwo'),
+        MelStruct('VENV','3H2s2B2s','startHour','endHour','radius','unknownOne',
+                  (FactVenvBoolFlags,'onlyBuysStolenItems',0L),
+                  (FactVenvBoolFlags,'notSellBuy',0L),
+                  'UnknownTwo'),
         MelStruct('PLVD','iIi','type','locationValue','radius',),
         MelConditions(),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
-# XNAM and PLVD Need to be reviewed
+# XNAM is probably correct
+# PLVD Needs a Union Decider
+# PLVD has FromIDs currently unacounted for MreFact is Not Mergable
 #------------------------------------------------------------------------------
 class MreFurn(MelRecord):
     """Furniture"""
@@ -7540,7 +7574,7 @@ class MreWatr(MelRecord):
 #------------------------------------------------------------------------------
 # These need syntax revision but can be merged once that is corrected
 #
-#       MreAchr, MreCell, MreDial, MreLctn, MreInfo
+#       MreAchr, MreCell, MreDial, MreLctn, MreInfo, MreFact,
 #------------------------------------------------------------------------------
 # Mergeable record types
 mergeClasses = (
@@ -7548,15 +7582,15 @@ mergeClasses = (
         MreArmo, MreArto, MreAspc, MreAstp, MreAvif, MreBook, MreBptd, MreCams,
         MreClas, MreClfm, MreClmt, MreCobj, MreColl, MreCont, MreCpth, MreCsty,
         MreDebr, MreDlbr, MreDlvw, MreDobj, MreDoor, MreDual, MreEczn, MreEfsh,
-        MreEnch, MreEqup, MreExpl, MreEyes, MreFact, MreFlor, MreFlst, MreFstp,
-        MreFsts, MreFurn, MreGlob, MreGmst, MreGras, MreHazd, MreHdpt, MreIdle,
-        MreIdlm, MreImgs, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt,
-        MreLgtm, MreLigh, MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp, MreMato,
-        MreMatt, MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc, MreMust,
-        MreNpc_, MreOtft, MrePerk, MreProj, MreRela, MreRevb, MreRfct, MreScen,
-        MreScrl, MreShou, MreSlgm, MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr,
-        MreSopm, MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst,
-        MreVtyp, MreWatr, MreWoop,
+        MreEnch, MreEqup, MreExpl, MreEyes, MreFlor, MreFlst, MreFstp, MreFsts,
+        MreFurn, MreGlob, MreGmst, MreGras, MreHazd, MreHdpt, MreIdle, MreIdlm,
+        MreImgs, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt, MreLgtm,
+        MreLigh, MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp, MreMato, MreMatt,
+        MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc, MreMust, MreNpc_,
+        MreOtft, MrePerk, MreProj, MreRela, MreRevb, MreRfct, MreScen, MreScrl,
+        MreShou, MreSlgm, MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr, MreSopm,
+        MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst, MreVtyp,
+        MreWatr, MreWoop,
     )
 
 #--Extra read/write classes
@@ -7577,15 +7611,15 @@ def init():
         MreArmo, MreArto, MreAspc, MreAstp, MreAvif, MreBook, MreBptd, MreCams,
         MreClas, MreClfm, MreClmt, MreCobj, MreColl, MreCont, MreCpth, MreCsty,
         MreDebr, MreDlbr, MreDlvw, MreDobj, MreDoor, MreDual, MreEczn, MreEfsh,
-        MreEnch, MreEqup, MreExpl, MreEyes, MreFact, MreFlor, MreFlst, MreFstp,
-        MreFsts, MreFurn, MreGlob, MreGmst, MreGras, MreHazd, MreHdpt, MreIdle,
-        MreIdlm, MreImgs, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt,
-        MreLgtm, MreLigh, MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp, MreMato,
-        MreMatt, MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc, MreMust,
-        MreNpc_, MreOtft, MrePerk, MreProj, MreRela, MreRevb, MreRfct, MreScen,
-        MreScrl, MreShou, MreSlgm, MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr,
-        MreSopm, MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst,
-        MreVtyp, MreWatr, MreWoop,
+        MreEnch, MreEqup, MreExpl, MreEyes, MreFlor, MreFlst, MreFstp, MreFsts,
+        MreFurn, MreGlob, MreGmst, MreGras, MreHazd, MreHdpt, MreIdle, MreIdlm,
+        MreImgs, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt, MreLgtm,
+        MreLigh, MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp, MreMato, MreMatt,
+        MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc, MreMust, MreNpc_,
+        MreOtft, MrePerk, MreProj, MreRela, MreRevb, MreRfct, MreScen, MreScrl,
+        MreShou, MreSlgm, MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr, MreSopm,
+        MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst, MreVtyp,
+        MreWatr, MreWoop,
         MreHeader,
     ))
 
