@@ -4424,6 +4424,12 @@ class MreProj(MelRecord):
     """Projectile record."""
     classType = 'PROJ'
 
+    # VNAM 'soundLevel' is wbEnum in TES5Edit
+    # 'Loud',
+    # 'Normal',
+    # 'Silent',
+    # 'Very Loud'
+
     ProjTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
         (0, 'hitscan'),
         (1, 'explosive'),
@@ -4437,23 +4443,6 @@ class MreProj(MelRecord):
         (9, 'passThroughSmallTransparent'),
         (10, 'disableCombatAimCorrection'),
         (11, 'rotation'),
-    ))
-
-    ProjectileTypes = bolt.Flags(0L,bolt.Flags.getNames(
-        (0, 'missile'),
-        (1, 'lobber'),
-        (2, 'beam'),
-        (3, 'flame'),
-        (4, 'cone'),
-        (5, 'barrier'),
-        (6, 'arrow'),
-    ))
-
-    ProjSoundLevels = bolt.Flags(0L,bolt.Flags.getNames(
-        (0, 'loud'),
-        (1, 'normal'),
-        (2, 'silent'),
-        (3, 'veryLoud'),
     ))
 
     class MelProjData(MelStruct):
@@ -4479,7 +4468,7 @@ class MreProj(MelRecord):
         MelString('FULL','full'),
         MelModel(),
         MelDestructible(),
-        MelProjData('DATA','2H3f2I3f2I3f3I4f2I',(ProjTypeFlags,'flags',0L),(ProjectileTypes,'type',0L),
+        MelProjData('DATA','2H3f2I3f2I3f3I4f2I',(ProjTypeFlags,'flags',0L),'projectileTypes',
                   ('gravity',0.00000),('speed',10000.00000),('range',10000.00000),
                   (FID,'light',0),(FID,'muzzleFlash',0),('tracerChance',0.00000),
                   ('explosionAltTrigerProximity',0.00000),('explosionAltTrigerTimer',0.00000),
@@ -4493,7 +4482,7 @@ class MreProj(MelRecord):
             MelString('NAM1','muzzleFlashPath'),
             MelBase('NAM2','nam2_p'),
         ),
-        MelStruct('VNAM','I',(ProjSoundLevels,'soundLevel',0L),),
+        MelStruct('VNAM','I','soundLevel',),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
