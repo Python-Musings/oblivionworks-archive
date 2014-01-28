@@ -3319,38 +3319,41 @@ class MreBook(MelRecord):
     """Book Item"""
     classType = 'BOOK'
 
+    # {0x01} 'Teaches Skill',
+    # {0x02} 'Can''t be Taken',
+    # {0x04} 'Teaches Spell',
     BookTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
             (0, 'teachesSkill'),
             (1, 'cantBeTaken'),
             (2, 'teachesSpell'),
         ))
 
-    bookTypes = {
-        0:'book_tome',
-        255:'note_scroll',
-        }
+    # DATA Book Type is wbEnum in TES5Edit
+    # Assigned to 'bookType' for WB
+    # 0, 'Book/Tome',
+    # 255, 'Note/Scroll'
 
-    skillTypes = {
-       -1 :'None',
-        7 :'One Handed',
-        8 :'Two Handed',
-        9 :'Archery',
-        10:'Block',
-        11:'Smithing',
-        12:'Heavy Armor',
-        13:'Light Armor',
-        14:'Pickpocket',
-        15:'Lockpicking',
-        16:'Sneak',
-        17:'Alchemy',
-        18:'Speech',
-        19:'Alteration',
-        20:'Conjuration',
-        21:'Destruction',
-        22:'Illusion',
-        23:'Restoration',
-        24:'Enchanting',
-        }
+    # DATA has wbSkillEnum in TES5Edit
+    # Assigned to 'skillOrSpell' for WB
+    # -1 :'None',
+    #  7 :'One Handed',
+    #  8 :'Two Handed',
+    #  9 :'Archery',
+    #  10:'Block',
+    #  11:'Smithing',
+    #  12:'Heavy Armor',
+    #  13:'Light Armor',
+    #  14:'Pickpocket',
+    #  15:'Lockpicking',
+    #  16:'Sneak',
+    #  17:'Alchemy',
+    #  18:'Speech',
+    #  19:'Alteration',
+    #  20:'Conjuration',
+    #  21:'Destruction',
+    #  22:'Illusion',
+    #  23:'Restoration',
+    #  24:'Enchanting',
 
     melSet = MelSet(
         MelString('EDID','eid'),
@@ -3365,16 +3368,13 @@ class MreBook(MelRecord):
         MelOptStruct('ZNAM','I',(FID,'dropSound')),
         MelNull('KSIZ'),
         MelKeywords('KWDA','keywords'),
-        MelStruct('DATA','2B2siIf',(BookTypeFlags,'flags',0L),'bookType','unused','skillOrSpell','value','weight'),
+        MelStruct('DATA','2B2siIf',(BookTypeFlags,'flags',0L),('bookType',0),'unused',('skillOrSpell',-1),'value','weight'),
         MelFid('INAM','inventoryArt'),
         MelString('CNAM','description'),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
 # DATA needs to have 'skillOrSpell' save an integer or FormID to be mergable.
-# BookTypeFlags needs syntax check.
-# bookTypes needs syntax check.
-# skillTypes needs syntax check.
 # After syntax checks and DATA is formated correctly, this record is correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreCell(MelRecord):
@@ -3406,10 +3406,6 @@ class MreCell(MelRecord):
             (10, 'lightFadeDistances'),
         ))
 
-    # 'Quad 1',
-    # 'Quad 2',
-    # 'Quad 3',
-    # 'Quad 4'
     CellGridFlags = bolt.Flags(0L,bolt.Flags.getNames(
             (0, 'quad1'),
             (1, 'quad2'),
@@ -3493,64 +3489,14 @@ class MreClas(MelRecord):
     """Clas record (Alchemical Apparatus)"""
     classType = 'CLAS'
 
-    ClasTeachesFlags = bolt.Flags(0L,bolt.Flags.getNames(
-        (0, 'oneHanded'),
-        (1, 'twoHanded'),
-        (2, 'archery'),
-        (3, 'block'),
-        (4, 'smithing'),
-        (5, 'heavyArmor'),
-        (6, 'lightArmor'),
-        (7, 'pickpocket'),
-        (8, 'lockpicking'),
-        (9, 'sneak'),
-        (10, 'alchemy'),
-        (11, 'speech'),
-        (12, 'alteration'),
-        (13, 'conjuration'),
-        (14, 'destruction'),
-        (15, 'illusion'),
-        (16, 'restoration'),
-        (17, 'enchanting'),
-    ))
-
-    ClasSkillWeightsFlags = bolt.Flags(0L,bolt.Flags.getNames(
-        (0, 'oneHanded'),
-        (1, 'twoHanded'),
-        (2, 'archery'),
-        (3, 'block'),
-        (4, 'smithing'),
-        (5, 'heavyArmor'),
-        (6, 'lightArmor'),
-        (7, 'pickpocket'),
-        (8, 'lockpicking'),
-        (9, 'sneak'),
-        (10, 'alchemy'),
-        (11, 'speech'),
-        (12, 'alteration'),
-        (13, 'conjuration'),
-        (14, 'destruction'),
-        (15, 'illusion'),
-        (16, 'restoration'),
-        (17, 'enchanting'),
-    ))
-
-    ClasAttributeWeightsFlags = bolt.Flags(0L,bolt.Flags.getNames(
-        (0, 'health'),
-        (1, 'magicka'),
-        (2, 'stamina'),
-        (3, 'unknown1'),
-    ))
-
     melSet = MelSet(
         MelString('EDID','eid'),
         MelLString('FULL','full'),
         MelLString('DESC','description'),
         MelIcons(),
-        MelStruct('DATA','4sb2BfIB','unknownValue',(ClasTeachesFlags,'teachesSkill',0L),'maxTrainingLvl',
-                  (ClasSkillWeightsFlags,'skillWeights',0L),'bleedoutDefault','voicePoints',
-                  (ClasAttributeWeightsFlags,'attributeWeights',0L),
-            ),
+        MelStruct('DATA','4sb2BfIB','unknownValue','teachesSkill','maxTrainingLvl',
+                  'skillWeights','bleedoutDefault','voicePoints',
+                  'attributeWeights',),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
@@ -3572,6 +3518,10 @@ class MreClmt(MelRecord):
 
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
+# DATA has wbEnum in TES5Edit
+# Assinged as 'type' in MelSpgdData
+# 'Rain',
+# 'Snow',
 class MelSpgdData(MelStruct):
     def __init__(self,type='DATA'):
         MelStruct.__init__(self,type,'=7f4If',
@@ -3620,6 +3570,9 @@ class MreRfct(MelRecord):
     """Rfct Item"""
     classType = 'RFCT'
 
+    # {0x00000001}'Rotate to Face Target',
+    # {0x00000002}'Attach to Camera',
+    # {0x00000004}'Inherit Rotation'
     RfctTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
         (0, 'rotateToFaceTarget'),
         (1, 'attachToCamera'),
@@ -3662,6 +3615,9 @@ class MreCont(MelRecord):
             MelGroups.dumpData(self,record,out)
 
 
+    # {0x01} 'Allow Sounds When Animation',
+    # {0x02} 'Respawns',
+    # {0x04} 'Show Owner'
     ContTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
         (0, 'allowSoundsWhenAnimation'),
         (1, 'respawns'),
@@ -3692,6 +3648,9 @@ class MreCsty(MelRecord):
     """Csty Item"""
     classType = 'CSTY'
 
+    # {0x01} 'Dueling',
+    # {0x02} 'Flanking',
+    # {0x04} 'Allow Dual Wielding'
     CstyTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
         (0, 'dueling'),
         (1, 'flanking'),
@@ -3721,116 +3680,10 @@ class MreDial(MelRecord):
     """Dialogue Records"""
     classType = 'DIAL'
 
-    DialTopicFlags = bolt.Flags(0L,bolt.Flags.getNames(
-        (0, 'doAllBeforeRepeating'),
-    ))
+    # 'Subtype' is assigned to wbEnum in TES5Edit
+    # refer to wbStruct(DATA, 'Data', in TES5Edit for values
 
-    DialSubtypeTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
-        (0, 'custom'),
-        (1, 'forceGreet'),
-        (2, 'rumors'),
-        (3, 'custom'),
-        (4, 'intimidate'),
-        (5, 'flatter'),
-        (6, 'bribe'),
-        (7, 'askGift'),
-        (8, 'gift'),
-        (9, 'askFavor'),
-        (10, 'favor'),
-        (11, 'showRelationships'),
-        (12, 'folow'),
-        (13, 'reject'),
-        (14, 'scene'),
-        (15, 'show'),
-        (16, 'agree'),
-        (17, 'refuse'),
-        (18, 'exitFavorState'),
-        (19, 'moralRefusal'),
-        (20, 'flyingMountLand'),
-        (21, 'flyingMountCancelLand'),
-        (22, 'flyingMountAcceptTarget'),
-        (23, 'flyingMountRejectTarget'),
-        (24, 'flyingMountNoTarget'),
-        (25, 'flyingMountDestinationReached'),
-        (26, 'attack'),
-        (27, 'powerAttack'),
-        (28, 'bash'),
-        (29, 'hit'),
-        (30, 'flee'),
-        (31, 'bleedout'),
-        (32, 'avoidThreat'),
-        (33, 'death'),
-        (34, 'groupStrategy'),
-        (35, 'block'),
-        (36, 'taunt'),
-        (37, 'allyKilled'),
-        (38, 'steal'),
-        (39, 'yield'),
-        (40, 'acceptYield'),
-        (41, 'pickpocketCombat'),
-        (42, 'assault'),
-        (43, 'murder'),
-        (44, 'assaultNC'),
-        (45, 'murderNC'),
-        (46, 'pickpocketNC'),
-        (47, 'stealFromNC'),
-        (48, 'trespassAgainstNC'),
-        (49, 'trespass'),
-        (50, 'wereTransformCrime'),
-        (51, 'voicePowerStartShort'),
-        (52, 'voicePowerStartLong'),
-        (53, 'voicePowerEndShort'),
-        (54, 'voicePowerEndLong'),
-        (55, 'alertIdle'),
-        (56, 'lostIdle'),
-        (57, 'normalToAlert'),
-        (58, 'alertToCombat'),
-        (59, 'normalToCombat'),
-        (60, 'alertToNormal'),
-        (61, 'combatToNormal'),
-        (62, 'combatToLost'),
-        (63, 'lostToNormal'),
-        (64, 'lostToCombat'),
-        (65, 'detectFriendDie'),
-        (66, 'serviceRefusal'),
-        (67, 'repair'),
-        (68, 'travel'),
-        (69, 'training'),
-        (70, 'barterExit'),
-        (71, 'repairExit'),
-        (72, 'recharge'),
-        (73, 'rechargeExit'),
-        (74, 'trainingExit'),
-        (75, 'observeCombat'),
-        (76, 'noticeCorpse'),
-        (77, 'timeToGo'),
-        (78, 'goodBye'),
-        (79, 'hello'),
-        (80, 'swingMeleeWeapon'),
-        (81, 'shootBow'),
-        (82, 'zKeyObject'),
-        (83, 'jump'),
-        (84, 'knockOverObject'),
-        (85, 'destroyObject'),
-        (86, 'StandonFurniture'),
-        (87, 'lockedObject'),
-        (88, 'pickpocketTopic'),
-        (89, 'pursueIdleTopic'),
-        (90, 'sharedInfo'),
-        (91, 'playerCastProjectileSpell'),
-        (92, 'playerCastSelfSpell'),
-        (93, 'playerShout'),
-        (94, 'idle'),
-        (95, 'enterSprintBreath'),
-        (96, 'enterBowZoomBreath'),
-        (97, 'exitBowZoomBreath'),
-        (98, 'actorCollidewithActor'),
-        (99, 'playerinIronSights'),
-        (100, 'outofBreath'),
-        (101, 'combatGrunt'),
-        (102, 'leaveWaterBreath'),
-    ))
-
+    # 'Category' is assigned to wbEnum in TES5Edit
     # {0} 'Topic',
     # {1} 'Favor', // only in DA14 quest topics
     # {2} 'Scene',
@@ -3839,16 +3692,10 @@ class MreDial(MelRecord):
     # {5} 'Detection',
     # {6} 'Service',
     # {7} 'Miscellaneous'
-    DialCategoryFlags = bolt.Flags(0L,bolt.Flags.getNames(
-            (0, 'topic'),
-            (1, 'favor'),
-            (2, 'scene'),
-            (3, 'combat'),
-            (4, 'favors'),
-            (5, 'detection'),
-            (6, 'service'),
-            (7, 'miscellaneous'),
-        ))
+
+    DialTopicFlags = bolt.Flags(0L,bolt.Flags.getNames(
+        (0, 'doAllBeforeRepeating'),
+    ))
 
     melSet = MelSet(
         MelString('EDID','eid'),
@@ -3856,8 +3703,8 @@ class MreDial(MelRecord):
         MelStruct('PNAM','f','priority',),
         MelFid('BNAM','branch',),
         MelFid('QNAM','quest',),
-        MelStruct('DATA','2BH',(DialTopicFlags,'flags_dt',0L),(DialCategoryFlags,'flags_cf',0L),
-                  (DialSubtypeTypeFlags,'flags_st',0L),),
+        MelStruct('DATA','2BH',(DialTopicFlags,'flags_dt',0L),'category',
+                  'subtype',),
         MelString('SNAM','subtypeName',),
         MelStruct('TIFC','I','infoCount',),
         )
@@ -3960,42 +3807,6 @@ class MreEfsh(MelRecord):
     """Efsh Record"""
     classType = 'EFSH'
 
-    EfshBlendModeFlags = bolt.Flags(0L,bolt.Flags.getNames(
-        (0, 'unknownOne'),
-        (1, 'zero'),
-        (2, 'one'),
-        (3, 'sourceColor'),
-        (4, 'sourceInverseColor'),
-        (5, 'sourceAlpha'),
-        (6, 'sourceInvertedAlpha'),
-        (7, 'destAlpha'),
-        (8, 'destInvertedAlpha'),
-        (9, 'destColor'),
-        (10, 'destInverseColor'),
-        (11, 'sourceAlphaSAT'),
-    ))
-
-    EfshBlendOpFlags = bolt.Flags(0L,bolt.Flags.getNames(
-        (0, 'unknown1'),
-        (1, 'add'),
-        (2, 'subtract'),
-        (3, 'reverseSubrtact'),
-        (4, 'minimum'),
-        (5, 'maximum'),
-    ))
-
-    EfshZTestFuncFlags = bolt.Flags(0L,bolt.Flags.getNames(
-        (0, 'unknown1'),
-        (1, 'unknown2'),
-        (2, 'unknown3'),
-        (3, 'equalTo'),
-        (4, 'normal'),
-        (5, 'greaterThan'),
-        (6, 'unknown4'),
-        (7, 'greaterThanOrEqualTo'),
-        (8, 'alwaysShow'),
-    ))
-
     EfshGeneralFlags = bolt.Flags(0L,bolt.Flags.getNames(
         (0, 'noMembraneShader'),
         (1, 'membraneGrayscaleColor'),
@@ -4063,17 +3874,14 @@ class MreEnch(MelRecord):
     """Enchants"""
     classType = 'ENCH'
 
+    # 'enchantType' is wbEnum in TES5Edit
+    # $06, 'Enchantment',
+    # $0C, 'Staff Enchantment'
+
     EnchGeneralFlags = bolt.Flags(0L,bolt.Flags.getNames(
         (0, 'noAutoCalc'),
         (1, 'unknownTwo'),
         (2, 'extendDurationOnRecast'),
-    ))
-
-    # enchantment _06_
-    # staffEnchantment _0C_
-    EnchEnchantTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
-        (0, 'enchantment'),
-        (1, 'staffEnchantment'),
     ))
 
     melSet = MelSet(
@@ -4081,7 +3889,7 @@ class MreEnch(MelRecord):
         MelBounds(),
         MelLString('FULL','full'),
         MelStruct('ENIT','i2Ii2If2I','enchantmentCost',(EnchGeneralFlags,'generalFlags',0L),'castType',
-                  'enchantmentAmount','targetType',(EnchEnchantTypeFlags,'enchantType',0L),
+                  'enchantmentAmount','targetType','enchantType',
                   'chargeTime',(FID,'baseEnchantment'),(FID,'wornRestrictions'),
             ),
         MelEffects(),
@@ -4116,6 +3924,9 @@ class MreEyes(MelRecord):
 class MelFactCrva(MelStruct):
     """Fact Crva Custom Unpacker"""
 
+    # These are Boolean values
+    # 'arrest',
+    # 'attackOnSight',
     def __init__(self,type='CRVA'):
         MelStruct.__init__(self,type,'2B5Hf2H',
                   'arrest','attackOnSight','murder','assault',
@@ -4148,13 +3959,38 @@ class MreFact(MelRecord):
     """Fact Faction Records"""
     classType = 'FACT'
 
-    FactCombatReactionFlags = bolt.Flags(0L,bolt.Flags.getNames(
-        (0, 'neutral'),
-        (1, 'enemy'),
-        (2, 'ally'),
-        (3, 'friend'),
-    ))
-
+    # {0x00000001}'Hidden From NPC',
+    # {0x00000002}'Special Combat',
+    # {0x00000004}'Unknown 3',
+    # {0x00000008}'Unknown 4',
+    # {0x00000010}'Unknown 5',
+    # {0x00000020}'Unknown 6',
+    # {0x00000040}'Track Crime',
+    # {0x00000080}'Ignore Crimes: Murder',
+    # {0x00000100}'Ignore Crimes: Assault',
+    # {0x00000200}'Ignore Crimes: Stealing',
+    # {0x00000400}'Ignore Crimes: Trespass',
+    # {0x00000800}'Do Not Report Crimes Against Members',
+    # {0x00001000}'Crime Gold - Use Defaults',
+    # {0x00002000}'Ignore Crimes: Pickpocket',
+    # {0x00004000}'Vendor',
+    # {0x00008000}'Can Be Owner',
+    # {0x00010000}'Ignore Crimes: Werewolf',
+    # {0x00020000}'Unknown 18',
+    # {0x00040000}'Unknown 19',
+    # {0x00080000}'Unknown 20',
+    # {0x00100000}'Unknown 21',
+    # {0x00200000}'Unknown 22',
+    # {0x00400000}'Unknown 23',
+    # {0x00800000}'Unknown 24',
+    # {0x01000000}'Unknown 25',
+    # {0x02000000}'Unknown 26',
+    # {0x04000000}'Unknown 27',
+    # {0x08000000}'Unknown 28',
+    # {0x10000000}'Unknown 29',
+    # {0x20000000}'Unknown 30',
+    # {0x40000000}'Unknown 31',
+    # {0x80000000}'Unknown 32'
     FactGeneralTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
         (0, 'hiddenFromNPC'),
         (1, 'specialCombat'),
@@ -4190,17 +4026,11 @@ class MreFact(MelRecord):
         (31, 'unknown32'),
     ))
 
-# wbXNAM :=
-#   wbStructSK(XNAM, [0], 'Relation', [
-#    wbFormIDCkNoReach('Faction', [FACT, RACE]),
-#    wbInteger('Modifier', itS32),
-#    wbInteger('Group Combat Reaction', itU32, wbEnum([
-#      {0x00000001}'Neutral',
-#      {0x00000002}'Enemy',
-#      {0x00000004}'Ally',
-#      {0x00000008}'Friend'
-#    ]))
-# ]);
+    # 'combatReaction' is wbEnum in TES5Edit 
+    # 'Neutral',
+    # 'Enemy',
+    # 'Ally',
+    # 'Friend'
 
 #   wbPLVD := wbStruct(PLVD, 'Location', [
 #     wbInteger('Type', itS32, wbLocationEnum),
@@ -4226,7 +4056,7 @@ class MreFact(MelRecord):
         MelString('EDID','eid'),
         MelLString('FULL','full'),
         MelGroups('relationArray',
-            MelStruct('XNAM','IiI',(FID,'faction'),'modifier',(FactCombatReactionFlags,'combatReactionFlags',0L),),
+            MelStruct('XNAM','IiI',(FID,'faction'),'modifier','combatReaction',),
             ),
         MelStruct('DATA','I',(FactGeneralTypeFlags,'factionGeneralFlags',0L),),
         MelFid('JAIL','exteriorJailMarker'),
@@ -4253,7 +4083,6 @@ class MreFact(MelRecord):
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
-# XNAM is probably correct
 # PLVD Needs a Union Decider
 # PLVD has FromIDs currently unacounted for MreFact is Not Mergable
 #------------------------------------------------------------------------------
@@ -4261,11 +4090,45 @@ class MreFurn(MelRecord):
     """Furniture"""
     classType = 'FURN'
 
+    # {0x0001} 'Unknown 0',
+    # {0x0002} 'Ignored By Sandbox'
     FurnGeneralFlags = bolt.Flags(0L,bolt.Flags.getNames(
         (0, 'unknownOne'),
         (1, 'ignoredBySandbox'),
     ))
 
+    # {0x00000001} 'Sit 0',
+    # {0x00000002} 'Sit 1',
+    # {0x00000004} 'Sit 2',
+    # {0x00000008} 'Sit 3',
+    # {0x00000010} 'Sit 4',
+    # {0x00000020} 'Sit 5',
+    # {0x00000040} 'Sit 6',
+    # {0x00000080} 'Sit 7',
+    # {0x00000100} 'Sit 8',
+    # {0x00000200} 'Sit 9',
+    # {0x00000400} 'Sit 10',
+    # {0x00000800} 'Sit 11',
+    # {0x00001000} 'Sit 12',
+    # {0x00002000} 'Sit 13',
+    # {0x00004000} 'Sit 14',
+    # {0x00008000} 'Sit 15',
+    # {0x00010000} 'Sit 16',
+    # {0x00020000} 'Sit 17',
+    # {0x00040000} 'Sit 18',
+    # {0x00080000} 'Sit 19',
+    # {0x00100000} 'Sit 20',
+    # {0x00200000} 'Sit 21',
+    # {0x00400000} 'Sit 22',
+    # {0x00800000} 'Sit 23',
+    # {0x01000000} 'Unknown 25',
+    # {0x02000000} 'Disables Activation',
+    # {0x04000000} 'Is Perch',
+    # {0x08000000} 'Must Exit to Talk',
+    # {0x10000000} 'Unknown 29',
+    # {0x20000000} 'Unknown 30',
+    # {0x40000000} 'Unknown 31',
+    # {0x80000000} 'Unknown 32'
     FurnActiveMarkerFlags = bolt.Flags(0L,bolt.Flags.getNames(
         (0, 'sit0'),
         (1, 'sit1'),
@@ -4301,17 +4164,6 @@ class MreFurn(MelRecord):
         (31, 'unknown32'),
     ))
 
-    FurnBenchTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
-        (0, 'none'),
-        (1, 'createobject'),
-        (2, 'smithingWeapon'),
-        (3, 'enchanting'),
-        (4, 'enchantingExperiment'),
-        (5, 'alchemy'),
-        (6, 'alchemyExperiment'),
-        (7, 'smithingArmor'),
-    ))
-
     # {0x01} 'Front',
     # {0x02} 'Behind',
     # {0x04} 'Right',
@@ -4325,18 +4177,12 @@ class MreFurn(MelRecord):
             (4, 'up'),
         ))
     
+    # FNPR 'MarkerType' is wbEnum in TES5Edit
     # {0} '',
     # {1} 'Sit',
     # {2} 'Lay',
     # {3} '',
     # {4} 'Lean'
-    MarkerTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
-            (0, ''),
-            (1, 'sit'),
-            (2, 'lay'),
-            (3, ''),
-            (4, 'lean'),
-        ))
     
     melSet = MelSet(
         MelString('EDID','eid'),
@@ -4352,7 +4198,7 @@ class MreFurn(MelRecord):
         MelFid('KNAM','interactionKeyword'),
         MelStruct('MNAM','I',(FurnActiveMarkerFlags,'activeMarker_f',0L)),
         # UsesSkill needs to be flags or an Enum at some point
-        MelStruct('WBDT','Bb',(FurnBenchTypeFlags,'benchType_f',0L),'usesSkill',),
+        MelStruct('WBDT','Bb','benchType','usesSkill',),
         MelFid('NAM1','associatedSpell'),
         # markerArray needs to be a repeating Array
         # Disabled  needs to be flags or an Enum at some point
@@ -4363,7 +4209,7 @@ class MreFurn(MelRecord):
             ),
         # furnitureAnimType and furnitureEntryType need to be flags or an Enum at some point
         MelGroups('markerArray',
-            MelStruct('FNPR','2H',(MarkerTypeFlags,'typeFlags',0L),
+            MelStruct('FNPR','2H','markerType',
                       (MarkerEntryPointFlags,'entryPointsFlags',0L),),
             ),
         MelString('XMRK','mico_n'),
@@ -4419,12 +4265,20 @@ class MreAact(MelRecord):
 class MreTxst(MelRecord):
     """Texture Set"""
     classType = 'TXST'
+
+    # {0x0001}'No Specular Map',
+    # {0x0002}'Facegen Textures',
+    # {0x0004}'Has Model Space Normal Map'
     TxstTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
         (0, 'noSpecularMap'),
         (1, 'facegenTextures'),
         (2, 'hasModelSpaceNormalMap'),
     ))
 
+    # {0x01}'Parallax',
+    # {0x02}'Alpha - Blending',
+    # {0x04}'Alpha - Testing',
+    # {0x08}'No Subtextures'
     TxstParaTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
         (0, 'parallax'),
         (1, 'alphaBlending'),
@@ -4445,9 +4299,10 @@ class MreTxst(MelRecord):
             MelString('TX06','multilayer'),
             MelString('TX07','backlightMaskSpecular'),
             ),
-        MelStruct('DODT','7f8B','minWidth','maxWidth','minHeight','maxHeight',
-                  'depth','shininess','parallaxScale','parallaxPasses',(TxstParaTypeFlags,'para_flags',0L),
-                  'unknown_01','unknown_02','red','green','blue','unused',),
+        MelStruct('DODT','7f2B2s4B','minWidth','maxWidth','minHeight','maxHeight',
+                  'depth','shininess','parallaxScale','parallaxPasses',
+                  (TxstParaTypeFlags,'para_flags',0L),'unknown',
+                  'red','green','blue','unused',),
         MelStruct('DNAM','H',(TxstTypeFlags,'flags',0L),),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
@@ -4457,6 +4312,26 @@ class MreTxst(MelRecord):
 class MreHdpt(MelRecord):
     """Head Part"""
     classType = 'HDPT'
+
+    # NAM0 'headPartType' is wbEnum in TES5Edit
+    # 'Race Morph',
+    # 'Tri',
+    # 'Chargen Morph'
+
+    # PNAM 'hdptTypes' is wbEnum in TES5Edit
+    # 'Misc',
+    # 'Face',
+    # 'Eyes',
+    # 'Hair',
+    # 'Facial Hair',
+    # 'Scar',
+    # 'Eyebrows'
+
+    # {0x01} 'Playable',
+    # {0x02} 'Male',
+    # {0x04} 'Female',
+    # {0x10} 'Is Extra Part',
+    # {0x20} 'Use Solid Tint'
     HdptTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
         (0, 'playable'),
         (1, 'male'),
@@ -4465,31 +4340,15 @@ class MreHdpt(MelRecord):
         (4, 'useSolidTint'),
     ))
 
-    HdptTypeFlags02 = bolt.Flags(0L,bolt.Flags.getNames(
-        (0, 'misc'),
-        (1, 'face'),
-        (2, 'eyes'),
-        (3, 'hair'),
-        (4, 'facialHair'),
-        (5, 'scar'),
-        (6, 'eyebrows'),
-    ))
-
-    HdptTypeFlags03 = bolt.Flags(0L,bolt.Flags.getNames(
-        (0, 'raceMorph'),
-        (1, 'tri'),
-        (2, 'chargenMorph'),
-    ))
-
     melSet = MelSet(
         MelString('EDID','eid'),
         MelLString('FULL','full'),
         MelModel(),
         MelStruct('DATA','B',(HdptTypeFlags,'hdptDataFlags',0L),),
-        MelStruct('PNAM','I',(HdptTypeFlags02,'hdptDataFlags02',0L),),
+        MelStruct('PNAM','I','hdptTypes',),
         MelFids('HNAM','extraParts'),
         MelGroups('partsData',
-            MelStruct('NAM0','I',(HdptTypeFlags03,'hdptDataFlags03',0L),),
+            MelStruct('NAM0','I','headPartType',),
             MelLString('NAM1','filename'),
             ),
         MelFid('TNAM','textureSet'),
