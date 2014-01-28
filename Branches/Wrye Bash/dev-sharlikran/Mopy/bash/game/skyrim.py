@@ -1893,23 +1893,6 @@ class RecordHeader(brec.BaseRecordHeader):
 #------------------------------------------------------------------------------
 # Common/Special Elements
 #------------------------------------------------------------------------------
-# Flags
-#------------------------------------------------------------------------------
-# class MelBipedFlags(bolt.Flags):
-#    """Biped flags element. Includes biped flag set by default."""
-#    mask = 0xFFFF
-#    def __init__(self,default=0L,newNames=None):
-#        names = bolt.Flags.getNames(
-#            'head', 'hair', 'upperBody', 'leftHand', 'rightHand', 'weapon',
-#            'pipboy', 'backpack', 'necklace', 'headband', 'hat', 'eyeGlasses',
-#            'noseRing', 'earrings', 'mask', 'choker', 'mouthObject',
-#            'bodyAddOn1', 'bodyAddOn2', 'bodyAddOn3')
-#        if newNames: names.update(newNames)
-#        bolt.Flags.__init__(self,default,names)
-#
-# Skyrim does not use this but it will need it
-#------------------------------------------------------------------------------
-#------------------------------------------------------------------------------
 class MelDestructible(MelGroup):
     """Represents a set of destruct record."""
 
@@ -2947,12 +2930,12 @@ class MreAchr(MelRecord):
             (0, 'setEnableStatetoOppositeofParent'),
             (1, 'popIn'),
         ))
-    
+
     # 'Parent Activate Only'
     ActivateParentsFlags = bolt.Flags(0L,bolt.Flags.getNames(
             (0, 'parentActivateOnly'),
         ))
-    
+
     # 'Easy',
     # 'Medium',
     # 'Hard',
@@ -2963,7 +2946,7 @@ class MreAchr(MelRecord):
             (2, 'hard'),
             (3, 'veryHard'),
         ))
-    
+
     # -------------------------
     # class MelACHRPDTOHandeler(MelGroup):
     # -------------------------
@@ -3083,10 +3066,10 @@ class MreAchr(MelRecord):
         MelFid('XHOR','horse',),
         MelStruct('XHTW','f','headTrackingWeight',),
         MelStruct('XFVC','f','favorCost',),
-        
+
         # {--- Enable Parent ---}
         MelStruct('XESP','IB',(FID,'Reference'),(EnableParentFlags,'flags',0L),'unused',),
-        
+
         # {--- Ownership ---}
         MelOwnership(),
 
@@ -3400,7 +3383,7 @@ class MreCell(MelRecord):
             (9, 'fogMax'),
             (10, 'lightFadeDistances'),
         ))
-    
+
     # 'Quad 1',
     # 'Quad 2',
     # 'Quad 3',
@@ -3411,7 +3394,7 @@ class MreCell(MelRecord):
             (2, 'quad3'),
             (3, 'quad4'),
         ))
-    
+
     # {0x0001} 'Is Interior Cell',
     # {0x0002} 'Has Water',
     # {0x0004} 'Can''t Travel From Here',
@@ -3465,7 +3448,7 @@ class MreCell(MelRecord):
         # MelStruct('XWCU','6f','xOffset','yOffset','zOffset','unknown_off',
         #          'xAngle','yAngle','zAngle','unknown_ang',),
         MelBase('XWCU','waterVelocity',),
-        MelFid('XCWT','water',),        
+        MelFid('XCWT','water',),
 
         # {--- Ownership ---}
         MelOwnership(),
@@ -4937,7 +4920,7 @@ class MrePerk(MelRecord):
             (0, 'runImmediately'),
             (1, 'replaceDefault'),
         ))
-    
+
     # {0} 'None',
     # {1} 'Float',
     # {2} 'Float/AV,Float',
@@ -4956,7 +4939,7 @@ class MrePerk(MelRecord):
             (6, 'string'),
             (7, 'lstring'),
         ))
-    
+
     # {0} 'Unknown 0',
     # {1} 'Set Value',  // EPFT=1
     # {2} 'Add Value', // EPFT=1
@@ -4991,7 +4974,7 @@ class MrePerk(MelRecord):
             (14, 'multiply1+ActorValueMult'),
             (15, 'setText'),
         ))
-    
+
     # 'Quest + Stage',
     # 'Ability',
     # 'Entry Point'
@@ -5000,17 +4983,17 @@ class MrePerk(MelRecord):
             (1, 'ability'),
             (2, 'entryPoint'),
         ))
-    
+
     PerkHiddenFlags = bolt.Flags(0L,bolt.Flags.getNames(
             (0, 'false'),
             (1, 'true'),
         ))
-    
+
     PerkPlayableFlags = bolt.Flags(0L,bolt.Flags.getNames(
             (0, 'false'),
             (1, 'true'),
         ))
-    
+
     PerkTraitFlags = bolt.Flags(0L,bolt.Flags.getNames(
             (0, 'false'),
             (1, 'true'),
@@ -5035,7 +5018,7 @@ class MrePerk(MelRecord):
             # 2- MelFid('DATA','ability',),
             # 3- MelStruct('DATA','3B',(PerkEntryPointFlags,'entryPoint',0L),(PerkFunctionFlags,'function',0L),
             #          'perkConditionTabCount',),
-            MelBase('DATA','effectData',),     
+            MelBase('DATA','effectData',),
         ),
 
         # Sorted Struct: wbRStructsSK('Perk Conditions', 'Perk Condition', [0], [
@@ -5070,7 +5053,7 @@ class MrePerk(MelRecord):
             # The following 'Text' is a Null terminated string with no length Byte
             # 8- MelLString('EPFD','text'),
             # 9- MelStruct('EPFD','If','actorValue','float',),
-            MelBase('EPFD','functionParametersData',),     
+            MelBase('EPFD','functionParametersData',),
         ),
         # End Marker
         MelNull('PRKF'),
@@ -5778,7 +5761,7 @@ class MreRela(MelRecord):
         (6,'Unknown 7'),
         (7,'Secret'),
     ))
-    
+
     RelationshipRank = bolt.Flags(0L,bolt.Flags.getNames(
         (0,'Lover'),
         (1,'Ally'),
@@ -5790,7 +5773,7 @@ class MreRela(MelRecord):
         (7,'Enemy'),
         (8,'Archnemesis'),
     ))
-    
+
     melSet = MelSet(
         MelString('EDID','eid'),
         MelStruct('DATA','IIHBBI',(FID,'parent'),(FID,'child'),(RelationshipRank,'rankFlags',0L),
@@ -5803,7 +5786,7 @@ class MreRela(MelRecord):
 class MreScen(MelRecord):
     """Scene"""
     classType = 'SCEN'
-    
+
     # {0x00000001} 'Unknown 1',
     # {0x00000002} 'Unknown 2',
     # {0x00000004} 'Unknown 3',
@@ -5842,7 +5825,7 @@ class MreScen(MelRecord):
             (16, 'looping'),
             (17, 'headtrackPlayer'),
         ))
-    
+
     # 'Dialogue',
     # 'Package',
     # 'Timer'
@@ -5851,7 +5834,7 @@ class MreScen(MelRecord):
             (1, 'package'),
             (2, 'timer'),
         ))
-    
+
     # 'Death Pause (unsused)',
     # 'Death End',
     # 'Combat Pause',
@@ -5870,14 +5853,14 @@ class MreScen(MelRecord):
             (6, 'oBS_COMPause'),
             (7, 'oBS_COMEnd'),
         ))
-    
+
     # 'No Player Activation',
     # 'Optional'
     ScenFlags2 = bolt.Flags(0L,bolt.Flags.getNames(
             (0, 'noPlayerActivation'),
             (1, 'optional'),
         ))
-    
+
     # 'Begin on Quest Start',
     # 'Stop on Quest End',
     # 'Unknown 3',
@@ -5890,7 +5873,7 @@ class MreScen(MelRecord):
             (3, 'repeatConditionsWhileTrue'),
             (4, 'interruptible'),
         ))
-    
+
     melSet = MelSet(
         MelString('EDID','eid'),
         MelVmad(),
@@ -6168,21 +6151,21 @@ class MelSopmData(MelStruct):
 class MreSopm(MelRecord):
     """Sound Output Model"""
     classType = 'SOPM'
-    
+
     # 'Uses HRTF',
     # 'Defined Speaker Output'
     SopmTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
             (0, 'usesHRTF'),
             (1, 'definedSpeakerOutput'),
         ))
-    
+
     # 'Attenuates With Distance',
     # 'Allows Rumble'
     SopmFlags = bolt.Flags(0L,bolt.Flags.getNames(
             (0, 'attenuatesWithDistance'),
             (1, 'allowsRumble'),
         ))
-    
+
     melSet = MelSet(
         MelString('EDID','eid'),
         MelStruct('NAM1','B2sB',(SopmFlags,'flags',0L),'unknown','reverbSendpct',),
@@ -6214,7 +6197,7 @@ class MreColl(MelRecord):
         MelString('DESC','description'),
         MelStruct('BNAM','I','layerID'),
         MelStruct('FNAM','=4B','red','green','blue','unused'),
-        MelStruct('GNAM','I',(CollisionLayerFlags,'flags',0L),), 
+        MelStruct('GNAM','I',(CollisionLayerFlags,'flags',0L),),
         MelString('MNAM','name',),
         MelStruct('INTV','I','interactablesCount'),
         MelFidList('CNAM','collidesWith',),
@@ -6320,12 +6303,12 @@ class MreIdle(MelRecord):
 class MreInfo(MelRecord):
     """Dialog response"""
     classType = 'INFO'
-    
+
     # 'Use Emotion Animation'
     InfoResponsesFlags = bolt.Flags(0L,bolt.Flags.getNames(
             (0, 'useEmotionAnimation'),
         ))
-    
+
     # {0} 'Neutral',
     # {1} 'Anger',
     # {2} 'Disgust',
@@ -6344,7 +6327,7 @@ class MreInfo(MelRecord):
             (6, 'surprise'),
             (7, 'puzzled'),
         ))
-    
+
     # 'None',
     # 'Small',
     # 'Medium',
@@ -6355,7 +6338,7 @@ class MreInfo(MelRecord):
             (2, 'medium'),
             (3, 'large'),
         ))
-    
+
     # {0x0001} 'Goodbye',
     # {0x0002} 'Random',
     # {0x0004} 'Say once',
@@ -6390,7 +6373,7 @@ class MreInfo(MelRecord):
             (14, 'spendsfavorpoints'),
             (15, 'unknown16'),
         ))
-    
+
     melSet = MelSet(
         MelString('EDID','eid'),
         MelVmad(),
@@ -6405,7 +6388,7 @@ class MreInfo(MelRecord):
         MelGroups('responses',
             MelStruct('TRDT','II4sB3sIB3s',(EmotionTypeFlags,'flags',0L),'emotionValue',
                       'unused','responsenumber','unused',(FID,'sound'),
-                      (InfoResponsesFlags,'flags',0L),'unused',),   
+                      (InfoResponsesFlags,'flags',0L),'unused',),
             MelString('NAM1','responseText'),
             MelString('NAM2','scriptNotes'),
             MelString('NAM3','edits'),
@@ -6514,7 +6497,7 @@ class MreKeym(MelRecord):
 class MreLigh(MelRecord):
     """Light"""
     classType = 'LIGH'
-    
+
     # {0x00000001} 'Dynamic',
     # {0x00000002} 'Can be Carried',
     # {0x00000004} 'Negative',
@@ -6545,7 +6528,7 @@ class MreLigh(MelRecord):
             (12, 'shadowOmnidirectional'),
             (13, 'portalstrict'),
         ))
-    
+
     melSet = MelSet(
         MelString('EDID','eid'),
         MelVmad(),
@@ -7433,11 +7416,11 @@ class MreFlor(MelRecord):
 class MreWatr(MelRecord):
     """Water"""
     classType = 'WATR'
-    
+
     WatrTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
             (0, 'causesDamage'),
         ))
-    
+
     melSet = MelSet(
         MelString('EDID','eid'),
         MelLString('FULL','full'),
@@ -7538,11 +7521,11 @@ class MreWatr(MelRecord):
 #------------------------------------------------------------------------------
 # These have undefined FormIDs Do not merge them
 #
-#       MreNavi, MreNavm, 
+#       MreNavi, MreNavm,
 #------------------------------------------------------------------------------
 # These need syntax revision but can be merged once that is corrected
 #
-#       MreDial, MreAchr, MreCell, MreLctn, mreInfo
+#       MreAchr, MreCell, MreDial, MreLctn, MreInfo
 #------------------------------------------------------------------------------
 # Mergeable record types
 mergeClasses = (
@@ -7552,13 +7535,13 @@ mergeClasses = (
         MreDebr, MreDlbr, MreDlvw, MreDobj, MreDoor, MreDual, MreEczn, MreEfsh,
         MreEnch, MreEqup, MreExpl, MreEyes, MreFact, MreFlor, MreFlst, MreFstp,
         MreFsts, MreFurn, MreGlob, MreGmst, MreGras, MreHazd, MreHdpt, MreIdle,
-        MreIdlm, MreImgs, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt, 
-		MreLgtm, MreLigh, MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp, MreMato,
-		MreMatt, MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc, MreMust,
-		MreNpc_, MreOtft, MreProj, MreRela, MreRevb, MreRfct, MreScrl, MreScen,
-		MreSlgm, MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr, MreSopm, MreSoun,
-		MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst, MreVtyp, MreWatr, 
-		MreWoop,
+        MreIdlm, MreImgs, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt,
+        MreLgtm, MreLigh, MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp, MreMato,
+        MreMatt, MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc, MreMust,
+        MreNpc_, MreOtft, MrePerk, MreProj, MreRela, MreRevb, MreRfct, MreScen,
+        MreScrl, MreShou, MreSlgm, MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr,
+        MreSopm, MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst,
+        MreVtyp, MreWatr, MreWoop,
     )
 
 #--Extra read/write classes
@@ -7581,13 +7564,13 @@ def init():
         MreDebr, MreDlbr, MreDlvw, MreDobj, MreDoor, MreDual, MreEczn, MreEfsh,
         MreEnch, MreEqup, MreExpl, MreEyes, MreFact, MreFlor, MreFlst, MreFstp,
         MreFsts, MreFurn, MreGlob, MreGmst, MreGras, MreHazd, MreHdpt, MreIdle,
-        MreIdlm, MreImgs, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt, 
-		MreLgtm, MreLigh, MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp, MreMato,
-		MreMatt, MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc, MreMust,
-		MreNpc_, MreOtft, MreProj, MreRela, MreRevb, MreRfct, MreScrl, MreScen,
-		MreSlgm, MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr, MreSopm, MreSoun,
-		MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst, MreVtyp, MreWatr, 
-		MreWoop,
+        MreIdlm, MreImgs, MreIngr, MreIpct, MreIpds, MreKeym, MreKywd, MreLcrt,
+        MreLgtm, MreLigh, MreLscr, MreLtex, MreLvli, MreLvln, MreLvsp, MreMato,
+        MreMatt, MreMesg, MreMgef, MreMisc, MreMovt, MreMstt, MreMusc, MreMust,
+        MreNpc_, MreOtft, MrePerk, MreProj, MreRela, MreRevb, MreRfct, MreScen,
+        MreScrl, MreShou, MreSlgm, MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr,
+        MreSopm, MreSoun, MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst,
+        MreVtyp, MreWatr, MreWoop,
         MreHeader,
     ))
 
