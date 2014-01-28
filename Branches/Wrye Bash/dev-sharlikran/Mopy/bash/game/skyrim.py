@@ -2896,8 +2896,8 @@ class MreHeader(MreHeaderBase):
     #--Data elements
     melSet = MelSet(
         MelStruct('HEDR','f2I',('version',0.94),'numRecords',('nextObject',0xCE6)),
-        MelBase('OFST','ofst_p',),  #--Obsolete?
-        MelBase('DELE','dele_p',),  #--Obsolete?
+        # MelBase('OFST','ofst_p',),  #--Obsolete?
+        # MelBase('DELE','dele_p',),  #--Obsolete?
         MelUnicode('CNAM','author',u'',512),
         MelUnicode('SNAM','description',u'',512),
         # How do I know this is an array MAST DATA MAST DATA MAST DATA MAST DATA
@@ -3035,7 +3035,7 @@ class MreAchr(MelRecord):
         # End of MelGroup('patrolData',"
 
         # {--- Leveled Actor ----}
-        MelStruct('XLCM','I',(LeveledActorFlags,'flags',0L),),
+        MelStruct('XLCM','i',(LeveledActorFlags,'flags',0L),),
 
         # {--- Merchant Container ----}
         MelFid('XMRC','merchantContainer',),
@@ -3057,8 +3057,9 @@ class MreAchr(MelRecord):
         ),
 
         # {--- Linked Ref ---}
-        MelStruct('XCLP','3Bs3Bs','startColorRed','startColorGreen','startColorBlue','startColorUnknown',
-                  'endColorRed','endColorGreen','endColorBlue','endColorUnknown',),
+        MelStruct('XCLP','3Bs3Bs','startColorRed','startColorGreen','startColorBlue',
+                  'startColorUnknown','endColorRed','endColorGreen','endColorBlue',
+                  'endColorUnknown',),
         MelFid('XLCN','persistentLocation',),
         MelFid('XLRL','locationReference',),
         MelNull('XIS2'),
@@ -3068,7 +3069,7 @@ class MreAchr(MelRecord):
         MelStruct('XFVC','f','favorCost',),
 
         # {--- Enable Parent ---}
-        MelStruct('XESP','IB',(FID,'Reference'),(EnableParentFlags,'flags',0L),'unused',),
+        MelStruct('XESP','IB3s',(FID,'Reference'),(EnableParentFlags,'flags',0L),'unused',),
 
         # {--- Ownership ---}
         MelOwnership(),
@@ -3085,11 +3086,11 @@ class MreAchr(MelRecord):
         # {--- 3D Data ---}
         MelStruct('XSCL','f','scale',),
         MelStruct('DATA','6f','potX','potY','potY','rotX','rotY','rotZ',),
-
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
-# Needs more updating
+# PDTO Needs a union decider and contains FormIDs Not Mergable until syntax is
+# updated
 #------------------------------------------------------------------------------
 class MreActi(MelRecord):
     """Activator."""
@@ -3272,11 +3273,21 @@ class MreArma(MelRecord):
     """Armor addon?"""
     classType = 'ARMA'
 
+    # {0x01} 'Unknown 0',
+    # {0x02} 'Enabled'
+    WeightSliderFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'unknown0'),
+            (1, 'enabled'),
+        ))
+    
     melSet = MelSet(
         MelString('EDID','eid'),
         MelBipedObjectData(),
         MelFid('RNAM','race'),
-        MelBase('DNAM','dnam_p'),
+        MelStruct('DNAM','4B2sBsf','malePriority','femalePriority',
+                  (WeightSliderFlags,'maleFlags',0L),
+                  (WeightSliderFlags,'femaleFlags',0L),
+                  'unknown','detectionSoundValue','unknown','weaponAdjust',),
         MelModel('male_model','MOD2'),
         MelModel('female_model','MOD3'),
         MelModel('male_model_1st','MOD4'),
