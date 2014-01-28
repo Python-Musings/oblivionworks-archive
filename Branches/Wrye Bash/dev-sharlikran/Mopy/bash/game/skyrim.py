@@ -3536,7 +3536,7 @@ class MreClas(MelRecord):
         MelLString('FULL','full'),
         MelLString('DESC','description'),
         MelIcons(),
-        MelStruct('DATA','Ib2BfIB','unknownValue',(ClasTeachesFlags,'teachesSkill',0L),'maxTrainingLvl',
+        MelStruct('DATA','4sb2BfIB','unknownValue',(ClasTeachesFlags,'teachesSkill',0L),'maxTrainingLvl',
                   (ClasSkillWeightsFlags,'skillWeights',0L),'bleedoutDefault','voicePoints',
                   (ClasAttributeWeightsFlags,'attributeWeights',0L),
             ),
@@ -3961,7 +3961,7 @@ class MreDoor(MelRecord):
         MelFid('SNAM','openSound'),
         MelFid('ANAM','openSound'),
         MelFid('BNAM','openSound'),
-        MelStruct('FNAM','Bf',(DoorTypeFlags,'flags',0L),'weight'),
+        MelStruct('FNAM','B',(DoorTypeFlags,'flags',0L),),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
