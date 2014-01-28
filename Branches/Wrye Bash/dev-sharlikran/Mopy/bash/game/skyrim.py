@@ -2919,11 +2919,6 @@ class MreAchr(MelRecord):
     """Placed NPC"""
     classType = 'ACHR'
 
-    ACHRTopicDataFlags = bolt.Flags(0L,bolt.Flags.getNames(
-        (0, 'topicRef'),
-        (1, 'topicSubtype'),
-    ))
-
     # 'Set Enable State to Opposite of Parent',
     # 'Pop In'
     EnableParentFlags = bolt.Flags(0L,bolt.Flags.getNames(
@@ -2936,16 +2931,15 @@ class MreAchr(MelRecord):
             (0, 'parentActivateOnly'),
         ))
 
+    # XLCM Level Modifiers wbEnum in TES5Edit
     # 'Easy',
     # 'Medium',
     # 'Hard',
     # 'Very Hard'
-    LeveledActorFlags = bolt.Flags(0L,bolt.Flags.getNames(
-            (0, 'easy'),
-            (1, 'medium'),
-            (2, 'hard'),
-            (3, 'veryHard'),
-        ))
+
+    # PDTO Topic Data wbEnum in TES5Edit
+    # 'Topic Ref',
+    # 'Topic Subtype'
 
     # -------------------------
     # class MelACHRPDTOHandeler(MelGroup):
@@ -3035,7 +3029,7 @@ class MreAchr(MelRecord):
         # End of MelGroup('patrolData',"
 
         # {--- Leveled Actor ----}
-        MelStruct('XLCM','i',(LeveledActorFlags,'flags',0L),),
+        MelStruct('XLCM','i','levelModifier'),
 
         # {--- Merchant Container ----}
         MelFid('XMRC','merchantContainer',),
@@ -3101,7 +3095,6 @@ class MreActi(MelRecord):
         (0, 'ignoredBySandbox'),
     ))
 
-
     melSet = MelSet(
         MelString('EDID','eid'),
         MelVmad(),
@@ -3148,6 +3141,24 @@ class MreAlch(MelRecord):
     """Ingestible"""
     classType = 'ALCH'
 
+    # {0x00000001} 'No Auto-Calc (Unused)',
+    # {0x00000002} 'Food Item',
+    # {0x00000004} 'Unknown 3',
+    # {0x00000008} 'Unknown 4',
+    # {0x00000010} 'Unknown 5',
+    # {0x00000020} 'Unknown 6',
+    # {0x00000040} 'Unknown 7',
+    # {0x00000080} 'Unknown 8',
+    # {0x00000100} 'Unknown 9',
+    # {0x00000200} 'Unknown 10',
+    # {0x00000400} 'Unknown 11',
+    # {0x00000800} 'Unknown 12',
+    # {0x00001000} 'Unknown 13',
+    # {0x00002000} 'Unknown 14',
+    # {0x00004000} 'Unknown 15',
+    # {0x00008000} 'Unknown 16',
+    # {0x00010000} 'Medicine',
+    # {0x00020000} 'Poison'
     IngestibleFlags = bolt.Flags(0L,bolt.Flags.getNames(
         (0, 'noAutoCalcUnused'),
         (1, 'foodItem'),
@@ -3183,8 +3194,8 @@ class MreAlch(MelRecord):
         MelOptStruct('ZNAM','I',(FID,'dropSound')),
         MelOptStruct('ETYP','I',(FID,'equipType')),
         MelStruct('DATA','f','weight_p'),
-        MelStruct('ENIT','i2IfI',
-                  'value_pd',(IngestibleFlags,'flags',0L),'addiction','addictionChance','soundConsume',),
+        MelStruct('ENIT','i2IfI','value_pd',(IngestibleFlags,'flags',0L),
+                  'addiction','addictionChance','soundConsume',),
         MelEffects(),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
@@ -4481,9 +4492,9 @@ class MreHdpt(MelRecord):
             MelStruct('NAM0','I',(HdptTypeFlags03,'hdptDataFlags03',0L),),
             MelLString('NAM1','filename'),
             ),
-        MelFids('TNAM','textureSet'),
-        MelFids('CNAM','color'),
-        MelFids('RNAM','validRaces'),
+        MelFid('TNAM','textureSet'),
+        MelFid('CNAM','color'),
+        MelFid('RNAM','validRaces'),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
@@ -4621,13 +4632,13 @@ class MreProj(MelRecord):
                   ),
         MelGroups('models',
             MelString('NAM1','muzzleFlashPath'),
-            MelBase('NAM2','_nam2'), #--Should be a struct. Maybe later.
+            MelBase('NAM2','nam2_p'),
         ),
         MelStruct('VNAM','I',(ProjSoundLevels,'soundLevel',0L),),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
-# Needs syntax check but otherwise correct for Skyrim
+# Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 class MreHazd(MelRecord):
     """Hazard"""
@@ -4657,6 +4668,15 @@ class MreHazd(MelRecord):
 class MreSlgm(MelRecord):
     """Soul gem record."""
     classType = 'SLGM'
+
+    # Soul Gem Types is wbEnum in TES5Edit
+    # {0} 'None',
+    # {1} 'Petty',
+    # {2} 'Lesser',
+    # {3} 'Common',
+    # {4} 'Greater',
+    # {5} 'Grand'
+
     melSet = MelSet(
         MelString('EDID','eid'),
         MelBounds(),
@@ -4668,10 +4688,9 @@ class MreSlgm(MelRecord):
         MelFid('ZNAM','soundDrop'),
         MelNull('KSIZ'),
         MelKeywords('KWDA','keywords'),
-        MelIcons(),
         MelStruct('DATA','If','value','weight'),
-        MelStruct('SOUL','B',('soul',0)),
-        MelStruct('SLCP','B',('capacity',1)),
+        MelStruct('SOUL','B',('soul',0),),
+        MelStruct('SLCP','B',('capacity',1),),
         MelFid('NAM0','linkedTo'),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
@@ -7555,13 +7574,17 @@ class MreWatr(MelRecord):
 # Unused records, they have empty GRUP in skyrim.esm---------------------------
 # SCPT ------------------------------------------------------------------------
 #------------------------------------------------------------------------------
+# These Are normally not mergable but added to brec.MreRecord.type_class
+#
+#       MreCell,
+#------------------------------------------------------------------------------
 # These have undefined FormIDs Do not merge them
 #
 #       MreNavi, MreNavm,
 #------------------------------------------------------------------------------
 # These need syntax revision but can be merged once that is corrected
 #
-#       MreAchr, MreCell, MreDial, MreLctn, MreInfo, MreFact,
+#       MreAchr, MreDial, MreLctn, MreInfo, MreFact,
 #------------------------------------------------------------------------------
 # Mergeable record types
 mergeClasses = (
