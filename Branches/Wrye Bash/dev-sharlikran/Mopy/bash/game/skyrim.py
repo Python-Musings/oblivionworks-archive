@@ -1991,6 +1991,23 @@ class MelEffects(MelGroups):
 
 # Updated for Skyrim check Syntax
 #------------------------------------------------------------------------------
+class MelDecalData(MelStruct):
+    """Represents Decal Data."""
+
+    DecalDataFlags = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'noDecalData'),
+        ))
+
+    def __init__(self,attr='decals'):
+        """Initialize elements."""
+        MelStruct.__init__(self,'DODT','7f2B2s3Bs','minWidth','maxWidth','minHeight',
+                  'maxHeight','depth','shininess','parallaxScale',
+                  'passes',(MelDecalData.DecalDataFlags,'flags',0L),'unknown',
+                  'red','green','blue','unknown',
+            )
+
+# Syntax check needed
+#------------------------------------------------------------------------------
 class MelScrxen(MelFids):
     """Handles mixed sets of SCRO and SCRV for scripts, quests, etc."""
 
@@ -4314,17 +4331,6 @@ class MreTxst(MelRecord):
         (2, 'hasModelSpaceNormalMap'),
     ))
 
-    # {0x01}'Parallax',
-    # {0x02}'Alpha - Blending',
-    # {0x04}'Alpha - Testing',
-    # {0x08}'No Subtextures'
-    TxstParaTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
-        (0, 'parallax'),
-        (1, 'alphaBlending'),
-        (2, 'alphaTesting'),
-        (3, 'noSubtextures'),
-    ))
-
     melSet = MelSet(
         MelString('EDID','eid'),
         MelBounds(),
@@ -4338,10 +4344,7 @@ class MreTxst(MelRecord):
             MelString('TX06','multilayer'),
             MelString('TX07','backlightMaskSpecular'),
             ),
-        MelStruct('DODT','7f2B2s4B','minWidth','maxWidth','minHeight','maxHeight',
-                  'depth','shininess','parallaxScale','parallaxPasses',
-                  (TxstParaTypeFlags,'para_flags',0L),'unknown',
-                  'red','green','blue','unused',),
+        MelDecalData(),
         MelStruct('DNAM','H',(TxstTypeFlags,'flags',0L),),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
@@ -5091,23 +5094,13 @@ class MreIpct(MelRecord):
             (0, 'No Decal Data'),
         ))
 
-    IpctParaTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
-            (0, 'parallax'),
-            (1, 'alphaBlending'),
-            (2, 'alphaTesting'),
-            (3, 'noSubtextures'),
-        ))
-
     melSet = MelSet(
         MelString('EDID','eid'),
         MelModel(),
         MelStruct('DATA','fI2fI2B2s','effectDuration','effectOrientation',
                   'angleThreshold','placementRadius','soundLevel',
-                  (IpctTypeFlags,'flags',0L),'impactResult','unknown1'),
-        MelStruct('DODT','7f2B2s3Bs','minWidth','maxWidth','minHeight',
-                  'maxHeight','depth','shininess','parallaxScale',
-                  'passes',(IpctParaTypeFlags,'flags',0L),'unknown',
-                  'red','green','blue','unknown',),
+                  (IpctTypeFlags,'flags',0L),'impactResult','unknown',),
+        MelDecalData(),
         MelFid('DNAM','textureSet'),
         MelFid('ENAM','secondarytextureSet'),
         MelFid('SNAM','sound1'),
