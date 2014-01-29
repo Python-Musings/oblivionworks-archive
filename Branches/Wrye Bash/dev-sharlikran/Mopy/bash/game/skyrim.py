@@ -1932,13 +1932,13 @@ class MelBipedFlags(bolt.Flags):
     mask = 0xFFFF
     def __init__(self,default=0L,newNames=None):
         names = bolt.Flags.getNames(
-            '30Head','31Hair','32Body','33Hands','34Forearms','35Amulet',
-            '36Ring','37Feet','38Calves','39Shield','40Tail','41LongHair',
-            '42Circlet','43Unnamed','44Unnamed','45Unnamed','46Unnamed',
-            '47Unnamed','48Unnamed','49Unnamed','50DecapitateHead',
-            '51Decapitate','52Unnamed','53Unnamed','54Unnamed','55Unnamed',
-            '56Unnamed','57Unnamed','58Unnamed',
-            '59Unnamed','60Unnamed','61FX01')
+            'head_30','hair_31','body_32','hands_33','forearms_34','amulet_35',
+            'ring_36','feet_37','calves_38','shield_39','tail_40','longHair_41',
+            'circlet_42','unnamed_43','unnamed_44','unnamed_45','unnamed_46',
+            'unnamed_47','unnamed_48','unnamed_49','decapitateHead_50',
+            'decapitate_51','unnamed_52','unnamed_53','unnamed_54','unnamed_55',
+            'unnamed_56','unnamed_57','unnamed_58',
+            'unnamed_59','unnamed_60','fx01_61')
 
         if newNames: names.update(newNames)
         bolt.Flags.__init__(self,default,names)
@@ -2409,58 +2409,33 @@ class MelModel(MelGroup):
 #-------------------------------------------------------------------------------
 class MelBipedObjectData(MelStruct):
     """Handler for BODT/BOD2 subrecords.  Reads both types, writes only BOD2"""
-    BipedFlags = bolt.Flags(0L,bolt.Flags.getNames(
-            (0, 'head'),
-            (1, 'hair'),
-            (2, 'body'),
-            (3, 'hands'),
-            (4, 'forearms'),
-            (5, 'amulet'),
-            (6, 'ring'),
-            (7, 'feet'),
-            (8, 'calves'),
-            (9, 'shield'),
-            (10, 'bodyaddon1_tail'),
-            (11, 'long_hair'),
-            (12, 'circlet'),
-            (13, 'bodyaddon2'),
-            (14, 'dragon_head'),
-            (15, 'dragon_lwing'),
-            (16, 'dragon_rwing'),
-            (17, 'dragon_body'),
-            (18, 'bodyaddon7'),
-            (19, 'bodyaddon8'),
-            (20, 'decapate_head'),
-            (21, 'decapate'),
-            (22, 'bodyaddon9'),
-            (23, 'bodyaddon10'),
-            (24, 'bodyaddon11'),
-            (25, 'bodyaddon12'),
-            (26, 'bodyaddon13'),
-            (27, 'bodyaddon14'),
-            (28, 'bodyaddon15'),
-            (29, 'bodyaddon16'),
-            (30, 'bodyaddon17'),
-            (31, 'fx01'),
-        ))
 
-    ## Legacy Flags, (For BODT subrecords) - #4 is the only one not discarded.
+    # {0x00000001}'(ARMA)Modulates Voice', {>>> From ARMA <<<}
+    # {0x00000002}'Unknown 2',
+    # {0x00000004}'Unknown 3',
+    # {0x00000008}'Unknown 4',
+    # {0x00000010}'(ARMO)Non-Playable', {>>> From ARMO <<<}
+    # {0x00000020}'Unknown 6',
+    # {0x00000040}'Unknown 7',
+    # {0x00000080}'Unknown 8'
+    # Legacy Flags, (For BODT subrecords) - 
+    #4 is the only one not discarded.
     LegacyFlags = bolt.Flags(0L,bolt.Flags.getNames(
-            (0, 'modulates_voice'), #{>>> From ARMA <<<}
+            (0, 'modulates_voice'),
             (1, 'unknown_2'),
             (2, 'unknown_3'),
             (3, 'unknown_4'),
-            (4, 'non_playable'), #{>>> From ARMO <<<}
+            (4, 'non_playable'),
         ))
 
-    ArmorTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
-        (0, 'light_armor'),
-        (1, 'heavy_armor'),
-        (2, 'clothing'),
-        ))
+    # ArmorType is wbEnum in TES5Edit
+    # 'light_armor',
+    # 'heavy_armor',
+    # 'clothing',
 
     def __init__(self):
-        MelStruct.__init__(self,'BOD2','=2I',(MelBipedObjectData.BipedFlags,'bipedFlags',0L),(MelBipedObjectData.ArmorTypeFlags,'armorFlags',0L))
+        MelStruct.__init__(self,'BOD2','=2I',
+                           (MelBipedFlags,'bipedFlags',0L),'armorType',)
 
     def getLoaders(self,loaders):
         # Loads either old style BODT or new style BOD2 records
@@ -2473,17 +2448,17 @@ class MelBipedObjectData(MelStruct):
             if size == 8:
                 # Version 20 of this subrecord is only 8 bytes (armorType omitted)
                 bipedFlags,legacyData = ins.unpack('=2I',size,readId)
-                armorFlags = 0
+                armorType = 0
             elif size != 12:
                 raise ModSizeError(ins.inName,readId,12,size,True)
             else:
-                bipedFlags,legacyData,armorFlags = ins.unpack('=3I',size,readId)
+                bipedFlags,legacyData,armorType = ins.unpack('=3I',size,readId)
             # legacyData is discarded except for non-playable status
             setter = record.__setattr__
-            setter('bipedFlags',MelBipedObjectData.BipedFlags(bipedFlags))
+            setter('bipedFlags',MelBipedFlags(bipedFlags))
             legacyFlags = MelBipedObjectData.LegacyFlags(legacyData)
             record.flags1[2] = legacyFlags[4]
-            setter('armorFlags',MelBipedObjectData.ArmorTypeFlags(armorFlags))
+            setter('armorType',armorType)
         else:
             # BOD2 - new style, MelStruct can handle it
             MelStruct.loadData(self,record,ins,type,size,readId)
@@ -3498,14 +3473,16 @@ class MreCell(MelRecord):
         MelLString('FULL','full'),
         MelStruct('DATA','I',(CellDataFlags,'flags',0L),),
         MelStruct('XCLC','2iI','pos_x','pos_y',(CellGridFlags,'flags',0L),),
-        MelStruct('XCLL','3Bs3Bs3Bs2f2i3f3Bs3fI',
-                  'red_ac','green_ac','blue_ac','unknown_ac',
-                  'red_dc','green_dc','blue_dc','unknown_dc',
-                  'red_fcn','green_fcn','blue_fcn','unknown_fcn',
-                  'fogNear','fogFar','directionalRotationXY','directionalRotationZ',
-                  'directionalFade','fogClipDistance','fogPower',
-                  'red_fcf','green_fcf','blue_fcf','unknown_fcf',
-                  'fogMax','lightFadeBegin','lightFadeEnd',(CellInheritedFlags,'flags',0L),),
+        MelBase('XCLL','lighting',),
+        # MelStruct('XCLL','3Bs3Bs3Bs2f2i3f3Bs3fI',
+        #          'red_ac','green_ac','blue_ac','unknown_ac',
+        #          'red_dc','green_dc','blue_dc','unknown_dc',
+        #          'red_fcn','green_fcn','blue_fcn','unknown_fcn',
+        #          'fogNear','fogFar','directionalRotationXY','directionalRotationZ',
+        #          'directionalFade','fogClipDistance','fogPower',
+        #          Missing Ambient Colors
+        #          'red_fcf','green_fcf','blue_fcf','unknown_fcf',
+        #          'fogMax','lightFadeBegin','lightFadeEnd',(CellInheritedFlags,'flags',0L),),
         MelBase('TVDT','unknown_TVDT'),
         MelBase('MHDT','unknown_MHDT'),
         MelFid('LTMP','lightingTemplate',),
@@ -3539,7 +3516,7 @@ class MreCell(MelRecord):
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
-# Verified Correct for Skyrim 1.8
+# XCLL Needs Update for Ambient Colors
 #------------------------------------------------------------------------------
 class MreClas(MelRecord):
     """Clas record (Alchemical Apparatus)"""
@@ -4007,7 +3984,7 @@ class MelFactCrva(MelStruct):
                 if len(unpacked) != len(self.attrs):
                     print u' ',unpacked
         elif size != 20:
-            raise ModSizeError(ins.inName,readId,48,size,True)
+            raise ModSizeError(ins.inName,readId,20,size,True)
         else:
             MelStruct.loadData(self,record,ins,type,size,readId)
 
@@ -4759,8 +4736,131 @@ class MreImgs(MelRecord):
 
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# IMAD ------------------------------------------------------------------------
+class MreImad(MelRecord):
+    """Image Space Adapter"""
+    classType = 'IMAD'
+    
+    # {0x00000001}'Use Target',
+    # {0x00000002}'Unknown 2',
+    # {0x00000004}'Unknown 3',
+    # {0x00000008}'Unknown 4',
+    # {0x00000010}'Unknown 5',
+    # {0x00000020}'Unknown 6',
+    # {0x00000040}'Unknown 7',
+    # {0x00000080}'Unknown 8',
+    # {0x00000100}'Mode - Front',
+    # {0x00000200}'Mode - Back',
+    # {0x00000400}'No Sky',
+    # {0x00000800}'Blur Radius Bit 2',
+    # {0x00001000}'Blur Radius Bit 1',
+    # {0x00002000}'Blur Radius Bit 0'
+    ImadFlags3 = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'useTarget'),
+            (1, 'unknown2'),
+            (2, 'unknown3'),
+            (3, 'unknown4'),
+            (4, 'unknown5'),
+            (5, 'unknown6'),
+            (6, 'unknown7'),
+            (7, 'unknown8'),
+            (8, 'modeFront'),
+            (9, 'modeBack'),
+            (10, 'noSky'),
+            (11, 'blurRadiusBit2'),
+            (12, 'blurRadiusBit1'),
+            (13, 'blurRadiusBit0'),
+        ))
+    
+    ImadFlags2 = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'useTarget'),
+        ))
+    
+    ImadFlags1 = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'animatable'),
+        ))
+    
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelBase('DNAM','data',),
+        # 'unknownArray', is 192 Bytes or 4*48 in TES5Edit
+        # 'unknown2', is 4 Bytes, 3 in TES5Edit needs confirmation
+        # MelStruct('DNAM','I f 192s I2f3sI',(ImadFlags1,'flags',0L),
+        #          'duration','unknownArray',(ImadFlags2,'flags',0L),
+        #          'radialBlurCenterX','radialBlurCenterY',
+        #          'unknown2',(ImadFlags3,'flags',0L),
+        #          dumpExtra='unknownExtra1',),
+        # Blur
+        MelStruct('BNAM','2f','blurUnknown','blurRadius',dumpExtra='unknownExtra2',),
+        # Double Vision
+        MelStruct('VNAM','2f','dvUnknown','dvStrength',dumpExtra='unknownExtra3',),
+        # Cinematic Colors
+        MelStruct('TNAM','5f','unknown','tintRed','tintGreen','tintBlue',
+                  'tintAlpha',dumpExtra='unknownExtra4',),
+        MelStruct('NAM3','5f','unknown','fadeRed','fadeGreen','fadeBlue',
+                  'fadeAlpha',dumpExtra='unknownExtra5',),
+        # {<<<< Begin Radial Blur >>>>}
+        MelStruct('RNAM','2f','unknown','strength',dumpExtra='unknownExtra6',),
+        MelStruct('SNAM','2f','unknown','rampup',dumpExtra='unknownExtra7',),
+        MelStruct('UNAM','2f','unknown','start',dumpExtra='unknownExtra8',),
+        MelStruct('NAM1','2f','unknown','rampdown',dumpExtra='unknownExtra9',),
+        MelStruct('NAM2','2f','unknown','downstart',dumpExtra='unknownExtra10',),
+        # {<<<< End Radial Blur >>>>}
+        # {<<<< Begin Depth of Field >>>>}
+        MelStruct('WNAM','2f','unknown','strength',dumpExtra='unknownExtra11',),
+        MelStruct('XNAM','2f','unknown','distance',dumpExtra='unknownExtra12',),
+        MelStruct('YNAM','2f','unknown','range',dumpExtra='unknownExtra13',),
+        MelStruct('NAM4','2f','unknown','strength',dumpExtra='unknownExtra14',),
+        # {<<<< End Depth of Field >>>>}
+        # {<<<< Begin HDR >>>>}
+        MelStruct('\x00IAD','2f','unknown','multiply',dumpExtra='unknownExtra15',),
+        MelStruct('\x40IAD','2f','unknown','add',dumpExtra='unknownExtra16',),
+        MelStruct('\x01IAD','2f','unknown','multiply',dumpExtra='unknownExtra17',),
+        MelStruct('\x41IAD','2f','unknown','add',dumpExtra='unknownExtra18',),
+        MelStruct('\x02IAD','2f','unknown','multiply',dumpExtra='unknownExtra19',),
+        MelStruct('\x42IAD','2f','unknown','add',dumpExtra='unknownExtra20',),
+        MelStruct('\x03IAD','2f','unknown','multiply',dumpExtra='unknownExtra21',),
+        MelStruct('\x43IAD','2f','unknown','add',dumpExtra='unknownExtra22',),
+        MelStruct('\x04IAD','2f','unknown','multiply',dumpExtra='unknownExtra23',),
+        MelStruct('\x44IAD','2f','unknown','add',dumpExtra='unknownExtra24',),
+        MelStruct('\x05IAD','2f','unknown','multiply',dumpExtra='unknownExtra25',),
+        MelStruct('\x45IAD','2f','unknown','add',dumpExtra='unknownExtra26',),
+        MelStruct('\x06IAD','2f','unknown','multiply',dumpExtra='unknownExtra27',),
+        MelStruct('\x46IAD','2f','unknown','add',dumpExtra='unknownExtra28',),
+        MelStruct('\x07IAD','2f','unknown','multiply',dumpExtra='unknownExtra29',),
+        MelStruct('\x47IAD','2f','unknown','add',dumpExtra='unknownExtra30',),
+        # {<<<< End HDR >>>>}
+        MelBase('\x08IAD','isd08IAD_p'),
+        MelBase('\x48IAD','isd48IAD_p'),
+        MelBase('\x09IAD','isd09IAD_p'),
+        MelBase('\x49IAD','isd49IAD_p'),
+        MelBase('\x0AIAD','isd0aIAD_p'),
+        MelBase('\x4AIAD','isd4aIAD_p'),
+        MelBase('\x0BIAD','isd0bIAD_p'),
+        MelBase('\x4BIAD','isd4bIAD_p'),
+        MelBase('\x0CIAD','isd0cIAD_p'),
+        MelBase('\x4CIAD','isd4cIAD_p'),
+        MelBase('\x0DIAD','isd0dIAD_p'),
+        MelBase('\x4DIAD','isd4dIAD_p'),
+        MelBase('\x0EIAD','isd0eIAD_p'),
+        MelBase('\x4EIAD','isd4eIAD_p'),
+        MelBase('\x0FIAD','isd0fIAD_p'),
+        MelBase('\x4FIAD','isd4fIAD_p'),
+        MelBase('\x10IAD','isd10IAD_p'),
+        MelBase('\x50IAD','isd50IAD_p'),
+        # {<<<< Begin Cinematic >>>>}
+        MelStruct('\x11IAD','2f','unknown','multiply',dumpExtra='unknownExtra31',),
+        MelStruct('\x51IAD','2f','unknown','add',dumpExtra='unknownExtra32',),
+        MelStruct('\x12IAD','2f','unknown','multiply',dumpExtra='unknownExtra33',),
+        MelStruct('\x52IAD','2f','unknown','add',dumpExtra='unknownExtra34',),
+        MelStruct('\x13IAD','2f','unknown','multiply',dumpExtra='unknownExtra35',),
+        MelStruct('\x53IAD','2f','unknown','add',dumpExtra='unknownExtra36',),
+        # {<<<< End Cinematic >>>>}
+        MelBase('\x14IAD','isd14IAD_p'),
+        MelBase('\x54IAD','isd54IAD_p'),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Many Things Marked MelBase that need updated
 #------------------------------------------------------------------------------
 class MreFlst(MelRecord):
     """Flst Item"""
@@ -4916,7 +5016,7 @@ class MreBptd(MelRecord):
             MelStruct('BPND','f3Bb2BH2I2fi2I7f2I2B2sf','damageMult',
                       (BptdDamageFlags,'flags',0L),'bodyPartType','healthPercent',
                       'actorValue','toHitChance','explodableExplosionChancepct',
-                      'explodableDebrisCount',(FID,'Explodable - Debris'),
+                      'explodableDebrisCount',(FID,'explodableDebris'),
                       (FID,'Explodable - Explosion'),'trackingMaxAngle',
                       'explodableDebrisScale','severableDebrisCount',
                       (FID,'Severable - Debris'),(FID,'Severable - Explosion'),
@@ -5043,16 +5143,13 @@ class MreVtyp(MelRecord):
     """Vtyp Item"""
     classType = 'VTYP'
 
-    # {0x00} 'Magic Casting',
-    # {0x01} Not Used
-    # {0x02} 'Allow Default Dialog',
-    # {0x04} 'Female',
+    # 'Allow Default Dialog',
+    # 'Female'
     VtypTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
-            (0, 'male'),
-            (1, 'allowDefaultDialog'),
-            (2, 'female'),
+            (0, 'allowDefaultDialog'),
+            (1, 'female'),
         ))
-
+    
     melSet = MelSet(
         MelString('EDID','eid'),
         MelStruct('DNAM','B',(VtypTypeFlags,'flags',0L),),
@@ -5083,6 +5180,41 @@ class MreMatt(MelRecord):
 
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
+class MreIpctData(MelStruct):
+    """Ipct Data Custom Unpacker"""
+
+    # {0x01} 'No Decal Data'
+    IpctTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
+        (0, 'noDecalData'),
+    ))
+
+    # These are Boolean values
+    # 'arrest',
+    # 'attackOnSight',
+    def __init__(self,type='DATA'):
+        MelStruct.__init__(self,type,'fI2fI2B2s','effectDuration','effectOrientation',
+                  'angleThreshold','placementRadius','soundLevel',
+                  (MreIpctData.IpctTypeFlags,'flags',0L),'impactResult','unknown',),
+
+    def loadData(self,record,ins,type,size,readId):
+        """Reads data from ins into record attribute."""
+        if size == 16:
+            # 16 Bytes for legacy data post Skyrim 1.5 DATA is always 24 bytes
+            # fI2f + I2B2s
+            unpacked = ins.unpack('=fI2f',size,readId) + (0,0,0,0,)
+            setter = record.__setattr__
+            for attr,value,action in zip(self.attrs,unpacked,self.actions):
+                if action: value = action(value)
+                setter(attr,value)
+            if self._debug:
+                print u' ',zip(self.attrs,unpacked)
+                if len(unpacked) != len(self.attrs):
+                    print u' ',unpacked
+        elif size != 24:
+            raise ModSizeError(ins.inName,readId,24,size,True)
+        else:
+            MelStruct.loadData(self,record,ins,type,size,readId)
+
 class MreIpct(MelRecord):
     """Impact record."""
     classType = 'IPCT'
@@ -5099,16 +5231,10 @@ class MreIpct(MelRecord):
     # {3} 'Impale',
     # {4} 'Stick'
 
-    IpctTypeFlags = bolt.Flags(0L,bolt.Flags.getNames(
-            (0, 'No Decal Data'),
-        ))
-
     melSet = MelSet(
         MelString('EDID','eid'),
         MelModel(),
-        MelStruct('DATA','fI2fI2B2s','effectDuration','effectOrientation',
-                  'angleThreshold','placementRadius','soundLevel',
-                  (IpctTypeFlags,'flags',0L),'impactResult','unknown',),
+        MreIpctData(),
         MelDecalData(),
         MelFid('DNAM','textureSet'),
         MelFid('ENAM','secondarytextureSet'),
@@ -6097,7 +6223,6 @@ class MreIdle(MelRecord):
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
 # Needs Syntax check but otherwise, Verified Correct for Skyrim 1.8
-#------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
 class MreInfo(MelRecord):
     """Dialog response"""
@@ -7291,14 +7416,323 @@ class MreWatr(MelRecord):
 
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# WEAP ------------------------------------------------------------------------
+class MreWeap(MelRecord):
+    """Weapon"""
+    classType = 'WEAP'
+
+    # 'On Death'
+    WeapFlags3 = bolt.Flags(0L,bolt.Flags.getNames(
+        (0, 'onDeath'),
+    ))
+    
+    # {0x00000001}'Player Only',
+    # {0x00000002}'NPCs Use Ammo',
+    # {0x00000004}'No Jam After Reload (unused)',
+    # {0x00000008}'Unknown 4',
+    # {0x00000010}'Minor Crime',
+    # {0x00000020}'Range Fixed',
+    # {0x00000040}'Not Used in Normal Combat',
+    # {0x00000080}'Unknown 8',
+    # {0x00000100}'Don''t Use 3rd Person IS Anim (unused)',
+    # {0x00000200}'Unknown 10',
+    # {0x00000400}'Rumble - Alternate',
+    # {0x00000800}'Unknown 12',
+    # {0x00001000}'Non-hostile',
+    # {0x00002000}'Bound Weapon'
+    WeapFlags2 = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'playerOnly'),
+            (1, 'nPCsUseAmmo'),
+            (2, 'noJamAfterReloadunused'),
+            (3, 'unknown4'),
+            (4, 'minorCrime'),
+            (5, 'rangeFixed'),
+            (6, 'notUsedinNormalCombat'),
+            (7, 'unknown8'),
+            (8, 'don'),
+            (9, 'unknown10'),
+            (10, 'rumbleAlternate'),
+            (11, 'unknown12'),
+            (12, 'nonhostile'),
+            (13, 'boundWeapon'),
+        ))
+    
+    # {0x0001}'Ignores Normal Weapon Resistance',
+    # {0x0002}'Automatic (unused)',
+    # {0x0004}'Has Scope (unused)',
+    # {0x0008}'Can''t Drop',
+    # {0x0010}'Hide Backpack (unused)',
+    # {0x0020}'Embedded Weapon (unused)',
+    # {0x0040}'Don''t Use 1st Person IS Anim (unused)',
+    # {0x0080}'Non-playable'
+    WeapFlags1 = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'ignoresNormalWeaponResistance'),
+            (1, 'automaticunused'),
+            (2, 'hasScopeunused'),
+            (3, 'can'),
+            (4, 'hideBackpackunused'),
+            (5, 'embeddedWeaponunused'),
+            (6, 'don'),
+            (7, 'nonplayable'),
+        ))
+
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelVmad(),
+        MelBounds(),
+        MelLString('FULL','full'),
+        MelModel('model1','MODL'),
+        MelIcons(),
+        MelFid('EITM','objectEffect',),
+        MelStruct('EAMT','I','enchantmentAmount'),
+        MelDestructible(),
+        MelFid('ETYP','equipmentType',),
+        MelFid('BIDS','blockBashImpactDataSet',),
+        MelFid('BAMT','alternateBlockMaterial',),
+        MelFid('YNAM','soundPickUp',),
+        MelFid('ZNAM','soundDrop',),
+        MelNull('KSIZ'),
+        MelKeywords('KWDA','keywords'),
+        MelLString('DESC','description'),
+        MelModel('model2','MOD3'),
+        MelBase('NNAM','unused'),
+        MelFid('INAM','impactDataSet',),
+        MelFid('WNAM','firstPersonModelObject',),
+        MelFid('SNAM','attackSound',),
+        MelFid('XNAM','attackSound2D',),
+        MelFid('NAM7','attackLoopSound',),
+        MelFid('TNAM','attackFailSound',),
+        MelFid('UNAM','idleSound',),
+        MelFid('NAM9','equipSound',),
+        MelFid('NAM8','unequipSound',),
+        MelStruct('DATA','IfH','value','weight','damage',),
+        MelStruct('DNAM','B3s2fH2sf4s4B2f2I5f2s2i4sf','animationType','unused',
+                  'speed','reach',(WeapFlags1,'flags',0L),'unused','sightFOV',
+                  'unknown','baseVATSToHitChance','attackAnimation',
+                  'numProjectiles','embeddedWeaponAVunused','rangeMin',
+                  'rangeMax','onHit',(WeapFlags2,'flags',0L),
+                  'animationAttackMult','unknown','rumbleLeftMotorStrength',
+                  'rumbleRightMotorStrength','rumbleDuration','unknown',
+                  'skill','unknown','resist','unknown','stagger',),
+        MelStruct('CRDT','H2sfB3sI','damage','unused','pctMult',
+                  (WeapFlags3,'flags',0L),'unused',(FID,'Effect'),),
+        MelStruct('VNAM','I','detectionSoundLevel'),
+        MelFid('CNAM','template',),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# WRLD ------------------------------------------------------------------------
+class MreWrld(MelRecord):
+    """Worldspace"""
+    classType = 'WRLD'
+    
+    # {0x01} 'Small World',
+    # {0x02} 'Can''t Fast Travel',
+    # {0x04} 'Unknown 3',
+    # {0x08} 'No LOD Water',
+    # {0x10} 'No Landscape',
+    # {0x20} 'Unknown 6',
+    # {0x40} 'Fixed Dimensions',
+    # {0x80} 'No Grass'
+    WrldFlags2 = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'smallWorld'),
+            (1, 'can'),
+            (2, 'unknown3'),
+            (3, 'noLODWater'),
+            (4, 'noLandscape'),
+            (5, 'unknown6'),
+            (6, 'fixedDimensions'),
+            (7, 'noGrass'),
+        ))
+    
+    # {0x0001}'Use Land Data',
+    # {0x0002}'Use LOD Data',
+    # {0x0004}'Don''t Use Map Data',
+    # {0x0008}'Use Water Data',
+    # {0x0010}'Use Climate Data',
+    # {0x0020}'Use Image Space Data (unused)',
+    # {0x0040}'Use Sky Cell'
+    WrldFlags1 = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'useLandData'),
+            (1, 'useLODData'),
+            (2, 'don'),
+            (3, 'useWaterData'),
+            (4, 'useClimateData'),
+            (5, 'useImageSpaceDataunused'),
+            (6, 'useSkyCell'),
+        ))
+    
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        # {>>> BEGIN leftover from earlier CK versions <<<}
+        MelGroups('unusedRNAM',
+            MelBase('RNAM','unknown',),
+        ),
+        # {>>> END leftover from earlier CK versions <<<}
+        MelBase('MHDT','maxHeightData'),
+        MelLString('FULL','full'),
+        # Fixed Dimensions Center Cell
+        MelStruct('WCTR','2h','fixedX','fixedY',),
+        MelFid('LTMP','interiorLighting',),
+        MelFid('XEZN','encounterZone',),
+        MelFid('XLCN','location',),
+        MelGroup('parent',
+            MelFid('WNAM','worldspace',),
+            MelStruct('PNAM','Bs',(WrldFlags1,'flags',0L),'unknown',),
+        ),
+        # [ftt]      ], []),
+        MelFid('CNAM','climate',),
+        MelFid('NAM2','water',),
+        MelFid('NAM3','lODWaterType',),
+        MelStruct('NAM4','f','lODWaterHeight',),
+        MelStruct('DNAM','2f','defaultLandHeight','defaultWaterHeight',),
+        MelString('ICON','mapImage'),
+        MelModel('cloudModel','MODL',),
+        MelStruct('MNAM','2i4h3f','usableDimensionsX','usableDimensionsY',
+                  'cellCoordinatesX','cellCoordinatesY','seCellX','seCellY',
+                  'cameraDataMinHeight','cameraDataMaxHeight',
+                  'cameraDataInitialPitch',),
+        MelStruct('ONAM','4f','worldMapScale','cellXOffset','cellYOffset',
+                  'cellZOffset',),
+        MelStruct('NAMA','f','distantLODMultiplier',),
+        MelStruct('DATA','I',(WrldFlags2,'flags',0L),),
+        # {>>> Object Bounds doesn't show up in CK <<<}
+        MelStruct('NAM0','2f','minObjX','minObjY',),
+        MelStruct('NAM9','2f','maxObjX','maxObjY',),
+        MelFid('ZNAM','music',),
+        MelString('NNAM','canopyShadowunused'),
+        MelString('XNAM','waterNoiseTexture'),
+        MelString('TNAM','hDLODDiffuseTexture'),
+        MelString('UNAM','hDLODNormalTexture'),
+        MelString('XWEM','waterEnvironmentMapunused'),
+        MelBase('OFST','unknown'),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# # Many Things Marked MelBase that need updated
 #------------------------------------------------------------------------------
-# Marker for organization please don't remove ---------------------------------
-# WTHR ------------------------------------------------------------------------
+class MreWthr(MelRecord):
+    """Weather"""
+    classType = 'WTHR'
+    
+    WthrFlags2 = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'layer_0'),
+            (1, 'layer_1'),
+            (2, 'layer_2'),
+            (3, 'layer_3'),
+            (4, 'layer_4'),
+            (5, 'layer_5'),
+            (6, 'layer_6'),
+            (7, 'layer_7'),
+            (8, 'layer_8'),
+            (9, 'layer_9'),
+            (10, 'layer_10'),
+            (11, 'layer_11'),
+            (12, 'layer_12'),
+            (13, 'layer_13'),
+            (14, 'layer_14'),
+            (15, 'layer_15'),
+            (16, 'layer_16'),
+            (17, 'layer_17'),
+            (18, 'layer_18'),
+            (19, 'layer_19'),
+            (20, 'layer_20'),
+            (21, 'layer_21'),
+            (22, 'layer_22'),
+            (23, 'layer_23'),
+            (24, 'layer_24'),
+            (25, 'layer_25'),
+            (26, 'layer_26'),
+            (27, 'layer_27'),
+            (28, 'layer_28'),
+            (29, 'layer_29'),
+            (30, 'layer_30'),
+            (31, 'layer_31'),
+        ))
+    
+    # {0x01} 'Weather - Pleasant',
+    # {0x02} 'Weather - Cloudy',
+    # {0x04} 'Weather - Rainy',
+    # {0x08} 'Weather - Snow',
+    # {0x10} 'Sky Statics - Always Visible',
+    # {0x20} 'Sky Statics - Follows Sun Position'
+    WthrFlags1 = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'weatherPleasant'),
+            (1, 'weatherCloudy'),
+            (2, 'weatherRainy'),
+            (3, 'weatherSnow'),
+            (4, 'skyStaticsAlwaysVisible'),
+            (5, 'skyStaticsFollowsSunPosition'),
+        ))
+    
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelString('\x300TX','cloudTextureLayer_0'),
+        MelString('\x310TX','cloudTextureLayer_1'),
+        MelString('\x320TX','cloudTextureLayer_2'),
+        MelString('\x330TX','cloudTextureLayer_3'),
+        MelString('\x340TX','cloudTextureLayer_4'),
+        MelString('\x350TX','cloudTextureLayer_5'),
+        MelString('\x360TX','cloudTextureLayer_6'),
+        MelString('\x370TX','cloudTextureLayer_7'),
+        MelString('\x380TX','cloudTextureLayer_8'),
+        MelString('\x390TX','cloudTextureLayer_9'),
+        MelString('\x3A0TX','cloudTextureLayer_10'),
+        MelString('\x3B0TX','cloudTextureLayer_11'),
+        MelString('\x3C0TX','cloudTextureLayer_12'),
+        MelString('\x3D0TX','cloudTextureLayer_13'),
+        MelString('\x3E0TX','cloudTextureLayer_14'),
+        MelString('\x3F0TX','cloudTextureLayer_15'),
+        MelString('\x400TX','cloudTextureLayer_16'),
+        MelString('A0TX','cloudTextureLayer_17'),
+        MelString('B0TX','cloudTextureLayer_18'),
+        MelString('C0TX','cloudTextureLayer_19'),
+        MelString('D0TX','cloudTextureLayer_20'),
+        MelString('E0TX','cloudTextureLayer_21'),
+        MelString('F0TX','cloudTextureLayer_22'),
+        MelString('G0TX','cloudTextureLayer_23'),
+        MelString('H0TX','cloudTextureLayer_24'),
+        MelString('I0TX','cloudTextureLayer_25'),
+        MelString('J0TX','cloudTextureLayer_26'),
+        MelString('K0TX','cloudTextureLayer_27'),
+        MelString('L0TX','cloudTextureLayer_28'),
+        MelBase('DNAM','unused'),
+        MelBase('CNAM','unused'),
+        MelBase('ANAM','unused'),
+        MelBase('BNAM','unused'),
+        MelBase('LNAM','lnam_p'),
+        MelFid('MNAM','precipitationType',),
+        MelFid('NNAM','visualEffect',),
+        MelBase('ONAM','unused'),
+        MelBase('RNAM','ySpeed'),
+        MelBase('QNAM','xSpeed'),
+        MelBase('PNAM','cloudColors'),
+        MelBase('PNAM','cloudAlphas'),
+        MelBase('NAM0','weatherColors'),
+        MelStruct('FNAM','8f','dayNear','dayFar','nightNear','nightFar',
+                  'dayPower','nightPower','dayMax','nightMax',),
+        MelStruct('DATA','B2s16B','windSpeed','unknown','transDelta',
+                  'sunGlare','sunDamage','precipitationBeginFadeIn',
+                  'precipitationEndFadeOut','thunderLightningBeginFadeIn',
+                  'thunderLightningEndFadeOut','thunderLightningFrequency',
+                  (WthrFlags1,'flags',0L),'red','green','blue',
+                  'visualEffectBegin','visualEffectEnd',
+                  'windDirection','windDirectionRange',),
+        MelStruct('NAM1','I',(WthrFlags2,'flags',0L),),
+        MelGroups('sounds',
+            MelStruct('SNAM','2I',(FID,'weatherSound'),'weatherType'),
+            ),
+        MelFids('TNAM','skyStatics',),
+        MelStruct('IMSP','4I',(FID,'imageSpacesSunrise'),(FID,'imageSpacesDay'),
+                  (FID,'imageSpacesSunset'),(FID,'imageSpacesNight'),),
+        MelBase('DALC','directionalAmbientLightingColors'),
+        MelBase('NAM2','unused'),
+        MelBase('NAM3','unused'),
+        MelModel('aurora','MODL'),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Many Things Marked MelBase that need updated
 #------------------------------------------------------------------------------
 # Unused records, they have empty GRUP in skyrim.esm---------------------------
 # CLDC ------------------------------------------------------------------------
@@ -7328,7 +7762,7 @@ class MreWatr(MelRecord):
 #------------------------------------------------------------------------------
 # These need syntax revision but can be merged once that is corrected
 #
-#       MreAchr, MreDial, MreLctn, MreInfo, MreFact, MrePerk,
+#       MreAchr, MreDial, MreLctn, MreInfo, MreFact, MrePerk, 
 #------------------------------------------------------------------------------
 # Mergeable record types
 mergeClasses = (
@@ -7344,7 +7778,7 @@ mergeClasses = (
         MreOtft, MreProj, MreRela, MreRevb, MreRfct, MreScen, MreScrl, MreShou,
         MreSlgm, MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr, MreSopm, MreSoun,
         MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst, MreVtyp, MreWatr,
-        MreWoop,
+        MreWeap, MreWoop,
     )
 
 #--Extra read/write classes
@@ -7374,8 +7808,8 @@ def init():
         MreOtft, MreProj, MreRela, MreRevb, MreRfct, MreScen, MreScrl, MreShou,
         MreSlgm, MreSmbn, MreSmen, MreSmqn, MreSnct, MreSndr, MreSopm, MreSoun,
         MreSpel, MreSpgd, MreStat, MreTact, MreTree, MreTxst, MreVtyp, MreWatr,
-        MreWoop,
-        MreHeader, MreCell,
+        MreWeap, MreWoop,
+        MreHeader,
     ))
 
     #--Simple records
