@@ -6976,6 +6976,7 @@ class MreCobj(MelRecord):
 class MreNpc_(MelRecord):
     """Npc"""
     classType = 'NPC_'
+
     class MelNpcCnto(MelGroups):
         def __init__(self):
             MelGroups.__init__(self,'container',
@@ -7065,23 +7066,84 @@ class MreNpc_(MelRecord):
                               MelStruct('TINC', '<4B', 'r', 'g', 'b' ,'a'),
                               MelStruct('TINV', '<i', 'tint_value'),
                               MelStruct('TIAS', '<h', 'unknown'),
-                              ),)
+                              ),
+        )
+#    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# No idea why the Slots part is missing
 # Verified Correct for Skyrim 1.8
 #------------------------------------------------------------------------------
 # Marker for organization please don't remove ---------------------------------
 # PACK ------------------------------------------------------------------------
+class MrePack(MelRecord):
+    """Package"""
+    classType = 'PACK'
+
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelVmad(),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Needs Updating
 #------------------------------------------------------------------------------
 # Marker for organization please don't remove ---------------------------------
 # QUST ------------------------------------------------------------------------
+class MreQust(MelRecord):
+    """Quest"""
+    classType = 'QUST'
+
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelVmad(),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Needs Updating
 #------------------------------------------------------------------------------
 # Marker for organization please don't remove ---------------------------------
 # RACE ------------------------------------------------------------------------
+class MreRace(MelRecord):
+    """Quest"""
+    classType = 'RACE'
+
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelLString('FULL','full'),
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Needs Updating
 #------------------------------------------------------------------------------
 # Marker for organization please don't remove ---------------------------------
 # REFR ------------------------------------------------------------------------
+class MreRefr(MelRecord):
+    """Placed Object"""
+    classType = 'REFR'
+
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelVmad(),
+
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Needs Updating
 #------------------------------------------------------------------------------
 # Marker for organization please don't remove ---------------------------------
 # REGN ------------------------------------------------------------------------
+class MreRegn(MelRecord):
+    """Placed Object"""
+    classType = 'REGN'
+
+    melSet = MelSet(
+        MelString('EDID','eid'),
+        MelVmad(),
+
+        )
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+
+# Needs Updating
 #------------------------------------------------------------------------------
 class MreSoun(MelRecord):
     """Soun Item"""
