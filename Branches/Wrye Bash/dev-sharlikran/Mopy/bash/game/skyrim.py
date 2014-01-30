@@ -2418,7 +2418,7 @@ class MelBipedObjectData(MelStruct):
     # {0x00000020}'Unknown 6',
     # {0x00000040}'Unknown 7',
     # {0x00000080}'Unknown 8'
-    # Legacy Flags, (For BODT subrecords) - 
+    # Legacy Flags, (For BODT subrecords) -
     #4 is the only one not discarded.
     LegacyFlags = bolt.Flags(0L,bolt.Flags.getNames(
             (0, 'modulates_voice'),
@@ -3321,7 +3321,7 @@ class MreArma(MelRecord):
             (0, 'unknown0'),
             (1, 'enabled'),
         ))
-    
+
     melSet = MelSet(
         MelString('EDID','eid'),
         MelBipedObjectData(),
@@ -3624,16 +3624,16 @@ class MreCont(MelRecord):
     """Container"""
     classType = 'CONT'
 
-	# wbCNTO :=
-	#   wbRStructExSK([0], [1], 'Item', [
-	#     wbStructExSK(CNTO, [0], [1], 'Item', [
-	#       wbFormIDCk('Item', [ARMO, AMMO, APPA, MISC, WEAP, BOOK, LVLI, KEYM, ALCH, INGR, LIGH, SLGM, SCRL]),
-	#       wbInteger('Count', itS32)
-	#     ]),
-	# 	wbCOED
-	# 	], []);
-	# wbCOCT := wbInteger(COCT, 'Count', itU32)
-	# wbCNTOs := wbRArrayS('Items', wbCNTO)
+    # wbCNTO :=
+    #   wbRStructExSK([0], [1], 'Item', [
+    #     wbStructExSK(CNTO, [0], [1], 'Item', [
+    #       wbFormIDCk('Item', [ARMO, AMMO, APPA, MISC, WEAP, BOOK, LVLI, KEYM, ALCH, INGR, LIGH, SLGM, SCRL]),
+    #       wbInteger('Count', itS32)
+    #     ]),
+    #   wbCOED
+    #   ], []);
+    # wbCOCT := wbInteger(COCT, 'Count', itU32)
+    # wbCNTOs := wbRArrayS('Items', wbCNTO)
 
     class MelContCnto(MelGroups):
         def __init__(self):
@@ -4059,7 +4059,7 @@ class MreFact(MelRecord):
         (31, 'unknown32'),
     ))
 
-    # 'combatReaction' is wbEnum in TES5Edit 
+    # 'combatReaction' is wbEnum in TES5Edit
     # 'Neutral',
     # 'Enemy',
     # 'Ally',
@@ -4209,14 +4209,14 @@ class MreFurn(MelRecord):
             (3, 'left'),
             (4, 'up'),
         ))
-    
+
     # FNPR 'MarkerType' is wbEnum in TES5Edit
     # {0} '',
     # {1} 'Sit',
     # {2} 'Lay',
     # {3} '',
     # {4} 'Lean'
-    
+
     melSet = MelSet(
         MelString('EDID','eid'),
         MelVmad(),
@@ -4739,7 +4739,7 @@ class MreImgs(MelRecord):
 class MreImad(MelRecord):
     """Image Space Adapter"""
     classType = 'IMAD'
-    
+
     # {0x00000001}'Use Target',
     # {0x00000002}'Unknown 2',
     # {0x00000004}'Unknown 3',
@@ -4770,15 +4770,15 @@ class MreImad(MelRecord):
             (12, 'blurRadiusBit1'),
             (13, 'blurRadiusBit0'),
         ))
-    
+
     ImadFlags2 = bolt.Flags(0L,bolt.Flags.getNames(
             (0, 'useTarget'),
         ))
-    
+
     ImadFlags1 = bolt.Flags(0L,bolt.Flags.getNames(
             (0, 'animatable'),
         ))
-    
+
     melSet = MelSet(
         MelString('EDID','eid'),
         MelBase('DNAM','data',),
@@ -5080,7 +5080,7 @@ class MreCams(MelRecord):
     """Cams Type"""
     classType = 'CAMS'
 
-    # DATA 'Action','Location','Target' is wbEnum 
+    # DATA 'Action','Location','Target' is wbEnum
     # 'Action-Shoot',
     # 'Action-Fly',
     # 'Action-Hit',
@@ -5149,7 +5149,7 @@ class MreVtyp(MelRecord):
             (0, 'allowDefaultDialog'),
             (1, 'female'),
         ))
-    
+
     melSet = MelSet(
         MelString('EDID','eid'),
         MelStruct('DNAM','B',(VtypTypeFlags,'flags',0L),),
@@ -5368,9 +5368,9 @@ class MreMesg(MelRecord):
         # Don't Show
         MelStruct('TNAM','I','displayTime',),
         MelGroups('menuButtons',
-        	MelLString('ITXT','buttonText'),
-        	MelConditions(),
-        	),
+            MelLString('ITXT','buttonText'),
+            MelConditions(),
+            ),
     )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
@@ -5620,8 +5620,8 @@ class MreDlvw(MelRecord):
         MelFid('QNAM','quest',),
         MelFids('BNAM','branches',),
         MelGroups('unknownTNAM',
-        	MelBase('TNAM','unknown',),
-        	),
+            MelBase('TNAM','unknown',),
+            ),
         MelBase('ENAM','unknownENAM'),
         MelBase('DNAM','unknownDNAM'),
         )
@@ -5652,8 +5652,8 @@ class MreShou(MelRecord):
         MelString('DESC','description'),
         # Don't sort
         MelGroups('wordsOfPower',
-        	MelStruct('SNAM','2If',(FID,'word',None),(FID,'spell',None),'recoveryTime',),
-        	),
+            MelStruct('SNAM','2If',(FID,'word',None),(FID,'spell',None),'recoveryTime',),
+            ),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
@@ -5961,8 +5961,8 @@ class MreMato(MelRecord):
         MelString('EDID','eid'),
         MelModel(),
         MelGroups('wordsOfPower',
-        	MelBase('SNAM','propertyData',),
-        	),
+            MelBase('SNAM','propertyData',),
+            ),
         MelStruct('DATA','11fI','falloffScale','falloffBias','noiseUVScale',
                   'materialUVScale','projectionVectorX','projectionVectorY',
                   'projectionVectorZ','normalDampener',
@@ -6010,8 +6010,8 @@ class MreSndr(MelRecord):
         MelFid('GNAM','category',),
         MelFid('SNAM','alternateSoundFor',),
         MelGroups('soundFiles',
-        	MelString('ANAM','fileName',),
-        	),
+            MelString('ANAM','fileName',),
+            ),
         MelFid('ONAM','outputModel',),
         MelString('FNAM','string'),
         MelConditions(),
@@ -6989,89 +6989,90 @@ class MreNpc_(MelRecord):
             out.packSub('COCT','I',len(record.container))
             MelGroups.dumpData(self,record,out)
 
-    melSet = MelSet(MelString('EDID', 'eid'),
-                    MelVmad(),
-                    MelBounds(),
-                    MelStruct('ACBS', '<IHHHHHHHHHH', 'base_flags', 'base_magicka', 'base_stamina',
-                              'base_level', 'base_minlevel', 'base_maxlevel', 'base_speed', 'base_disposition',
-                              'base_template_flags', 'base_health', 'base_bleedout'),
-                    MelStructs('SNAM', '<IB3s', 'factions', (FID, 'faction'), 'rank', 'snam_unused'),
-                    MelOptStruct('INAM', '<I', (FID, 'deathitem')),
-                    MelOptStruct('VTCK', '<I', (FID, 'voicetype')),
-                    MelOptStruct('TPLT', '<I', (FID, 'template')),
-                    MelStruct('RNAM', '<I', (FID, 'race')),
-                    MelDestructible(),
-                    MelNull('SPCT'),
-                    MelSpells('SPLO', '<I', 'spells', (FID, 'spell')),
-                    MelOptStruct('WNAM', '<I', (FID, 'worm_armor')),
-                    MelOptStruct('ANAM', '<I', (FID, 'away_model_name')),
-                    MelOptStruct('ATKR', '<I', (FID, 'attack_race')),
-                    MelStructs('ATKD', '<ffIIfffIfff', 'attack_data', 'damage', 'chance',
-                               (FID, 'spell'), 'flags', 'angle',
-                               'angle', 'stagger', 'type',
-                               'knockdown', 'recovery_time', 'fatigue'),
-                    MelStrings('ATKE', 'attack_events'),
-                    MelOptStruct('SPOR', '<I', (FID, 'spectator')),
-                    MelOptStruct('OCOR', '<I', (FID, 'observe')),
-                    MelOptStruct('GWOR', '<I', (FID, 'guard_warn')),
-                    MelOptStruct('ECOR', '<I', (FID, 'combat')),
-                    MelNull('PRKZ'),
-                    MelPerks('PRKR', '<IB3s', 'perks', (FID, 'perk'), 'rank', 'unused'),
-                    MelNull('COCT'),
-                    MelNpcCnto(),
-                    MelStruct('AIDT', '<BBBBBBBBIII', 'aggression', 'confidence',
-                              'engergy', 'morality', 'mood', 'assistance', 'ai_flags',
-                              'ai_unknown', 'warn', 'warn_attack', 'attack'),
-                    MelStructs('PKID', '<I', 'ai_packages', (FID, 'package')),
-                    MelNull('KSIZ'),
-                    MelKeywords('KWDA', '<I', (FID, 'keywords')),
-                    MelStruct('CNAM', '<I', (FID, 'class')),
-                    MelLString('FULL', 'full'),
-                    MelLString('SHRT', 'short_alias'),
-                    MelBase('DATA', 'marker'),
-                    MelStruct('DNAM', '<2B3H2sfB3s', 'base_skills', 'mod_skills',
-                              'calc_health', 'calc_magicka', 'calc_stamina', 'dnam_unused1',
-                              'far_away_distance', 'geared_up_weapons', 'dnam_unused2'),
-                    MelStructs('PNAM', '<I', 'head_part_addons', (FID, 'addon')),
-                    MelOptStruct('HCLF', '<I', (FID, 'hair_color')),
-                    MelOptStruct('ZNAM', '<I', (FID, 'combat_style')),
-                    MelOptStruct('GNAM', '<I', (FID, 'gifts')),
-                    MelStruct('NAM5', '<H', 'NAM5'),
-                    MelStruct('NAM6', '<f', 'height'),
-                    MelStruct('NAM7', '<f', 'weight'),
-                    MelStruct('NAM8', '<I', 'sound_level'),
-                    MelGroups('event_sound',
-                              MelStruct('CSDT', '<I', 'sound_type'),
-                              MelGroups('sound',
-                                        MelStruct('CSDI', '<I', (FID, 'sound')),
-                                        MelStruct('CSDC', '<B', 'chance')
-                                       )
-                             ),
-                    MelOptStruct('CSCR', '<I', (FID, 'audio_template')),
-                    MelOptStruct('DOFT', '<I', (FID, 'default_outfit')),
-                    MelOptStruct('SOFT', '<I', (FID, 'sleep_outfit')),
-                    MelOptStruct('DPLT', '<I', (FID, 'default_package')),
-                    MelOptStruct('CRIF', '<I', (FID, 'crime_faction')),
-                    MelOptStruct('FTST', '<I', (FID, 'face_texture')),
-                    MelOptStruct('QNAM', '<fff', 'skin_tone_r' ,'skin_tone_g', 'skin_tone_b'),
-                    MelOptStruct('NAM9', '<ffffffffffffffffff4s', 'nose_long', 'nose_up',
-                                 'jaw_up', 'jaw_wide', 'jaw_forward', 'cheeks_up', 'cheeks_back',
-                                 'eyes_up', 'eyes_out', 'brows_up', 'brows_out', 'brows_forward',
-                                 'lips_up', 'lips_out', 'chin_wide', 'chin_down', 'chin_underbite',
-                                 'eyes_back', 'nam9_unused'),
-                    MelGroups('face_parts',
-                              MelStruct('NAMA', '<iiii', 'nose', 'unknown', 'eyes', 'mouth')),
-                    MelGroups('face_tint_layer',
-                              MelStruct('TINI', '<H', 'tint_item'),
-                              MelStruct('TINC', '<4B', 'r', 'g', 'b' ,'a'),
-                              MelStruct('TINV', '<i', 'tint_value'),
-                              MelStruct('TIAS', '<h', 'unknown'),
-                              ),
+    melSet = MelSet(
+        MelString('EDID', 'eid'),
+        MelVmad(),
+        MelBounds(),
+        MelStruct('ACBS', '<IHHHHHHHHHH', 'base_flags', 'base_magicka', 'base_stamina',
+                  'base_level', 'base_minlevel', 'base_maxlevel', 'base_speed', 'base_disposition',
+                  'base_template_flags', 'base_health', 'base_bleedout'),
+        MelStructs('SNAM', '<IB3s', 'factions', (FID, 'faction'), 'rank', 'snam_unused'),
+        MelOptStruct('INAM', '<I', (FID, 'deathitem')),
+        MelOptStruct('VTCK', '<I', (FID, 'voicetype')),
+        MelOptStruct('TPLT', '<I', (FID, 'template')),
+        MelStruct('RNAM', '<I', (FID, 'race')),
+        MelDestructible(),
+        MelNull('SPCT'),
+        MelSpells('SPLO', '<I', 'spells', (FID, 'spell')),
+        MelOptStruct('WNAM', '<I', (FID, 'worm_armor')),
+        MelOptStruct('ANAM', '<I', (FID, 'away_model_name')),
+        MelOptStruct('ATKR', '<I', (FID, 'attack_race')),
+        MelStructs('ATKD', '<ffIIfffIfff', 'attack_data', 'damage', 'chance',
+                   (FID, 'spell'), 'flags', 'angle',
+                   'angle', 'stagger', 'type',
+                   'knockdown', 'recovery_time', 'fatigue'),
+        MelStrings('ATKE', 'attack_events'),
+        MelOptStruct('SPOR', '<I', (FID, 'spectator')),
+        MelOptStruct('OCOR', '<I', (FID, 'observe')),
+        MelOptStruct('GWOR', '<I', (FID, 'guard_warn')),
+        MelOptStruct('ECOR', '<I', (FID, 'combat')),
+        MelNull('PRKZ'),
+        MelPerks('PRKR', '<IB3s', 'perks', (FID, 'perk'), 'rank', 'unused'),
+        MelNull('COCT'),
+        MelNpcCnto(),
+        MelStruct('AIDT', '<BBBBBBBBIII', 'aggression', 'confidence',
+                  'engergy', 'morality', 'mood', 'assistance', 'ai_flags',
+                  'ai_unknown', 'warn', 'warn_attack', 'attack'),
+        MelFids('PKID', 'ai_packages',),
+        MelNull('KSIZ'),
+        MelKeywords('KWDA','keywords'),
+        MelFid('CNAM', 'class'),
+        MelLString('FULL','full'),
+        MelLString('SHRT', 'short_alias'),
+        MelBase('DATA', 'marker'),
+        MelStruct('DNAM', '<2B3H2sfB3s', 'base_skills', 'mod_skills',
+                  'calc_health', 'calc_magicka', 'calc_stamina', 'dnam_unused1',
+                  'far_away_distance', 'geared_up_weapons', 'dnam_unused2'),
+        MelFids('PNAM', 'head_part_addons',),
+        MelOptStruct('HCLF', '<I', (FID, 'hair_color')),
+        MelOptStruct('ZNAM', '<I', (FID, 'combat_style')),
+        MelOptStruct('GNAM', '<I', (FID, 'gifts')),
+        MelBase('NAM5', 'nam5_p'),
+        MelStruct('NAM6', '<f', 'height'),
+        MelStruct('NAM7', '<f', 'weight'),
+        MelStruct('NAM8', '<I', 'sound_level'),
+        MelGroups('event_sound',
+            MelStruct('CSDT', '<I', 'sound_type'),
+            MelGroups('sound',
+                MelStruct('CSDI', '<I', (FID, 'sound')),
+                MelStruct('CSDC', '<B', 'chance')
+                )
+            ),
+        MelOptStruct('CSCR', '<I', (FID, 'audio_template')),
+        MelOptStruct('DOFT', '<I', (FID, 'default_outfit')),
+        MelOptStruct('SOFT', '<I', (FID, 'sleep_outfit')),
+        MelOptStruct('DPLT', '<I', (FID, 'default_package')),
+        MelOptStruct('CRIF', '<I', (FID, 'crime_faction')),
+        MelOptStruct('FTST', '<I', (FID, 'face_texture')),
+        MelOptStruct('QNAM', '<fff', 'skin_tone_r' ,'skin_tone_g', 'skin_tone_b'),
+        MelOptStruct('NAM9', '<fffffffffffffffffff', 'nose_long', 'nose_up',
+                     'jaw_up', 'jaw_wide', 'jaw_forward', 'cheeks_up', 'cheeks_back',
+                     'eyes_up', 'eyes_out', 'brows_up', 'brows_out', 'brows_forward',
+                     'lips_up', 'lips_out', 'chin_wide', 'chin_down', 'chin_underbite',
+                     'eyes_back', 'nam9_unused'),
+        MelGroups('face_parts',
+                  MelStruct('NAMA', '<IiII', 'nose', 'unknown', 'eyes', 'mouth'),
+                  ),
+        MelGroups('face_tint_layer',
+            MelStruct('TINI', '<H', 'tint_item'),
+            MelStruct('TINC', '<4B', 'r', 'g', 'b' ,'a'),
+            MelStruct('TINV', '<i', 'tint_value'),
+            MelStruct('TIAS', '<h', 'preset'),
+            ),
         )
-#    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
+    __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
-# No idea why the Slots part is missing
-# Verified Correct for Skyrim 1.8
+# Not fully tested
 #------------------------------------------------------------------------------
 # Marker for organization please don't remove ---------------------------------
 # PACK ------------------------------------------------------------------------
@@ -7079,9 +7080,116 @@ class MrePack(MelRecord):
     """Package"""
     classType = 'PACK'
 
+    # wbPKDTFlags
+    PackFlags1 = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'offersServices'),
+            (1, 'unknown2'),
+            (2, 'mustcomplete'),
+            (3, 'maintainSpeedatGoal'),
+            (4, 'unknown5'),
+            (5, 'unknown6'),
+            (6, 'unlockdoorsatpackagestart'),
+            (7, 'unlockdoorsatpackageend'),
+            (8, 'unknown9'),
+            (9, 'continueifPCNear'),
+            (10, 'onceperday'),
+            (11, 'unknown12'),
+            (12, 'unknown13'),
+            (13, 'preferredSpeed'),
+            (14, 'unknown15'),
+            (15, 'unknown16'),
+            (16, 'unknown17'),
+            (17, 'alwaysSneak'),
+            (18, 'allowSwimming'),
+            (19, 'unknown20'),
+            (20, 'ignoreCombat'),
+            (21, 'weaponsUnequipped'),
+            (22, 'unknown23'),
+            (23, 'weaponDrawn'),
+            (24, 'unknown25'),
+            (25, 'unknown26'),
+            (26, 'unknown27'),
+            (27, 'noCombatAlert'),
+            (28, 'unknown29'),
+            (29, 'wearSleepOutfitunused'),
+            (30, 'unknown31'),
+            (31, 'unknown32'),
+        ))
+
+    # wbPKDTInterruptFlags
+    PackFlags2 = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'hellostoplayer'),
+            (1, 'randomconversations'),
+            (2, 'observecombatbehavior'),
+            (3, 'greetcorpsebehavior'),
+            (4, 'reactiontoplayeractions'),
+            (5, 'friendlyfirecomments'),
+            (6, 'aggroRadiusBehavior'),
+            (7, 'allowIdleChatter'),
+            (8, 'unknown9'),
+            (9, 'worldInteractions'),
+            (10, 'unknown11'),
+            (11, 'unknown12'),
+            (12, 'unknown13'),
+            (13, 'unknown14'),
+            (14, 'unknown15'),
+            (15, 'unknown16'),
+        ))
+
+    # UNAM, Data Inputs Flags
+    PackFlags3 = bolt.Flags(0L,bolt.Flags.getNames(
+            (0, 'public'),
+        ))
+
     melSet = MelSet(
         MelString('EDID','eid'),
         MelVmad(),
+        MelStruct('PKDT','I3BsH2s',(PackFlags1,'generalFlags',0L),'type','interruptOverride',
+                  'preferredSpeed','unknown',(PackFlags2,'interruptFlags',0L),'unknown',),
+        MelStruct('PSDT','2bB2b3si','month','dayofweek','date','hour','minute',
+                  'unused','durationminutes',),
+        MelConditions(),
+        MelGroup('idleAnimations',
+            MelStruct('IDLF','I','type'),
+            MelStruct('IDLC','B3s','count','unknown',),
+            MelStruct('IDLT','f','timerSetting',),
+            MelFidList('IDLA','animation'),
+            MelBase('IDLB','unknown'),
+        ),
+        MelFid('CNAM','combatStyle',),
+        MelFid('QNAM','ownerQuest',),
+        # Version Count is autoincremented not sure if that means in the CK
+        # or in TES5Edit.  Needs clarification.
+        MelStruct('PKCU','3I','dataInputCount',(FID,'packageTemplate'),'versionCount',),
+        MelGroup('packageData',
+            MelGroups('inputValues',
+                MelString('ANAM','type'),
+                # CNAM Needs Union Decider
+                MelBase('CNAM','unknown',),
+                MelBase('BNAM','unknown',),
+                # PDTO Needs Union Decider
+                MelGroups('topicData',
+                    MelBase('PDTO','unknown',),
+                    ),
+                    # End 'topicData'
+                # PLDT Needs Union Decider
+                MelGroup('locationData',
+                    MelBase('PLDT','unknown',),
+                    ),
+                    # End 'locationData'
+                # PTDA Needs Union Decider
+                MelBase('PTDA','unknown',),
+                MelBase('TPIC','unknown',),
+            ),
+            # End 'inputValues'
+            MelGroups('dataInputs',
+                MelStruct('UNAM','b','index'),
+                MelString('BNAM','name',),
+                MelStruct('PNAM','I',(PackFlags1,'flags',0L),),
+            ),
+            # End 'dataInputs'
+        ),
+        # End 'packageData'
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
@@ -7486,7 +7594,7 @@ class MreWeap(MelRecord):
     WeapFlags3 = bolt.Flags(0L,bolt.Flags.getNames(
         (0, 'onDeath'),
     ))
-    
+
     # {0x00000001}'Player Only',
     # {0x00000002}'NPCs Use Ammo',
     # {0x00000004}'No Jam After Reload (unused)',
@@ -7517,7 +7625,7 @@ class MreWeap(MelRecord):
             (12, 'nonhostile'),
             (13, 'boundWeapon'),
         ))
-    
+
     # {0x0001}'Ignores Normal Weapon Resistance',
     # {0x0002}'Automatic (unused)',
     # {0x0004}'Has Scope (unused)',
@@ -7587,7 +7695,7 @@ class MreWeap(MelRecord):
 class MreWrld(MelRecord):
     """Worldspace"""
     classType = 'WRLD'
-    
+
     # {0x01} 'Small World',
     # {0x02} 'Can''t Fast Travel',
     # {0x04} 'Unknown 3',
@@ -7606,7 +7714,7 @@ class MreWrld(MelRecord):
             (6, 'fixedDimensions'),
             (7, 'noGrass'),
         ))
-    
+
     # {0x0001}'Use Land Data',
     # {0x0002}'Use LOD Data',
     # {0x0004}'Don''t Use Map Data',
@@ -7623,7 +7731,7 @@ class MreWrld(MelRecord):
             (5, 'useImageSpaceDataunused'),
             (6, 'useSkyCell'),
         ))
-    
+
     melSet = MelSet(
         MelString('EDID','eid'),
         # {>>> BEGIN leftover from earlier CK versions <<<}
@@ -7676,7 +7784,7 @@ class MreWrld(MelRecord):
 class MreWthr(MelRecord):
     """Weather"""
     classType = 'WTHR'
-    
+
     WthrFlags2 = bolt.Flags(0L,bolt.Flags.getNames(
             (0, 'layer_0'),
             (1, 'layer_1'),
@@ -7711,7 +7819,7 @@ class MreWthr(MelRecord):
             (30, 'layer_30'),
             (31, 'layer_31'),
         ))
-    
+
     # {0x01} 'Weather - Pleasant',
     # {0x02} 'Weather - Cloudy',
     # {0x04} 'Weather - Rainy',
@@ -7726,7 +7834,7 @@ class MreWthr(MelRecord):
             (4, 'skyStaticsAlwaysVisible'),
             (5, 'skyStaticsFollowsSunPosition'),
         ))
-    
+
     melSet = MelSet(
         MelString('EDID','eid'),
         MelString('\x300TX','cloudTextureLayer_0'),
@@ -7824,7 +7932,7 @@ class MreWthr(MelRecord):
 #------------------------------------------------------------------------------
 # These need syntax revision but can be merged once that is corrected
 #
-#       MreAchr, MreDial, MreLctn, MreInfo, MreFact, MrePerk, 
+#       MreAchr, MreDial, MreLctn, MreInfo, MreFact, MrePerk,
 #------------------------------------------------------------------------------
 # Mergeable record types
 mergeClasses = (
@@ -7856,7 +7964,7 @@ def init():
     brec.ModReader.recHeader = RecordHeader
 
     #--Record Types
-    #--Non Mergable Records placed last for organization 
+    #--Non Mergable Records placed last for organization
     brec.MreRecord.type_class = dict((x.classType,x) for x in (
         MreAact, MreActi, MreAddn, MreAlch, MreAmmo, MreAnio, MreAppa, MreArma,
         MreArmo, MreArto, MreAspc, MreAstp, MreAvif, MreBook, MreBptd, MreCams,
