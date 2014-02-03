@@ -932,7 +932,7 @@ class MelStruct(MelBase):
         else:
             format = self.format
         try:
-            out.packSub(self.subType,self.format,*values)
+            out.packSub(self.subType,format,*values)
         except struct.error:
             print self.subType,self.format,values
             raise
