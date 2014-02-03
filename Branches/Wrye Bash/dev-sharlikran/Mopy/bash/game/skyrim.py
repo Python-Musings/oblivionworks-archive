@@ -3070,7 +3070,7 @@ class MreAchr(MelRecord):
         MelStruct('XRDS','f','radius',),
         MelStruct('XHLP','f','health',),
         MelGroup('linkedReferences',
-            MelSortedFidList('XLCM', 'fids'),
+            MelSortedFidList('XLKR', 'fids'),
         ),
 
         # {--- Activate Parents ---}
@@ -3285,9 +3285,9 @@ class MreArmo(MelRecord):
         MelLString('FULL','full'),
         MelOptStruct('EITM','I',(FID,'enchantment')),
         MelOptStruct('EAMT','H','enchantmentAmount',),
-        MelModel('model1','MOD2'),
+        MelModel('model2','MOD2'),
         MelIcons(),
-        MelModel('model3','MOD4'),
+        MelModel('model4','MOD4'),
         MelString('ICO2','ico2_n'),
         MelString('MIC2','mic2_n'),
         MelBipedObjectData(),
@@ -3401,7 +3401,7 @@ class MreBook(MelRecord):
         MelKeywords('KWDA','keywords'),
         MelStruct('DATA','2B2siIf',(BookTypeFlags,'flags',0L),('bookType',0),'unused',('skillOrSpell',-1),'value','weight'),
         MelFid('INAM','inventoryArt'),
-        MelString('CNAM','description'),
+        MelLString('CNAM','description'),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
@@ -3471,7 +3471,7 @@ class MreCell(MelRecord):
     melSet = MelSet(
         MelString('EDID','eid'),
         MelLString('FULL','full'),
-        MelStruct('DATA','I',(CellDataFlags,'flags',0L),),
+        MelStruct('DATA','H',(CellDataFlags,'flags',0L),),
         MelStruct('XCLC','2iI','pos_x','pos_y',(CellGridFlags,'flags',0L),),
         MelBase('XCLL','lighting',),
         # MelStruct('XCLL','3Bs3Bs3Bs2f2i3f3Bs3fI',
@@ -3527,9 +3527,19 @@ class MreClas(MelRecord):
         MelLString('FULL','full'),
         MelLString('DESC','description'),
         MelIcons(),
-        MelStruct('DATA','4sb2BfIB','unknownValue','teachesSkill','maxTrainingLvl',
-                  'skillWeights','bleedoutDefault','voicePoints',
-                  'attributeWeights',),
+        MelStruct('DATA','4sb19BfI4B','unknown','teaches','maximumtraininglevel',
+                  'skillWeightsOneHanded','skillWeightsTwoHanded',
+                  'skillWeightsArchery','skillWeightsBlock',
+                  'skillWeightsSmithing','skillWeightsHeavyArmor',
+                  'skillWeightsLightArmor','skillWeightsPickpocket',
+                  'skillWeightsLockpicking','skillWeightsSneak',
+                  'skillWeightsAlchemy','skillWeightsSpeech',
+                  'skillWeightsAlteration','skillWeightsConjuration',
+                  'skillWeightsDestruction','skillWeightsIllusion',
+                  'skillWeightsRestoration','skillWeightsEnchanting',
+                  'bleedoutDefault','voicePoints',
+                  'attributeWeightsDestruction','attributeWeightsIllusion',
+                  'attributeWeightsRestoration','attributeWeightsEnchanting',),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
@@ -3540,12 +3550,14 @@ class MreClmt(MelRecord):
     classType = 'CLMT'
     melSet = MelSet(
         MelString('EDID','eid'),
-        MelStruct('WLST','IiI',(FID,'weather',None),'chance',(FID,'global',None),),
+        MelGroups('weatherTypes',
+            MelStruct('WLST','IiI',(FID,'weather',None),'chance',(FID,'global',None),),
+            ),
         MelLString('FNAM','sunTexture'),
         MelLString('GNAM','sunGlareTexture'),
         MelModel(),
-        MelStruct('TNAM','6B','timingBegin','timingEnd','sunsetBegin','sunsetEnd',
-        'volatility','moonsPhaseLength',),
+        MelStruct('TNAM','6B','sunriseBegin','sunriseEnd','sunsetBegin','sunsetEnd',
+                  'volatility','moonsPhaseLength',),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
@@ -3738,7 +3750,8 @@ class MreDial(MelRecord):
         MelFid('QNAM','quest',),
         MelStruct('DATA','2BH',(DialTopicFlags,'flags_dt',0L),'category',
                   'subtype',),
-        MelString('SNAM','subtypeName',),
+        # SNAM is a 4 byte string no length byte
+        MelStruct('SNAM','4s','subtypeName',),
         MelStruct('TIFC','I','infoCount',),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
@@ -3805,6 +3818,7 @@ class MreDial(MelRecord):
 #     recordLoadInfos = record.loadInfos
 # AttributeError: 'MreRecord' object has no attribute 'loadInfos'
 #
+# MreDial does not need any custom unpacker
 # Otherwise should be correct for Skyrim
 #------------------------------------------------------------------------------
 class MreDoor(MelRecord):
@@ -3875,33 +3889,67 @@ class MreEfsh(MelRecord):
         MelString('NAM7','holesTexture'),
         MelString('NAM8','membranePaletteTexture'),
         MelString('NAM9','particlePaletteTexture'),
-        MelStruct('DATA','4I4B9f4B8f5I19f12B11fI5f4Bf2I6fI8B9f8I2fI','unknownValue','sourceBlendMode','blendOperation'
-        'zTestFunction','fteColorKey1Red','fteColorKey1Green','fteColorKey1Blue','fteColorKey1Unk','fteAlphaFadeInTime',
-        'fteFullAlphaTime','fteAlphaFadeOutTime','ftePresistentAlphaRatio','fteAlphaPulseAmplitude','fteAlphaPulseFrequency',
-        'fteTextureAnimationSpeed_U','fteTextureAnimationSpeed_V','EdgeEffectFallOff','efColorRed','efColorGreen','efColorBlue',
-        'efColorUnk','efAlphaFadeInTime','efFullAlphaTime','efAlphaFadeOutTime','efPersistentAlphaRatio','efAlphaPulseAmplitude',
-        'efAlphaPusleFrequency','fteFullAlphaRatio','efFullAlphaRatio','msDestBlendMode','psSourceBlendMode','psBlendOperation',
-        'psZTestFunction','psDestBlendMode','psParticleBirthRampUpTime','psFullParticleBirthTime','psParticleBirthRampDownTime',
-        'psFullParticleBirthRatio','psPersistantParticleCount','psParticleLifetime','psParticleLifetimePlusMinus',
-        'psInitialSpeedAlongNormal','psAccelerationAlongNormal','psInitialVelocity_1','psInitialVelocity_2','psInitialVelocity_3',
-        'psAcceleration_1','psAcceleration_2','psAcceleration_3','psScaleKey1','psScaleKey2','psScaleKey1Time','psScaleKey2Time',
-        'ck1ColorRed','ck1ColorGreen','ck1ColorBlue','ck1ColorUnk','ck2ColorRed','ck2ColorGreen','ck2ColorBlue','ck2ColorUnk',
-        'ck3ColorRed','ck3ColorGreen','ck3ColorBlue','ck3ColorUnk','ck1ColorColorAlpha','ck2ColorColorAlpha','ck3ColorColorAlpha',
-        'ck1ColorKeyTime','ck2ColorKeyTime','ck3ColorKeyTime','psInitialSpeedAlongNormalPlusMinus','psInitialRotationdeg',
-        'psInitialRotationdegPlusMinus','psRotationSpeedDegSec','psRotationSpeedDegSecPlusMinus',(FID,'AddonModels'),
-        'holesStartTime','holesEndTime','holesStartVal','holesEndVal','edgeWidthAlphaUnits','edgColorRed','edgColorGreen',
-        'edgColorBlue','edgColorUnk','explosionWindSpeed','textureCount_U','textureCount_V','addonMdlFadeInTime','addonMdlFadeOutTime',
-        'addonMdlScaleStart','addonMdlScaleEnd','addonMdlScaleInTime','addonMdlScaleOutTime',(FID,'AmbientSound'),'fteColorKey2Red',
-        'fteColorKey2Green','fteColorKey2Blue','fteColorKey2Unk','fteColorKey3Red','fteColorKey3Green','fteColorKey3Blue',
-        'fteColorKey3Unk','fteColorKey1Scale','fteColorKey2Scale','fteColorKey3Scale','fteColorKey1Time','fteColorKey2Time',
-        'fteColorKey3Time''ColorScale','birthPositionOffset','birthPositionOffsetRangePlusMinus','psaStartFrame','psaStartFrameVariation',
-        'psaEndFrame','psaLoopStartFrame','psaLoopStartVariation','psaFrameCount','psaFrameCountVariation',
-        (EfshGeneralFlags,'teachesSkill',0L),'fteTextureScale_U','fteTextureScale_V','SceneGraphEmitDepthLimit_unused',),
+        MelStruct('DATA','4s3I3Bs9f3Bs8f5I19f3Bs3Bs3Bs11fI5f3Bsf2I6fI3Bs3Bs9f8I2fI',
+                  'unknown','membraneShaderSourceBlendMode',
+                  'membraneShaderBlendOperation','membraneShaderZTestFunction',
+                  'red','green','blue','unknown',
+                  'fillTextureEffectAlphaFadeInTime','fillTextureEffectFullAlphaTime',
+                  'fillTextureEffectAlphaFadeOutTime','fillTextureEffectPresistentAlphaRatio',
+                  'fillTextureEffectAlphaPulseAmplitude','fillTextureEffectAlphaPulseFrequency',
+                  'fillTextureEffectTextureAnimationSpeedU','fillTextureEffectTextureAnimationSpeedV',
+                  'edgeEffectFallOff',
+                  'red','green','blue','unknown',
+                  'edgeEffectAlphaFadeInTime','edgeEffectFullAlphaTime',
+                  'edgeEffectAlphaFadeOutTime','edgeEffectPersistentAlphaRatio',
+                  'edgeEffectAlphaPulseAmplitude','edgeEffectAlphaPulseFrequency',
+                  'fillTextureEffectFullAlphaRatio','edgeEffectFullAlphaRatio',
+                  'membraneShaderDestBlendMode','particleShaderSourceBlendMode',
+                  'particleShaderBlendOperation','particleShaderZTestFunction',
+                  'particleShaderDestBlendMode','particleShaderParticleBirthRampUpTime',
+                  'particleShaderFullParticleBirthTime','particleShaderParticleBirthRampDownTime',
+                  'particleShaderFullParticleBirthRatio','particleShaderPersistantParticleCount',
+                  'particleShaderParticleLifetime','particleShaderParticleLifetime',
+                  'particleShaderInitialSpeedAlongNormal','particleShaderAccelerationAlongNormal',
+                  'particleShaderInitialVelocity1','particleShaderInitialVelocity2',
+                  'particleShaderInitialVelocity3','particleShaderAcceleration1',
+                  'particleShaderAcceleration2','particleShaderAcceleration3',
+                  'particleShaderScaleKey1','particleShaderScaleKey2',
+                  'particleShaderScaleKey1Time','particleShaderScaleKey2Time',
+                  'red','green','blue','unknown',
+                  'red','green','blue','unknown',
+                  'red','green','blue','unknown',
+                  'colorKey1ColorAlpha','colorKey2ColorAlpha',
+                  'colorKey3ColorAlpha','colorKey1ColorKeyTime',
+                  'colorKey2ColorKeyTime','colorKey3ColorKeyTime',
+                  'particleShaderInitialSpeedAlongNormal','particleShaderInitialRotationdeg',
+                  'particleShaderInitialRotationdeg','particleShaderRotationSpeeddegsec',
+                  'particleShaderRotationSpeeddegsec',(FID,'addonModels'),
+                  'holesStartTime','holesEndTime','holesStartVal','holesEndVal',
+                  'edgeWidthalphaunits',
+                  'red','green','blue','unknown',
+                  'explosionWindSpeed','textureCountU','textureCountV',
+                  'addonModelsFadeInTime','addonModelsFadeOutTime',
+                  'addonModelsScaleStart','addonModelsScaleEnd',
+                  'addonModelsScaleInTime','addonModelsScaleOutTime',
+                  (FID,'ambientSound'),
+                  'red','green','blue','unknown',
+                  'red','green','blue','unknown',
+                  'fillTextureEffectColorKeyScaleTimecolorKey1Scale',
+                  'fillTextureEffectColorKeyScaleTimecolorKey2Scale',
+                  'fillTextureEffectColorKeyScaleTimecolorKey3Scale',
+                  'fillTextureEffectColorKeyScaleTimecolorKey1Time',
+                  'fillTextureEffectColorKeyScaleTimecolorKey2Time',
+                  'fillTextureEffectColorKeyScaleTimecolorKey3Time',
+                  'colorScale','birthPositionOffset','birthPositionOffsetRange',
+                  'startFrame','startFrameVariation','endFrame','loopStartFrame',
+                  'loopStartVariation','frameCount','frameCountVariation',
+                  (EfshGeneralFlags,'flags',0L),'fillTextureEffectTextureScaleU',
+                  'fillTextureEffectTextureScaleV','sceneGraphEmitDepthLimitunused',
+                  ),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
 # Verified Correct for Skyrim 1.8
-# DATA could be double checked
 #------------------------------------------------------------------------------
 class MreEnch(MelRecord):
     """Enchants"""
@@ -7439,10 +7487,7 @@ class MreScrl(MelRecord):
         MelStruct('SPIT','IIIfIIffI','baseCost',(ScrollDataFlags,'dataFlags',0L),
                   (ScrollTypeFlags,'typeFlags',0L),'chargeTime','castType','targetType',
                   'castDuration','range',(FID,'halfCostPerk'),),
-        MelGroups('effects',
-            MelFid('EFID', 'baseEffect',),
-            MelStruct('EFIT','fII','magnitude','area','duration',),
-            )
+        MelEffects(),
         )
     __slots__ = MelRecord.__slots__ + melSet.getSlotsUsed()
 
