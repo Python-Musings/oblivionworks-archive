@@ -1,110 +1,23 @@
-// Language setup. Only for BOSS 2.1+
-// Language conditional 'IF VAR(EN)' need only for translated messages. Do not add '&& IF VAR(EN) ' conditional for messages without translation.
-IF LANG("chinese") SET: EN
-  // Not translated. Set default EN.
-IF LANG("english") SET: EN
-  // Default EN.
-IF LANG("german") SET: EN
-  // Not translated. Set default EN.
-IF LANG("russian") SET: RU
-  // Translated. Set RU.
-IF LANG("spanish") SET: ES
-  // Translated. Set ES.
-
-// Masterlist variable setup for BOSS v1.7+.
-//
-// Dlls
-IF FILE("SKSE_Elys_Uncapper.dll") SET: SKCU
-IF FILE("..\ScriptDragon.dll") SET: SCDR
-IF FILE("Fuz Ro D'oh.dll") SET: FuzRoDoh
-//
-// DLC variable setup for BOSS v1.7+.
-// Added as many plugins are likely to require DLC.
-IF ACTIVE("Dawnguard.esm") SET: Dawnguard
-IF ACTIVE("Hearthfires.esm") SET: Hearthfire
-IF ACTIVE("Dragonborn.esm") SET: Dragonborn
-//
-// Plugins
-IF ACTIVE("ApachiiHair.esm") SET: ApachiiHair
-IF ACTIVE("ApachiiHairFemales.esm") SET: ApachiiHairF
-IF ACTIVE("ApachiiHairMales.esm") SET: ApachiiHairM
-IF FILE("BandolierForNPCsImmersiveArmorsPatch.esp") SET: BFNIAP
-IF ACTIVE("BBLuxurySuite.esm") SET: BBLS
-IF REGEX("(0001)?BertsBreezehome.+\.es[pm]") SET: BertsBHInst
-IF REGEX("Complete Crafting Overhaul( - BS version)?\.esp") SET: CCO
-IF REGEX("DragonSwarms.*\.esp") SET: DSwarmInst
-IF FILE("DS-MoreAgressionForRemover.esp") SET: IncDSwarmMorAgress
-IF FILE("EpicGloryByMadmole.esp") SET: EpicGloryInst
-IF REGEX("Extended Colors - (Less Selection|Lite Selection|Selection|Hair Only)?\.esp") || IF FILE("Extended Slider Colors.esp") SET: ExtSlider
-IF ACTIVE("GeneralStores.esm") SET: GS
-IF FILE("GM-ForgeAdditions.esp") || IF FILE("GM-ForgeAdditionsLAotB.esp") SET: GMForgeAdd
-IF FILE("GM-ForgeAdditionsLevelledOutfits.esp") && IF FILE("GM-ForgeAdditionsLAotBLevelledOutfits.esp") SET: DualGMLevList
-IF FILE("GM-ForgeAdditions.esp") && IF FILE("GM-ForgeAdditionsLAotB.esp") SET: DualGMForgeAdd
-IF ACTIVE("Imp's More Complex Needs.esm") SET: ICMN
-IF FILE("Lady Body.esp") || IF FILE("Lady Body.esm") SET: LB
-IF REGEX("Noble_Artifacts_For_Skyrim_(Eng|Rus|Deu)?\.esp") SET: NobleArtInst
-IF ACTIVE("RaceCompatibility.esm") SET: RaceComp
-IF FILE("SkyMoMod.esm") SET: SkyMoMod
-IF REGEX("SkyRe_.+\.esp") SET: SkyRe
-IF FILE("SkyRe_Main.esp") || IF FILE("SkyRe_Main_NoDawnguard.esp") SET: SkyReM
-IF ACTIVE("SkyUI.esp") SET: SkyUI
-IF ACTIVE("TheEyesOfBeauty.esp") SET: EOB
-IF FILE("tools\GenerateFNIS_for_Users\GenerateFNISforUsers.exe") SET: FNIS
-IF FILE("UFO - Ultimate Follower Overhaul.esp") SET: UFO
-// Ultimate Follower Overhaul Version 1.2i
-IF CHECKSUM("UFO - Ultimate Follower Overhaul.esp", 396AE69F) SET: UFOVI
-IF FILE("Update.esm") SET: Update
-//
-// Unofficial Patch variables
-IF ACTIVE("Unofficial Skyrim Patch.esp") SET: USKP
-IF ACTIVE("Unofficial Dawnguard Patch.esp") SET: UDGP
-IF ACTIVE("Unofficial Hearthfire Patch.esp") SET: UHFP
-IF ACTIVE("Unofficial Dragonborn Patch.esp") SET: UDBP
-IF ACTIVE("Unofficial High Resolution Patch.esp") SET: UHRP
-// Unofficial Patch 2.0 variables
-IF CHECKSUM("Unofficial Skyrim Patch.esp", 10A6C650) SET: USKP20
-IF CHECKSUM("Unofficial Skyrim Patch.esp", 29D2C7DF) SET: USKP20
-IF CHECKSUM("Unofficial Skyrim Patch.esp", 840E444C) SET: USKP20
-IF CHECKSUM("Unofficial Skyrim Patch.esp", 7F2BBDA0) SET: USKP20
-IF CHECKSUM("Unofficial Dawnguard Patch.esp", C2880009) SET: UDGP20
-IF CHECKSUM("Unofficial Dawnguard Patch.esp", 65A320C3) SET: UDGP20
-IF CHECKSUM("Unofficial Dawnguard Patch.esp", 2C9880ED) SET: UDGP20
-IF CHECKSUM("Unofficial Dawnguard Patch.esp", 35AAD3CA) SET: UDGP20
-IF CHECKSUM("Unofficial Dawnguard Patch.esp", FF134167) SET: UDGP20
-IF CHECKSUM("Unofficial Dawnguard Patch.esp", 7B84DB0F) SET: UDGP20
-IF CHECKSUM("Unofficial Hearthfire Patch.esp", F913F25E) SET: UHFP20
-IF CHECKSUM("Unofficial Hearthfire Patch.esp", 7B3D122F) SET: UHFP20
-IF CHECKSUM("Unofficial Hearthfire Patch.esp", A5D121AA) SET: UHFP20
-IF CHECKSUM("Unofficial Dragonborn Patch.esp", DA46F3C8) SET: UDBP20
-IF CHECKSUM("Unofficial Dragonborn Patch.esp", E72B837B) SET: UDBP20
-IF CHECKSUM("Unofficial Dragonborn Patch.esp", 427B8910) SET: UDBP20
-//
-// Sounds of Skyrim
-IF REGEX("SoS - (The Dungeons|The Wilds|Civilization)?\.esp") SET: SoS
-//
-// Bashed Patch variable
-IF REGEX("Bashed Patch.*\.esp") SET: BP
-
 Update.esm
  TAG: {{BASH: Delev, Relev}}
+ IFCHECKSUM("Update.esm",7F464083)&&IFVAR(EN) DIRTY: 73 ITM, 1 UDR records. Needs "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit" cleaning. A cleaning guide is available "http://www.creationkit.com/TES5Edit_Cleaning_Guide_-_TES5Edit here".
+ IFCHECKSUM("Update.esm",7F464083)&&IFVAR(RU) DIRTY: 73 ITM, 1 UDR записей. Необходима очистка с помощью "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Инструкция по очистке доступна "http://u.to/cRq2BA здесь".
+ IFCHECKSUM("Update.esm",7F464083)&&IFVAR(ES) DIRTY: 73 ITM, 1 UDR entradas. Necesita ser limpiado con "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Puedes encontra una guia "http://www.creationkit.com/TES5Edit_Cleaning_Guide_-_TES5Edit aqui".
  IFCHECKSUM("Update.esm",E5B67BDA)&&IFVAR(EN) DIRTY: 92 ITM, 3 UDR records. Needs "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit" cleaning. A cleaning guide is available "http://www.creationkit.com/TES5Edit_Cleaning_Guide_-_TES5Edit here".
  IFCHECKSUM("Update.esm",E5B67BDA)&&IFVAR(RU) DIRTY: 92 ITM, 3 UDR записей. Необходима очистка с помощью "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Инструкция по очистке доступна "http://u.to/cRq2BA здесь".
  IFCHECKSUM("Update.esm",E5B67BDA)&&IFVAR(ES) DIRTY: 92 ITM, 3 UDR entradas. Necesita ser limpiado con "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Puedes encontra una guia "http://www.creationkit.com/TES5Edit_Cleaning_Guide_-_TES5Edit aqui".
  IFCHECKSUM("Update.esm",412D96FB)&&IFVAR(EN) DIRTY: 50 ITM, 1 UDR records. Needs "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit" cleaning. A cleaning guide is available "http://www.creationkit.com/TES5Edit_Cleaning_Guide_-_TES5Edit here".
  IFCHECKSUM("Update.esm",412D96FB)&&IFVAR(RU) DIRTY: 50 ITM, 1 UDR записей. Необходима очистка с помощью "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Инструкция по очистке доступна "http://u.to/cRq2BA здесь".
  IFCHECKSUM("Update.esm",412D96FB)&&IFVAR(ES) DIRTY: 50 ITM, 1 UDR entradas. Necesita ser limpiado con "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Puedes encontra una guia "http://www.creationkit.com/TES5Edit_Cleaning_Guide_-_TES5Edit aqui".
- IFCHECKSUM("Update.esm",7F464083)&&IFVAR(EN) DIRTY: 73 ITM, 1 UDR records. Needs "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit" cleaning. A cleaning guide is available "http://www.creationkit.com/TES5Edit_Cleaning_Guide_-_TES5Edit here".
- IFCHECKSUM("Update.esm",7F464083)&&IFVAR(RU) DIRTY: 73 ITM, 1 UDR записей. Необходима очистка с помощью "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Инструкция по очистке доступна "http://u.to/cRq2BA здесь".
- IFCHECKSUM("Update.esm",7F464083)&&IFVAR(ES) DIRTY: 73 ITM, 1 UDR entradas. Necesita ser limpiado con "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Puedes encontra una guia "http://www.creationkit.com/TES5Edit_Cleaning_Guide_-_TES5Edit aqui".
 IFVAR(USKP20) MOD: Unofficial Skyrim Patch.esp
- TAG: {{BASH: Delev, Relev, Stats}}
+ TAG: {{BASH: Delev, Relev}}
 Dawnguard.esm
  IFCHECKSUM("Dawnguard.esm",BD72CCF3)&&IFVAR(EN) DIRTY: 619 ITM, 82 UDR records. Needs "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit" cleaning. A cleaning guide is available "http://www.creationkit.com/TES5Edit_Cleaning_Guide_-_TES5Edit here".
  IFCHECKSUM("Dawnguard.esm",BD72CCF3)&&IFVAR(RU) DIRTY: 619 ITM, 82 UDR записей. Необходима очистка с помощью "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Инструкция по очистке доступна "http://u.to/cRq2BA здесь".
  IFCHECKSUM("Dawnguard.esm",BD72CCF3)&&IFVAR(ES) DIRTY: 619 ITM, 82 UDR entradas. Necesita ser limpiado con "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Puedes encontra una guia "http://www.creationkit.com/TES5Edit_Cleaning_Guide_-_TES5Edit aqui".
  TAG: {{BASH: Delev, Relev}}
 IFVAR(UDGP20) MOD: Unofficial Dawnguard Patch.esp
- TAG: {{BASH: Delev, Relev, Stats}}
+ TAG: {{BASH: Delev, Relev}}
 Hearthfires.esm
  IFCHECKSUM("Hearthfires.esm",AF82CE6A)&&IFVAR(EN) DIRTY: 184 ITM, 11 UDR records. Needs "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit" cleaning. A cleaning guide is available "http://www.creationkit.com/TES5Edit_Cleaning_Guide_-_TES5Edit here".
  IFCHECKSUM("Hearthfires.esm",AF82CE6A)&&IFVAR(RU) DIRTY: 184 ITM, 11 UDR записей. Необходима очистка с помощью "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Инструкция по очистке доступна "http://u.to/cRq2BA здесь".
@@ -114,7 +27,11 @@ Dragonborn.esm
  IFCHECKSUM("Dragonborn.esm",A9F83BFF)&&IFVAR(RU) DIRTY: 61 ITM, 8 UDR записей. Необходима очистка с помощью "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Инструкция по очистке доступна "http://u.to/cRq2BA здесь".
  IFCHECKSUM("Dragonborn.esm",A9F83BFF)&&IFVAR(ES) DIRTY: 61 ITM, 8 UDR entradas. Necesita ser limpiado con "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Puedes encontra una guia "http://www.creationkit.com/TES5Edit_Cleaning_Guide_-_TES5Edit aqui".
 IFVAR(UDBP20) MOD: Unofficial Dragonborn Patch.esp
- TAG: {{BASH: Delev, Stats}}
+ TAG: {{BASH: Delev}}
+Wyrmstooth.esp
+ IFCHECKSUM("Wyrmstooth.esp",54F43CEF)&&IFVAR(EN) DIRTY: 6259 ITM, 0 UDR records. Needs "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit" cleaning. A cleaning guide is available "http://www.creationkit.com/TES5Edit_Cleaning_Guide_-_TES5Edit here".
+ IFCHECKSUM("Wyrmstooth.esp",54F43CEF)&&IFVAR(RU) DIRTY: 6259 ITM, 0 UDR записей. Необходима очистка с помощью "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Инструкция по очистке доступна "http://u.to/cRq2BA здесь".
+ IFCHECKSUM("Wyrmstooth.esp",54F43CEF)&&IFVAR(ES) DIRTY: 6259 ITM, 0 UDR entradas. Necesita ser limpiado con "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Puedes encontra una guia "http://www.creationkit.com/TES5Edit_Cleaning_Guide_-_TES5Edit aqui".
 MoT_First_LoadOrder_File_After_Skyrim.esm
  IFCHECKSUM("MoT_First_LoadOrder_File_After_Skyrim.esm",6D3163AD)&&IFVAR(EN) DIRTY: 22 ITM, 0 UDR records. Needs "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit" cleaning. A cleaning guide is available "http://www.creationkit.com/TES5Edit_Cleaning_Guide_-_TES5Edit here".
  IFCHECKSUM("MoT_First_LoadOrder_File_After_Skyrim.esm",6D3163AD)&&IFVAR(RU) DIRTY: 22 ITM, 0 UDR записей. Необходима очистка с помощью "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Инструкция по очистке доступна "http://u.to/cRq2BA здесь".
@@ -435,7 +352,7 @@ terramend.esp
  IFCHECKSUM("terramend.esp",2AA40114)&&IFVAR(RU) DIRTY: 8 ITM, 7 UDR записей. Необходима очистка с помощью "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Инструкция по очистке доступна "http://u.to/cRq2BA здесь".
  IFCHECKSUM("terramend.esp",2AA40114)&&IFVAR(ES) DIRTY: 8 ITM, 7 UDR entradas. Necesita ser limpiado con "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Puedes encontra una guia "http://www.creationkit.com/TES5Edit_Cleaning_Guide_-_TES5Edit aqui".
 IFNOTVAR(USKP20) MOD: Unofficial Skyrim Patch.esp
- TAG: {{BASH: Delev, Relev, Stats}}
+ TAG: {{BASH: Delev, Relev}}
 USKP_addon.esp
  IFCHECKSUM("USKP_addon.esp",F99D79A5)&&IFVAR(EN) DIRTY: 0 ITM, 7 UDR records. Needs "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit" cleaning. A cleaning guide is available "http://www.creationkit.com/TES5Edit_Cleaning_Guide_-_TES5Edit here".
  IFCHECKSUM("USKP_addon.esp",F99D79A5)&&IFVAR(RU) DIRTY: 0 ITM, 7 UDR записей. Необходима очистка с помощью "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Инструкция по очистке доступна "http://u.to/cRq2BA здесь".
@@ -453,11 +370,11 @@ Prodspire Cooking pot hearthfire bugfix.esp
  IFCHECKSUM("Prodspire Cooking pot hearthfire bugfix.esp",91AA4E51)&&IFVAR(RU) DIRTY: 2 ITM, 0 UDR записей. Необходима очистка с помощью "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Инструкция по очистке доступна "http://u.to/cRq2BA здесь".
  IFCHECKSUM("Prodspire Cooking pot hearthfire bugfix.esp",91AA4E51)&&IFVAR(ES) DIRTY: 2 ITM, 0 UDR entradas. Necesita ser limpiado con "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Puedes encontra una guia "http://www.creationkit.com/TES5Edit_Cleaning_Guide_-_TES5Edit aqui".
 IFNOTVAR(UDGP20) MOD: Unofficial Dawnguard Patch.esp
- TAG: {{BASH: Delev, Relev, Stats}}
+ TAG: {{BASH: Delev, Relev}}
 IFNOTVAR(UDBP20) MOD: Unofficial Dragonborn Patch.esp
- TAG: {{BASH: Delev, Stats}}
+ TAG: {{BASH: Delev}}
 Weapons & Armor Fixes_Remade.esp
- TAG: {{BASH: Stats}}
+ TAG: {{BASH: Delev, Relev, Stats}}
 Clothing & Clutter Fixes.esp
  TAG: {{BASH: Delev, Relev, Stats}}
 Clothing Jewelry & Clutter Fixes.esp
@@ -5368,10 +5285,6 @@ WoTS - Non-Overhaul Version.esp
  IFCHECKSUM("WoTS - Non-Overhaul Version.esp",DF5C6BEF)&&IFVAR(EN) DIRTY: 8 ITM, 0 UDR records. Needs "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit" cleaning. A cleaning guide is available "http://www.creationkit.com/TES5Edit_Cleaning_Guide_-_TES5Edit here".
  IFCHECKSUM("WoTS - Non-Overhaul Version.esp",DF5C6BEF)&&IFVAR(RU) DIRTY: 8 ITM, 0 UDR записей. Необходима очистка с помощью "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Инструкция по очистке доступна "http://u.to/cRq2BA здесь".
  IFCHECKSUM("WoTS - Non-Overhaul Version.esp",DF5C6BEF)&&IFVAR(ES) DIRTY: 8 ITM, 0 UDR entradas. Necesita ser limpiado con "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Puedes encontra una guia "http://www.creationkit.com/TES5Edit_Cleaning_Guide_-_TES5Edit aqui".
-Wyrmstooth.esp
- IFCHECKSUM("Wyrmstooth.esp",54F43CEF)&&IFVAR(EN) DIRTY: 6259 ITM, 0 UDR records. Needs "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit" cleaning. A cleaning guide is available "http://www.creationkit.com/TES5Edit_Cleaning_Guide_-_TES5Edit here".
- IFCHECKSUM("Wyrmstooth.esp",54F43CEF)&&IFVAR(RU) DIRTY: 6259 ITM, 0 UDR записей. Необходима очистка с помощью "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Инструкция по очистке доступна "http://u.to/cRq2BA здесь".
- IFCHECKSUM("Wyrmstooth.esp",54F43CEF)&&IFVAR(ES) DIRTY: 6259 ITM, 0 UDR entradas. Necesita ser limpiado con "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Puedes encontra una guia "http://www.creationkit.com/TES5Edit_Cleaning_Guide_-_TES5Edit aqui".
 WyvernCliff.esp
  IFCHECKSUM("WyvernCliff.esp",E7D2EC3E)&&IFVAR(EN) DIRTY: 32 ITM, 3 UDR records. Needs "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit" cleaning. A cleaning guide is available "http://www.creationkit.com/TES5Edit_Cleaning_Guide_-_TES5Edit here".
  IFCHECKSUM("WyvernCliff.esp",E7D2EC3E)&&IFVAR(RU) DIRTY: 32 ITM, 3 UDR записей. Необходима очистка с помощью "http://www.nexusmods.com/skyrim/mods/25859 TES5Edit". Инструкция по очистке доступна "http://u.to/cRq2BA здесь".
