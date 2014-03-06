@@ -11,6 +11,8 @@ GunRunnersArsenal.esm
  IFCHECKSUM("GunRunnersArsenal.esm",AAC938D) DIRTY: 97 ITM, 0 UDR records. Needs "http://newvegas.nexusmods.com/mods/34703 FNVEdit" cleaning. A cleaning guide is available "http://www.creationkit.com/TES5Edit_Cleaning_Guide_-_TES5Edit here".
 Community Bugfix Compilation Patch.esm
  TAG: {{BASH: Actors.AIPackages, Delev, Relev, Sound, Stats, Scripts, Invent}}
+YUP - Base Game + All DLC.esm
+ TAG: {{BASH: Actors.ACBS, Actors.AIData, Hair, Eyes, NpcFaces, Graphics, Delev, Relev, Invent, Factions, Names, Stats, Sounds, Voice-F}}
 IFNOTVAR(NVAMP) MOD: Machienzo - NPC Cosmetic Fixes - Ver 1.55.esm
  TAG: {{BASH: NpcFaces, Hair, Eyes, Voice-M, Voice-F, Body-M, Body-F, R.Teeth, R.Mouth}}
 IFNOTVAR(NVAMP) MOD: Machienzo - NPC Cosmetic Fixes - Ver 1.57.esm
@@ -57,6 +59,8 @@ WARZONES RespawnerLITE.esp
  TAG: {{BASH: Actors.ACBS, Actors.AIPackages}}
 IFNOTVAR(NVAMP) MOD: Weapon Mod Expansion.esm
  TAG: {{BASH: Names}}
+IFNOTVAR(NVAMP) MOD: ELECTRO-CITY - CompletedWorkorders.esm
+ TAG: {{BASH: Actors.AIData, Actors.AIPackages, Invent, Names, NpcFaces}}
 IFVAR(NVAMP) MOD: Machienzo - NPC Cosmetic Fixes - Ver 1.55.esm
  TAG: {{BASH: NpcFaces, Hair, Eyes, Voice-M, Voice-F, Body-M, Body-F, R.Teeth, R.Mouth}}
 IFVAR(NVAMP) MOD: Machienzo - NPC Cosmetic Fixes - Ver 1.57.esm
@@ -71,6 +75,8 @@ IFVAR(NVAMP) MOD: IWS-Core.esm
  TAG: {{BASH: Delev}}
 IFVAR(NVAMP) MOD: Project Nevada - Core.esm
  TAG: {{BASH: Invent}}
+IFVAR(NVAMP) MOD: ELECTRO-CITY - CompletedWorkorders.esm
+ TAG: {{BASH: Actors.AIData, Actors.AIPackages, Invent, Names, NpcFaces}}
 IFVAR(NVAMP) MOD: Caliber.esm
  TAG: {{BASH: Invent, Names}}
 IFVAR(NVAMP) MOD: Weapon Mod Expansion.esm
@@ -249,6 +255,10 @@ Project13 - Populated Wasteland.esp
  TAG: {{BASH: Actors.AIPackages, Delev, Relev}}
 RustTownAdditions3.esp
  TAG: {{BASH: Names, Invent, Factions}}
+UWHNV-Addon-DLC.esp
+ TAG: {{BASH: C.Light}}
+UWHNV-Addon-GRA.esp
+ TAG: {{BASH: C.Light}}
 UWHNV-Addon-FollowerHome.esp
  TAG: {{BASH: NpcFaces, Actors.AIPackages, Actors.CombatStyle}}
 NVHarderCore.esp
@@ -379,6 +389,8 @@ Project Nevada - Rebalance.esp
  TAG: {{BASH: Names, Invent}}
 BIS - Project Nevada - Cyberware.esp
  TAG: {{BASH: Names}}
+Project Brazil Project Nevada Patch.esp
+ TAG: {{BASH: Invent}}
 OWB Big Empty Overhaul.esp
  TAG: {{BASH: Names, Invent, Stats}}
 Flight of the ValkED-E.esp
@@ -491,6 +503,8 @@ Powered Power Armor.esp
  TAG: {{BASH: Deflst}}
 Seeker Veronica.esp
  TAG: {{BASH: Invent}}
+T6M Equipment Replacer NV.esp
+ TAG: {{BASH: Graphics, Stats}}
 Type 6.esp
  TAG: {{BASH: Graphics, Stats}}
 XVEnclaveBunker.esp
@@ -523,6 +537,8 @@ CompanionLevel30Cap.esp
  TAG: {{BASH: Actors.ACBS}}
 EZ_VanillaFollowers.esp
  TAG: {{BASH: Actors.AIPackages, Actors.CombatStyle}}
+My essential friends (animals).esp
+ TAG: {{BASH: Actors.ACBS, Actors.AIPackages}}
 NVPhalanx.esp
  TAG: {{BASH: Actors.AIPackages, Actors.CombatStyle, C.Owner, Scripts}}
 RexReplacerEss.esp
