@@ -953,7 +953,7 @@ FWE Realistic Ammo Weight in Names inc. 20th Cent.esp
  TAG: {{BASH: Names}}
 CFWR_EVE_LoadLast.esp
  TAG: {{BASH: Names, Graphics, Stats}}
-Dog lover's mod.es
+Dog lover's mod.esp
  TAG: {{BASH: Deflst, Delev}}
 Dog lover's mod NO ANCHORAGE.esp
  TAG: {{BASH: Deflst, Delev}}
