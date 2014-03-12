@@ -458,9 +458,8 @@ AmbientTownSounds.esp
 MIS.esp
  IFCHECKSUM("MIS.esp",BCA36827) DIRTY: 1 ITM, 0 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 MIS Low Wind.esp
- IFCHECKSUM("MIS Low Wind.esp",F343D8EA) DIRTY: 2 ITM, 0 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
-MIS New Sounds Optional Part.esp
  TAG: {{BASH: Scripts}}
+ IFCHECKSUM("MIS Low Wind.esp",F343D8EA) DIRTY: 2 ITM, 0 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 Atmospheric Oblivion.esp
  TAG: {{BASH: Scripts}}
  IFCHECKSUM("Atmospheric Oblivion.esp",9A266EC1) DIRTY: 1 ITM, 0 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
@@ -642,12 +641,17 @@ Fish! - v1.1.esp
 Fishing in Cyrodiil.esp
  TAG: {{BASH: Invent}}
  IFCHECKSUM("Fishing in Cyrodiil.esp",A2300D21) DIRTY: 36 ITM, 0 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
+Glowing Wonders.esp
+ IFCHECKSUM("Glowing Wonders.esp",1D521050) DIRTY: 1 ITM, 0 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 Gold is now Gold.esp
  TAG: {{BASH: Graphics, NoMerge}}
 Grand Potions.esp
  TAG: {{BASH: Delev, Relev}} ??? Untested.
 GW71_Soulgems.esp
  TAG: {{BASH: Graphics}}
+Happyhannah's Wines.esp
+ TAG: {{BASH: Relev}}
+ IFCHECKSUM("Happyhannah's Wines.esp",F1AC6630) DIRTY: 1 ITM, 0 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 Insanity's Beverage Replacer.esp
  TAG: {{BASH: Graphics, NoMerge}}
 Inscription Profession.esp
@@ -1070,6 +1074,8 @@ Bloodworm_Helm_Hornless.esp
  TAG: {{BASH: Graphics}}
 Bloodworm_Helm_Replacer.esp
  TAG: {{BASH: Graphics}}
+Blue-Glass Armor.esp
+ IFCHECKSUM("Blue-Glass Armor.esp",E29C8B31) DIRTY: 1 ITM, 0 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 BisPainBringer.esp
  IFCHECKSUM("BisPainBringer.esp",6401529A) DIRTY: 1 ITM, 0 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 BladeofWoe.esp
@@ -1195,6 +1201,8 @@ HiddenSkulls.esp
  TAG: {{BASH: Invent}}
 HTBUnholyChapelShop.esp
  IFCHECKSUM("HTBUnholyChapelShop.esp",AE3A26A9) DIRTY: 13 ITM, 0 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
+icearmor.esp
+ IFCHECKSUM("icearmor.esp",60F25B1) DIRTY: 2 ITM, 0 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 Insanity's Kill Bill Katanas.esp
  TAG: {{BASH: Invent}}
 IP_Magerobes.esp
@@ -1272,6 +1280,8 @@ MODArnTemplar.esp
  IFCHECKSUM("MODArnTemplar.esp",958A7C) DIRTY: 5 ITM, 0 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 Morrigan Swords Axes and Shield by Jojjo v1_1.esp
  IFCHECKSUM("Morrigan Swords Axes and Shield by Jojjo v1_1.esp",AA6DD529) DIRTY: 0 ITM, 2 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
+MerryBellInn.esp
+ IFCHECKSUM("MerryBellInn.esp",46126974) DIRTY: 5 ITM, 14 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 Midnight Gymnastics.esp
  IFCHECKSUM("Midnight Gymnastics.esp",8BCA1742) DIRTY: 1 ITM, 0 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 mnp Nighteye Goggles.esp
@@ -1323,6 +1333,8 @@ PhoenixWithoutArmorflame.esp
  IFCHECKSUM("PhoenixWithoutArmorflame.esp",4AA60013) DIRTY: 3 ITM, 0 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 PinkGlassArmor.esp
  TAG: {{BASH: Graphics}}
+Queen's Sword.esp
+ IFCHECKSUM("Queen's Sword.esp",BB4DC2F5) DIRTY: 13 ITM, 0 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 Retma Dresses.esp
  IFCHECKSUM("Retma Dresses.esp",2DF18C43) DIRTY: 2 ITM, 0 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 Robe Replacer2.esp
@@ -1428,6 +1440,8 @@ WarriorBandages_V2.0.esp
  IFCHECKSUM("WarriorBandages_V2.0.esp",D40875F2) DIRTY: 9 ITM, 2 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 witchkingsword.esp
  IFCHECKSUM("witchkingsword.esp",65F472B4) DIRTY: 5 ITM, 0 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
+wow.esp
+ IFCHECKSUM("wow.esp",93ABA638) DIRTY: 2406 ITM, 0 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 Zatoichi.esp
  TAG: {{BASH: Invent}}
 Thieves Arsenal.esp
@@ -1599,6 +1613,8 @@ MW  Dremora Armor.esp
  TAG: {{BASH: Graphics}}
 New Exnem Compatible Armors.esp
  TAG: {{BASH: Graphics, NoMerge}} if using overhaul mods.
+R18PN - Bikini Re-Textured.esp
+ IFCHECKSUM("R18PN - Bikini Re-Textured.esp",170FE3CC) DIRTY: 4 ITM, 1 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 R18PN - Lingeries.esp
  IFCHECKSUM("R18PN - Lingeries.esp",C8F5D0FD) DIRTY: 4 ITM, 0 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 Roberts Armamentium female.esp
@@ -2386,12 +2402,15 @@ Oblivifall - Something's Not Right.esp
 Suliin V1.2.esp
  IFCHECKSUM("Suliin V1.2.esp",5802804A) DIRTY: 52 ITM, 118 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 KvatchAftermath.esp
+ IFCHECKSUM("KvatchAftermath.esp",435D607C) DIRTY: 5202 ITM, 390 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
  IFCHECKSUM("KvatchAftermath.esp",8997D4F1) DIRTY: 5240 ITM, 390 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 (DC) Kvatch Watch Towers.esp
  IFCHECKSUM("(DC) Kvatch Watch Towers.esp",88A0257F) DIRTY: 22 ITM, 49 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
  IFCHECKSUM("(DC) Kvatch Watch Towers.esp",0DB273F0) DIRTY: 26 ITM, 49 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 KnightlyArmory.esp
  IFCHECKSUM("KnightlyArmory.esp",CB971F26) DIRTY: 7 ITM, 9 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
+Castle Ravenpride.esp
+ IFCHECKSUM("Castle Ravenpride.esp",8682E3F3) DIRTY: 62 ITM, 191 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 cyrodiil transportation network 1.3 wz.esp
  IFCHECKSUM("cyrodiil transportation network 1.3 wz.esp",675027D0) DIRTY: 87 ITM, 20 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 TamrielTransportationNetwork Vwalk.esp
@@ -2535,12 +2554,16 @@ BD&R - Deepgrave.esp
 BHC_Expanded.esp
  IFCHECKSUM("BHC_Expanded.esp",DF5B8901) DIRTY: 2 ITM, 12 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
  IFCHECKSUM("BHC_Expanded.esp",C73A3567) DIRTY: 2 ITM, 12 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
+Blacktache's Secrets 3.esp
+ IFCHECKSUM("Blacktache's Secrets 3.esp",F69CC41C) DIRTY: 48 ITM, 155 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 BossPhaitDismal.esp
  IFCHECKSUM("BossPhaitDismal.esp",6D467EB0) DIRTY: 7 ITM, 0 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 HackdirtTheDeepOnes.esp
  IFCHECKSUM("HackdirtTheDeepOnes.esp",9294634B) DIRTY: 0 ITM, 4 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 BrotherhoodRenewed.esp
  TAG: {{BASH: Actors.AIPackages, Factions}}
+Oblivifall - Losing My Religion Vwalk.esp
+ TAG: {{BASH: Actors.Anims, NoMerge}}
 Bullock.esp
  IFCHECKSUM("Bullock.esp",2B5E16CB) DIRTY: 11 ITM, 1 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 Butcher.esp
@@ -2551,6 +2574,8 @@ Cardac.esp
  IFCHECKSUM("Cardac.esp",39F1A5A7) DIRTY: 23 ITM, 427 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 Castlevania.esp
  IFCHECKSUM("Castlevania.esp",99857FBF) DIRTY: 13 ITM, 2 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
+Chorrol_Dungeon.esp
+ IFCHECKSUM("Chorrol_Dungeon.esp",4B4E42AD) DIRTY: 1 ITM, 0 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 Castle Arpenia - Colovian Highlands.esp
  IFCHECKSUM("Castle Arpenia - Colovian Highlands.esp",67360E2C) DIRTY: 3 ITM, 86 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 CastleInTheMountain.esp
@@ -2896,6 +2921,8 @@ PearlFarm.esp
  IFCHECKSUM("PearlFarm.esp",590DE30D) DIRTY: 12 ITM, 0 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 Pek_Halls_of_The_Phoenix_Order.esp
  IFCHECKSUM("Pek_Halls_of_The_Phoenix_Order.esp",D96DB828) DIRTY: 2 ITM, 0 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide". Also makes wild edits to the FGC010 script.
+PinePeakLodge.esp
+ IFCHECKSUM("PinePeakLodge.esp",1D4C3E0C) DIRTY: 96 ITM, 46 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 Princess Passwall Home.esp
  IFCHECKSUM("Princess Passwall Home.esp",DFB2260B) DIRTY: 2 ITM, 4 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 Punk Stevo - Brutal Underground.esp
@@ -2973,6 +3000,8 @@ SkyrimObservatory.esp
  IFCHECKSUM("SkyrimObservatory.esp",5ADC0013) DIRTY: 14 ITM, 7 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 Slappy's Wigs v1.0.esp
  IFCHECKSUM("Slappy's Wigs v1.0.esp",71A3DAD3) DIRTY: 12 ITM, 2 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
+SleepyCatInn.esp
+ IFCHECKSUM("SleepyCatInn.esp",C8E4CF92) DIRTY: 5 ITM, 4 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 SoulGoddness.esp
  TAG: {{BASH: Hair, Eyes}}
 Spirit's Edge.esp
@@ -2985,6 +3014,8 @@ Sylar_INNMergedCyrodillInnsRevised vwalk.esp
  TAG: {{BASH: Actors.Anims, NoMerge}}
 Sylar_INNMergedCyrodillInnsRevisedV1.1 vwalk.esp
  TAG: {{BASH: Actors.Anims, NoMerge}}
+BetterInns + NewHomeOwners.esp
+ TAG: {{BASH: Actors.AIPackages, C.Name, Scripts}}
 TamrielSnacks11-EV.esp
  IFCHECKSUM("TamrielSnacks11-EV.esp",36E6CBAA) DIRTY: 20 ITM, 19 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 TamrielSnacks11-DV.esp
@@ -3281,6 +3312,8 @@ Knights Vwalk.esp
  TAG: {{BASH: Actors.Anims, NoMerge}}
 Knights Vwalk UOP.esp
  TAG: {{BASH: Actors.Anims, NoMerge}}
+Knights - Revelation Vwalk.esp
+ TAG: {{BASH: Actors.Anims, NoMerge}}
 EVE_KnightsoftheNine.esp
  TAG: {{BASH: Graphics, NoMerge}}
 Knights_DMRA.esp
@@ -3543,6 +3576,8 @@ Oblivifall - Losing My Religion KOTN.esp
  TAG: {{BASH: Actors.AIPackages}}
 Oblivifall - Losing My Religion Blood&Mud.esp
  IFCHECKSUM("Oblivifall - Losing My Religion Blood&Mud.esp",128C5F11) DIRTY: 1 ITM, 0 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
+Oblivifall - Losing My Religion Vwalk.esp
+ TAG: {{BASH: Actors.Anims, NoMerge}}
 Unique Forts Fort Strand.esp
  IFCHECKSUM("Unique Forts Fort Strand.esp",5AAF40DC) DIRTY: 4 ITM, 35 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 Unique Forts Gold Coast.esp
@@ -4167,6 +4202,8 @@ Steel Helm Replacer.esp
  TAG: {{BASH: Graphics, NoMerge}}
 Soulgem Magic.esp
  TAG: {{BASH: Scripts}}
+SPTDiverseGuards-Core Vwalk.esp
+ TAG: {{BASH: Actors.Anims, NoMerge}}
 SPTDiverseBandits.esp
  TAG: {{BASH: Relev}}
 SRJIrresponsibleHorses.esp
@@ -4329,6 +4366,8 @@ Arrows Extra Damage.esp
  TAG: {{BASH: Stats}}
 Bow_Damage_Equalizer.esp
  TAG: {{BASH: Stats}}
+Enter The Shinobi - Coors916.esp
+ IFCHECKSUM("Enter The Shinobi - Coors916",A32969BE) DIRTY: 33 ITM, 4 UDR records.  Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 mighty_bows_full.esp
  TAG: {{BASH: Stats}}
 mighty_bows_damage_bonus.esp
@@ -4386,9 +4425,11 @@ xxJump.esp
 Immersive Caves.esp
  TAG: {{BASH: Names}}
 Immersive Caves Auto.esp
- TAG: {{BASH: Names}}
+ TAG: {{BASH: Names, Sound}}
 immersive_caves_auto.esp
- TAG: {{BASH: Names, Graphics}}
+ TAG: {{BASH: Names, Graphics, Sound}}
+immersive_caves_manual.esp
+ TAG: {{BASH: Sound}}
 Dark Dungeons.esp
  TAG: {{BASH: C.Light, Deactivate}}
 Dark Dungeons -  SI.esp
@@ -5704,10 +5745,6 @@ Better Imperial City.esp
  IFCHECKSUM("Better Imperial City.esp",8687BBCC) DIRTY: 0 ITM, 3 UDR records. Needs TES4Edit cleaning: "http://cs.elderscrolls.com/index.php?title=TES4Edit_Cleaning_Guide"
 Better Cities Resources Vwalk.esp
  TAG: {{BASH: Actors.Anims, NoMerge}}
-Better Cities Full Vwalk.esp
- TAG: {{BASH: Actors.Anims, NoMerge}}
-Better Cities Full - B&M Edition Vwalk.esp
- TAG: {{BASH: Actors.Anims, NoMerge}}
 BCChorrol-ChorrolHinterland fix.esp
  TAG: {{BASH: C.Water}}
 BCChorrol-ChorrolHinterland patch.esp
@@ -5941,6 +5978,10 @@ Sensual Walks.esp
 Sensual Walks SI.esp
  TAG: {{BASH: Actors.Anims, NoMerge}}
 Sensual Walks SI DS + GS.esp
+ TAG: {{BASH: Actors.Anims, NoMerge}}
+Better Cities Full Vwalk.esp
+ TAG: {{BASH: Actors.Anims, NoMerge}}
+Better Cities Full - B&M Edition Vwalk.esp
  TAG: {{BASH: Actors.Anims, NoMerge}}
 Open Cities Road Record.esp
  TAG: {{BASH: Deactivate, Roads}}
