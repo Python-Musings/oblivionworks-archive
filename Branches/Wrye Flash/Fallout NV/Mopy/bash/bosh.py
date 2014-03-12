@@ -4460,7 +4460,7 @@ class MreRegn(MelRecord):
 
     melSet = MelSet(
         MelString('EDID','eid'),
-        MelString('ICON','largeIconPath'),
+        MelString('ICON','iconPath'),
         MelString('MICO','smallIconPath'),
         MelStruct('RCLR','3Bs','mapRed','mapBlue','mapGreen',('unused1',null1)),
         MelFid('WNAM','worldspace'),
@@ -4468,7 +4468,8 @@ class MreRegn(MelRecord):
             MelStruct('RPLI','I','edgeFalloff'),
             MelStructA('RPLD','2f','points','posX','posY')),
         MelGroups('entries',
-            MelStruct('RDAT', 'I2B2s','entryType', (_flags,'flags'), 'priority', ('unused1',null2)), ####flags actually an enum...
+		    ####flags actually an enum...
+            MelStruct('RDAT', 'I2B2s','entryType', (_flags,'flags'), 'priority', ('unused1',null2)),
             MelRegnStructA('RDOT', 'IH2sf4B2H4s4f3H2s4s', 'objects', (FID,'objectId'), 'parentIndex',
                 ('unused1',null2), 'density', 'clustering', 'minSlope', 'maxSlope',
                 (obflags, 'flags'), 'radiusWRTParent', 'radius', ('unk1',null4),
