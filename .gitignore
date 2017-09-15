@@ -1,0 +1,39 @@
+# svn
+.svn/
+
+# binaries
+*.pyc
+*.pyo
+__pycache__/
+*.exe
+
+# tmp
+*.log
+*.patch
+*.diff
+*.tmp
+
+# the user ini
+Mopy/bash.ini
+
+# the shortcuts in the Mopy/App folder
+Mopy/Apps/*.lnk
+
+# Windows etc
+desktop.ini
+.dropbox
+
+# Release archives.
+scripts/dist/*.7z
+
+# translation files
+Mopy/bash/l10n/*.mo
+Mopy/bash/l10n/*NEW.txt
+
+# IDE files
+.idea/
+# if a symlink
+.idea
+
+# The LOOT API binaries
+Mopy/loot_api.*
